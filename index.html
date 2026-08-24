@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>Kickbase AI – V0</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#111827;background:#f3f4f6}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:760px;margin:auto;padding:18px 14px 40px}
+header{background:#111827;color:white;border-radius:22px;padding:20px;margin-bottom:14px}
+h1{margin:0 0 5px;font-size:26px}.sub{opacity:.75;font-size:13px}
+.card{background:white;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 1px 5px #0000000d}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#f9fafb;border-radius:14px;padding:12px}.label{font-size:11px;color:#6b7280}.value{font-weight:700;font-size:17px;margin-top:3px}
+button{border:0;border-radius:12px;padding:11px 14px;font-weight:700;background:#111827;color:white;cursor:pointer}button.secondary{background:#e5e7eb;color:#111827}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between}.actions{display:flex;gap:8px;flex-wrap:wrap}
+input,select{width:100%;padding:11px;border:1px solid #d1d5db;border-radius:11px;font-size:15px;background:white}
+.form{display:grid;gap:9px}.player{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border-top:1px solid #eee;padding:12px 0}.player:first-child{border-top:0}
+.meta{font-size:12px;color:#6b7280;margin-top:3px}.pill{display:inline-block;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:700;margin-top:5px;background:#e5e7eb}
+.small{font-size:12px;color:#6b7280;line-height:1.45}.empty{text-align:center;color:#6b7280;padding:24px 8px}
+footer{font-size:11px;color:#9ca3af;text-align:center;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><h1>Kickbase AI</h1><div class="sub">V0 · Player Intelligence · mobile first</div></header>
+<div class="card"><div class="grid">
+<div class="stat"><div class="label">Kaderwert</div><div class="value" id="teamValue">0,00 Mio.</div></div>
+<div class="stat"><div class="label">Cash</div><div class="value" id="cash">0,00 Mio.</div></div>
+<div class="stat"><div class="label">Spieler</div><div class="value" id="count">0 / 18</div></div>
+</div></div>
+<div class="card">
+<div class="row"><h2 style="margin:0;font-size:18px">Mein Kader</h2><button onclick="showForm()">＋ Spieler</button></div>
+<div id="form" style="display:none;margin-top:14px"><div class="form">
+<input id="name" placeholder="Spielername"><input id="club" placeholder="Verein">
+<select id="pos"><option>TW</option><option>ABW</option><option>MF</option><option>ANG</option></select>
+<input id="value" type="number" step="0.01" placeholder="Kickbase-Marktwert in Mio.">
+<input id="points" type="number" step="1" placeholder="Ø / historische Punkte (optional)">
+<input id="change" type="number" step="0.01" placeholder="24h-Marktwertänderung in Mio. (optional)">
+<div class="actions"><button onclick="addPlayer()">Speichern</button><button class="secondary" onclick="hideForm()">Abbrechen</button></div>
+</div></div>
+<div id="players"></div></div>
+<div class="card"><h2 style="margin:0 0 8px;font-size:18px">Analyse-Engine</h2>
+<p class="small">V0 speichert nur manuell eingegebene Kickbase-Daten. Noch keine externen Prognosen, keine Kaufempfehlungen und kein automatischer Zugriff auf Kickbase.</p>
+<button onclick="analyze()">Kader analysieren</button><div id="analysis" style="margin-top:12px"></div></div>
+<div class="card"><h2 style="margin:0 0 8px;font-size:18px">Daten</h2>
+<div class="actions"><button class="secondary" onclick="exportData()">Daten exportieren</button><button class="secondary" onclick="document.getElementById('import').click()">Daten importieren</button><input id="import" type="file" accept=".json" style="display:none" onchange="importData(event)"></div>
+<p class="small" style="margin-bottom:0">Die Daten werden lokal im Browser gespeichert. Regelmäßig exportieren.</p></div>
+<footer>Kickbase AI V0 · privater Prototyp · keine Verbindung zu Kickbase</footer>
+</div>
+<script>
+let players=JSON.parse(localStorage.getItem("kb_players")||"[]");
+let cash=Number(localStorage.getItem("kb_cash")||"0");
+function save(){localStorage.setItem("kb_players",JSON.stringify(players));localStorage.setItem("kb_cash",String(cash));render()}
+function euro(n){return (Number(n)||0).toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" Mio."}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function render(){
+document.getElementById("teamValue").textContent=euro(players.reduce((s,p)=>s+Number(p.value||0),0));
+document.getElementById("cash").textContent=euro(cash);document.getElementById("count").textContent=players.length+" / 18";
+const box=document.getElementById("players");if(!players.length){box.innerHTML='<div class="empty">Noch keine Spieler eingetragen.<br>Starte mit deinem aktuellen Kader.</div>';return}
+box.innerHTML=players.map((p,i)=>'<div class="player"><div><b>'+esc(p.name)+'</b><div class="meta">'+esc(p.club)+' · '+esc(p.pos)+' · '+euro(p.value)+'</div><span class="pill">'+(p.change!==""&&p.change!=null?"24h "+(Number(p.change)>=0?"+":"")+Number(p.change).toFixed(2)+" Mio.":"24h nicht eingetragen")+'</span></div><button class="secondary" onclick="removePlayer('+i+')">Löschen</button></div>').join("")
+}
+function showForm(){document.getElementById("form").style.display="block";document.getElementById("name").focus()}
+function hideForm(){document.getElementById("form").style.display="none"}
+function addPlayer(){const p={name:name.value.trim(),club:club.value.trim(),pos:pos.value,value:Number(value.value||0),points:points.value,change:change.value};if(!p.name||!p.club){alert("Name und Verein fehlen.");return}players.push(p);save();["name","club","value","points","change"].forEach(x=>document.getElementById(x).value="");hideForm()}
+function removePlayer(i){if(confirm("Spieler wirklich entfernen?")){players.splice(i,1);save()}}
+function analyze(){if(!players.length){document.getElementById("analysis").innerHTML="<p class='small'>Bitte zuerst Spieler hinzufügen.</p>";return}const scored=players.map(p=>{let s=50;if(p.points!=="")s+=Math.min(25,Number(p.points)/4);if(p.change!=="")s+=Math.max(-20,Math.min(20,Number(p.change)*8));return {...p,score:Math.max(0,Math.min(100,s))}}).sort((a,b)=>b.score-a.score);document.getElementById("analysis").innerHTML=scored.map(p=>'<div style="padding:9px 0;border-top:1px solid #eee"><b>'+esc(p.name)+'</b> · '+(p.score>=70?"🟢 Beobachten/Halten":p.score<45?"🔴 Prüfen":"🟡 Beobachten")+'<div class="small">V0-Score: '+p.score.toFixed(0)+'/100 · Noch keine externe Datenanalyse</div></div>').join("")}
+function exportData(){const blob=new Blob([JSON.stringify({players,cash,version:"V0"},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="kickbase-ai-v0.json";a.click();URL.revokeObjectURL(a.href)}
+function importData(e){const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);players=d.players||[];cash=Number(d.cash||0);save()}catch{alert("Ungültige JSON-Datei.")}};r.readAsText(file)}
+render();
+</script></body></html>
