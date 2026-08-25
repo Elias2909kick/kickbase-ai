@@ -273,7 +273,56 @@ button{
     font-size:14px;
   }
 }
-</style>
+.player-intelligence{
+  margin-top:12px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.intel-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+}
+
+.intel-row span{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.intel-row strong{
+  color:var(--ink);
+  font-size:14px;
+  text-align:right;
+}
+
+.intel-recommendation{
+  margin-top:6px;
+  padding:13px;
+  border-radius:12px;
+  background:#f3f4f6;
+  border:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.intel-recommendation span{
+  font-weight:700;
+  color:var(--ink);
+}
+
+.intel-recommendation strong{
+  font-weight:800;
+  color:var(--ink);
+}</style>
 </head>
 
 <body>
@@ -541,11 +590,47 @@ button{
 
     <div class="player-modal-section">
       <h3>Player Intelligence</h3>
-      <p style="color:var(--muted);margin:0;line-height:1.6;">
-        Hier werden später Form, Verletzungen, Sperren,
-        Startelf-Wahrscheinlichkeit, Gegner, Heim/Auswärts,
-        Trainer-PK und aktuelle Vereinsinformationen angezeigt.
-      </p>
+      <div class="player-intelligence" id="playerIntelligence">
+  <div class="intel-row">
+    <span>📊 Ø-Punkte</span>
+    <strong id="intelAverage">–</strong>
+  </div>
+
+  <div class="intel-row">
+    <span>🎯 Startelf</span>
+    <strong id="intelStarting">–</strong>
+  </div>
+
+  <div class="intel-row">
+    <span>📈 Form</span>
+    <strong id="intelForm">–</strong>
+  </div>
+
+  <div class="intel-row">
+    <span>⚔️ Nächster Gegner</span>
+    <strong id="intelOpponent">–</strong>
+  </div>
+
+  <div class="intel-row">
+    <span>🏠 Heim/Auswärts</span>
+    <strong id="intelHomeAway">–</strong>
+  </div>
+
+  <div class="intel-row">
+    <span>🏥 Verletzung</span>
+    <strong id="intelInjury">Keine Angabe</strong>
+  </div>
+
+  <div class="intel-row">
+    <span>🟥 Sperre</span>
+    <strong id="intelSuspension">Keine Angabe</strong>
+  </div>
+
+  <div class="intel-recommendation">
+    <span>🤖 Kickbase-AI Empfehlung</span>
+    <strong id="intelRecommendation">–</strong>
+  </div>
+</div>
     </div>
 
   </div>
@@ -565,10 +650,20 @@ button{
 */
 
 const PLAYER_DATABASE = {
-  kristof: {
-    name: "Kristof",
-    club: "Elversberg",
-    position: "TW"
+kristof: {
+  name: "Kristof",
+  club: "Elversberg",
+  position: "TW",
+  intelligence: {
+    average: "–",
+    starting: "–",
+    form: "–",
+    opponent: "–",
+    homeAway: "–",
+    injury: "Keine Angabe",
+    suspension: "Keine Angabe",
+    recommendation: "–"
+  }
   },
   mueller: {
     name: "Müller",
@@ -857,7 +952,14 @@ const modalPosition = document.getElementById("modalPosition");
 const modalValue = document.getElementById("modalValue");
 const modalBadges = document.getElementById("modalBadges");
 const modalClose = document.getElementById("modalClose");
-
+const intelAverage = document.getElementById("intelAverage");
+const intelStarting = document.getElementById("intelStarting");
+const intelForm = document.getElementById("intelForm");
+const intelOpponent = document.getElementById("intelOpponent");
+const intelHomeAway = document.getElementById("intelHomeAway");
+const intelInjury = document.getElementById("intelInjury");
+const intelSuspension = document.getElementById("intelSuspension");
+const intelRecommendation = document.getElementById("intelRecommendation");
 function openPlayerModal(id){
   const data = getPlayerData(id);
   const entry = CURRENT_ROSTER.find(player => player.id === id);
@@ -868,7 +970,16 @@ function openPlayerModal(id){
   modalClub.textContent = data.club;
   modalPosition.textContent = data.position;
   modalValue.textContent = entry.value;
+const intel = data.intelligence || {};
 
+intelAverage.textContent = intel.average || "–";
+intelStarting.textContent = intel.starting || "–";
+intelForm.textContent = intel.form || "–";
+intelOpponent.textContent = intel.opponent || "–";
+intelHomeAway.textContent = intel.homeAway || "–";
+intelInjury.textContent = intel.injury || "Keine Angabe";
+intelSuspension.textContent = intel.suspension || "Keine Angabe";
+intelRecommendation.textContent = intel.recommendation || "–";
   modalBadges.innerHTML = "";
 
   (entry.badges || []).forEach(([text]) => {
