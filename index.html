@@ -2,208 +2,146 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111827">
-<title>Kickbase AI – V1</title>
+<title>Kickbase AI V2</title>
 <style>
-:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#111827;background:#f3f4f6}
-*{box-sizing:border-box}body{margin:0}.wrap{max-width:780px;margin:auto;padding:16px 14px 40px}
-header{background:#111827;color:white;border-radius:22px;padding:20px;margin-bottom:14px}
-h1{margin:0 0 5px;font-size:27px}.sub{opacity:.75;font-size:13px}
-.card{background:white;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 1px 5px #0000000d}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#f9fafb;border-radius:14px;padding:11px}.label{font-size:11px;color:#6b7280}.value{font-weight:800;font-size:17px;margin-top:3px}
-button{border:0;border-radius:12px;padding:11px 14px;font-weight:750;background:#111827;color:white;cursor:pointer}button.secondary{background:#e5e7eb;color:#111827}
-button.active{outline:3px solid #c7d2fe}
-.row{display:flex;gap:8px;align-items:center;justify-content:space-between}.actions{display:flex;gap:8px;flex-wrap:wrap}
-input,select{width:100%;padding:11px;border:1px solid #d1d5db;border-radius:11px;font-size:15px;background:white}
-.form{display:grid;gap:9px}.player{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border-top:1px solid #eee;padding:12px 0}.player:first-child{border-top:0}
-.meta{font-size:12px;color:#6b7280;margin-top:3px}.pill{display:inline-block;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:700;margin-top:5px;background:#e5e7eb}
-.small{font-size:12px;color:#6b7280;line-height:1.45}.empty{text-align:center;color:#6b7280;padding:24px 8px}
-.notice{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:12px;font-size:13px;line-height:1.5}
-.strategy{border:1px solid #e5e7eb;border-radius:15px;padding:13px;margin-top:10px}.strategy h3{margin:0 0 5px;font-size:16px}.strategy .tag{font-size:11px;font-weight:800;background:#eef2ff;padding:4px 7px;border-radius:999px;display:inline-block}
-.lineup{display:grid;gap:7px;margin-top:10px}.slot{background:#f9fafb;border-radius:10px;padding:8px 10px;display:flex;justify-content:space-between;gap:10px}.muted{color:#6b7280}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}.tiny{font-size:11px;color:#6b7280}
-@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.grid .stat:last-child{grid-column:1/-1}.two{grid-template-columns:1fr}}
-footer{font-size:11px;color:#9ca3af;text-align:center;margin-top:18px}
+:root{--bg:#f3f4f6;--card:#fff;--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--accent:#111827;--good:#059669;--warn:#d97706}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+.wrap{max-width:760px;margin:auto;padding:18px 14px 50px}
+.hero{background:#111827;color:white;border-radius:28px;padding:26px 22px;margin-bottom:16px}
+.hero h1{font-size:32px;margin:0 0 6px}.hero p{margin:0;color:#c7cbd4}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--card);border-radius:20px;padding:18px;box-shadow:0 3px 12px #0000000a}.stat small{color:var(--muted);font-size:14px}.stat strong{display:block;font-size:23px;margin-top:5px}
+.card{background:var(--card);border-radius:24px;padding:20px;margin-top:16px;box-shadow:0 3px 12px #0000000a}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.row h2{margin:0;font-size:23px}
+button{border:0;border-radius:15px;padding:12px 16px;background:#111827;color:white;font-weight:700;font-size:15px}button.secondary{background:#e5e7eb;color:#111827}
+input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px;background:white;color:var(--ink);font-size:16px}
+label{display:block;color:var(--muted);font-size:13px;font-weight:600;margin:10px 0 5px}
+.editbox{display:none;border-top:1px solid var(--line);margin-top:15px;padding-top:15px}.editbox.open{display:block}
+.player{border-top:1px solid var(--line);padding:16px 0}.player:first-child{border-top:0}.player h3{margin:0 0 3px;font-size:18px}.meta{color:var(--muted);font-size:14px}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.chip{background:#eef0f3;border-radius:999px;padding:6px 9px;font-size:12px;font-weight:700}.chip.good{color:var(--good)}.chip.warn{color:var(--warn)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.notice{background:#f8fafc;border:1px solid var(--line);padding:13px;border-radius:14px;color:#4b5563;font-size:14px;line-height:1.45}
+.hidden{display:none}.negative{color:#dc2626}.updated{font-size:12px;color:var(--muted);margin-top:8px}
+@media(min-width:650px){.players{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.player{min-height:145px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><h1>Kickbase AI</h1><div class="sub">V1 · Player Intelligence · mobile first</div></header>
+  <section class="hero">
+    <h1>Kickbase AI</h1>
+    <p>V2 · Player Intelligence · mobile first</p>
+  </section>
 
-<div class="card"><div class="grid">
-<div class="stat"><div class="label">Kaderwert</div><div class="value" id="teamValue">0,00 Mio.</div></div>
-<div class="stat"><div class="label">Cash</div><div class="value" id="cash">-19,59 Mio.</div></div>
-<div class="stat"><div class="label">Spieler</div><div class="value" id="count">0 / 18</div></div>
-</div></div>
+  <div class="grid">
+    <div class="stat"><small>Kaderwert</small><strong id="squadValue">–</strong></div>
+    <div class="stat"><small>Cash</small><strong id="cash">–</strong></div>
+    <div class="stat"><small>Spieler</small><strong id="count">–</strong></div>
+    <div class="stat"><small>Datenstand</small><strong id="updated" style="font-size:16px">–</strong></div>
+  </div>
 
-<div class="card">
-<div class="row"><h2 style="margin:0;font-size:18px">Mein Kader</h2><button onclick="showForm()">＋ Spieler</button></div>
-<p class="small">Jetzt zählt zunächst nur dein eigener Kader. Transfermarkt und gegnerische Kader kommen danach.</p>
+  <section class="card">
+    <div class="row"><h2>Kontostand & Datenstand</h2><button class="secondary" onclick="toggle('settings')">Bearbeiten</button></div>
+    <div id="settings" class="editbox">
+      <label>Aktueller Kontostand (€)</label>
+      <input id="cashInput" type="number" step="1">
+      <label>Datum des letzten manuellen Updates</label>
+      <input id="dateInput" type="date">
+      <div class="actions"><button onclick="saveSettings()">Speichern</button></div>
+    </div>
+    <div class="updated">Aktuell gespeichert: <b id="settingsPreview">–</b></div>
+  </section>
 
-<div id="form" style="display:none;margin-top:14px"><div class="form">
-<input id="name" placeholder="Spielername"><input id="club" placeholder="Verein">
-<select id="pos"><option>TW</option><option>ABW</option><option>MF</option><option>ANG</option></select>
-<div class="two">
-<input id="value" type="number" step="1" placeholder="Marktwert €">
-<input id="points" type="number" step="0.1" placeholder="Ø Punkte letzte Saison">
-</div>
-<div class="two">
-<input id="games" type="number" step="1" placeholder="Profispiele gesamt">
-<input id="change" type="number" step="1" placeholder="24h MW-Änderung €">
-</div>
-<select id="status"><option value="unknown">Status unbekannt</option><option value="fit">fit / einsatzfähig</option><option value="doubt">fraglich</option><option value="out">ausfallgefährdet / verletzt</option><option value="suspended">gesperrt</option></select>
-<div class="actions"><button onclick="addPlayer()">Speichern</button><button class="secondary" onclick="hideForm()">Abbrechen</button></div>
-</div></div>
-<div id="players"></div>
-</div>
+  <section class="card">
+    <div class="row"><h2>Mein Kader</h2><span class="chip" id="playerBadge">18/18</span></div>
+    <div class="notice" style="margin-top:14px">
+      V2 behandelt Kickbase-Daten als <b>manuell gepflegte Ist-Daten</b>. Noch fehlende Werte werden nicht als 0 interpretiert.
+      Später kommen externe Form-, News- und Pressekonferenzdaten hinzu.
+    </div>
+    <div class="players" id="players"></div>
+  </section>
 
-<div class="card">
-<h2 style="margin:0 0 8px;font-size:18px">Spieltag-Strategien</h2>
-<div class="notice">
-<strong>Wichtig:</strong> Die KI darf keine fehlenden Daten erfinden. Wenn Ø-Punkte, Erfahrung oder Fitness fehlen, wird das als Unsicherheit behandelt. Später kommen aktuelle Vereinsmeldungen, Trainer-PKs und weitere externe Daten hinzu.
-</div>
-<div class="actions" style="margin-top:10px">
-<button id="b1" onclick="analyze('balanced')">⚖️ Ausgewogen</button>
-<button id="b2" onclick="analyze('ceiling')">🚀 Upside</button>
-<button id="b3" onclick="analyze('safe')">🛡️ Sicher</button>
-</div>
-<div id="analysis" style="margin-top:8px"></div>
-</div>
+  <section class="card">
+    <h2 style="margin-top:0">Analyse-Engine</h2>
+    <p style="color:var(--muted);line-height:1.5">
+      Als nächstes bewertet die Engine nicht nur Ø-Punkte, sondern auch Einsatzwahrscheinlichkeit,
+      Rolle, Form, Erfahrung, Unsicherheit und aktuelle Vereins-/Trainerinformationen.
+    </p>
+    <button onclick="alert('Die eigentliche Aufstellungs-Engine kommt als nächster Schritt.')" >Kader analysieren</button>
+  </section>
 
-<div class="card">
-<h2 style="margin:0 0 8px;font-size:18px">Spieler-Daten</h2>
-<p class="small">
-Die wichtigste Neuerung: Neben Kickbase-Daten speichern wir künftig auch <strong>Erfahrung</strong> (Profispiele),
-<strong>Leistungsniveau</strong> (Ø-Punkte) und <strong>Verfügbarkeit</strong>. Für neue Transfers mit 0 Vorjahresdaten wird der Ø-Wert ausdrücklich als „nicht vorhanden“ geführt.
-</p>
-</div>
-
-<div class="card"><h2 style="margin:0 0 8px;font-size:18px">Daten</h2>
-<div class="actions"><button class="secondary" onclick="exportData()">Daten exportieren</button><button class="secondary" onclick="document.getElementById('import').click()">Daten importieren</button><input id="import" type="file" accept=".json" style="display:none" onchange="importData(event)"></div>
-<p class="small" style="margin-bottom:0">Die Daten werden lokal im Browser gespeichert. Regelmäßig exportieren.</p></div>
-
-<footer>Kickbase AI V1 · privater Prototyp · keine Verbindung zu Kickbase</footer>
+  <section class="card">
+    <h2 style="margin-top:0">Daten</h2>
+    <div class="actions">
+      <button onclick="exportData()">Daten exportieren</button>
+      <button class="secondary" onclick="document.getElementById('importFile').click()">Daten importieren</button>
+      <input id="importFile" class="hidden" type="file" accept=".json" onchange="importData(event)">
+    </div>
+    <p style="color:var(--muted);font-size:13px">Die Daten werden lokal im Browser gespeichert. Regelmäßig exportieren.</p>
+  </section>
 </div>
 
 <script>
-const seed = [
-["Kristof","Straßburg?","TW",13164709,"",0,"unknown"],
-["Müller","Schalke","TW",500000,"",0,"unknown"],
-["Friedrich","Union Berlin","ABW",2800053,"",0,"unknown"],
-["Kohr","Mainz","ABW",10467001,"",0,"unknown"],
-["Schlotterbeck","Augsburg","ABW",10401530,"",0,"unknown"],
-["Ullrich","Gladbach","ABW",8507736,"",0,"unknown"],
-["Vázquez","Leverkusen","ABW",4818890,"",0,"unknown"],
-["Aebischer","Union Berlin","MF",5866833,"",0,"unknown"],
-["Aouchiche","Schalke","MF",15447164,"",0,"unknown"],
-["Bouanani","Stuttgart","MF",2759191,"",0,"unknown"],
-["Jatta","HSV","MF",6008277,"",0,"unknown"],
-["Kömür","Augsburg","MF",5599930,"",0,"unknown"],
-["Scherhant","Freiburg","MF",6584126,"",0,"unknown"],
-["Daghim","Hoffenheim","ANG",7678201,"",0,"unknown"],
-["Höler","Freiburg","ANG",3873921,"",0,"unknown"],
-["Kane","Bayern","ANG",68809170,"",0,"unknown"],
-["Njinmah","Bremen","ANG",5298896,"",0,"unknown"],
-["Topp","Bremen","ANG",509260,"",0,"unknown"]
-];
+const initial = {
+ cash: -27157476,
+ updated: "2026-08-25",
+ players: [
+  ["Kristof","TW",13164709],["Müller","TW",500000],
+  ["Friedrich","ABW",2800053],["Kohr","ABW",10467001],["Schlotterbeck","ABW",10401530],["Ullrich","ABW",8507736],["Vázquez","ABW",4818890],
+  ["Aebischer","MF",5866833],["Aouchiche","MF",15447164],["Bouanani","MF",2759191],["Jatta","MF",6008277],["Kömür","MF",5599930],["Scherhant","MF",6584126],
+  ["Daghim","ANG",7678201],["Höler","ANG",3873921],["Kane","ANG",68809170],["Njinmah","ANG",5298896],["Topp","ANG",509260]
+ ].map(p=>({name:p[0],pos:p[1],value:p[2],avg:null,games:null,experience:null,status:"offen",start:null,form:null,news:null}))
+};
+let data = JSON.parse(localStorage.getItem("kbai_v2") || "null") || initial;
 
-let players=JSON.parse(localStorage.getItem("kb_players_v1")||"null");
-if(!players){
-  players=seed.map(x=>({name:x[0],club:x[1],pos:x[2],value:x[3],points:x[4],games:x[5],change:"",status:x[6]}));
-}
-let cash=Number(localStorage.getItem("kb_cash_v1")||"-19593261");
-
-function save(){localStorage.setItem("kb_players_v1",JSON.stringify(players));localStorage.setItem("kb_cash_v1",String(cash));render()}
-function money(n){return (Number(n)||0).toLocaleString("de-DE",{maximumFractionDigits:0})+" €"}
-function mio(n){return ((Number(n)||0)/1000000).toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" Mio."}
-function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function statusText(s){return ({fit:"fit",doubt:"fraglich",out:"Ausfallrisiko",suspended:"gesperrt",unknown:"Status offen"}[s]||"Status offen")}
+function euro(n){return new Intl.NumberFormat("de-DE",{maximumFractionDigits:0}).format(n)+" €"}
+function dateDE(s){if(!s)return "–";let [y,m,d]=s.split("-");return `${d}.${m}.${y}`}
+function save(){localStorage.setItem("kbai_v2",JSON.stringify(data))}
+function toggle(id){document.getElementById(id).classList.toggle("open")}
 function render(){
- document.getElementById("teamValue").textContent=mio(players.reduce((s,p)=>s+Number(p.value||0),0));
- document.getElementById("cash").textContent=mio(cash);
- document.getElementById("count").textContent=players.length+" / 18";
- const box=document.getElementById("players");
- if(!players.length){box.innerHTML='<div class="empty">Noch keine Spieler eingetragen.</div>';return}
- box.innerHTML=players.map((p,i)=>`
- <div class="player">
-  <div><b>${esc(p.name)}</b><div class="meta">${esc(p.club)} · ${esc(p.pos)} · ${money(p.value)}</div>
-  <span class="pill">Ø: ${p.points===""?"nicht vorhanden":esc(p.points)} · Erfahrung: ${p.games||"nicht vorhanden"} Spiele · ${statusText(p.status)}</span></div>
-  <button class="secondary" onclick="removePlayer(${i})">Löschen</button>
- </div>`).join("");
+ document.getElementById("squadValue").textContent=euro(data.players.reduce((a,p)=>a+(+p.value||0),0)/1e6).replace(" €"," Mio. €");
+ document.getElementById("cash").textContent=euro(data.cash);
+ document.getElementById("cash").className=data.cash<0?"negative":"";
+ document.getElementById("count").textContent=data.players.length+" / 18";
+ document.getElementById("updated").textContent=dateDE(data.updated);
+ document.getElementById("settingsPreview").textContent=euro(data.cash)+" · "+dateDE(data.updated);
+ document.getElementById("cashInput").value=data.cash;
+ document.getElementById("dateInput").value=data.updated;
+ document.getElementById("playerBadge").textContent=data.players.length+"/18";
+ document.getElementById("players").innerHTML=data.players.map((p,i)=>`
+   <div class="player">
+    <div class="row"><div><h3>${p.name}</h3><div class="meta">${p.pos} · ${euro(p.value)}</div></div>
+    <button class="secondary" onclick="editPlayer(${i})">Bearbeiten</button></div>
+    <div class="chips">
+      <span class="chip">${p.avg==null?"Ø: nicht vorhanden":"Ø: "+p.avg}</span>
+      <span class="chip">${p.experience==null?"Erfahrung: nicht vorhanden":"Erfahrung: "+p.experience}</span>
+      <span class="chip ${p.status==="fit"?"good":p.status==="unsicher"?"warn":""}">Status: ${p.status}</span>
+      ${p.start!=null?`<span class="chip">Start: ${p.start}%</span>`:""}
+    </div>
+    <div id="edit-${i}" class="editbox">
+      <label>Ø-Punkte</label><input id="avg-${i}" type="number" step="0.1" value="${p.avg??""}">
+      <label>Spiele</label><input id="games-${i}" type="number" value="${p.games??""}">
+      <label>Erfahrung / Kontext</label><input id="exp-${i}" type="text" value="${p.experience??""}" placeholder="z. B. 300+ Pflichtspiele">
+      <label>Status</label><select id="status-${i}"><option ${p.status==="offen"?"selected":""}>offen</option><option ${p.status==="fit"?"selected":""}>fit</option><option ${p.status==="unsicher"?"selected":""}>unsicher</option><option ${p.status==="verletzt"?"selected":""}>verletzt</option><option ${p.status==="gesperrt"?"selected":""}>gesperrt</option></select>
+      <label>Startelf-Wahrscheinlichkeit (%)</label><input id="start-${i}" type="number" min="0" max="100" value="${p.start??""}">
+      <label>Form / News-Notiz</label><textarea id="news-${i}" rows="2" placeholder="Manuell recherchierte Hinweise">${p.news??""}</textarea>
+      <div class="actions"><button onclick="savePlayer(${i})">Spieler speichern</button></div>
+    </div>
+   </div>`).join("");
 }
-function showForm(){document.getElementById("form").style.display="block";document.getElementById("name").focus()}
-function hideForm(){document.getElementById("form").style.display="none"}
-function addPlayer(){
- const p={name:name.value.trim(),club:club.value.trim(),pos:pos.value,value:Number(value.value||0),points:points.value,games:Number(games.value||0),change:change.value,status:status.value};
- if(!p.name||!p.club){alert("Name und Verein fehlen.");return}
- players.push(p);save();["name","club","value","points","games","change"].forEach(x=>document.getElementById(x).value="");hideForm()
+function editPlayer(i){toggle("edit-"+i)}
+function savePlayer(i){
+ let p=data.players[i];
+ const val=id=>document.getElementById(id).value;
+ p.avg=val("avg-"+i)===""?null:+val("avg-"+i); p.games=val("games-"+i)===""?null:+val("games-"+i);
+ p.experience=val("exp-"+i)||null;p.status=val("status-"+i);p.start=val("start-"+i)===""?null:+val("start-"+i);p.news=val("news-"+i)||null;
+ save();render();document.getElementById("edit-"+i).classList.add("open");
 }
-function removePlayer(i){if(confirm("Spieler wirklich entfernen?")){players.splice(i,1);save()}}
-
-function numericPoints(p){return p.points===""?null:Number(p.points)}
-function experienceScore(p){
- const g=Number(p.games||0);
- if(!g) return 0.45;
- return Math.min(1,Math.log10(g+1)/3.1);
+function saveSettings(){data.cash=+document.getElementById("cashInput").value;data.updated=document.getElementById("dateInput").value||data.updated;save();render();document.getElementById("settings").classList.add("open")}
+function exportData(){
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);a.download="kickbase-ai-daten.json";a.click();URL.revokeObjectURL(a.href)
 }
-function availabilityScore(p){
- return ({fit:1,doubt:.55,out:.1,suspended:.05,unknown:.75}[p.status]||.75);
-}
-function baseScore(p){
- const pts=numericPoints(p);
- const pointScore=pts==null?.5:Math.min(1,Math.max(0,pts/100));
- const exp=experienceScore(p);
- const avail=availabilityScore(p);
- return .58*pointScore+.17*exp+.25*avail;
-}
-function choose(players,pos,n,mode){
- let pool=players.filter(p=>p.pos===pos);
- pool.sort((a,b)=>{
-   const pa=baseScore(a),pb=baseScore(b);
-   let aa=pa,bb=pb;
-   if(mode==="ceiling"){
-     aa += (numericPoints(a)==null?.08:Math.min(.15,Math.max(0,(numericPoints(a)-70)/500)));
-     bb += (numericPoints(b)==null?.08:Math.min(.15,Math.max(0,(numericPoints(b)-70)/500)));
-   }
-   if(mode==="safe"){aa += .15*availabilityScore(a)+.05*experienceScore(a);bb += .15*availabilityScore(b)+.05*experienceScore(b)}
-   return bb-aa;
- });
- return pool.slice(0,n);
-}
-function lineup(mode){
- const tw=choose(players,"TW",1,mode);
- if(!tw.length)return null;
- const used=new Set(tw.map(p=>p.name));
- const defs=choose(players.filter(p=>!used.has(p.name)),"ABW",4,mode); defs.forEach(p=>used.add(p.name));
- const mids=choose(players.filter(p=>!used.has(p.name)),"MF",4,mode); mids.forEach(p=>used.add(p.name));
- const angs=choose(players.filter(p=>!used.has(p.name)),"ANG",2,mode);
- return {tw,defs,mids,angs};
-}
-function playerRow(p){return `<div class="slot"><span><strong>${esc(p.name)}</strong> <span class="tiny">${esc(p.pos)}</span></span><span class="muted">${p.points===""?"Ø ?":("Ø "+esc(p.points))}</span></div>`}
-function strategyText(mode){
- if(mode==="balanced")return ["Ausgewogen","Mischung aus Leistung, Erfahrung und Verfügbarkeit.","Ziel: möglichst robuste erwartete Punktzahl ohne unnötiges Risiko."];
- if(mode==="ceiling")return ["Upside","Mehr Gewicht auf hohes Leistungspotenzial.","Ziel: höhere Spitzenleistung; dafür mehr Unsicherheit akzeptiert."];
- return ["Sicher","Mehr Gewicht auf Verfügbarkeit und Erfahrung.","Ziel: möglichst wenig Ausfall-/Unsicherheitsrisiko."];
-}
-function analyze(mode){
- ["b1","b2","b3"].forEach(id=>document.getElementById(id).classList.remove("active"));
- document.getElementById(mode==="balanced"?"b1":mode==="ceiling"?"b2":"b3").classList.add("active");
- if(players.length<11){document.getElementById("analysis").innerHTML="<div class='notice'>Für eine Startelf fehlen noch Spieler.</div>";return}
- const l=lineup(mode); const [title,desc,goal]=strategyText(mode);
- const all=[...l.tw,...l.defs,...l.mids,...l.angs];
- const missing=all.filter(p=>p.points==="").length;
- document.getElementById("analysis").innerHTML=`
- <div class="strategy"><span class="tag">${title}</span><h3 style="margin-top:8px">${goal}</h3><div class="small">${desc}</div>
- <div class="lineup">
- ${all.map(playerRow).join("")}
- </div>
- <div class="small" style="margin-top:9px"><strong>Unsicherheit:</strong> ${missing} der 11 Spieler haben noch keinen hinterlegten Ø-Wert. Diese Empfehlung ist deshalb nur eine <strong>V1-Struktur</strong> und noch keine echte Prognose.</div>
- </div>
- <div class="strategy"><span class="tag">Warum mehrere Strategien?</span><div class="small" style="margin-top:7px">Später bekommt die KI pro Spieltag mehrere echte Varianten: z.B. maximale Erwartung, hohe Upside und risikoarm. Vereinsmeldungen, Trainer-PKs, Gegnerstärke und aktuelle Form werden dann als zusätzliche Signale gewichtet.</div></div>`;
-}
-function exportData(){const blob=new Blob([JSON.stringify({players,cash,version:"V1"},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="kickbase-ai-v1.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
-function importData(e){const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);players=d.players||[];cash=Number(d.cash??cash);save()}catch{alert("Ungültige JSON-Datei.")}};r.readAsText(file)}
+function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);save();render()}catch{alert("Ungültige JSON-Datei")}};r.readAsText(f)}
 render();
 </script>
-</body></html>
+</body>
+</html>
