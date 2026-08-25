@@ -38,6 +38,298 @@
       "homeAway": null
     }
   },
-  "teams": {},
-  "lastUpdated": "2026-08-25"
+  "teams": {
+    "bayern": {
+      "club": "FC Bayern München",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "VfB Stuttgart",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-28T18:30:00+00:00",
+        "matchId": 83156
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "dortmund": {
+      "club": "Borussia Dortmund",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "Hamburger SV",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-29T16:30:00+00:00",
+        "matchId": 83157
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "leipzig": {
+      "club": "RB Leipzig",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "Borussia Mönchengladbach",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83158
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "stuttgart": {
+      "club": "VfB Stuttgart",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "FC Bayern München",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-28T18:30:00+00:00",
+        "matchId": 83156
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "hoffenheim": {
+      "club": "TSG Hoffenheim",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "1. FC Köln",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83163
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "leverkusen": {
+      "club": "Bayer 04 Leverkusen",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "SV 07 Elversberg",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83164
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "freiburg": {
+      "club": "Sport-Club Freiburg",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "SV Werder Bremen",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-30T13:30:00+00:00",
+        "matchId": 83159
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "frankfurt": {
+      "club": "Eintracht Frankfurt",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "1. FC Union Berlin",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83162
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "augsburg": {
+      "club": "FC Augsburg",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "FC Schalke 04",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-30T15:30:00+00:00",
+        "matchId": 83160
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "mainz": {
+      "club": "1. FSV Mainz 05",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "SC Paderborn 07",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83161
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "union_berlin": {
+      "club": "1. FC Union Berlin",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "Eintracht Frankfurt",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83162
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "monchengladbach": {
+      "club": "Borussia Mönchengladbach",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "RB Leipzig",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83158
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "hamburg": {
+      "club": "Hamburger SV",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "Borussia Dortmund",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-29T16:30:00+00:00",
+        "matchId": 83157
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "koln": {
+      "club": "1. FC Köln",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "TSG Hoffenheim",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83163
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "bremen": {
+      "club": "SV Werder Bremen",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "SC Freiburg",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-30T13:30:00+00:00",
+        "matchId": 83159
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "schalke": {
+      "club": "FC Schalke 04",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "FC Augsburg",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-30T15:30:00+00:00",
+        "matchId": 83160
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "elversberg": {
+      "club": "SV Elversberg",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "Bayer 04 Leverkusen",
+        "homeAway": "Heim",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83164
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    },
+    "paderborn": {
+      "club": "SC Paderborn 07",
+      "league": "Bundesliga",
+      "season": 2026,
+      "nextMatch": {
+        "opponent": "1. FSV Mainz 05",
+        "homeAway": "Auswärts",
+        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchId": 83161
+      },
+      "lastUpdated": "2026-08-25",
+      "source": {
+        "name": "OpenLigaDB",
+        "url": "https://www.openligadb.de/"
+      }
+    }
+  },
+  "lastUpdated": "2026-08-25",
+  "league": "Bundesliga",
+  "season": 2026,
+  "teamCount": 18
 }
