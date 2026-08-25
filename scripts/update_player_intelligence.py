@@ -22,6 +22,26 @@ API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY")
 BUNDESLIGA_SHORTCUT = "bl1"
 CURRENT_SEASON = 2026  # Bundesliga 2026/27
 
+BUNDESLIGA_TEAMS = [
+    "1. FC Köln",
+    "Bayer Leverkusen",
+    "FC Bayern München",
+    "Borussia Dortmund",
+    "Borussia Mönchengladbach",
+    "Eintracht Frankfurt",
+    "FC Augsburg",
+    "1. FSV Mainz 05",
+    "Hamburger SV",
+    "RB Leipzig",
+    "SC Freiburg",
+    "SC Paderborn 07",
+    "FC Schalke 04",
+    "SV 07 Elversberg",
+    "TSG Hoffenheim",
+    "1. FC Union Berlin",
+    "VfB Stuttgart",
+    "SV Werder Bremen",
+]
 # ============================================================
 # HTTP
 # ============================================================
@@ -62,22 +82,14 @@ def openligadb_get(path):
 
 def get_bundesliga_teams():
     """
-    Holt die komplette Bundesliga 2026/27 automatisch.
-
-    Dadurch müssen wir keine Mannschaften wie Bayern,
-    Schalke oder Paderborn manuell eintragen.
+    Liefert exakt die 18 festgelegten Bundesliga-Mannschaften.
+    Die Mannschaftsnamen werden nicht mehr von OpenLigaDB übernommen.
     """
 
-    teams = openligadb_get(
-        f"/getavailableteams/{BUNDESLIGA_SHORTCUT}/{CURRENT_SEASON}"
-    )
-
-    if not teams:
-        raise RuntimeError(
-            "OpenLigaDB hat keine Bundesliga-Teams geliefert."
-        )
-
-    return teams
+    return [
+        {"teamName": team_name}
+        for team_name in BUNDESLIGA_TEAMS
+    ]
 
 
 def get_bundesliga_matches():
@@ -663,15 +675,11 @@ def main():
     # ALTE DATEN LADEN
     # --------------------------------------------------------
 
-    data = load_intelligence()
-
-    if not isinstance(data, dict):
-        data = {}
-
-    data.setdefault(
-        "teams",
-        {}
-    )
+# Neue Datenbasis für diesen Lauf aufbauen.
+# Dadurch bleiben keine alten/falschen Teams aus vorherigen Läufen erhalten.
+data = {
+    "teams": {}
+}
 
     # --------------------------------------------------------
     # ALLE 18 TEAMS
@@ -802,10 +810,7 @@ def main():
 
         data["teams"][team_name] = intelligence
 
-        # Zusätzlich behalten wir den bisherigen
-        # Kristof-Eintrag, falls vorhanden.
-        if team_name == "SV Elversberg":
-            data["kristof"] = intelligence
+
 
         updated_teams += 1
 
