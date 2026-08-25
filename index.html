@@ -2,147 +2,736 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111827">
-<title>Kickbase AI V2</title>
+<title>Kickbase AI V3</title>
+
 <style>
-:root{--bg:#f3f4f6;--card:#fff;--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--accent:#111827;--good:#059669;--warn:#d97706}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
-.wrap{max-width:760px;margin:auto;padding:18px 14px 50px}
-.hero{background:#111827;color:white;border-radius:28px;padding:26px 22px;margin-bottom:16px}
-.hero h1{font-size:32px;margin:0 0 6px}.hero p{margin:0;color:#c7cbd4}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--card);border-radius:20px;padding:18px;box-shadow:0 3px 12px #0000000a}.stat small{color:var(--muted);font-size:14px}.stat strong{display:block;font-size:23px;margin-top:5px;line-height:1.12;white-space:nowrap;letter-spacing:-.4px}
-.card{background:var(--card);border-radius:24px;padding:20px;margin-top:16px;box-shadow:0 3px 12px #0000000a}
-.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.row h2{margin:0;font-size:23px}
-button{border:0;border-radius:15px;padding:12px 16px;background:#111827;color:white;font-weight:700;font-size:15px}button.secondary{background:#e5e7eb;color:#111827}
-input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px;background:white;color:var(--ink);font-size:16px}
-label{display:block;color:var(--muted);font-size:13px;font-weight:600;margin:10px 0 5px}
-.editbox{display:none;border-top:1px solid var(--line);margin-top:15px;padding-top:15px}.editbox.open{display:block}
-.player{border-top:1px solid var(--line);padding:16px 0}.player:first-child{border-top:0}.player h3{margin:0 0 3px;font-size:18px}.meta{color:var(--muted);font-size:14px}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.chip{background:#eef0f3;border-radius:999px;padding:6px 9px;font-size:12px;font-weight:700}.chip.good{color:var(--good)}.chip.warn{color:var(--warn)}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.notice{background:#f8fafc;border:1px solid var(--line);padding:13px;border-radius:14px;color:#4b5563;font-size:14px;line-height:1.45}
-.hidden{display:none}.negative{color:#dc2626}.updated{font-size:12px;color:var(--muted);margin-top:8px}
-@media(max-width:390px){.stat strong{font-size:20px}}\n@media(min-width:650px){.players{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.player{min-height:145px}}
+:root{
+  --bg:#f3f4f6;
+  --card:#ffffff;
+  --ink:#111827;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --accent:#111827;
+  --green:#16a34a;
+  --red:#dc2626;
+  --orange:#ea580c;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+
+.wrap{
+  max-width:760px;
+  margin:auto;
+  padding:18px;
+}
+
+.hero{
+  background:#111827;
+  color:white;
+  border-radius:32px;
+  padding:30px 26px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  margin:0 0 6px;
+  font-size:38px;
+  line-height:1.05;
+}
+
+.hero p{
+  margin:0;
+  color:#cbd5e1;
+  font-size:18px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:0 3px 15px rgba(0,0,0,.04);
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.stat{
+  font-size:29px;
+  font-weight:800;
+}
+
+.negative{color:var(--red)}
+
+.section{
+  margin-top:18px;
+}
+
+.section h2{
+  margin:0 0 14px;
+  font-size:25px;
+}
+
+.info{
+  background:#f8fafc;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  color:#4b5563;
+  line-height:1.55;
+}
+
+.player{
+  background:white;
+  border-radius:24px;
+  padding:18px;
+  margin-bottom:12px;
+  border:1px solid var(--line);
+}
+
+.player-top{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.avatar{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  background:#e5e7eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:18px;
+  overflow:hidden;
+  flex:none;
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.player-main{
+  min-width:0;
+  flex:1;
+}
+
+.player-name{
+  font-size:21px;
+  font-weight:800;
+}
+
+.club{
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.position{
+  display:inline-block;
+  margin-top:7px;
+  background:#f3f4f6;
+  border-radius:10px;
+  padding:5px 9px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.value{
+  text-align:right;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:14px;
+}
+
+.badge{
+  background:#f1f5f9;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:13px;
+  font-weight:650;
+}
+
+.badge.good{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.badge.warn{
+  background:#ffedd5;
+  color:#9a3412;
+}
+
+.badge.bad{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.ai{
+  background:#111827;
+  color:white;
+  border-radius:26px;
+  padding:22px;
+  margin-top:18px;
+}
+
+.ai h2{
+  margin:0 0 8px;
+}
+
+.strategy{
+  background:#1f2937;
+  border-radius:18px;
+  padding:16px;
+  margin-top:12px;
+}
+
+.strategy strong{
+  display:block;
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.strategy small{
+  color:#cbd5e1;
+  line-height:1.5;
+}
+
+.players-count{
+  background:#f1f5f9;
+  border-radius:999px;
+  padding:7px 12px;
+  font-weight:800;
+  font-size:14px;
+}
+
+.header-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+button{
+  border:0;
+  border-radius:16px;
+  padding:13px 17px;
+  background:#111827;
+  color:white;
+  font-weight:750;
+  font-size:15px;
+}
+
+@media(max-width:520px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .stat{
+    font-size:24px;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .player{
+    padding:15px;
+  }
+
+  .value{
+    font-size:14px;
+  }
+}
 </style>
 </head>
-<body>
-<div class="wrap">
-  <section class="hero">
-    <h1>Kickbase AI</h1>
-    <p>V2 · Player Intelligence · mobile first</p>
-  </section>
 
-  <div class="grid">
-    <div class="stat"><small>Kaderwert</small><strong id="squadValue">–</strong></div>
-    <div class="stat"><small>Cash</small><strong id="cash">–</strong></div>
-    <div class="stat"><small>Spieler</small><strong id="count">–</strong></div>
-    <div class="stat"><small>Datenstand</small><strong id="updated" style="font-size:16px">–</strong></div>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Kickbase AI</h1>
+    <p>V3 · Player Intelligence · mobile first</p>
   </div>
 
-  <section class="card">
-    <div class="row"><h2>Kontostand & Datenstand</h2><button class="secondary" onclick="toggle('settings')">Bearbeiten</button></div>
-    <div id="settings" class="editbox">
-      <label>Aktueller Kontostand (€)</label>
-      <input id="cashInput" type="number" step="1">
-      <label>Datum des letzten manuellen Updates</label>
-      <input id="dateInput" type="date">
-      <div class="actions"><button onclick="saveSettings()">Speichern</button></div>
-    </div>
-    <div class="updated">Aktuell gespeichert: <b id="settingsPreview">–</b></div>
-  </section>
+  <div class="grid">
 
-  <section class="card">
-    <div class="row"><h2>Mein Kader</h2><span class="chip" id="playerBadge">18/18</span></div>
-    <div class="notice" style="margin-top:14px">
-      V2 behandelt Kickbase-Daten als <b>manuell gepflegte Ist-Daten</b>. Noch fehlende Werte werden nicht als 0 interpretiert.
-      Später kommen externe Form-, News- und Pressekonferenzdaten hinzu.
+    <div class="card">
+      <div class="stat-label">Kaderwert</div>
+      <div class="stat">179,09 Mio. €</div>
     </div>
-    <div class="players" id="players"></div>
-  </section>
 
-  <section class="card">
-    <h2 style="margin-top:0">Analyse-Engine</h2>
-    <p style="color:var(--muted);line-height:1.5">
-      Als nächstes bewertet die Engine nicht nur Ø-Punkte, sondern auch Einsatzwahrscheinlichkeit,
-      Rolle, Form, Erfahrung, Unsicherheit und aktuelle Vereins-/Trainerinformationen.
+    <div class="card">
+      <div class="stat-label">Cash</div>
+      <div class="stat negative">-27,16 Mio. €</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-label">Spieler</div>
+      <div class="stat">18 / 18</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-label">Datenstand</div>
+      <div class="stat">25.08.2026</div>
+    </div>
+
+  </div>
+
+
+  <div class="section card">
+
+    <div class="header-row">
+      <h2>Mein Kader</h2>
+      <span class="players-count">18/18</span>
+    </div>
+
+    <div class="info">
+      <strong>Kickbase-Daten</strong><br>
+      Manuell gepflegte Ist-Daten. Fehlende Werte werden
+      nicht als 0 interpretiert.
+      <br><br>
+      Später werden zusätzlich aktuelle Form,
+      Verletzungen, Sperren, erwartete Startelf,
+      Pressemitteilungen und Trainer-Pressekonferenzen
+      berücksichtigt.
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>Torwart</h2>
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">KR</div>
+        <div class="player-main">
+          <div class="player-name">Kristof</div>
+          <div class="club">Straßburg</div>
+          <span class="position">TW</span>
+        </div>
+        <div class="value">13.164.709 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge">Ø: nicht vorhanden</span>
+        <span class="badge">Erfahrung: nicht vorhanden</span>
+        <span class="badge">Status: offen</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">MÜ</div>
+        <div class="player-main">
+          <div class="player-name">Müller</div>
+          <div class="club">Schalke</div>
+          <span class="position">TW</span>
+        </div>
+        <div class="value">500.000 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge">Ø: nicht vorhanden</span>
+        <span class="badge">Erfahrung: nicht vorhanden</span>
+        <span class="badge">Status: offen</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>Abwehr</h2>
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">FR</div>
+        <div class="player-main">
+          <div class="player-name">Friedrich</div>
+          <div class="club">Union Berlin</div>
+          <span class="position">ABW</span>
+        </div>
+        <div class="value">2.800.053 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge">Ø: nicht vorhanden</span>
+        <span class="badge">Erfahrung: nicht vorhanden</span>
+        <span class="badge">Status: offen</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">KO</div>
+        <div class="player-main">
+          <div class="player-name">Kohr</div>
+          <div class="club">Mainz</div>
+          <span class="position">ABW</span>
+        </div>
+        <div class="value">10.467.001 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge good">Status: verfügbar</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">SC</div>
+        <div class="player-main">
+          <div class="player-name">Schlotterbeck</div>
+          <div class="club">Augsburg</div>
+          <span class="position">ABW</span>
+        </div>
+        <div class="value">10.401.530 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge good">Status: verfügbar</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">UL</div>
+        <div class="player-main">
+          <div class="player-name">Ullrich</div>
+          <div class="club">Augsburg</div>
+          <span class="position">ABW</span>
+        </div>
+        <div class="value">8.507.736 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge good">Status: verfügbar</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">VÁ</div>
+        <div class="player-main">
+          <div class="player-name">Vázquez</div>
+          <div class="club">Bayer Leverkusen</div>
+          <span class="position">ABW</span>
+        </div>
+        <div class="value">4.818.890 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge warn">Status: fraglich</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>Mittelfeld</h2>
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">AE</div>
+        <div class="player-main">
+          <div class="player-name">Aebischer</div>
+          <div class="club">Union Berlin</div>
+          <span class="position">MF</span>
+        </div>
+        <div class="value">5.866.833 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge warn">Status: fraglich</span>
+        <span class="badge">Erfahrung: später recherchieren</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">AO</div>
+        <div class="player-main">
+          <div class="player-name">Aouchiche</div>
+          <div class="club">Schalke</div>
+          <span class="position">MF</span>
+        </div>
+        <div class="value">15.447.164 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge">Status: offen</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">BO</div>
+        <div class="player-main">
+          <div class="player-name">Bouanani</div>
+          <div class="club">Stuttgart</div>
+          <span class="position">MF</span>
+        </div>
+        <div class="value">2.759.191 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge bad">Status: angeschlagen</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">JA</div>
+        <div class="player-main">
+          <div class="player-name">Jatta</div>
+          <div class="club">Hamburger SV</div>
+          <span class="position">MF</span>
+        </div>
+        <div class="value">6.008.277 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge">Status: offen</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">KÖ</div>
+        <div class="player-main">
+          <div class="player-name">Kömür</div>
+          <div class="club">Augsburg</div>
+          <span class="position">MF</span>
+        </div>
+        <div class="value">5.599.930 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge bad">Status: angeschlagen</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">SH</div>
+        <div class="player-main">
+          <div class="player-name">Scherhant</div>
+          <div class="club">Verein wird ergänzt</div>
+          <span class="position">MF</span>
+        </div>
+        <div class="value">6.584.126 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge warn">Status: fraglich</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>Angriff</h2>
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">DA</div>
+        <div class="player-main">
+          <div class="player-name">Daghim</div>
+          <div class="club">Hoffenheim</div>
+          <span class="position">ANG</span>
+        </div>
+        <div class="value">7.678.201 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge warn">Status: fraglich</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">HÖ</div>
+        <div class="player-main">
+          <div class="player-name">Höler</div>
+          <div class="club">Verein wird ergänzt</div>
+          <span class="position">ANG</span>
+        </div>
+        <div class="value">3.873.921 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge bad">Status: angeschlagen</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">HK</div>
+        <div class="player-main">
+          <div class="player-name">Kane</div>
+          <div class="club">Bayern München</div>
+          <span class="position">ANG</span>
+        </div>
+        <div class="value">68.809.170 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge good">Status: verfügbar</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">NJ</div>
+        <div class="player-main">
+          <div class="player-name">Njinmah</div>
+          <div class="club">Werder Bremen</div>
+          <span class="position">ANG</span>
+        </div>
+        <div class="value">5.298.896 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge warn">Status: fraglich</span>
+      </div>
+    </div>
+
+
+    <div class="player">
+      <div class="player-top">
+        <div class="avatar">TO</div>
+        <div class="player-main">
+          <div class="player-name">Topp</div>
+          <div class="club">Werder Bremen</div>
+          <span class="position">ANG</span>
+        </div>
+        <div class="value">509.260 €</div>
+      </div>
+
+      <div class="badges">
+        <span class="badge">Status: offen</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="ai">
+
+    <h2>🤖 KI-Aufstellungsanalyse</h2>
+
+    <p>
+      Die KI soll nicht nur eine einzige Startelf berechnen.
+      Sie soll mehrere sinnvolle Strategien vergleichen und
+      anschließend nach erwarteten Punkten, Risiko und
+      möglichen Alternativen bewerten.
     </p>
-    <button onclick="alert('Die eigentliche Aufstellungs-Engine kommt als nächster Schritt.')" >Kader analysieren</button>
-  </section>
 
-  <section class="card">
-    <h2 style="margin-top:0">Daten</h2>
-    <div class="actions">
-      <button onclick="exportData()">Daten exportieren</button>
-      <button class="secondary" onclick="document.getElementById('importFile').click()">Daten importieren</button>
-      <input id="importFile" class="hidden" type="file" accept=".json" onchange="importData(event)">
+    <div class="strategy">
+      <strong>🥇 Strategie 1 · Maximale erwartete Punkte</strong>
+      <small>
+        Die KI wählt die voraussichtlich punktstärkste
+        Startelf anhand aller verfügbaren Daten.
+      </small>
     </div>
-    <p style="color:var(--muted);font-size:13px">Die Daten werden lokal im Browser gespeichert. Regelmäßig exportieren.</p>
-  </section>
+
+    <div class="strategy">
+      <strong>🥈 Strategie 2 · Sicherheit</strong>
+      <small>
+        Fokus auf Spieler mit hoher Startwahrscheinlichkeit,
+        stabiler Einsatzzeit und möglichst geringem Ausfallrisiko.
+      </small>
+    </div>
+
+    <div class="strategy">
+      <strong>🥉 Strategie 3 · Upside</strong>
+      <small>
+        Mehr Risiko, dafür höheres Potenzial durch Spieler
+        mit möglichem Breakout oder besonders günstiger
+        Matchup-Situation.
+      </small>
+    </div>
+
+  </div>
+
+
+  <div class="section card">
+
+    <h2>Geplante Datenquellen</h2>
+
+    <div class="badges">
+
+      <span class="badge">Kickbase-Werte</span>
+      <span class="badge">Spielerstatistiken</span>
+      <span class="badge">Erfahrung</span>
+      <span class="badge">Form</span>
+      <span class="badge">Verletzungen</span>
+      <span class="badge">Sperren</span>
+      <span class="badge">Startelf-Wahrscheinlichkeit</span>
+      <span class="badge">Gegner</span>
+      <span class="badge">Heim/Auswärts</span>
+      <span class="badge">Trainer-PK</span>
+      <span class="badge">Vereinsmitteilungen</span>
+      <span class="badge">Aktuelle Presse</span>
+      <span class="badge">Teamkontext</span>
+
+    </div>
+
+  </div>
+
 </div>
 
-<script>
-const initial = {
- cash: -27157476,
- updated: "2026-08-25",
- players: [
-  ["Kristof","TW",13164709],["Müller","TW",500000],
-  ["Friedrich","ABW",2800053],["Kohr","ABW",10467001],["Schlotterbeck","ABW",10401530],["Ullrich","ABW",8507736],["Vázquez","ABW",4818890],
-  ["Aebischer","MF",5866833],["Aouchiche","MF",15447164],["Bouanani","MF",2759191],["Jatta","MF",6008277],["Kömür","MF",5599930],["Scherhant","MF",6584126],
-  ["Daghim","ANG",7678201],["Höler","ANG",3873921],["Kane","ANG",68809170],["Njinmah","ANG",5298896],["Topp","ANG",509260]
- ].map(p=>({name:p[0],pos:p[1],value:p[2],avg:null,games:null,experience:null,status:"offen",start:null,form:null,news:null}))
-};
-let data = JSON.parse(localStorage.getItem("kbai_v2") || "null") || initial;
-
-function euro(n){return new Intl.NumberFormat("de-DE",{maximumFractionDigits:0}).format(n)+" €"}
-function mio(n){return new Intl.NumberFormat("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2}).format(n/1000000)+" Mio. €"}
-function dateDE(s){if(!s)return "–";let [y,m,d]=s.split("-");return `${d}.${m}.${y}`}
-function save(){localStorage.setItem("kbai_v2",JSON.stringify(data))}
-function toggle(id){document.getElementById(id).classList.toggle("open")}
-function render(){
- document.getElementById("squadValue").textContent=mio(data.players.reduce((a,p)=>a+(+p.value||0),0));
- document.getElementById("cash").textContent=mio(data.cash);
- document.getElementById("cash").className=data.cash<0?"negative":"";
- document.getElementById("count").textContent=data.players.length+" / 18";
- document.getElementById("updated").textContent=dateDE(data.updated);
- document.getElementById("settingsPreview").textContent=euro(data.cash)+" · "+dateDE(data.updated);
- document.getElementById("cashInput").value=data.cash;
- document.getElementById("dateInput").value=data.updated;
- document.getElementById("playerBadge").textContent=data.players.length+"/18";
- document.getElementById("players").innerHTML=data.players.map((p,i)=>`
-   <div class="player">
-    <div class="row"><div><h3>${p.name}</h3><div class="meta">${p.pos} · ${euro(p.value)}</div></div>
-    <button class="secondary" onclick="editPlayer(${i})">Bearbeiten</button></div>
-    <div class="chips">
-      <span class="chip">${p.avg==null?"Ø: nicht vorhanden":"Ø: "+p.avg}</span>
-      <span class="chip">${p.experience==null?"Erfahrung: nicht vorhanden":"Erfahrung: "+p.experience}</span>
-      <span class="chip ${p.status==="fit"?"good":p.status==="unsicher"?"warn":""}">Status: ${p.status}</span>
-      ${p.start!=null?`<span class="chip">Start: ${p.start}%</span>`:""}
-    </div>
-    <div id="edit-${i}" class="editbox">
-      <label>Ø-Punkte</label><input id="avg-${i}" type="number" step="0.1" value="${p.avg??""}">
-      <label>Spiele</label><input id="games-${i}" type="number" value="${p.games??""}">
-      <label>Erfahrung / Kontext</label><input id="exp-${i}" type="text" value="${p.experience??""}" placeholder="z. B. 300+ Pflichtspiele">
-      <label>Status</label><select id="status-${i}"><option ${p.status==="offen"?"selected":""}>offen</option><option ${p.status==="fit"?"selected":""}>fit</option><option ${p.status==="unsicher"?"selected":""}>unsicher</option><option ${p.status==="verletzt"?"selected":""}>verletzt</option><option ${p.status==="gesperrt"?"selected":""}>gesperrt</option></select>
-      <label>Startelf-Wahrscheinlichkeit (%)</label><input id="start-${i}" type="number" min="0" max="100" value="${p.start??""}">
-      <label>Form / News-Notiz</label><textarea id="news-${i}" rows="2" placeholder="Manuell recherchierte Hinweise">${p.news??""}</textarea>
-      <div class="actions"><button onclick="savePlayer(${i})">Spieler speichern</button></div>
-    </div>
-   </div>`).join("");
-}
-function editPlayer(i){toggle("edit-"+i)}
-function savePlayer(i){
- let p=data.players[i];
- const val=id=>document.getElementById(id).value;
- p.avg=val("avg-"+i)===""?null:+val("avg-"+i); p.games=val("games-"+i)===""?null:+val("games-"+i);
- p.experience=val("exp-"+i)||null;p.status=val("status-"+i);p.start=val("start-"+i)===""?null:+val("start-"+i);p.news=val("news-"+i)||null;
- save();render();document.getElementById("edit-"+i).classList.add("open");
-}
-function saveSettings(){data.cash=+document.getElementById("cashInput").value;data.updated=document.getElementById("dateInput").value||data.updated;save();render();document.getElementById("settings").classList.add("open")}
-function exportData(){
- const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");
- a.href=URL.createObjectURL(blob);a.download="kickbase-ai-daten.json";a.click();URL.revokeObjectURL(a.href)
-}
-function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);save();render()}catch{alert("Ungültige JSON-Datei")}};r.readAsText(f)}
-render();
-</script>
 </body>
 </html>
