@@ -1,14 +1,36 @@
 {
   "kristof": {
     "average": null,
-    "starting": null,
+    "starting": "Sehr wahrscheinlich",
     "form": null,
-    "opponent": null,
-    "homeAway": null,
-    "injury": null,
-    "suspension": null,
-    "recommendation": null,
-    "sources": [],
-    "lastUpdated": null
+    "opponent": "Bayer 04 Leverkusen",
+    "homeAway": "Heim",
+    "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+    "suspension": "Keine aktuelle Sperrmeldung gefunden",
+    "recommendation": "Starten",
+    "sources": [
+      {
+        "title": "LigaInsider – voraussichtliche Aufstellung SV Elversberg",
+        "url": "https://www.ligainsider.de/sv-07-elversberg/1331/",
+        "date": "2026-08-25"
+      },
+      {
+        "title": "Bundesliga – Teamcheck SV Elversberg 2026/27",
+        "url": "https://www.bundesliga.com/de/bundesliga/news/teamcheck-saisonvorschau-2026-27-sv-elversberg-campbell-petkov-38570",
+        "date": "2026-08-25"
+      },
+      {
+        "title": "DFB Datencenter – SV Elversberg",
+        "url": "https://datencenter.dfb.de/teams/sv-elversberg?datacenter_name=datacenter",
+        "date": "2026-08-25"
+      }
+    ],
+    "lastUpdated": "2026-08-25",
+    "confidence": {
+      "starting": "hoch",
+      "injury": "mittel",
+      "suspension": "mittel",
+      "recommendation": "mittel"
+    }
   }
 }
