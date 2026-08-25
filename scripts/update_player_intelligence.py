@@ -70,48 +70,62 @@ def save_intelligence(data):
 
 def find_team(team_name, league):
     """
-    Team über die kostenlosen OpenLigaDB-Spieldaten finden.
-
-    Wir verwenden bewusst getmatchdata mit Teamfilter,
-    weil OpenLigaDB hier auch Teilnamen akzeptiert.
+    Findet ein Team zuverlässig über die offizielle OpenLigaDB-Teamliste.
+    Funktioniert für mehrere Vereine und Ligen.
     """
 
-    matches = openligadb_get(
-        f"/getmatchdata/{league}/{CURRENT_SEASON}/{quote(team_name)}"
+    teams = openligadb_get(
+        f"/getavailableteams/{league}/{CURRENT_SEASON}"
     )
 
-    if not matches:
+    if not teams:
+        print(f"Keine Teams für Liga {league} gefunden.")
         return None
 
-    wanted = team_name.lower()
+    wanted = team_name.lower().strip()
 
-    for match in matches:
-        for key in ("team1", "team2"):
-            team = match.get(key, {})
+    # 1. Exakter Treffer
+    for team in teams:
+        official_name = team.get("teamName", "").strip()
 
-            official_name = team.get("teamName", "")
+        if official_name.lower() == wanted:
+            return team
 
-            if not official_name:
-                continue
+    # 2. Teilname / vereinfachter Name
+    for team in teams:
+        official_name = team.get("teamName", "").strip()
+        name_lower = official_name.lower()
 
-            if official_name.lower() == wanted:
+        if wanted in name_lower or name_lower in wanted:
+            return team
+
+    # 3. Bekannte Varianten
+    aliases = {
+        "sv elversberg": [
+            "sv 07 elversberg",
+            "sv elversberg",
+            "elversberg",
+        ],
+        "fc schalke 04": [
+            "fc schalke 04",
+            "schalke 04",
+            "schalke",
+        ],
+        "sc paderborn 07": [
+            "sc paderborn 07",
+            "paderborn 07",
+            "paderborn",
+        ],
+    }
+
+    for alias in aliases.get(wanted, []):
+        for team in teams:
+            official_name = team.get("teamName", "").strip()
+
+            if official_name.lower() == alias.lower():
                 return team
 
-    # Falls der offizielle Name etwas anders geschrieben ist
-    for match in matches:
-        for key in ("team1", "team2"):
-            team = match.get(key, {})
-
-            official_name = team.get("teamName", "")
-
-            if not official_name:
-                continue
-
-            name_lower = official_name.lower()
-
-            if wanted in name_lower or name_lower in wanted:
-                return team
-
+    print(f"Team nicht gefunden: {team_name}")
     return None
 
 
