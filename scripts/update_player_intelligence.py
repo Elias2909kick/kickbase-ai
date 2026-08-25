@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -77,11 +77,15 @@ def find_team():
 
 
 def get_next_fixture(team_id):
+    today = datetime.now(timezone.utc).date()
+    future = today + timedelta(days=30)
+
     data = api_get(
         "fixtures",
         {
             "team": team_id,
-            "next": 1,
+            "from": today.isoformat(),
+            "to": future.isoformat(),
         },
     )
 
@@ -89,6 +93,10 @@ def get_next_fixture(team_id):
 
     if not fixtures:
         return None
+
+    fixtures.sort(
+        key=lambda fixture: fixture.get("fixture", {}).get("date", "")
+    )
 
     return fixtures[0]
 
