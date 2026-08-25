@@ -12,8 +12,8 @@ INTELLIGENCE_FILE = BASE_DIR / "player-intelligence.json"
 API_URL = "https://v3.football.api-sports.io"
 API_KEY = os.environ.get("API_FOOTBALL_KEY")
 
-SEASON = 2026
 TEAM_NAME = "Elversberg"
+LEAGUE_ID = 203
 
 
 def api_get(endpoint, params=None):
@@ -81,7 +81,6 @@ def get_next_fixture(team_id):
         "fixtures",
         {
             "team": team_id,
-            "season": SEASON,
             "next": 1,
         },
     )
@@ -99,7 +98,6 @@ def get_team_injuries(team_id):
         "injuries",
         {
             "team": team_id,
-            "season": SEASON,
         },
     )
 
