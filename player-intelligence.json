@@ -1,73 +1,2850 @@
 {
-  "kristof": {
-    "club": "SV Elversberg",
-    "average": null,
-    "starting": "Sehr wahrscheinlich",
-    "form": null,
-    "opponent": "Bayer 04 Leverkusen",
-    "homeAway": "Heim",
-    "injury": "Keine aktuelle Verletzungsmeldung gefunden",
-    "suspension": "Keine aktuelle Sperrmeldung gefunden",
-    "recommendation": "Starten",
-    "sources": [
-      {
-        "title": "LigaInsider – voraussichtliche Aufstellung SV Elversberg",
-        "url": "https://www.ligainsider.de/sv-07-elversberg/1331/",
-        "date": "2026-08-25"
-      },
-      {
-        "title": "Bundesliga – Teamcheck SV Elversberg 2026/27",
-        "url": "https://www.bundesliga.com/de/bundesliga/news/teamcheck-saisonvorschau-2026-27-sv-elversberg-campbell-petkov-38570",
-        "date": "2026-08-25"
-      },
-      {
-        "title": "DFB Datencenter – SV Elversberg",
-        "url": "https://datencenter.dfb.de/teams/sv-elversberg?datacenter_name=datacenter",
-        "date": "2026-08-25"
+  "players": {
+    "borussia_dortmund_p_drewes": {
+      "id": 26395,
+      "name": "P. Drewes",
+      "club": "Borussia Dortmund",
+      "position": "Goalkeeper",
+      "number": 30,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
       }
-    ],
-    "lastUpdated": "2026-08-25",
-    "confidence": {
-      "starting": "hoch",
-      "injury": "mittel",
-      "suspension": "mittel",
-      "recommendation": "mittel"
     },
-    "intelligence": {
-      "opponent": null,
-      "homeAway": null
+    "borussia_dortmund_g_kobel": {
+      "id": 25282,
+      "name": "G. Kobel",
+      "club": "Borussia Dortmund",
+      "position": "Goalkeeper",
+      "number": 1,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_a_meyer": {
+      "id": 26292,
+      "name": "A. Meyer",
+      "club": "Borussia Dortmund",
+      "position": "Goalkeeper",
+      "number": 33,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_s_ostrzinski": {
+      "id": 280463,
+      "name": "S. Ostrzinski",
+      "club": "Borussia Dortmund",
+      "position": "Goalkeeper",
+      "number": 31,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_w_anton": {
+      "id": 25368,
+      "name": "W. Anton",
+      "club": "Borussia Dortmund",
+      "position": "Defender",
+      "number": 3,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_elias_benkara": {
+      "id": 420351,
+      "name": "Elias  Benkara",
+      "club": "Borussia Dortmund",
+      "position": "Defender",
+      "number": 47,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_r_bensebaini": {
+      "id": 2194,
+      "name": "R. Bensebaïni",
+      "club": "Borussia Dortmund",
+      "position": "Defender",
+      "number": 5,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_kouakou_joane_gadou": {
+      "id": 409215,
+      "name": "Kouakou Joane Gadou",
+      "club": "Borussia Dortmund",
+      "position": "Defender",
+      "number": 22,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_f_mane": {
+      "id": 341839,
+      "name": "F. Mané",
+      "club": "Borussia Dortmund",
+      "position": "Defender",
+      "number": 39,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_kaua_prates": {
+      "id": 507692,
+      "name": "Kauã Prates",
+      "club": "Borussia Dortmund",
+      "position": "Defender",
+      "number": 36,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_l_reggiani": {
+      "id": 568225,
+      "name": "L. Reggiani",
+      "club": "Borussia Dortmund",
+      "position": "Defender",
+      "number": 49,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_j_ryerson": {
+      "id": 24845,
+      "name": "J. Ryerson",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 26,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_n_schlotterbeck": {
+      "id": 26243,
+      "name": "N. Schlotterbeck",
+      "club": "Borussia Dortmund",
+      "position": "Defender",
+      "number": 4,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_a_azhil": {
+      "id": 158053,
+      "name": "A. Azhil",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 46,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_j_bellingham": {
+      "id": 326757,
+      "name": "J. Bellingham",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 7,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_e_can": {
+      "id": 864,
+      "name": "E. Can",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 23,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_c_chukwuemeka": {
+      "id": 138935,
+      "name": "C. Chukwuemeka",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 17,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_s_inacio": {
+      "id": 478991,
+      "name": "S. Inacio",
+      "club": "Borussia Dortmund",
+      "position": "Attacker",
+      "number": 40,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_k_karetsas": {
+      "id": 404891,
+      "name": "K. Karetsas",
+      "club": "Borussia Dortmund",
+      "position": "Attacker",
+      "number": 19,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_g_konstantelias": {
+      "id": 162410,
+      "name": "G. Konstantelias",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 45,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_j_lerma": {
+      "id": 568733,
+      "name": "J. Lerma",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 53,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_f_nmecha": {
+      "id": 637,
+      "name": "F. Nmecha",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 8,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_m_sabitzer": {
+      "id": 1159,
+      "name": "M. Sabitzer",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 20,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_d_svensson": {
+      "id": 198654,
+      "name": "D. Svensson",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 24,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_j_veerman": {
+      "id": 37749,
+      "name": "J. Veerman",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 25,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_t_yamamoto": {
+      "id": 568612,
+      "name": "T. Yamamoto",
+      "club": "Borussia Dortmund",
+      "position": "Midfielder",
+      "number": 36,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_m_albert": {
+      "id": 486522,
+      "name": "M. Albert",
+      "club": "Borussia Dortmund",
+      "position": "Attacker",
+      "number": 41,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_m_beier": {
+      "id": 158644,
+      "name": "M. Beier",
+      "club": "Borussia Dortmund",
+      "position": "Attacker",
+      "number": 14,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_s_guirassy": {
+      "id": 21393,
+      "name": "S. Guirassy",
+      "club": "Borussia Dortmund",
+      "position": "Attacker",
+      "number": 9,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "borussia_dortmund_fabio_silva": {
+      "id": 129791,
+      "name": "Fábio Silva",
+      "club": "Borussia Dortmund",
+      "position": "Attacker",
+      "number": 21,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_nyland": {
+      "id": 19172,
+      "name": "Ø. Nyland",
+      "club": "RB Leipzig",
+      "position": "Goalkeeper",
+      "number": 13,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_m_vandevoordt": {
+      "id": 1924,
+      "name": "M. Vandevoordt",
+      "club": "RB Leipzig",
+      "position": "Goalkeeper",
+      "number": 26,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_l_zingerle": {
+      "id": 24814,
+      "name": "L. Zingerle",
+      "club": "RB Leipzig",
+      "position": "Goalkeeper",
+      "number": 25,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_e_bitshiabu": {
+      "id": 268571,
+      "name": "E. Bitshiabu",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 5,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_m_esteve": {
+      "id": 179400,
+      "name": "M. Estève",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 5,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_max_finkgrafe": {
+      "id": 355167,
+      "name": "Max Finkgräfe",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 35,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_l_geertruida": {
+      "id": 37143,
+      "name": "L. Geertruida",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 41,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_b_henrichs": {
+      "id": 98,
+      "name": "B. Henrichs",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 39,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_l_klostermann": {
+      "id": 1144,
+      "name": "L. Klostermann",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 16,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_c_lukeba": {
+      "id": 162761,
+      "name": "C. Lukeba",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 23,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_joyeux_masanka_bungi": {
+      "id": 388894,
+      "name": "Joyeux Masanka Bungi",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 23,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_w_ngana": {
+      "id": 601134,
+      "name": "W. Ngana",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": null,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_w_orban": {
+      "id": 1148,
+      "name": "W. Orbán",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 4,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_d_raum": {
+      "id": 25158,
+      "name": "D. Raum",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 22,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_l_voufack": {
+      "id": 441231,
+      "name": "L. Voufack",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 48,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_r_baku": {
+      "id": 25917,
+      "name": "R. Baku",
+      "club": "RB Leipzig",
+      "position": "Defender",
+      "number": 17,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_c_baumgartner": {
+      "id": 715,
+      "name": "C. Baumgartner",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 14,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_e_elmas": {
+      "id": 1358,
+      "name": "E. Elmas",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 20,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_a_maksimovia": {
+      "id": 398192,
+      "name": "A. MaksimoviÄ",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 30,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_a_ouedraogo": {
+      "id": 380978,
+      "name": "A. Ouédraogo",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 20,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_r_reitz": {
+      "id": 203007,
+      "name": "R. Reitz",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 20,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_s_suleiman": {
+      "id": 371025,
+      "name": "S. Suleiman",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 77,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_n_seiwald": {
+      "id": 7328,
+      "name": "N. Seiwald",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 13,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_a_vermeeren": {
+      "id": 340154,
+      "name": "A. Vermeeren",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 48,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_j_bakayoko": {
+      "id": 290549,
+      "name": "J. Bakayoko",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 11,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_e_banzuzi": {
+      "id": 343286,
+      "name": "E. Banzuzi",
+      "club": "RB Leipzig",
+      "position": "Midfielder",
+      "number": 6,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_t_gomis": {
+      "id": 383665,
+      "name": "T. Gomis",
+      "club": "RB Leipzig",
+      "position": "Attacker",
+      "number": 27,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_b_gruda": {
+      "id": 328225,
+      "name": "B. Gruda",
+      "club": "RB Leipzig",
+      "position": "Attacker",
+      "number": 10,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_c_harder": {
+      "id": 419916,
+      "name": "C. Harder",
+      "club": "RB Leipzig",
+      "position": "Attacker",
+      "number": 9,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_s_konate": {
+      "id": 570742,
+      "name": "S. Konate",
+      "club": "RB Leipzig",
+      "position": "Attacker",
+      "number": 45,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_a_nusa": {
+      "id": 314511,
+      "name": "A. Nusa",
+      "club": "RB Leipzig",
+      "position": "Attacker",
+      "number": 7,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_romulo": {
+      "id": 326102,
+      "name": "Rômulo",
+      "club": "RB Leipzig",
+      "position": "Attacker",
+      "number": 40,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "rb_leipzig_a_thomas": {
+      "id": 453722,
+      "name": "A. Thomas",
+      "club": "RB Leipzig",
+      "position": "Attacker",
+      "number": 21,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_f_bredlow": {
+      "id": 25597,
+      "name": "F. Bredlow",
+      "club": "VfB Stuttgart",
+      "position": "Goalkeeper",
+      "number": 1,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_s_drljaca": {
+      "id": 178217,
+      "name": "S. Drljača",
+      "club": "VfB Stuttgart",
+      "position": "Goalkeeper",
+      "number": 41,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_m_funk": {
+      "id": 25142,
+      "name": "M. Funk",
+      "club": "VfB Stuttgart",
+      "position": "Goalkeeper",
+      "number": 33,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_d_seimen": {
+      "id": 327993,
+      "name": "D. Seimen",
+      "club": "VfB Stuttgart",
+      "position": "Goalkeeper",
+      "number": 41,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_a_al_dakhil": {
+      "id": 323449,
+      "name": "A. Al Dakhil",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 2,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_l_assignon": {
+      "id": 180731,
+      "name": "L. Assignon",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 22,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_j_chabot": {
+      "id": 38112,
+      "name": "J. Chabot",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 24,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_r_hendriks": {
+      "id": 135883,
+      "name": "R. Hendriks",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 3,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_maximilian_tobias_herwerth": {
+      "id": 420353,
+      "name": "Maximilian Tobias Herwerth",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 4,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_l_jaquez": {
+      "id": 349344,
+      "name": "L. Jaquez",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 14,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_finn_jeltsch": {
+      "id": 394734,
+      "name": "Finn Jeltsch",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 29,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_m_mittelstadt": {
+      "id": 25342,
+      "name": "M. Mittelstädt",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 7,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_l_stergiou": {
+      "id": 48481,
+      "name": "L. Stergiou",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 20,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_j_vagnoman": {
+      "id": 24868,
+      "name": "J. Vagnoman",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 4,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_d_zagadou": {
+      "id": 13,
+      "name": "D. Zagadou",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 23,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_jose_maria_andres_baixauli": {
+      "id": 388871,
+      "name": "José María Andrés Baixauli",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 30,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_m_catovic": {
+      "id": 478610,
+      "name": "M. Catovic",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 5,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_b_el_khannouss": {
+      "id": 340573,
+      "name": "B. El Khannouss",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 11,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_l_jovanovia": {
+      "id": 398194,
+      "name": "L. JovanoviÄ",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 45,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_a_karazor": {
+      "id": 24963,
+      "name": "A. Karazor",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 16,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_n_nartey": {
+      "id": 24806,
+      "name": "N. Nartey",
+      "club": "VfB Stuttgart",
+      "position": "Defender",
+      "number": 28,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_g_promel": {
+      "id": 24854,
+      "name": "G. Prömel",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 21,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_y_spalt": {
+      "id": 535120,
+      "name": "Y. Spalt",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 23,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_a_stiller": {
+      "id": 137210,
+      "name": "A. Stiller",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 6,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_jeremy_arevalo": {
+      "id": 350799,
+      "name": "Jeremy Arévalo",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 32,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_b_bouanani": {
+      "id": 334879,
+      "name": "B. Bouanani",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 27,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_e_demirovic": {
+      "id": 46930,
+      "name": "E. Demirović",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 9,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_c_fuhrich": {
+      "id": 24798,
+      "name": "C. Führich",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 10,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_j_leweling": {
+      "id": 128533,
+      "name": "J. Leweling",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 18,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_j_majchrzak": {
+      "id": 385031,
+      "name": "J. Majchrzak",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 30,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_jarzinho_ataide_adriano_de_nascimento_malanga": {
+      "id": 394665,
+      "name": "Jarzinho Ataide Adriano de Nascimento Malanga",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 27,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_j_milosevic": {
+      "id": 371911,
+      "name": "J. Milošević",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 19,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_d_pejcinovic": {
+      "id": 342188,
+      "name": "D. Pejčinović",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 17,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_l_penna": {
+      "id": 535099,
+      "name": "L. Penna",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 7,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_l_sauer": {
+      "id": 342163,
+      "name": "L. Sauer",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 16,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_tiago_tomas": {
+      "id": 265363,
+      "name": "Tiago Tomás",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 8,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_d_undav": {
+      "id": 26475,
+      "name": "D. Undav",
+      "club": "VfB Stuttgart",
+      "position": "Midfielder",
+      "number": 26,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
+    },
+    "vfb_stuttgart_t_van_der_leij": {
+      "id": 546701,
+      "name": "T. van der Leij",
+      "club": "VfB Stuttgart",
+      "position": "Attacker",
+      "number": 9,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": "Keine aktuelle Sperrmeldung gefunden",
+      "recommendation": "Beobachten",
+      "sources": [
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "starting": "niedrig",
+        "injury": "mittel",
+        "suspension": "mittel",
+        "recommendation": "mittel"
+      }
     }
   },
   "teams": {
-    "bayern": {
-      "club": "FC Bayern München",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "VfB Stuttgart",
-        "homeAway": "Heim",
-        "matchDate": "2026-08-28T18:30:00+00:00",
-        "matchId": 83156
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
     "dortmund": {
       "club": "Borussia Dortmund",
       "league": "Bundesliga",
       "season": 2026,
+      "apiFootballTeamId": 165,
       "nextMatch": {
         "opponent": "Hamburger SV",
         "homeAway": "Heim",
-        "matchDate": "2026-08-29T16:30:00+00:00",
+        "matchDate": "2026-08-29T16:30:00Z",
         "matchId": 83157
       },
+      "playerCount": 30,
       "lastUpdated": "2026-08-25",
       "source": {
-        "name": "OpenLigaDB",
+        "name": "OpenLigaDB + API-Football",
         "url": "https://www.openligadb.de/"
       }
     },
@@ -75,15 +2852,17 @@
       "club": "RB Leipzig",
       "league": "Bundesliga",
       "season": 2026,
+      "apiFootballTeamId": 173,
       "nextMatch": {
         "opponent": "Borussia Mönchengladbach",
         "homeAway": "Heim",
-        "matchDate": "2026-08-29T13:30:00+00:00",
+        "matchDate": "2026-08-29T13:30:00Z",
         "matchId": 83158
       },
+      "playerCount": 33,
       "lastUpdated": "2026-08-25",
       "source": {
-        "name": "OpenLigaDB",
+        "name": "OpenLigaDB + API-Football",
         "url": "https://www.openligadb.de/"
       }
     },
@@ -91,239 +2870,17 @@
       "club": "VfB Stuttgart",
       "league": "Bundesliga",
       "season": 2026,
+      "apiFootballTeamId": 172,
       "nextMatch": {
         "opponent": "FC Bayern München",
         "homeAway": "Auswärts",
-        "matchDate": "2026-08-28T18:30:00+00:00",
+        "matchDate": "2026-08-28T18:30:00Z",
         "matchId": 83156
       },
+      "playerCount": 38,
       "lastUpdated": "2026-08-25",
       "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "hoffenheim": {
-      "club": "TSG Hoffenheim",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "1. FC Köln",
-        "homeAway": "Auswärts",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83163
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "leverkusen": {
-      "club": "Bayer 04 Leverkusen",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "SV 07 Elversberg",
-        "homeAway": "Auswärts",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83164
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "freiburg": {
-      "club": "Sport-Club Freiburg",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "SV Werder Bremen",
-        "homeAway": "Heim",
-        "matchDate": "2026-08-30T13:30:00+00:00",
-        "matchId": 83159
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "frankfurt": {
-      "club": "Eintracht Frankfurt",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "1. FC Union Berlin",
-        "homeAway": "Auswärts",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83162
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "augsburg": {
-      "club": "FC Augsburg",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "FC Schalke 04",
-        "homeAway": "Heim",
-        "matchDate": "2026-08-30T15:30:00+00:00",
-        "matchId": 83160
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "mainz": {
-      "club": "1. FSV Mainz 05",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "SC Paderborn 07",
-        "homeAway": "Heim",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83161
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "union_berlin": {
-      "club": "1. FC Union Berlin",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "Eintracht Frankfurt",
-        "homeAway": "Heim",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83162
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "monchengladbach": {
-      "club": "Borussia Mönchengladbach",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "RB Leipzig",
-        "homeAway": "Auswärts",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83158
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "hamburg": {
-      "club": "Hamburger SV",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "Borussia Dortmund",
-        "homeAway": "Auswärts",
-        "matchDate": "2026-08-29T16:30:00+00:00",
-        "matchId": 83157
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "koln": {
-      "club": "1. FC Köln",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "TSG Hoffenheim",
-        "homeAway": "Heim",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83163
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "bremen": {
-      "club": "SV Werder Bremen",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "SC Freiburg",
-        "homeAway": "Auswärts",
-        "matchDate": "2026-08-30T13:30:00+00:00",
-        "matchId": 83159
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "schalke": {
-      "club": "FC Schalke 04",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "FC Augsburg",
-        "homeAway": "Auswärts",
-        "matchDate": "2026-08-30T15:30:00+00:00",
-        "matchId": 83160
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "elversberg": {
-      "club": "SV Elversberg",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "Bayer 04 Leverkusen",
-        "homeAway": "Heim",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83164
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
-        "url": "https://www.openligadb.de/"
-      }
-    },
-    "paderborn": {
-      "club": "SC Paderborn 07",
-      "league": "Bundesliga",
-      "season": 2026,
-      "nextMatch": {
-        "opponent": "1. FSV Mainz 05",
-        "homeAway": "Auswärts",
-        "matchDate": "2026-08-29T13:30:00+00:00",
-        "matchId": 83161
-      },
-      "lastUpdated": "2026-08-25",
-      "source": {
-        "name": "OpenLigaDB",
+        "name": "OpenLigaDB + API-Football",
         "url": "https://www.openligadb.de/"
       }
     }
@@ -331,5 +2888,6 @@
   "lastUpdated": "2026-08-25",
   "league": "Bundesliga",
   "season": 2026,
-  "teamCount": 18
+  "teamCount": 3,
+  "playerCount": 101
 }
