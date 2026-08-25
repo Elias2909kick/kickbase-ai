@@ -21,11 +21,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: OpenAI installieren
+        run: pip install openai
+
       - name: Player Intelligence aktualisieren
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          python scripts/update_player_intelligence.py
+        run: python scripts/update_player_intelligence.py
 
       - name: Änderungen prüfen
         id: changes
