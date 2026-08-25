@@ -887,16 +887,23 @@ function applyRosterChanges({remove = [], add = []} = {}){
   renderRoster();
   return CURRENT_ROSTER;
 }
-
+renderRoster();
+  
 function renderRoster(){
   const rosterRoot = document.getElementById("roster");
   rosterRoot.innerHTML = "";
 
   POSITION_ORDER.forEach(position => {
-    const players = CURRENT_ROSTER.filter(entry => {
-      const data = getPlayerData(entry.id);
-      return data && data.position === position;
-    });
+const players = CURRENT_ROSTER.filter(entry => {
+    const data = getPlayerData(entry.id);
+
+    if (!data) {
+        console.warn("Spieler nicht in PLAYER_DATABASE:", entry.id);
+        return false;
+    }
+
+    return data.position === position;
+});
 
     if(!players.length) return;
 
