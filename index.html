@@ -733,5 +733,190 @@ button{
 
 </div>
 
+<style>
+.player{
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.player:active{
+  transform:scale(.985);
+}
+
+.player-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(17,24,39,.55);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  z-index:9999;
+  padding:16px;
+}
+
+.player-modal.show{
+  display:flex;
+}
+
+.player-modal-card{
+  width:100%;
+  max-width:760px;
+  background:#fff;
+  border-radius:28px;
+  padding:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  max-height:85vh;
+  overflow:auto;
+}
+
+.player-modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+}
+
+.player-modal-name{
+  font-size:30px;
+  font-weight:800;
+  margin:0 0 4px;
+}
+
+.player-modal-club{
+  color:var(--muted);
+  font-size:18px;
+}
+
+.player-modal-position{
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:#f0f2f5;
+  font-weight:700;
+}
+
+.player-modal-value{
+  font-size:25px;
+  font-weight:800;
+  margin-top:20px;
+}
+
+.player-modal-section{
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+}
+
+.player-modal-section h3{
+  margin:0 0 12px;
+  font-size:20px;
+}
+
+.player-modal-close{
+  border:0;
+  border-radius:14px;
+  padding:11px 16px;
+  background:#e5e7eb;
+  color:var(--ink);
+  font-weight:800;
+  font-size:16px;
+}
+
+.player-modal-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.player-modal-badge{
+  padding:9px 12px;
+  border-radius:999px;
+  background:#f0f2f5;
+  font-weight:600;
+}
+</style>
+
+<div class="player-modal" id="playerModal">
+  <div class="player-modal-card">
+
+    <div class="player-modal-head">
+      <div>
+        <div class="player-modal-name" id="modalName"></div>
+        <div class="player-modal-club" id="modalClub"></div>
+        <span class="player-modal-position" id="modalPosition"></span>
+      </div>
+
+      <button class="player-modal-close" id="modalClose">
+        Schließen
+      </button>
+    </div>
+
+    <div class="player-modal-value" id="modalValue"></div>
+
+    <div class="player-modal-section">
+      <h3>Spieler-Status</h3>
+      <div class="player-modal-badges" id="modalBadges"></div>
+    </div>
+
+    <div class="player-modal-section">
+      <h3>Player Intelligence</h3>
+      <p style="color:var(--muted);margin:0;line-height:1.6;">
+        Hier werden später Form, Verletzungen, Sperren,
+        Startelf-Wahrscheinlichkeit, Gegner, Heim/Auswärts,
+        Trainer-PK und aktuelle Vereinsinformationen angezeigt.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const playerModal = document.getElementById("playerModal");
+const modalName = document.getElementById("modalName");
+const modalClub = document.getElementById("modalClub");
+const modalPosition = document.getElementById("modalPosition");
+const modalValue = document.getElementById("modalValue");
+const modalBadges = document.getElementById("modalBadges");
+const modalClose = document.getElementById("modalClose");
+
+document.querySelectorAll(".player").forEach(player => {
+
+  player.addEventListener("click", () => {
+
+    const name = player.querySelector(".player-name")?.textContent.trim() || "";
+    const club = player.querySelector(".club")?.textContent.trim() || "";
+    const position = player.querySelector(".position")?.textContent.trim() || "";
+    const value = player.querySelector(".value")?.textContent.trim() || "";
+
+    modalName.textContent = name;
+    modalClub.textContent = club;
+    modalPosition.textContent = position;
+    modalValue.textContent = value;
+
+    modalBadges.innerHTML = "";
+
+    player.querySelectorAll(".badge").forEach(badge => {
+      const item = document.createElement("span");
+      item.className = "player-modal-badge";
+      item.textContent = badge.textContent.trim();
+      modalBadges.appendChild(item);
+    });
+
+    playerModal.classList.add("show");
+  });
+
+});
+
+modalClose.addEventListener("click", () => {
+  playerModal.classList.remove("show");
+});
+
+playerModal.addEventListener("click", event => {
+  if(event.target === playerModal){
+    playerModal.classList.remove("show");
+  }
+});
+</script>
 </body>
 </html>
