@@ -11,7 +11,7 @@
 .wrap{max-width:760px;margin:auto;padding:18px 14px 50px}
 .hero{background:#111827;color:white;border-radius:28px;padding:26px 22px;margin-bottom:16px}
 .hero h1{font-size:32px;margin:0 0 6px}.hero p{margin:0;color:#c7cbd4}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--card);border-radius:20px;padding:18px;box-shadow:0 3px 12px #0000000a}.stat small{color:var(--muted);font-size:14px}.stat strong{display:block;font-size:23px;margin-top:5px;line-height:1.12;overflow-wrap:anywhere}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--card);border-radius:20px;padding:18px;box-shadow:0 3px 12px #0000000a}.stat small{color:var(--muted);font-size:14px}.stat strong{display:block;font-size:23px;margin-top:5px;line-height:1.12;white-space:nowrap;letter-spacing:-.4px}
 .card{background:var(--card);border-radius:24px;padding:20px;margin-top:16px;box-shadow:0 3px 12px #0000000a}
 .row{display:flex;justify-content:space-between;align-items:center;gap:12px}.row h2{margin:0;font-size:23px}
 button{border:0;border-radius:15px;padding:12px 16px;background:#111827;color:white;font-weight:700;font-size:15px}button.secondary{background:#e5e7eb;color:#111827}
@@ -21,7 +21,7 @@ label{display:block;color:var(--muted);font-size:13px;font-weight:600;margin:10p
 .player{border-top:1px solid var(--line);padding:16px 0}.player:first-child{border-top:0}.player h3{margin:0 0 3px;font-size:18px}.meta{color:var(--muted);font-size:14px}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.chip{background:#eef0f3;border-radius:999px;padding:6px 9px;font-size:12px;font-weight:700}.chip.good{color:var(--good)}.chip.warn{color:var(--warn)}
 .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.notice{background:#f8fafc;border:1px solid var(--line);padding:13px;border-radius:14px;color:#4b5563;font-size:14px;line-height:1.45}
 .hidden{display:none}.negative{color:#dc2626}.updated{font-size:12px;color:var(--muted);margin-top:8px}
-@media(min-width:650px){.players{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.player{min-height:145px}}
+@media(max-width:390px){.stat strong{font-size:20px}}\n@media(min-width:650px){.players{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.player{min-height:145px}}
 </style>
 </head>
 <body>
