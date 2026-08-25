@@ -15,41 +15,139 @@ INTELLIGENCE_FILE = BASE_DIR / "player-intelligence.json"
 
 OPENLIGADB_URL = "https://api.openligadb.de"
 
+# Saison 2026/27
 CURRENT_SEASON = 2026
 
-# Alle Mannschaften, die wir überwachen wollen.
-# Die Liga ist für alle drei aktuell die 2. Bundesliga.
-TEAMS = [
+# Bundesliga
+LEAGUE_SHORTCUT = "bl1"
+
+
+# ============================================================
+# DIE 18 BUNDESLIGA-MANNSCHAFTEN 2026/27
+# ============================================================
+
+BUNDESLIGA_TEAMS = [
     {
-        "name": "SV Elversberg",
-        "search": "Elversberg",
-        "league": "bl2",
+        "key": "bayern",
+        "name": "FC Bayern München",
+        "aliases": ["FC Bayern München", "Bayern München"],
     },
     {
+        "key": "dortmund",
+        "name": "Borussia Dortmund",
+        "aliases": ["Borussia Dortmund", "Dortmund"],
+    },
+    {
+        "key": "leipzig",
+        "name": "RB Leipzig",
+        "aliases": ["RB Leipzig", "Leipzig"],
+    },
+    {
+        "key": "stuttgart",
+        "name": "VfB Stuttgart",
+        "aliases": ["VfB Stuttgart", "Stuttgart"],
+    },
+    {
+        "key": "hoffenheim",
+        "name": "TSG Hoffenheim",
+        "aliases": ["TSG Hoffenheim", "Hoffenheim"],
+    },
+    {
+        "key": "leverkusen",
+        "name": "Bayer 04 Leverkusen",
+        "aliases": ["Bayer 04 Leverkusen", "Bayer Leverkusen", "Leverkusen"],
+    },
+    {
+        "key": "freiburg",
+        "name": "Sport-Club Freiburg",
+        "aliases": ["Sport-Club Freiburg", "SC Freiburg", "Freiburg"],
+    },
+    {
+        "key": "frankfurt",
+        "name": "Eintracht Frankfurt",
+        "aliases": ["Eintracht Frankfurt", "Frankfurt"],
+    },
+    {
+        "key": "augsburg",
+        "name": "FC Augsburg",
+        "aliases": ["FC Augsburg", "Augsburg"],
+    },
+    {
+        "key": "mainz",
+        "name": "1. FSV Mainz 05",
+        "aliases": ["1. FSV Mainz 05", "Mainz 05", "Mainz"],
+    },
+    {
+        "key": "union_berlin",
+        "name": "1. FC Union Berlin",
+        "aliases": ["1. FC Union Berlin", "Union Berlin"],
+    },
+    {
+        "key": "monchengladbach",
+        "name": "Borussia Mönchengladbach",
+        "aliases": [
+            "Borussia Mönchengladbach",
+            "Borussia M'gladbach",
+            "Mönchengladbach",
+            "Gladbach",
+        ],
+    },
+    {
+        "key": "hamburg",
+        "name": "Hamburger SV",
+        "aliases": ["Hamburger SV", "Hamburg"],
+    },
+    {
+        "key": "koln",
+        "name": "1. FC Köln",
+        "aliases": ["1. FC Köln", "FC Köln", "Köln"],
+    },
+    {
+        "key": "bremen",
+        "name": "SV Werder Bremen",
+        "aliases": ["SV Werder Bremen", "Werder Bremen", "Bremen"],
+    },
+    {
+        "key": "schalke",
         "name": "FC Schalke 04",
-        "search": "Schalke",
-        "league": "bl2",
+        "aliases": ["FC Schalke 04", "Schalke"],
     },
     {
+        "key": "elversberg",
+        "name": "SV Elversberg",
+        "aliases": ["SV Elversberg", "Elversberg"],
+    },
+    {
+        "key": "paderborn",
         "name": "SC Paderborn 07",
-        "search": "Paderborn",
-        "league": "bl2",
+        "aliases": ["SC Paderborn 07", "SC Paderborn", "Paderborn"],
     },
 ]
 
 
 # ============================================================
-# HILFSFUNKTIONEN
+# DATUM
 # ============================================================
 
-def now_date():
+def today_string():
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
+def now_utc():
+    return datetime.now(timezone.utc)
+
+
+# ============================================================
+# OPENLIGADB
+# ============================================================
+
 def openligadb_get(path):
     """
-    Kostenloser Zugriff auf die öffentliche OpenLigaDB API.
-    Keine API-Key / kein kostenpflichtiger Dienst.
+    Kostenloser Zugriff auf OpenLigaDB.
+
+    Keine API-ID.
+    Kein API-Key.
+    Kein kostenpflichtiger Dienst.
     """
 
     url = f"{OPENLIGADB_URL}{path}"
@@ -84,17 +182,49 @@ def openligadb_get(path):
         return []
 
 
-def load_intelligence():
+def load_all_bundesliga_matches():
     """
-    Bestehende player-intelligence.json laden.
-    Falls die Datei noch nicht existiert, wird eine leere Struktur angelegt.
+    Holt ALLE Spiele der Bundesliga-Saison 2026/27
+    mit genau EINEM API-Aufruf.
     """
 
+    print(
+        f"Lade Bundesliga-Spielplan "
+        f"{CURRENT_SEASON}/{CURRENT_SEASON + 1} ..."
+    )
+
+    path = (
+        f"/getmatchdata/"
+        f"{LEAGUE_SHORTCUT}/"
+        f"{CURRENT_SEASON}"
+    )
+
+    matches = openligadb_get(path)
+
+    if not isinstance(matches, list):
+        print("OpenLigaDB hat keine gültige Match-Liste geliefert.")
+        return []
+
+    print(
+        f"OpenLigaDB: {len(matches)} Spiele erhalten."
+    )
+
+    return matches
+
+
+# ============================================================
+# JSON
+# ============================================================
+
+def load_intelligence():
     if not INTELLIGENCE_FILE.exists():
         return {}
 
     try:
-        with INTELLIGENCE_FILE.open("r", encoding="utf-8") as file:
+        with INTELLIGENCE_FILE.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
             data = json.load(file)
 
         if isinstance(data, dict):
@@ -103,113 +233,131 @@ def load_intelligence():
         return {}
 
     except Exception as error:
-        print(f"Fehler beim Lesen von player-intelligence.json: {error}")
+        print(
+            f"Fehler beim Lesen der JSON-Datei: {error}"
+        )
+
         return {}
 
 
 def save_intelligence(data):
-    """
-    JSON sauber speichern.
-    """
+    with INTELLIGENCE_FILE.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
 
-    with INTELLIGENCE_FILE.open("w", encoding="utf-8") as file:
         json.dump(
             data,
             file,
             ensure_ascii=False,
             indent=2,
         )
+
         file.write("\n")
 
 
 # ============================================================
-# TEAM / SPIELDATEN
+# TEAM-HILFSFUNKTIONEN
 # ============================================================
 
-def get_team_matches(team_name, search_name, league):
+def normalize_name(name):
     """
-    Holt sämtliche Saisonspiele des Vereins über OpenLigaDB.
-
-    Wir verwenden bewusst:
-        /getmatchdata/bl2/2026/Schalke
-
-    OpenLigaDB unterstützt diesen Team-Filter direkt.
+    Vereinheitlicht Namen für den Vergleich.
     """
 
-    path = (
-        f"/getmatchdata/"
-        f"{quote(league)}/"
-        f"{CURRENT_SEASON}/"
-        f"{quote(search_name)}"
-    )
+    if not name:
+        return ""
 
-    matches = openligadb_get(path)
+    value = str(name).strip().lower()
 
-    if not isinstance(matches, list):
-        return []
+    replacements = {
+        "ä": "a",
+        "ö": "o",
+        "ü": "u",
+        "ß": "ss",
+        ".": "",
+        ",": "",
+        "'": "",
+        "-": " ",
+    }
 
-    print(
-        f"{team_name}: "
-        f"{len(matches)} Spiele von OpenLigaDB erhalten"
-    )
+    for old, new in replacements.items():
+        value = value.replace(old, new)
 
-    return matches
+    return " ".join(value.split())
 
 
-def get_team_id(match, wanted_name):
+def team_matches_name(team_name, config):
     """
-    Team-ID aus einem Match ermitteln.
-    """
-
-    wanted = wanted_name.lower()
-
-    for key in ("team1", "team2"):
-        team = match.get(key) or {}
-
-        name = str(team.get("teamName") or "").strip()
-
-        if name.lower() == wanted:
-            return team.get("teamId")
-
-    # Falls OpenLigaDB einen leicht anderen Namen liefert:
-    for key in ("team1", "team2"):
-        team = match.get(key) or {}
-
-        name = str(team.get("teamName") or "").strip()
-
-        if wanted in name.lower() or name.lower() in wanted:
-            return team.get("teamId")
-
-    return None
-
-
-def match_belongs_to_team(match, search_name):
-    """
-    Prüft, ob das Match wirklich zum gewünschten Verein gehört.
+    Prüft, ob ein OpenLigaDB-Team zu unserem Team gehört.
     """
 
-    wanted = search_name.lower()
+    normalized = normalize_name(team_name)
 
-    for key in ("team1", "team2"):
-        team = match.get(key) or {}
+    if not normalized:
+        return False
 
-        name = str(team.get("teamName") or "").lower()
+    for alias in config["aliases"]:
+        alias_normalized = normalize_name(alias)
 
-        if wanted in name:
+        if normalized == alias_normalized:
+            return True
+
+        if alias_normalized in normalized:
+            return True
+
+        if normalized in alias_normalized:
             return True
 
     return False
 
 
-def parse_match_date(match):
-    """
-    OpenLigaDB liefert matchDateTime beispielsweise als:
-    2026-08-29T13:00:00
+def get_match_team(match, key):
+    team = match.get(key)
 
-    Wir wandeln das in einen UTC-Datetime-Wert um.
+    if not isinstance(team, dict):
+        return {}
+
+    return team
+
+
+def match_contains_team(match, config):
+    """
+    Prüft beide Mannschaften eines Spiels.
     """
 
-    value = match.get("matchDateTime")
+    home = get_match_team(match, "team1")
+    away = get_match_team(match, "team2")
+
+    home_name = home.get("teamName", "")
+    away_name = away.get("teamName", "")
+
+    return (
+        team_matches_name(home_name, config)
+        or team_matches_name(away_name, config)
+    )
+
+
+# ============================================================
+# SPIELDATUM
+# ============================================================
+
+def parse_match_datetime(match):
+    """
+    OpenLigaDB kann unterschiedliche Datumsfelder liefern.
+    """
+
+    possible_fields = [
+        "matchDateTimeUTC",
+        "matchDateTime",
+    ]
+
+    value = None
+
+    for field in possible_fields:
+        if match.get(field):
+            value = match.get(field)
+            break
 
     if not value:
         return None
@@ -231,12 +379,16 @@ def parse_match_date(match):
         return None
 
 
-def get_next_match(matches, search_name):
+# ============================================================
+# NÄCHSTES SPIEL
+# ============================================================
+
+def get_next_match(matches, config):
     """
-    Sucht das nächste noch nicht vergangene Spiel.
+    Sucht das nächste Spiel des Vereins.
     """
 
-    now = datetime.now(timezone.utc)
+    now = now_utc()
 
     upcoming = []
 
@@ -245,18 +397,18 @@ def get_next_match(matches, search_name):
         if not isinstance(match, dict):
             continue
 
-        if not match_belongs_to_team(match, search_name):
+        if not match_contains_team(match, config):
             continue
 
-        match_date = parse_match_date(match)
+        match_datetime = parse_match_datetime(match)
 
-        if match_date is None:
+        if match_datetime is None:
             continue
 
-        if match_date >= now:
+        if match_datetime >= now:
             upcoming.append(
                 (
-                    match_date,
+                    match_datetime,
                     match,
                 )
             )
@@ -271,27 +423,9 @@ def get_next_match(matches, search_name):
     return upcoming[0][1]
 
 
-def get_match_teams(match):
+def build_next_match(match, config):
     """
-    Gibt Heim- und Auswärtsteam zurück.
-    """
-
-    team1 = match.get("team1") or {}
-    team2 = match.get("team2") or {}
-
-    return (
-        team1.get("teamName") or "Unbekannt",
-        team2.get("teamName") or "Unbekannt",
-    )
-
-
-# ============================================================
-# SPIEL-INFORMATIONEN
-# ============================================================
-
-def build_match_intelligence(team_config, match):
-    """
-    Baut die Informationen zum nächsten Spiel.
+    Erstellt einen sauberen JSON-Block zum nächsten Spiel.
     """
 
     if not match:
@@ -302,42 +436,49 @@ def build_match_intelligence(team_config, match):
             "matchId": None,
         }
 
-    home, away = get_match_teams(match)
+    home = get_match_team(
+        match,
+        "team1",
+    )
 
-    team_name = team_config["name"]
+    away = get_match_team(
+        match,
+        "team2",
+    )
 
-    if home.lower() == team_name.lower():
-        opponent = away
+    home_name = home.get(
+        "teamName",
+        "Unbekannt",
+    )
+
+    away_name = away.get(
+        "teamName",
+        "Unbekannt",
+    )
+
+    if team_matches_name(home_name, config):
+
+        opponent = away_name
         home_away = "Heim"
 
-    elif away.lower() == team_name.lower():
-        opponent = home
+    elif team_matches_name(away_name, config):
+
+        opponent = home_name
         home_away = "Auswärts"
 
     else:
-        # Fallback, falls OpenLigaDB einen leicht anderen Vereinsnamen liefert.
-        home_lower = home.lower()
-        away_lower = away.lower()
-        wanted = team_config["search"].lower()
 
-        if wanted in home_lower:
-            opponent = away
-            home_away = "Heim"
-        elif wanted in away_lower:
-            opponent = home
-            home_away = "Auswärts"
-        else:
-            opponent = None
-            home_away = None
+        opponent = None
+        home_away = None
 
-    match_date = parse_match_date(match)
+    match_datetime = parse_match_datetime(match)
 
     return {
         "opponent": opponent,
         "homeAway": home_away,
         "matchDate": (
-            match_date.isoformat()
-            if match_date
+            match_datetime.isoformat()
+            if match_datetime
             else None
         ),
         "matchId": match.get("matchID"),
@@ -348,54 +489,47 @@ def build_match_intelligence(team_config, match):
 # TEAM-DATEN
 # ============================================================
 
-def build_team_data(team_config, matches):
+def build_team_data(config, matches):
     """
-    Baut den kompletten Datenblock für einen Verein.
+    Erstellt den Datenblock für einen Bundesliga-Verein.
     """
-
-    today = now_date()
 
     next_match = get_next_match(
         matches,
-        team_config["search"],
-    )
-
-    match_info = build_match_intelligence(
-        team_config,
-        next_match,
+        config,
     )
 
     return {
-        "club": team_config["name"],
-        "league": team_config["league"],
+        "club": config["name"],
+        "league": "Bundesliga",
         "season": CURRENT_SEASON,
 
-        "nextMatch": match_info,
+        "nextMatch": build_next_match(
+            next_match,
+            config,
+        ),
 
-        "lastUpdated": today,
+        "lastUpdated": today_string(),
 
-        "sources": [
-            {
-                "title": "OpenLigaDB",
-                "url": "https://www.openligadb.de/",
-                "date": today,
-            }
-        ],
+        "source": {
+            "name": "OpenLigaDB",
+            "url": "https://www.openligadb.de/",
+        },
     }
 
 
 # ============================================================
-# SPIELER / KRISTOF
+# KRISTOF
 # ============================================================
 
-def update_existing_kristof(data, team_data):
+def update_kristof(data):
     """
-    Aktualisiert den bestehenden Kristof-Datenblock,
-    ohne bereits vorhandene Informationen unnötig zu löschen.
+    Kristof bleibt als Spielerprofil erhalten.
 
-    Wichtig:
-    OpenLigaDB liefert keine verlässlichen Spieler-Verletzungs-
-    oder Aufstellungsdaten. Deshalb erfinden wir hier nichts.
+    OpenLigaDB liefert keine Kickbase-Punkte,
+    Verletzungsdaten oder Startelf-Wahrscheinlichkeiten.
+
+    Deshalb werden diese Werte NICHT erfunden.
     """
 
     kristof = data.get("kristof")
@@ -405,16 +539,27 @@ def update_existing_kristof(data, team_data):
 
     kristof["club"] = "SV Elversberg"
 
-    next_match = team_data.get("nextMatch") or {}
+    elversberg = (
+        data.get("teams", {})
+        .get("elversberg", {})
+    )
 
-    kristof["opponent"] = next_match.get("opponent")
-    kristof["homeAway"] = next_match.get("homeAway")
+    next_match = (
+        elversberg.get("nextMatch", {})
+        if isinstance(elversberg, dict)
+        else {}
+    )
 
-    if "injury" not in kristof:
-        kristof["injury"] = "Keine aktuelle Meldung"
+    kristof["opponent"] = next_match.get(
+        "opponent"
+    )
 
-    if "suspension" not in kristof:
-        kristof["suspension"] = "Keine aktuelle Meldung"
+    kristof["homeAway"] = next_match.get(
+        "homeAway"
+    )
+
+    if "average" not in kristof:
+        kristof["average"] = None
 
     if "starting" not in kristof:
         kristof["starting"] = None
@@ -422,13 +567,16 @@ def update_existing_kristof(data, team_data):
     if "form" not in kristof:
         kristof["form"] = None
 
-    if "average" not in kristof:
-        kristof["average"] = None
+    if "injury" not in kristof:
+        kristof["injury"] = None
+
+    if "suspension" not in kristof:
+        kristof["suspension"] = None
 
     if "recommendation" not in kristof:
         kristof["recommendation"] = None
 
-    kristof["lastUpdated"] = now_date()
+    kristof["lastUpdated"] = today_string()
 
     data["kristof"] = kristof
 
@@ -441,43 +589,66 @@ def update_existing_kristof(data, team_data):
 
 def main():
 
-    print("Starte kostenlose Multi-Team Player-Intelligence-Recherche...")
+    print(
+        "Starte kostenlose Bundesliga "
+        "Player-Intelligence-Recherche..."
+    )
+
     print()
 
     data = load_intelligence()
 
+    # --------------------------------------------------------
+    # EINMALIG ALLE BUNDESLIGA-SPIELE LADEN
+    # --------------------------------------------------------
+
+    matches = load_all_bundesliga_matches()
+
+    if not matches:
+        raise RuntimeError(
+            "OpenLigaDB hat keine Bundesliga-Spiele geliefert."
+        )
+
+    # --------------------------------------------------------
+    # TEAM-BEREICH INITIALISIEREN
+    # --------------------------------------------------------
+
+    if not isinstance(
+        data.get("teams"),
+        dict,
+    ):
+        data["teams"] = {}
+
     successful_teams = 0
 
     # --------------------------------------------------------
-    # ALLE VEREINE DURCHLAUFEN
+    # ALLE 18 TEAMS VERARBEITEN
     # --------------------------------------------------------
 
-    for team_config in TEAMS:
+    for config in BUNDESLIGA_TEAMS:
 
-        team_name = team_config["name"]
-
+        print()
         print("----------------------------------------")
-        print(f"Verarbeite: {team_name}")
-
-        matches = get_team_matches(
-            team_name=team_name,
-            search_name=team_config["search"],
-            league=team_config["league"],
+        print(
+            f"Verarbeite: {config['name']}"
         )
 
-        if not matches:
-
-            print(
-                f"KEINE DATEN für {team_name}"
+        team_matches = [
+            match
+            for match in matches
+            if match_contains_team(
+                match,
+                config,
             )
+        ]
 
-            # Wichtig:
-            # Nicht den gesamten Workflow abbrechen.
-            # Der nächste Verein wird trotzdem verarbeitet.
-            continue
+        print(
+            f"{config['name']}: "
+            f"{len(team_matches)} Spiele gefunden"
+        )
 
         team_data = build_team_data(
-            team_config,
+            config,
             matches,
         )
 
@@ -487,13 +658,13 @@ def main():
 
             print(
                 f"Nächstes Spiel: "
-                f"{team_name} "
+                f"{config['name']} "
                 f"gegen "
                 f"{next_match['opponent']}"
             )
 
             print(
-                f"Spielort: "
+                f"Heim/Auswärts: "
                 f"{next_match['homeAway']}"
             )
 
@@ -502,76 +673,64 @@ def main():
                 f"{next_match['matchDate']}"
             )
 
+            successful_teams += 1
+
         else:
+
             print(
-                f"Kein kommendes Spiel für {team_name}"
+                f"Kein kommendes Spiel "
+                f"für {config['name']}"
             )
 
-        # Unter "teams" speichern.
-        if "teams" not in data:
-            data["teams"] = {}
+        # ----------------------------------------------------
+        # TEAM SPEICHERN
+        # ----------------------------------------------------
 
-        # JSON-Key möglichst stabil halten.
-        if team_name == "SV Elversberg":
-            key = "elversberg"
-        elif team_name == "FC Schalke 04":
-            key = "schalke"
-        elif team_name == "SC Paderborn 07":
-            key = "paderborn"
-        else:
-            key = team_name.lower().replace(" ", "_")
-
-        data["teams"][key] = team_data
-
-        successful_teams += 1
-
-        print(
-            f"Daten für {team_name} aktualisiert."
-        )
-        print()
+        data["teams"][config["key"]] = team_data
 
     # --------------------------------------------------------
-    # KRISTOF
+    # KRISTOF AKTUALISIEREN
     # --------------------------------------------------------
 
-    elversberg_data = (
-        data.get("teams", {})
-        .get("elversberg")
+    data = update_kristof(data)
+
+    # --------------------------------------------------------
+    # META-INFORMATION
+    # --------------------------------------------------------
+
+    data["league"] = "Bundesliga"
+
+    data["season"] = CURRENT_SEASON
+
+    data["lastUpdated"] = today_string()
+
+    data["teamCount"] = len(
+        BUNDESLIGA_TEAMS
     )
-
-    if isinstance(elversberg_data, dict):
-
-        data = update_existing_kristof(
-            data,
-            elversberg_data,
-        )
-
-    # --------------------------------------------------------
-    # METADATEN
-    # --------------------------------------------------------
-
-    data["lastUpdated"] = now_date()
 
     # --------------------------------------------------------
     # SPEICHERN
     # --------------------------------------------------------
 
-    if successful_teams == 0:
-        raise RuntimeError(
-            "Kein einziger Verein konnte aktualisiert werden."
-        )
-
     save_intelligence(data)
 
+    print()
     print("----------------------------------------")
     print(
-        f"{successful_teams} von "
-        f"{len(TEAMS)} Vereinen aktualisiert."
-    )
-    print(
-        "player-intelligence.json wurde aktualisiert."
+        f"{successful_teams}/"
+        f"{len(BUNDESLIGA_TEAMS)} "
+        f"Teams mit nächstem Spiel gefunden."
     )
 
+    print(
+        "player-intelligence.json wurde "
+        "erfolgreich aktualisiert."
+    )
+
+
+# ============================================================
+# START
+# ============================================================
 
 if __name__ == "__main__":
     main()
