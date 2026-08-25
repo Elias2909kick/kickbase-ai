@@ -654,16 +654,19 @@ kristof: {
   name: "Kristof",
   club: "Elversberg",
   position: "TW",
-  intelligence: {
-    average: "0 Punkte",
-    starting: "100 %",
-    form: "Stabil",
-    opponent: "Noch offen",
-    homeAway: "Noch offen",
-    injury: "Keine Angabe",
-    suspension: "Keine Angabe",
-    recommendation: "Beobachten"
-  }
+intelligence: {
+  average: null,
+  starting: null,
+  form: null,
+  opponent: null,
+  homeAway: null,
+  injury: null,
+  suspension: null,
+  recommendation: null,
+
+  sources: [],
+  lastUpdated: null
+}
   },
   mueller: {
     name: "Müller",
@@ -973,14 +976,14 @@ function openPlayerModal(id){
   modalValue.textContent = entry.value;
 const intel = data.intelligence || {};
 
-intelAverage.textContent = intel.average || "–";
-intelStarting.textContent = intel.starting || "–";
-intelForm.textContent = intel.form || "–";
-intelOpponent.textContent = intel.opponent || "–";
-intelHomeAway.textContent = intel.homeAway || "–";
-intelInjury.textContent = intel.injury || "Keine Angabe";
-intelSuspension.textContent = intel.suspension || "Keine Angabe";
-intelRecommendation.textContent = intel.recommendation || "–";
+intelAverage.textContent = intel.average ?? "Noch nicht recherchiert";
+intelStarting.textContent = intel.starting ?? "Noch nicht recherchiert";
+intelForm.textContent = intel.form ?? "Noch nicht recherchiert";
+intelOpponent.textContent = intel.opponent ?? "Noch nicht recherchiert";
+intelHomeAway.textContent = intel.homeAway ?? "Noch nicht recherchiert";
+intelInjury.textContent = intel.injury ?? "Noch nicht recherchiert";
+intelSuspension.textContent = intel.suspension ?? "Noch nicht recherchiert";
+intelRecommendation.textContent = intel.recommendation ?? "Noch nicht recherchiert";
   modalBadges.innerHTML = "";
 
   (entry.badges || []).forEach(([text]) => {
