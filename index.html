@@ -895,14 +895,7 @@ function renderRoster(){
 
   POSITION_ORDER.forEach(position => {
 const players = CURRENT_ROSTER.filter(entry => {
-    const data = getPlayerData(entry.id);
-
-    if (!data) {
-        console.warn("Spieler nicht in PLAYER_DATABASE:", entry.id);
-        return false;
-    }
-
-    return data.position === position;
+    return getPlayerData(entry.id);
 });
 
     if(!players.length) return;
