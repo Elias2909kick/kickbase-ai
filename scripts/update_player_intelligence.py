@@ -14,7 +14,7 @@ OPENLIGADB_URL = "https://api.openligadb.de"
 # Saison 2026 = Saison 2026/27
 CURRENT_SEASON = 2026
 
-# Wir durchsuchen alle drei deutschen Profiligen.
+# Alle drei deutschen Profiligen
 LEAGUES = {
     "bl1": "1. Bundesliga",
     "bl2": "2. Bundesliga",
@@ -33,8 +33,8 @@ def openligadb_get(path):
         url,
         headers={
             "Accept": "application/json",
-            "User-Agent": "Kickbase-AI/1.0"
-        }
+            "User-Agent": "Kickbase-AI/1.0",
+        },
     )
 
     try:
@@ -62,21 +62,25 @@ def load_intelligence():
     if not INTELLIGENCE_FILE.exists():
         return {}
 
-    with INTELLIGENCE_FILE.open("r", encoding="utf-8") as file:
+    with INTELLIGENCE_FILE.open(
+        "r",
+        encoding="utf-8",
+    ) as file:
         return json.load(file)
 
 
 def save_intelligence(data):
     with INTELLIGENCE_FILE.open(
         "w",
-        encoding="utf-8"
+        encoding="utf-8",
     ) as file:
         json.dump(
             data,
             file,
             ensure_ascii=False,
-            indent=2
+            indent=2,
         )
+
         file.write("\n")
 
 
@@ -102,8 +106,8 @@ def get_teams(league):
 
 def find_team(club_name):
     """
-    Sucht einen Verein automatisch in Bundesliga,
-    2. Bundesliga und 3. Liga.
+    Sucht einen Verein automatisch in
+    Bundesliga, 2. Bundesliga und 3. Liga.
     """
 
     if not club_name:
@@ -111,32 +115,35 @@ def find_team(club_name):
 
     search = club_name.strip().lower()
 
-    # Einige Kickbase-Namen können von OpenLigaDB
-    # leicht abweichen.
     aliases = {
         "elversberg": "sv elversberg",
         "sv elversberg": "sv elversberg",
+
         "schalke": "fc schalke 04",
         "fc schalke": "fc schalke 04",
         "schalke 04": "fc schalke 04",
+
         "paderborn": "sc paderborn 07",
         "sc paderborn": "sc paderborn 07",
+
         "köln": "1. fc köln",
         "fc köln": "1. fc köln",
+
         "hamburg": "hamburger sv",
         "hsv": "hamburger sv",
+
         "hertha": "hertha bsc",
         "hertha bsc": "hertha bsc",
     }
 
     target = aliases.get(search, search)
 
-    # Erst alle drei Ligen durchsuchen.
     for league, league_name in LEAGUES.items():
 
         teams = get_teams(league)
 
         for team in teams:
+
             team_name = (
                 team.get("teamName")
                 or team.get("name")
@@ -150,46 +157,67 @@ def find_team(club_name):
                 return {
                     "team": team,
                     "league": league,
-                    "leagueName": league_name
+                    "leagueName": league_name,
                 }
 
             # Enthält-Treffer
-            if target in normalized or normalized in target:
+            if (
+                target in normalized
+                or normalized in target
+            ):
                 return {
                     "team": team,
                     "league": league,
-                    "leagueName": league_name
+                    "leagueName": league_name,
                 }
 
     return None
 
 
 # ---------------------------------------------------------
-# Nächstes Spiel
+# Saisonspiele
 # ---------------------------------------------------------
 
 FIXTURE_CACHE = {}
 
 
-def get_next_fixture(team_name, league):
+def get_team_matches(team_name, league):
     """
-    Holt alle Saisonspiele des Vereins und gibt
-    das nächste noch nicht vergangene Spiel zurück.
+    Holt alle Saisonspiele des Vereins.
+    Die Daten werden zwischengespeichert,
+    damit die API nicht unnötig oft aufgerufen wird.
     """
 
     cache_key = f"{league}:{team_name}"
 
     if cache_key in FIXTURE_CACHE:
-        matches = FIXTURE_CACHE[cache_key]
-    else:
-        matches = openligadb_get(
-            f"/getmatchdata/"
-            f"{league}/"
-            f"{CURRENT_SEASON}/"
-            f"{quote(team_name)}"
-        )
+        return FIXTURE_CACHE[cache_key]
 
-        FIXTURE_CACHE[cache_key] = matches or []
+    matches = openligadb_get(
+        f"/getmatchdata/"
+        f"{league}/"
+        f"{CURRENT_SEASON}/"
+        f"{quote(team_name)}"
+    )
+
+    FIXTURE_CACHE[cache_key] = matches or []
+
+    return FIXTURE_CACHE[cache_key]
+
+
+# ---------------------------------------------------------
+# Nächstes Spiel
+# ---------------------------------------------------------
+
+def get_next_fixture(team_name, league):
+    """
+    Gibt das nächste noch nicht vergangene Spiel zurück.
+    """
+
+    matches = get_team_matches(
+        team_name,
+        league,
+    )
 
     now = datetime.now(timezone.utc)
 
@@ -197,15 +225,21 @@ def get_next_fixture(team_name, league):
 
     for match in matches:
 
-        match_date = match.get("matchDateTimeUTC")
+        match_date = match.get(
+            "matchDateTimeUTC"
+        )
 
         if not match_date:
             continue
 
         try:
             match_datetime = datetime.fromisoformat(
-                match_date.replace("Z", "+00:00")
+                match_date.replace(
+                    "Z",
+                    "+00:00",
+                )
             )
+
         except ValueError:
             continue
 
@@ -218,7 +252,7 @@ def get_next_fixture(team_name, league):
     upcoming.sort(
         key=lambda match: match.get(
             "matchDateTimeUTC",
-            ""
+            "",
         )
     )
 
@@ -226,53 +260,290 @@ def get_next_fixture(team_name, league):
 
 
 # ---------------------------------------------------------
+# Letzte Spiele / Form
+# ---------------------------------------------------------
+
+def get_final_score(match):
+    """
+    Holt das Endergebnis eines abgeschlossenen Spiels.
+
+    OpenLigaDB kennzeichnet das Endergebnis
+    mit resultTypeID == 2.
+    """
+
+    results = match.get(
+        "matchResults",
+        [],
+    )
+
+    for result in results:
+
+        if result.get("resultTypeID") == 2:
+            return (
+                result.get("pointsTeam1"),
+                result.get("pointsTeam2"),
+            )
+
+    # Fallback: falls resultTypeID nicht vorhanden ist,
+    # nehmen wir das letzte vorhandene Ergebnis.
+    if results:
+
+        result = results[-1]
+
+        return (
+            result.get("pointsTeam1"),
+            result.get("pointsTeam2"),
+        )
+
+    return None, None
+
+
+def get_recent_form(team_name, league, limit=5):
+    """
+    Berechnet die letzten abgeschlossenen Spiele
+    des Vereins.
+
+    Rückgabe:
+        last5
+        wins
+        draws
+        losses
+        points
+        form
+    """
+
+    matches = get_team_matches(
+        team_name,
+        league,
+    )
+
+    now = datetime.now(timezone.utc)
+
+    finished_matches = []
+
+    for match in matches:
+
+        match_date = match.get(
+            "matchDateTimeUTC"
+        )
+
+        if not match_date:
+            continue
+
+        try:
+            match_datetime = datetime.fromisoformat(
+                match_date.replace(
+                    "Z",
+                    "+00:00",
+                )
+            )
+
+        except ValueError:
+            continue
+
+        # Nur Spiele aus der Vergangenheit
+        if match_datetime >= now:
+            continue
+
+        team1 = match.get(
+            "team1",
+            {},
+        )
+
+        team2 = match.get(
+            "team2",
+            {},
+        )
+
+        team1_name = team1.get(
+            "teamName",
+            "",
+        )
+
+        team2_name = team2.get(
+            "teamName",
+            "",
+        )
+
+        points1, points2 = get_final_score(
+            match
+        )
+
+        # Kein Endergebnis vorhanden
+        if points1 is None or points2 is None:
+            continue
+
+        team_lower = team_name.lower()
+
+        if team1_name.lower() == team_lower:
+            own_goals = points1
+            opponent_goals = points2
+            opponent = team2_name
+
+        elif team2_name.lower() == team_lower:
+            own_goals = points2
+            opponent_goals = points1
+            opponent = team1_name
+
+        else:
+            # Fallback bei leicht abweichenden Namen
+            if team_lower in team1_name.lower():
+                own_goals = points1
+                opponent_goals = points2
+                opponent = team2_name
+
+            elif team_lower in team2_name.lower():
+                own_goals = points2
+                opponent_goals = points1
+                opponent = team1_name
+
+            else:
+                continue
+
+        if own_goals > opponent_goals:
+            result = "Sieg"
+            points = 3
+
+        elif own_goals == opponent_goals:
+            result = "Unentschieden"
+            points = 1
+
+        else:
+            result = "Niederlage"
+            points = 0
+
+        finished_matches.append(
+            {
+                "date": match_date[:10],
+                "opponent": opponent,
+                "result": result,
+                "goalsFor": own_goals,
+                "goalsAgainst": opponent_goals,
+                "points": points,
+            }
+        )
+
+    # Neueste Spiele zuerst
+    finished_matches.sort(
+        key=lambda match: match["date"],
+        reverse=True,
+    )
+
+    last5 = finished_matches[:limit]
+
+    wins = sum(
+        1
+        for match in last5
+        if match["result"] == "Sieg"
+    )
+
+    draws = sum(
+        1
+        for match in last5
+        if match["result"] == "Unentschieden"
+    )
+
+    losses = sum(
+        1
+        for match in last5
+        if match["result"] == "Niederlage"
+    )
+
+    points = sum(
+        match["points"]
+        for match in last5
+    )
+
+    if not last5:
+        form = "Keine Daten"
+
+    elif points >= 10:
+        form = "Sehr gut"
+
+    elif points >= 7:
+        form = "Gut"
+
+    elif points >= 4:
+        form = "Mittel"
+
+    else:
+        form = "Schwach"
+
+    return {
+        "last5": last5,
+        "wins": wins,
+        "draws": draws,
+        "losses": losses,
+        "points": points,
+        "form": form,
+    }
+
+
+# ---------------------------------------------------------
 # Heim / Auswärts + Gegner
 # ---------------------------------------------------------
 
-def get_fixture_information(fixture, team_name):
+def get_fixture_information(
+    fixture,
+    team_name,
+):
+
     if not fixture:
         return {
             "opponent": None,
-            "homeAway": None
+            "homeAway": None,
         }
 
-    home = fixture.get("team1", {})
-    away = fixture.get("team2", {})
+    home = fixture.get(
+        "team1",
+        {},
+    )
 
-    home_name = home.get("teamName", "")
-    away_name = away.get("teamName", "")
+    away = fixture.get(
+        "team2",
+        {},
+    )
+
+    home_name = home.get(
+        "teamName",
+        "",
+    )
+
+    away_name = away.get(
+        "teamName",
+        "",
+    )
 
     team_lower = team_name.lower()
 
     if home_name.lower() == team_lower:
         return {
             "opponent": away_name,
-            "homeAway": "Heim"
+            "homeAway": "Heim",
         }
 
     if away_name.lower() == team_lower:
         return {
             "opponent": home_name,
-            "homeAway": "Auswärts"
+            "homeAway": "Auswärts",
         }
 
-    # Fallback, falls OpenLigaDB den Vereinsnamen
-    # etwas anders schreibt.
+    # Fallback
     if team_lower in home_name.lower():
         return {
             "opponent": away_name,
-            "homeAway": "Heim"
+            "homeAway": "Heim",
         }
 
     if team_lower in away_name.lower():
         return {
             "opponent": home_name,
-            "homeAway": "Auswärts"
+            "homeAway": "Auswärts",
         }
 
     return {
         "opponent": None,
-        "homeAway": None
+        "homeAway": None,
     }
 
 
@@ -280,28 +551,30 @@ def get_fixture_information(fixture, team_name):
 # Player Intelligence
 # ---------------------------------------------------------
 
-def update_player(player_id, player_data):
-    """
-    Aktualisiert einen einzelnen Spieler.
+def update_player(
+    player_id,
+    player_data,
+):
 
-    Wichtig:
-    Wir überschreiben nicht unnötig vorhandene
-    Intelligence-Daten.
-    """
-
-    club_name = player_data.get("club")
+    club_name = player_data.get(
+        "club"
+    )
 
     if not club_name:
         print(
-            f"  Kein Verein für {player_id} gefunden."
+            f"  Kein Verein für "
+            f"{player_id} gefunden."
         )
+
         return player_data
 
     print(
         f"  Verein: {club_name}"
     )
 
-    found = find_team(club_name)
+    found = find_team(
+        club_name
+    )
 
     if not found:
         print(
@@ -311,7 +584,7 @@ def update_player(player_id, player_data):
 
         intelligence = player_data.setdefault(
             "intelligence",
-            {}
+            {},
         )
 
         intelligence["opponent"] = None
@@ -334,19 +607,32 @@ def update_player(player_id, player_data):
         f"({league_name})"
     )
 
+    # -----------------------------------------------------
+    # Nächstes Spiel
+    # -----------------------------------------------------
+
     fixture = get_next_fixture(
         team_name,
-        league
+        league,
     )
 
     fixture_info = get_fixture_information(
         fixture,
-        team_name
+        team_name,
+    )
+
+    # -----------------------------------------------------
+    # Form
+    # -----------------------------------------------------
+
+    form = get_recent_form(
+        team_name,
+        league,
     )
 
     intelligence = player_data.setdefault(
         "intelligence",
-        {}
+        {},
     )
 
     # Nächstes Spiel
@@ -358,10 +644,15 @@ def update_player(player_id, player_data):
         fixture_info["homeAway"]
     )
 
-    # Verletzung / Sperre können wir mit
-    # OpenLigaDB nicht seriös liefern.
+    # Form der Mannschaft
+    intelligence["form"] = form
+
+    # Verletzungen / Sperren
     #
-    # Deshalb NICHT erfinden.
+    # OpenLigaDB liefert diese Informationen
+    # nicht zuverlässig.
+    #
+    # Deshalb nichts erfinden.
     if "injury" not in intelligence:
         intelligence["injury"] = None
 
@@ -374,20 +665,22 @@ def update_player(player_id, player_data):
             "title": (
                 f"OpenLigaDB – "
                 f"{league_name} "
-                f"{CURRENT_SEASON}/{str(CURRENT_SEASON + 1)[-2:]}"
+                f"{CURRENT_SEASON}/"
+                f"{str(CURRENT_SEASON + 1)[-2:]}"
             ),
             "url": (
                 "https://www.openligadb.de/"
             ),
             "date": datetime.now(
                 timezone.utc
-            ).strftime("%Y-%m-%d")
+            ).strftime("%Y-%m-%d"),
         }
     ]
 
     intelligence["lastUpdated"] = (
-        datetime.now(timezone.utc)
-        .strftime("%Y-%m-%d")
+        datetime.now(
+            timezone.utc
+        ).strftime("%Y-%m-%d")
     )
 
     return player_data
@@ -411,6 +704,7 @@ def main():
             "Keine Spieler in "
             "player-intelligence.json gefunden."
         )
+
         return
 
     print(
@@ -427,27 +721,32 @@ def main():
         )
 
         try:
+
             update_player(
                 player_id,
-                player_data
+                player_data,
             )
 
             updated += 1
 
         except Exception as error:
+
             print(
-                f"  Fehler bei {player_id}: "
+                f"  Fehler bei "
+                f"{player_id}: "
                 f"{error}"
             )
 
     save_intelligence(data)
 
     print(
-        f"\nFertig. {updated} Spieler verarbeitet."
+        f"\nFertig. "
+        f"{updated} Spieler verarbeitet."
     )
 
     print(
-        "player-intelligence.json wurde aktualisiert."
+        "player-intelligence.json "
+        "wurde aktualisiert."
     )
 
 
