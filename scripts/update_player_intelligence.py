@@ -484,36 +484,58 @@ def main():
     if "teams" not in data:
         data["teams"] = {}
 
+    successful = 0
+
     for team_config in TEAMS:
-        print(
-            f"\nVerarbeite: {team_config['name']}"
-        )
+        team_name = team_config["name"]
+
+        print(f"\nVerarbeite: {team_name}")
 
         try:
             intelligence = build_team_intelligence(
                 team_config
             )
 
-            if intelligence:
-                key = team_config["name"].lower()
+            if intelligence is None:
+                print(
+                    f"KEINE DATEN für {team_name}"
+                )
+                continue
 
-                data["teams"][key] = intelligence
+            key = team_name.lower()
+
+            data["teams"][key] = intelligence
+
+            successful += 1
+
+            print(
+                f"OK: {team_name} gespeichert."
+            )
 
         except Exception as error:
             print(
-                f"Fehler bei {team_config['name']}: "
-                f"{error}"
+                f"FEHLER bei {team_name}: {error}"
             )
 
     data["lastUpdated"] = datetime.now(
         timezone.utc
     ).strftime("%Y-%m-%d")
 
+    if successful == 0:
+        raise RuntimeError(
+            "Kein einziger Verein konnte "
+            "aktualisiert werden."
+        )
+
     save_intelligence(data)
 
     print(
-        "\nplayer-intelligence.json wurde "
-        "erfolgreich aktualisiert."
+        f"\n{successful} Verein(e) erfolgreich "
+        "aktualisiert."
+    )
+    print(
+        "player-intelligence.json wurde "
+        "aktualisiert."
     )
 
 
