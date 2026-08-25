@@ -69,29 +69,48 @@ def save_intelligence(data):
 
 
 def find_team(team_name, league):
-    """Team anhand des Namens in OpenLigaDB finden."""
+    """
+    Team über die kostenlosen OpenLigaDB-Spieldaten finden.
 
-    teams = openligadb_get(
-        f"/getavailableteams/{league}/{CURRENT_SEASON}"
+    Wir verwenden bewusst getmatchdata mit Teamfilter,
+    weil OpenLigaDB hier auch Teilnamen akzeptiert.
+    """
+
+    matches = openligadb_get(
+        f"/getmatchdata/{league}/{CURRENT_SEASON}/{quote(team_name)}"
     )
 
-    if not teams:
+    if not matches:
         return None
 
     wanted = team_name.lower()
 
-    for team in teams:
-        name = team.get("teamName", "")
+    for match in matches:
+        for key in ("team1", "team2"):
+            team = match.get(key, {})
 
-        if name.lower() == wanted:
-            return team
+            official_name = team.get("teamName", "")
 
-    # Falls der exakte Name abweicht:
-    for team in teams:
-        name = team.get("teamName", "").lower()
+            if not official_name:
+                continue
 
-        if wanted in name or name in wanted:
-            return team
+            if official_name.lower() == wanted:
+                return team
+
+    # Falls der offizielle Name etwas anders geschrieben ist
+    for match in matches:
+        for key in ("team1", "team2"):
+            team = match.get(key, {})
+
+            official_name = team.get("teamName", "")
+
+            if not official_name:
+                continue
+
+            name_lower = official_name.lower()
+
+            if wanted in name_lower or name_lower in wanted:
+                return team
 
     return None
 
