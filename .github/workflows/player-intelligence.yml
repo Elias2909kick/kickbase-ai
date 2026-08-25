@@ -21,6 +21,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Python-Abhängigkeiten installieren
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
       - name: Player Intelligence aktualisieren
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
