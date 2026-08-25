@@ -653,21 +653,8 @@ const PLAYER_DATABASE = {
 kristof: {
   name: "Kristof",
   club: "Elversberg",
-  position: "TW",
-intelligence: {
-  average: null,
-  starting: null,
-  form: null,
-  opponent: null,
-  homeAway: null,
-  injury: null,
-  suspension: null,
-  recommendation: null,
-
-  sources: [],
-  lastUpdated: null
-}
-  },
+  position: "TW"
+},
   mueller: {
     name: "Müller",
     club: "Schalke",
@@ -964,6 +951,25 @@ const intelHomeAway = document.getElementById("intelHomeAway");
 const intelInjury = document.getElementById("intelInjury");
 const intelSuspension = document.getElementById("intelSuspension");
 const intelRecommendation = document.getElementById("intelRecommendation");
+  let PLAYER_INTELLIGENCE = {};
+
+async function loadPlayerIntelligence(){
+  try{
+    const response = await fetch("player-intelligence.json");
+
+    if(!response.ok){
+      throw new Error("Player Intelligence konnte nicht geladen werden.");
+    }
+
+    PLAYER_INTELLIGENCE = await response.json();
+  }catch(error){
+    console.error("Fehler beim Laden der Player Intelligence:", error);
+    PLAYER_INTELLIGENCE = {};
+  }
+}
+
+loadPlayerIntelligence();
+
 function openPlayerModal(id){
   const data = getPlayerData(id);
   const entry = CURRENT_ROSTER.find(player => player.id === id);
@@ -974,7 +980,7 @@ function openPlayerModal(id){
   modalClub.textContent = data.club;
   modalPosition.textContent = data.position;
   modalValue.textContent = entry.value;
-const intel = data.intelligence || {};
+const intel = PLAYER_INTELLIGENCE[id] || {};
 
 intelAverage.textContent = intel.average ?? "Noch nicht recherchiert";
 intelStarting.textContent = intel.starting ?? "Noch nicht recherchiert";
