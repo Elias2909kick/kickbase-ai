@@ -32,6 +32,10 @@
       "injury": "mittel",
       "suspension": "mittel",
       "recommendation": "mittel"
+    },
+    "intelligence": {
+      "opponent": null,
+      "homeAway": null
     }
   }
 }
