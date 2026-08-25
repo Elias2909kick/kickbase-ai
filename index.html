@@ -663,7 +663,6 @@ kristof: {
     injury: "Keine Angabe",
     suspension: "Keine Angabe",
     recommendation: "Beobachten"
-}
   }
   },
   mueller: {
@@ -895,8 +894,9 @@ function renderRoster(){
 
   POSITION_ORDER.forEach(position => {
 const players = CURRENT_ROSTER.filter(entry => {
-    return getPlayerData(entry.id);
-});
+      const data = getPlayerData(entry.id);
+      return data && data.position === position;
+    });
 
     if(!players.length) return;
 
