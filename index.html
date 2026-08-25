@@ -11,7 +11,7 @@
 .wrap{max-width:760px;margin:auto;padding:18px 14px 50px}
 .hero{background:#111827;color:white;border-radius:28px;padding:26px 22px;margin-bottom:16px}
 .hero h1{font-size:32px;margin:0 0 6px}.hero p{margin:0;color:#c7cbd4}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--card);border-radius:20px;padding:18px;box-shadow:0 3px 12px #0000000a}.stat small{color:var(--muted);font-size:14px}.stat strong{display:block;font-size:23px;margin-top:5px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--card);border-radius:20px;padding:18px;box-shadow:0 3px 12px #0000000a}.stat small{color:var(--muted);font-size:14px}.stat strong{display:block;font-size:23px;margin-top:5px;line-height:1.12;overflow-wrap:anywhere}
 .card{background:var(--card);border-radius:24px;padding:20px;margin-top:16px;box-shadow:0 3px 12px #0000000a}
 .row{display:flex;justify-content:space-between;align-items:center;gap:12px}.row h2{margin:0;font-size:23px}
 button{border:0;border-radius:15px;padding:12px 16px;background:#111827;color:white;font-weight:700;font-size:15px}button.secondary{background:#e5e7eb;color:#111827}
@@ -93,12 +93,13 @@ const initial = {
 let data = JSON.parse(localStorage.getItem("kbai_v2") || "null") || initial;
 
 function euro(n){return new Intl.NumberFormat("de-DE",{maximumFractionDigits:0}).format(n)+" €"}
+function mio(n){return new Intl.NumberFormat("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2}).format(n/1000000)+" Mio. €"}
 function dateDE(s){if(!s)return "–";let [y,m,d]=s.split("-");return `${d}.${m}.${y}`}
 function save(){localStorage.setItem("kbai_v2",JSON.stringify(data))}
 function toggle(id){document.getElementById(id).classList.toggle("open")}
 function render(){
- document.getElementById("squadValue").textContent=euro(data.players.reduce((a,p)=>a+(+p.value||0),0)/1e6).replace(" €"," Mio. €");
- document.getElementById("cash").textContent=euro(data.cash);
+ document.getElementById("squadValue").textContent=mio(data.players.reduce((a,p)=>a+(+p.value||0),0));
+ document.getElementById("cash").textContent=mio(data.cash);
  document.getElementById("cash").className=data.cash<0?"negative":"";
  document.getElementById("count").textContent=data.players.length+" / 18";
  document.getElementById("updated").textContent=dateDE(data.updated);
