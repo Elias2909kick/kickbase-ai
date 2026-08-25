@@ -2883,11 +2883,1228 @@
         "name": "OpenLigaDB + API-Football",
         "url": "https://www.openligadb.de/"
       }
+    },
+    "1. FC Köln": {
+      "club": "1. FC Köln",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "TSG Hoffenheim",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "TSG Hoffenheim",
+        "homeAway": "Heim"
+      }
+    },
+    "1. FC Union Berlin": {
+      "club": "1. FC Union Berlin",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "Eintracht Frankfurt",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "Eintracht Frankfurt",
+        "homeAway": "Heim"
+      }
+    },
+    "1. FSV Mainz 05": {
+      "club": "1. FSV Mainz 05",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "SC Paderborn 07",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "SC Paderborn 07",
+        "homeAway": "Heim"
+      }
+    },
+    "Bayer 04 Leverkusen": {
+      "club": "Bayer 04 Leverkusen",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "SV 07 Elversberg",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "SV 07 Elversberg",
+        "homeAway": "Auswärts"
+      }
+    },
+    "Borussia Dortmund": {
+      "club": "Borussia Dortmund",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "Hamburger SV",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [
+        {
+          "id": 26395,
+          "name": "P. Drewes",
+          "age": 32,
+          "number": 30,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/26395.png",
+          "injury": null
+        },
+        {
+          "id": 25282,
+          "name": "G. Kobel",
+          "age": 28,
+          "number": 1,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/25282.png",
+          "injury": null
+        },
+        {
+          "id": 26292,
+          "name": "A. Meyer",
+          "age": 34,
+          "number": 33,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/26292.png",
+          "injury": null
+        },
+        {
+          "id": 280463,
+          "name": "S. Ostrzinski",
+          "age": 22,
+          "number": 31,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/280463.png",
+          "injury": null
+        },
+        {
+          "id": 25368,
+          "name": "W. Anton",
+          "age": 29,
+          "number": 3,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/25368.png",
+          "injury": null
+        },
+        {
+          "id": 420351,
+          "name": "Elias  Benkara",
+          "age": 18,
+          "number": 47,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/420351.png",
+          "injury": null
+        },
+        {
+          "id": 2194,
+          "name": "R. Bensebaïni",
+          "age": 30,
+          "number": 5,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/2194.png",
+          "injury": null
+        },
+        {
+          "id": 409215,
+          "name": "Kouakou Joane Gadou",
+          "age": 18,
+          "number": 22,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/409215.png",
+          "injury": null
+        },
+        {
+          "id": 341839,
+          "name": "F. Mané",
+          "age": 20,
+          "number": 39,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/341839.png",
+          "injury": null
+        },
+        {
+          "id": 507692,
+          "name": "Kauã Prates",
+          "age": 17,
+          "number": 36,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/507692.png",
+          "injury": null
+        },
+        {
+          "id": 568225,
+          "name": "L. Reggiani",
+          "age": 17,
+          "number": 49,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/568225.png",
+          "injury": null
+        },
+        {
+          "id": 24845,
+          "name": "J. Ryerson",
+          "age": 28,
+          "number": 26,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/24845.png",
+          "injury": null
+        },
+        {
+          "id": 26243,
+          "name": "N. Schlotterbeck",
+          "age": 26,
+          "number": 4,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/26243.png",
+          "injury": null
+        },
+        {
+          "id": 158053,
+          "name": "A. Azhil",
+          "age": 24,
+          "number": 46,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/158053.png",
+          "injury": null
+        },
+        {
+          "id": 326757,
+          "name": "J. Bellingham",
+          "age": 20,
+          "number": 7,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/326757.png",
+          "injury": null
+        },
+        {
+          "id": 864,
+          "name": "E. Can",
+          "age": 31,
+          "number": 23,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/864.png",
+          "injury": null
+        },
+        {
+          "id": 138935,
+          "name": "C. Chukwuemeka",
+          "age": 22,
+          "number": 17,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/138935.png",
+          "injury": null
+        },
+        {
+          "id": 478991,
+          "name": "S. Inacio",
+          "age": 17,
+          "number": 40,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/478991.png",
+          "injury": null
+        },
+        {
+          "id": 404891,
+          "name": "K. Karetsas",
+          "age": 18,
+          "number": 19,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/404891.png",
+          "injury": null
+        },
+        {
+          "id": 162410,
+          "name": "G. Konstantelias",
+          "age": 22,
+          "number": 45,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/162410.png",
+          "injury": null
+        },
+        {
+          "id": 568733,
+          "name": "J. Lerma",
+          "age": 17,
+          "number": 53,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/568733.png",
+          "injury": null
+        },
+        {
+          "id": 637,
+          "name": "F. Nmecha",
+          "age": 25,
+          "number": 8,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/637.png",
+          "injury": null
+        },
+        {
+          "id": 1159,
+          "name": "M. Sabitzer",
+          "age": 31,
+          "number": 20,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/1159.png",
+          "injury": null
+        },
+        {
+          "id": 198654,
+          "name": "D. Svensson",
+          "age": 23,
+          "number": 24,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/198654.png",
+          "injury": null
+        },
+        {
+          "id": 37749,
+          "name": "J. Veerman",
+          "age": 27,
+          "number": 25,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/37749.png",
+          "injury": null
+        },
+        {
+          "id": 568612,
+          "name": "T. Yamamoto",
+          "age": 18,
+          "number": 36,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/568612.png",
+          "injury": null
+        },
+        {
+          "id": 486522,
+          "name": "M. Albert",
+          "age": 16,
+          "number": 41,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/486522.png",
+          "injury": null
+        },
+        {
+          "id": 158644,
+          "name": "M. Beier",
+          "age": 23,
+          "number": 14,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/158644.png",
+          "injury": null
+        },
+        {
+          "id": 21393,
+          "name": "S. Guirassy",
+          "age": 29,
+          "number": 9,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/21393.png",
+          "injury": null
+        },
+        {
+          "id": 129791,
+          "name": "Fábio Silva",
+          "age": 24,
+          "number": 21,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/129791.png",
+          "injury": null
+        }
+      ],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "Hamburger SV",
+        "homeAway": "Heim"
+      }
+    },
+    "Borussia Mönchengladbach": {
+      "club": "Borussia Mönchengladbach",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "RB Leipzig",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [
+        {
+          "id": 90829,
+          "name": "D. Batz",
+          "age": 34,
+          "number": 33,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/90829.png",
+          "injury": null
+        },
+        {
+          "id": 25626,
+          "name": "M. Nicolas",
+          "age": 28,
+          "number": 1,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/25626.png",
+          "injury": null
+        },
+        {
+          "id": 178405,
+          "name": "J. Olschowsky",
+          "age": 24,
+          "number": 23,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/178405.png",
+          "injury": null
+        },
+        {
+          "id": 25627,
+          "name": "T. Sippel",
+          "age": 37,
+          "number": 21,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/25627.png",
+          "injury": null
+        },
+        {
+          "id": 322627,
+          "name": "F. Chiarodia",
+          "age": 20,
+          "number": 2,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/322627.png",
+          "injury": null
+        },
+        {
+          "id": 31043,
+          "name": "K. Diks",
+          "age": 29,
+          "number": 4,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/31043.png",
+          "injury": null
+        },
+        {
+          "id": 2803,
+          "name": "N. Elvedi",
+          "age": 29,
+          "number": 30,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/2803.png",
+          "injury": null
+        },
+        {
+          "id": 585708,
+          "name": "E. Fard",
+          "age": 17,
+          "number": null,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/585708.png",
+          "injury": null
+        },
+        {
+          "id": 33095,
+          "name": "D. Hashioka",
+          "age": 26,
+          "number": 14,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/33095.png",
+          "injury": null
+        },
+        {
+          "id": 162536,
+          "name": "D. Herold",
+          "age": 22,
+          "number": 20,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/162536.png",
+          "injury": null
+        },
+        {
+          "id": 125418,
+          "name": "Y. Konoplya",
+          "age": 26,
+          "number": 26,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/125418.png",
+          "injury": null
+        },
+        {
+          "id": 462217,
+          "name": "J. Leszczyński",
+          "age": 18,
+          "number": 5,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/462217.png",
+          "injury": null
+        },
+        {
+          "id": 50852,
+          "name": "J. Scally",
+          "age": 23,
+          "number": 29,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/50852.png",
+          "injury": null
+        },
+        {
+          "id": 327646,
+          "name": "L. Ullrich",
+          "age": 21,
+          "number": 26,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/327646.png",
+          "injury": null
+        },
+        {
+          "id": 651914,
+          "name": "Simon Walde",
+          "age": 21,
+          "number": 45,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/651914.png",
+          "injury": null
+        },
+        {
+          "id": 335095,
+          "name": "H. Bolin",
+          "age": 22,
+          "number": 38,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/335095.png",
+          "injury": null
+        },
+        {
+          "id": 280358,
+          "name": "J. Castrop",
+          "age": 22,
+          "number": 17,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/280358.png",
+          "injury": null
+        },
+        {
+          "id": 178250,
+          "name": "E. Leopold",
+          "age": 25,
+          "number": 8,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/178250.png",
+          "injury": null
+        },
+        {
+          "id": 501906,
+          "name": "W. Mohya",
+          "age": 17,
+          "number": 36,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/501906.png",
+          "injury": null
+        },
+        {
+          "id": 25638,
+          "name": "F. Neuhaus",
+          "age": 28,
+          "number": 10,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/25638.png",
+          "injury": null
+        },
+        {
+          "id": 621893,
+          "name": "M. Nguefack",
+          "age": 18,
+          "number": 34,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/621893.png",
+          "injury": null
+        },
+        {
+          "id": 24969,
+          "name": "P. Sander",
+          "age": 27,
+          "number": 16,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/24969.png",
+          "injury": null
+        },
+        {
+          "id": 25461,
+          "name": "K. Stöger",
+          "age": 32,
+          "number": 7,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/25461.png",
+          "injury": null
+        },
+        {
+          "id": 351084,
+          "name": "Z. Uno",
+          "age": 22,
+          "number": 6,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/351084.png",
+          "injury": null
+        },
+        {
+          "id": 585705,
+          "name": "I. M. Danfa",
+          "age": 19,
+          "number": 39,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/585705.png",
+          "injury": null
+        },
+        {
+          "id": 585704,
+          "name": "F. Fleck",
+          "age": 18,
+          "number": 27,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/585704.png",
+          "injury": null
+        },
+        {
+          "id": 725,
+          "name": "R. Hack",
+          "age": 27,
+          "number": 25,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/725.png",
+          "injury": null
+        },
+        {
+          "id": 20784,
+          "name": "F. Honorat",
+          "age": 29,
+          "number": 9,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/20784.png",
+          "injury": null
+        },
+        {
+          "id": 26256,
+          "name": "T. Kleindienst",
+          "age": 30,
+          "number": 11,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/26256.png",
+          "injury": null
+        },
+        {
+          "id": 47895,
+          "name": "I. Lidberg",
+          "age": 27,
+          "number": 3,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/47895.png",
+          "injury": null
+        },
+        {
+          "id": 106851,
+          "name": "S. Machino",
+          "age": 26,
+          "number": 18,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/106851.png",
+          "injury": null
+        }
+      ],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "RB Leipzig",
+        "homeAway": "Auswärts"
+      }
+    },
+    "Eintracht Frankfurt": {
+      "club": "Eintracht Frankfurt",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "1. FC Union Berlin",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "1. FC Union Berlin",
+        "homeAway": "Auswärts"
+      }
+    },
+    "FC Augsburg": {
+      "club": "FC Augsburg",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Schalke 04",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "FC Schalke 04",
+        "homeAway": "Heim"
+      }
+    },
+    "FC Bayern München": {
+      "club": "FC Bayern München",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "VfB Stuttgart",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "VfB Stuttgart",
+        "homeAway": "Heim"
+      }
+    },
+    "FC Schalke 04": {
+      "club": "FC Schalke 04",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Augsburg",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "FC Augsburg",
+        "homeAway": "Auswärts"
+      }
+    },
+    "Hamburger SV": {
+      "club": "Hamburger SV",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Dortmund",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "Borussia Dortmund",
+        "homeAway": "Auswärts"
+      }
+    },
+    "RB Leipzig": {
+      "club": "RB Leipzig",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "Borussia Mönchengladbach",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "Borussia Mönchengladbach",
+        "homeAway": "Heim"
+      }
+    },
+    "SC Freiburg": {
+      "club": "SC Freiburg",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "SV Werder Bremen",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "SV Werder Bremen",
+        "homeAway": "Heim"
+      }
+    },
+    "SC Paderborn 07": {
+      "club": "SC Paderborn 07",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "1. FSV Mainz 05",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "1. FSV Mainz 05",
+        "homeAway": "Auswärts"
+      }
+    },
+    "SV 07 Elversberg": {
+      "club": "SV 07 Elversberg",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "Bayer 04 Leverkusen",
+      "homeAway": "Heim",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "Bayer 04 Leverkusen",
+        "homeAway": "Heim"
+      }
+    },
+    "SV Werder Bremen": {
+      "club": "SV Werder Bremen",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "SC Freiburg",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "SC Freiburg",
+        "homeAway": "Auswärts"
+      }
+    },
+    "TSG Hoffenheim": {
+      "club": "TSG Hoffenheim",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "1. FC Köln",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "1. FC Köln",
+        "homeAway": "Auswärts"
+      }
+    },
+    "VfB Stuttgart": {
+      "club": "VfB Stuttgart",
+      "season": "2026/27",
+      "league": "1. Bundesliga",
+      "average": null,
+      "starting": null,
+      "form": null,
+      "opponent": "FC Bayern München",
+      "homeAway": "Auswärts",
+      "injury": "Keine aktuelle Verletzungsmeldung gefunden",
+      "suspension": null,
+      "recommendation": "Nächstes Spiel vorhanden",
+      "players": [],
+      "sources": [
+        {
+          "title": "OpenLigaDB",
+          "url": "https://www.openligadb.de/",
+          "date": "2026-08-25"
+        },
+        {
+          "title": "API-Football",
+          "url": "https://www.api-football.com/",
+          "date": "2026-08-25"
+        }
+      ],
+      "lastUpdated": "2026-08-25",
+      "confidence": {
+        "squad": "mittel",
+        "injury": "mittel",
+        "starting": "niedrig",
+        "recommendation": "niedrig"
+      },
+      "intelligence": {
+        "opponent": "FC Bayern München",
+        "homeAway": "Auswärts"
+      }
     }
   },
   "lastUpdated": "2026-08-25",
-  "league": "Bundesliga",
-  "season": 2026,
-  "teamCount": 3,
+  "league": "1. Bundesliga",
+  "season": "2026/27",
+  "teamCount": 21,
   "playerCount": 101
 }
