@@ -341,8 +341,8 @@ for search_name in search_names:
         print(f"Treffer mit '{search_name}'")
         break
 
-if not candidates:
-    return None
+    if not candidates:
+        return None
 
     # Erst exakten Namen suchen
     for entry in candidates:
