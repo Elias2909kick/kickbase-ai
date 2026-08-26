@@ -623,33 +623,32 @@ score = len(
     & api_words
 )
 
-            if api_normalized == target:
-                score += 100
+if api_normalized == target:
+    score += 100
 
-            if (
-                target
-                in api_normalized
-            ):
-                score += 20
+if (
+    target
+    in api_normalized
+):
+    score += 20
 
-            if (
-                api_normalized
-                in target
-            ):
-                score += 20
+if (
+    api_normalized
+    in target
+):
+    score += 20
 
-            if (
-                api_normalized
-                == normalize_name(
-                    search_name
-                )
-            ):
-                score += 50
+if (
+    api_normalized
+    == normalize_name(
+        search_name
+    )
+):
+    score += 50
 
-            if score > best_score:
-
-                best_score = score
-                best_team = team
+if score > best_score:
+    best_score = score
+    best_team = team
 
         if best_team:
 
