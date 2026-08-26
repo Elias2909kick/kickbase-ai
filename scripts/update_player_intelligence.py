@@ -1,13 +1,11 @@
 import json
 import os
 import re
-import time
 import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
-from urllib.error import HTTPError, URLError
 
 # ============================================================
 # KONFIGURATION
@@ -16,843 +14,452 @@ from urllib.error import HTTPError, URLError
 BASE_DIR = Path(__file__).resolve().parent.parent
 INTELLIGENCE_FILE = BASE_DIR / "player-intelligence.json"
 
+API_URL = "https://v3.football.api-sports.io"
+API_KEY = os.environ.get("API_FOOTBALL_KEY")
+
 OPENLIGADB_URL = "https://api.openligadb.de"
-API_FOOTBALL_URL = "https://v3.football.api-sports.io"
-API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
+BUNDESLIGA_LEAGUE = "bl1"
 
-BUNDESLIGA_SHORTCUT = "bl1"
-CURRENT_SEASON = "2026/27"
-OPENLIGADB_SEASON = 2026
+# Bundesliga-Saison automatisch bestimmen:
+# August 2026 -> Saison 2026/27, Januar 2027 -> ebenfalls 2026/27.
+now = datetime.now(timezone.utc)
+CURRENT_SEASON = now.year if now.month >= 7 else now.year - 1
 
-# API-Football Free Plan:
-# maximal ein Request etwa alle 6.5 Sekunden.
-# Dadurch vermeiden wir HTTP 429.
-API_MIN_INTERVAL = 6.5
-_last_api_call = 0.0
-
-# ============================================================
-# DIE EXAKTEN 18 BUNDESLIGA-TEAMS
-# ============================================================
-
-BUNDESLIGA_TEAMS = [
-    "1. FC Köln",
-    "Bayer Leverkusen",
-    "FC Bayern München",
-    "Borussia Dortmund",
-    "Borussia Mönchengladbach",
-    "Eintracht Frankfurt",
-    "FC Augsburg",
-    "1. FSV Mainz 05",
-    "Hamburger SV",
-    "RB Leipzig",
-    "SC Freiburg",
-    "SC Paderborn 07",
-    "FC Schalke 04",
-    "SV Elversberg",
-    "TSG Hoffenheim",
-    "1. FC Union Berlin",
-    "VfB Stuttgart",
-    "SV Werder Bremen",
-]
-
-# API-Football-Namen/Suchvarianten.
-# Diese beeinflussen NICHT die Namen in unserer JSON-Datei.
-API_SEARCH_ALIASES = {
-    "1. FC Köln": [
-        "FC Koln",
-        "Koln",
-        "1 FC Koln",
-    ],
-    "Bayer Leverkusen": [
-        "Bayer 04 Leverkusen",
-        "Bayer Leverkusen",
-        "Leverkusen",
-    ],
-    "FC Bayern München": [
-        "Bayern Munich",
-        "Bayern Munchen",
-        "Bayern",
-    ],
-    "Borussia Dortmund": [
-        "Borussia Dortmund",
-        "Dortmund",
-    ],
-    "Borussia Mönchengladbach": [
-        "Borussia Monchengladbach",
-        "Monchengladbach",
-        "Gladbach",
-    ],
-    "Eintracht Frankfurt": [
-        "Eintracht Frankfurt",
-        "Frankfurt",
-    ],
-    "FC Augsburg": [
-        "FC Augsburg",
-        "Augsburg",
-    ],
-    "1. FSV Mainz 05": [
-        "FSV Mainz 05",
-        "Mainz 05",
-        "Mainz",
-    ],
-    "Hamburger SV": [
-        "Hamburger SV",
-        "Hamburg",
-        "HSV",
-    ],
-    "RB Leipzig": [
-        "RB Leipzig",
-        "Leipzig",
-    ],
-    "SC Freiburg": [
-        "SC Freiburg",
-        "Freiburg",
-    ],
-    "SC Paderborn 07": [
-        "SC Paderborn 07",
-        "Paderborn",
-    ],
-    "FC Schalke 04": [
-        "FC Schalke 04",
-        "Schalke 04",
-        "Schalke",
-    ],
-    "SV Elversberg": [
-        "SV Elversberg",
-        "Elversberg",
-    ],
-    "TSG Hoffenheim": [
-        "TSG Hoffenheim",
-        "Hoffenheim",
-    ],
-    "1. FC Union Berlin": [
-        "1. FC Union Berlin",
-        "Union Berlin",
-    ],
-    "VfB Stuttgart": [
-        "VfB Stuttgart",
-        "Stuttgart",
-    ],
-    "SV Werder Bremen": [
-        "SV Werder Bremen",
-        "Werder Bremen",
-        "Werder",
-    ],
+# Die 18 Teams der Bundesliga 2026/27.
+# Die offiziellen Bundesliga-Seiten führen für 2026/27 u. a. Schalke,
+# Elversberg und Paderborn als Aufsteiger und nicht Wolfsburg/Heidenheim/St. Pauli.
+TEAMS = {
+    "bayern": {
+        "name": "FC Bayern München",
+        "search": "FC Bayern Munich",
+    },
+    "dortmund": {
+        "name": "Borussia Dortmund",
+        "search": "Borussia Dortmund",
+    },
+    "leipzig": {
+        "name": "RB Leipzig",
+        "search": "RB Leipzig",
+    },
+    "stuttgart": {
+        "name": "VfB Stuttgart",
+        "search": "VfB Stuttgart",
+    },
+    "hoffenheim": {
+        "name": "TSG Hoffenheim",
+        "search": "TSG Hoffenheim",
+    },
+    "leverkusen": {
+        "name": "Bayer 04 Leverkusen",
+        "search": "Bayer Leverkusen",
+    },
+    "freiburg": {
+        "name": "Sport-Club Freiburg",
+        "search": "SC Freiburg",
+    },
+    "frankfurt": {
+        "name": "Eintracht Frankfurt",
+        "search": "Eintracht Frankfurt",
+    },
+    "augsburg": {
+        "name": "FC Augsburg",
+        "search": "FC Augsburg",
+    },
+    "mainz": {
+        "name": "1. FSV Mainz 05",
+        "search": "Mainz 05",
+    },
+    "union_berlin": {
+        "name": "1. FC Union Berlin",
+        "search": "Union Berlin",
+    },
+    "monchengladbach": {
+        "name": "Borussia Mönchengladbach",
+        "search": "Borussia Monchengladbach",
+    },
+    "hamburg": {
+        "name": "Hamburger SV",
+        "search": "Hamburg",
+    },
+    "koln": {
+        "name": "1. FC Köln",
+        "search": "FC Koln",
+    },
+    "bremen": {
+        "name": "SV Werder Bremen",
+        "search": "Werder Bremen",
+    },
+    "schalke": {
+        "name": "FC Schalke 04",
+        "search": "Schalke 04",
+    },
+    "elversberg": {
+        "name": "SV Elversberg",
+        "search": "Elversberg",
+    },
+    "paderborn": {
+        "name": "SC Paderborn 07",
+        "search": "Paderborn",
+    },
 }
-
 
 # ============================================================
 # ALLGEMEINE HILFSFUNKTIONEN
 # ============================================================
 
+
+def now_date():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+
 def normalize_name(value):
-    value = value or ""
-
-    value = unicodedata.normalize(
-        "NFKD",
-        str(value),
-    )
-
-    value = "".join(
-        char
-        for char in value
-        if not unicodedata.combining(char)
-    )
-
-    value = value.lower()
-    value = value.replace("&", " and ")
-
-    value = re.sub(
-        r"[^a-z0-9]+",
-        " ",
-        value,
-    )
-
-    return re.sub(
-        r"\s+",
-        " ",
-        value,
-    ).strip()
+    """Vergleich von Vereins-/Spielernamen ohne Umlaute/Akzente."""
+    value = str(value or "").lower().strip()
+    value = unicodedata.normalize("NFKD", value)
+    value = "".join(c for c in value if not unicodedata.combining(c))
+    value = value.replace("ß", "ss")
+    value = re.sub(r"[^a-z0-9 ]+", " ", value)
+    return re.sub(r"\s+", " ", value).strip()
 
 
-def names_match(a, b):
-    a = normalize_name(a)
-    b = normalize_name(b)
-
-    if not a or not b:
-        return False
-
-    return (
-        a == b
-        or a in b
-        or b in a
-    )
+def api_search_query(value):
+    """API-Football akzeptiert im search-Feld nur Buchstaben/Ziffern/Leerzeichen."""
+    return normalize_name(value)
 
 
-def http_get_json(
-    url,
-    headers=None,
-    timeout=30,
-):
-    request = Request(
-        url,
-        headers={
-            "User-Agent": "kickbase-ai/2.0",
-            "Accept": "application/json",
-            **(headers or {}),
-        },
-    )
-
-    with urlopen(
-        request,
-        timeout=timeout,
-    ) as response:
-
-        body = response.read().decode(
-            "utf-8"
-        )
-
-        return json.loads(body)
+def player_key(club_name, player_name):
+    value = normalize_name(f"{club_name} {player_name}")
+    return value.replace(" ", "_")
 
 
 # ============================================================
-# OPENLIGADB
+# JSON
 # ============================================================
 
-def openligadb_get(endpoint):
-    url = (
-        f"{OPENLIGADB_URL}/"
-        f"{endpoint.lstrip('/')}"
-    )
 
-    return http_get_json(url)
-
-
-def get_bundesliga_teams():
-    """
-    Wir verwenden bewusst die feste Liste.
-    Dadurch kommen exakt 18 Teams in die JSON-Datei.
-    """
-
-    return [
-        {
-            "teamName": team_name
-        }
-        for team_name in BUNDESLIGA_TEAMS
-    ]
-
-
-def get_bundesliga_matches():
-    """
-    Holt den Spielplan 2026/27 von OpenLigaDB.
-    """
+def load_intelligence():
+    if not INTELLIGENCE_FILE.exists():
+        return {}
 
     try:
-        matches = openligadb_get(
-            f"/getmatchdata/"
-            f"{BUNDESLIGA_SHORTCUT}/"
-            f"{OPENLIGADB_SEASON}"
-        )
-
-        if not matches:
-            return []
-
-        return matches
-
-    except Exception as exc:
-        print(
-            f"OpenLigaDB Fehler: {exc}"
-        )
-        return []
+        with INTELLIGENCE_FILE.open("r", encoding="utf-8") as file:
+            return json.load(file)
+    except (json.JSONDecodeError, OSError):
+        return {}
 
 
-def parse_match_datetime(match):
-    value = (
-        match.get("matchDateTimeUTC")
-        or match.get("matchDateTime")
-        or ""
-    )
-
-    if not value:
-        return None
-
-    try:
-        if value.endswith("Z"):
-            return datetime.fromisoformat(
-                value.replace(
-                    "Z",
-                    "+00:00",
-                )
-            )
-
-        dt = datetime.fromisoformat(value)
-
-        if dt.tzinfo is None:
-            dt = dt.replace(
-                tzinfo=timezone.utc
-            )
-
-        return dt
-
-    except ValueError:
-        return None
-
-
-def get_next_match_for_team(
-    team_name,
-    matches,
-):
-    """
-    Findet das nächste noch nicht gestartete
-    Spiel des Vereins.
-    """
-
-    now = datetime.now(
-        timezone.utc
-    )
-
-    upcoming = []
-
-    for match in matches:
-
-        match_date = (
-            parse_match_datetime(match)
-        )
-
-        if (
-            match_date is None
-            or match_date <= now
-        ):
-            continue
-
-        team1 = match.get(
-            "team1",
-            {},
-        )
-
-        team2 = match.get(
-            "team2",
-            {},
-        )
-
-        name1 = team1.get(
-            "teamName",
-            "",
-        )
-
-        name2 = team2.get(
-            "teamName",
-            "",
-        )
-
-        if not (
-            names_match(
-                team_name,
-                name1,
-            )
-            or names_match(
-                team_name,
-                name2,
-            )
-        ):
-            continue
-
-        if names_match(
-            team_name,
-            name1,
-        ):
-            opponent = name2
-            home_away = "Heim"
-        else:
-            opponent = name1
-            home_away = "Auswärts"
-
-        upcoming.append(
-            (
-                match_date,
-                opponent,
-                home_away,
-                match,
-            )
-        )
-
-    if not upcoming:
-        return None
-
-    upcoming.sort(
-        key=lambda item: item[0]
-    )
-
-    match_date, opponent, home_away, match = (
-        upcoming[0]
-    )
-
-    return {
-        "opponent": opponent,
-        "homeAway": home_away,
-        "dateTime": match_date.isoformat(),
-        "match": match,
-    }
+def save_intelligence(data):
+    with INTELLIGENCE_FILE.open("w", encoding="utf-8") as file:
+        json.dump(data, file, ensure_ascii=False, indent=2)
+        file.write("\n")
 
 
 # ============================================================
 # API-FOOTBALL
 # ============================================================
 
-def api_football_get(
-    endpoint,
-    params=None,
-):
-    """
-    Sicherer API-Football-Request.
 
-    Wichtig:
-    - mindestens 6.5 Sekunden zwischen Requests
-    - HTTP 429 wird nicht aggressiv wiederholt
-    - kein pip/requests nötig
-    """
-
-    global _last_api_call
-
-    if not API_FOOTBALL_KEY:
-        print(
-            "WARNUNG: "
-            "API_FOOTBALL_KEY fehlt."
-        )
-        return None
+def api_get(endpoint, params=None):
+    if not API_KEY:
+        raise RuntimeError("API_FOOTBALL_KEY fehlt in den GitHub Secrets.")
 
     params = params or {}
+    url = f"{API_URL}/{endpoint}"
 
-    elapsed = (
-        time.monotonic()
-        - _last_api_call
+    if params:
+        url += "?" + urlencode(params)
+
+    request = Request(
+        url,
+        headers={
+            "x-apisports-key": API_KEY,
+            "Accept": "application/json",
+        },
     )
-
-    if elapsed < API_MIN_INTERVAL:
-
-        wait = (
-            API_MIN_INTERVAL
-            - elapsed
-        )
-
-        print(
-            "API-Football Pause: "
-            f"{wait:.1f}s"
-        )
-
-        time.sleep(wait)
-
-    query = urlencode(params)
-
-    url = (
-        f"{API_FOOTBALL_URL}/"
-        f"{endpoint.lstrip('/')}"
-    )
-
-    if query:
-        url += f"?{query}"
 
     try:
+        with urlopen(request, timeout=30) as response:
+            data = json.loads(response.read().decode("utf-8"))
+    except Exception as error:
+        raise RuntimeError(f"API-Football Anfrage fehlgeschlagen: {error}") from error
 
-        _last_api_call = (
-            time.monotonic()
-        )
-
-        data = http_get_json(
-            url,
-            headers={
-                "x-apisports-key":
-                    API_FOOTBALL_KEY
-            },
-        )
-
-    except HTTPError as exc:
-
-        if exc.code == 429:
-            print(
-                "API-Football HTTP 429: "
-                "Rate Limit erreicht."
-            )
-        else:
-            print(
-                f"API-Football HTTP "
-                f"{exc.code}: {exc}"
-            )
-
-        return None
-
-    except (
-        URLError,
-        TimeoutError,
-        OSError,
-    ) as exc:
-
-        print(
-            "API-Football "
-            f"Netzwerkfehler: {exc}"
-        )
-
-        return None
-
-    except Exception as exc:
-
-        print(
-            f"API-Football Fehler: "
-            f"{exc}"
-        )
-
-        return None
-
-    errors = data.get(
-        "errors"
-    )
-
-    if errors:
-        print(
-            f"API-Football Fehler: "
-            f"{errors}"
-        )
-        return None
+    if data.get("errors"):
+        raise RuntimeError(f"API-Football Fehler: {data['errors']}")
 
     return data
 
 
-def find_api_football_team(
-    team_name,
-):
+def find_api_team(team_name, search_name=None):
     """
-    Sucht einen Verein bei API-Football.
+    Findet ein API-Football-Team.
 
-    Diese Suche wird nur gebraucht, wenn noch
-    keine API-Team-ID im vorherigen JSON gespeichert ist.
+    Wichtig: API-Football akzeptiert im search-Parameter keine Umlaute,
+    Punkte oder andere Sonderzeichen. Deshalb wird ausschließlich eine
+    bereinigte Suchzeichenkette an die API geschickt.
     """
+    queries = []
 
-    aliases = API_SEARCH_ALIASES.get(
-        team_name,
-        [team_name],
-    )
+    for candidate in (search_name, team_name):
+        query = api_search_query(candidate)
+        if query and query not in queries:
+            queries.append(query)
 
-    search_names = []
+    for query in queries:
+        data = api_get("teams", {"search": query})
+        matches = data.get("response", [])
 
-    for alias in aliases:
-
-        normalized = normalize_name(
-            alias
-        )
-
-        if (
-            normalized
-            and normalized not in search_names
-        ):
-            search_names.append(
-                normalized
-            )
-
-    print(
-        f"API-Suche für "
-        f"'{team_name}': "
-        f"{search_names}"
-    )
-
-    for search_name in search_names:
-
-        data = api_football_get(
-            "teams",
-            {
-                "search": search_name
-            },
-        )
-
-        if not data:
+        if not matches:
             continue
 
-        candidates = data.get(
-            "response",
-            [],
-        )
+        wanted = normalize_name(team_name)
 
-        if not candidates:
-            continue
+        # Exakte Namensübereinstimmung bevorzugen.
+        for entry in matches:
+            team = entry.get("team", {})
+            api_name = team.get("name", "")
+            if normalize_name(api_name) == wanted:
+                return team
 
-        target = normalize_name(
-            team_name
-        )
+        # Häufige API-Namen wie "Bayern Munich" / "FC Bayern Munich".
+        # Bei mehreren Treffern bevorzugen wir einen Treffer, dessen Name
+        # die Suchbegriffe enthält.
+        for entry in matches:
+            team = entry.get("team", {})
+            api_name = team.get("name", "")
+            normalized_api = normalize_name(api_name)
+            normalized_query = normalize_name(query)
 
-        target_words = set(
-            target.split()
-        )
+            if normalized_api and (
+                normalized_query in normalized_api
+                or normalized_api in normalized_query
+            ):
+                return team
 
-        best_team = None
-        best_score = -1
+        # Fallback: erster echter Team-Treffer.
+        for entry in matches:
+            team = entry.get("team", {})
+            if team.get("id") and team.get("name"):
+                return team
 
-        for entry in candidates:
-
-            team = entry.get(
-                "team",
-                {},
-            )
-
-            api_name = team.get(
-                "name",
-                "",
-            )
-
-            if not api_name:
-                continue
-# Frauenmannschaften ausschließen
-api_name_normalized = normalize_name(api_name)
-
-if (
-    api_name_normalized.endswith(" w")
-    or "women" in api_name_normalized.split()
-    or "femenino" in api_name_normalized.split()
-):
-    continue
-api_normalized = (
-    normalize_name(
-        api_name
-    )
-)
-
-api_words = set(
-    api_normalized.split()
-)
-
-score = len(
-    target_words
-    & api_words
-)
-
-if api_normalized == target:
-    score += 100
-
-if (
-    target
-    in api_normalized
-):
-    score += 20
-
-if (
-    api_normalized
-    in target
-):
-    score += 20
-
-if (
-    api_normalized
-    == normalize_name(
-        search_name
-    )
-):
-    score += 50
-
-if score > best_score:
-    best_score = score
-    best_team = team
-
-if best_team:
-    print(
-        "API-Football Team: "
-        f"{best_team.get('name')} "
-        f"(ID {best_team.get('id')})"
-    )
-    return best_team
-
-print(
-    "API-Football Team "
-    "nicht gefunden."
-)
-
-return None
+    return None
 
 
-def get_current_squad(
-    api_team_id,
-):
-    """
-    Holt den aktuellen Kader über:
-
-        /players/squads?team=ID
-
-    Dieser Endpoint benötigt keine Saison.
-    """
-
-    if not api_team_id:
-        return []
-
-    data = api_football_get(
-        "players/squads",
-        {
-            "team": api_team_id
-        },
-    )
-
-    if not data:
-
-        print(
-            "Keine Kader-Daten erhalten."
-        )
-
-        return []
-
-    response = data.get(
-        "response",
-        [],
-    )
+def get_team_squad(api_team_id):
+    """Aktuellen registrierten Kader holen; ohne season-Parameter."""
+    data = api_get("players/squads", {"team": api_team_id})
+    response = data.get("response", [])
 
     if not response:
-
-        print(
-            "API-Football liefert "
-            "keinen Kader."
-        )
-
         return []
 
-    squad = []
+    return response[0].get("players", [])
 
-    for entry in response:
 
-        players = entry.get(
-            "players",
-            [],
+def get_team_injuries(api_team_id):
+    """Aktuelle Verletzungen/Sperren; bewusst ohne season-Parameter."""
+    try:
+        data = api_get("injuries", {"team": api_team_id})
+        return data.get("response", [])
+    except Exception as error:
+        print(f"  Warnung: Verletzungsdaten nicht verfügbar: {error}")
+        return []
+
+
+# ============================================================
+# OPENLIGADB
+# ============================================================
+
+
+def openligadb_get(path):
+    url = f"{OPENLIGADB_URL}{path}"
+    request = Request(url, headers={"Accept": "application/json"})
+
+    with urlopen(request, timeout=30) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def get_next_match(*team_names):
+    """Nächstes Bundesliga-Spiel des Vereins aus OpenLigaDB."""
+    try:
+        matches = openligadb_get(
+            f"/getmatchdata/{BUNDESLIGA_LEAGUE}/{CURRENT_SEASON}"
         )
+    except Exception as error:
+        print(f"  Warnung: OpenLigaDB nicht erreichbar: {error}")
+        return None
 
-        if not players:
+    now_utc = datetime.now(timezone.utc)
+    wanted_names = [normalize_name(name) for name in team_names if name]
+    wanted_names = [name for name in wanted_names if name]
+    upcoming = []
+
+    for match in matches:
+        match_date = match.get("matchDateTimeUTC")
+        if not match_date:
             continue
 
-        for player in players:
+        try:
+            dt = datetime.fromisoformat(match_date.replace("Z", "+00:00"))
+        except ValueError:
+            continue
 
-            if not isinstance(
-                player,
-                dict,
-            ):
-                continue
+        if dt < now_utc:
+            continue
 
-            player_id = player.get(
-                "id"
+        team1 = match.get("team1", {})
+        team2 = match.get("team2", {})
+        name1 = team1.get("teamName", "")
+        name2 = team2.get("teamName", "")
+
+        normalized_name1 = normalize_name(name1)
+        normalized_name2 = normalize_name(name2)
+
+        def matches_any(candidate):
+            return any(
+                wanted == candidate
+                or wanted in candidate
+                or candidate in wanted
+                for wanted in wanted_names
             )
 
-            name = player.get(
-                "name"
-            )
+        if matches_any(normalized_name1) or matches_any(normalized_name2):
+            upcoming.append(match)
 
-            if not player_id or not name:
-                continue
+    if not upcoming:
+        return None
 
-            squad.append(
-                {
-                    "id": player_id,
-                    "name": name,
-                    "age": player.get(
-                        "age"
-                    ),
-                    "number": player.get(
-                        "number"
-                    ),
-                    "position": player.get(
-                        "position"
-                    ),
-                    "photo": player.get(
-                        "photo"
-                    ),
-                    "injury": None,
-                }
-            )
+    upcoming.sort(key=lambda item: item.get("matchDateTimeUTC", ""))
+    match = upcoming[0]
 
-    print(
-        "Kader geladen: "
-        f"{len(squad)} Spieler"
-    )
+    team1 = match.get("team1", {})
+    team2 = match.get("team2", {})
+    name1 = team1.get("teamName", "")
 
-    return squad
-
-
-# ============================================================
-# ALTE JSON LADEN
-# ============================================================
-
-def load_old_data():
-    """
-    Liest die alte JSON-Datei.
-
-    Wichtig:
-    Bereits gefundene API-Team-IDs werden wiederverwendet.
-    Dadurch müssen wir die Team-Suche nicht täglich
-    erneut ausführen.
-    """
-
-    if not INTELLIGENCE_FILE.exists():
-        return {}
-
-    try:
-
-        with INTELLIGENCE_FILE.open(
-            "r",
-            encoding="utf-8",
-        ) as file:
-
-            data = json.load(file)
-
-        return data.get(
-            "teams",
-            {},
-        )
-
-    except Exception as exc:
-
-        print(
-            "Alte player-intelligence.json "
-            "konnte nicht geladen werden: "
-            f"{exc}"
-        )
-
-        return {}
-
-
-# ============================================================
-# INTELLIGENCE
-# ============================================================
-
-def build_intelligence(
-    squad,
-    next_match,
-):
-    if next_match:
-
-        opponent = next_match.get(
-            "opponent"
-        )
-
-        home_away = next_match.get(
-            "homeAway"
-        )
-
-        recommendation = (
-            "Nächstes Spiel vorhanden"
-        )
-
+    if any(
+        wanted == normalize_name(name1)
+        or wanted in normalize_name(name1)
+        or normalize_name(name1) in wanted
+        for wanted in wanted_names
+    ):
+        opponent = team2.get("teamName")
+        home_away = "Heim"
     else:
-
-        opponent = None
-        home_away = None
-        recommendation = (
-            "Kein nächstes Spiel gefunden"
-        )
+        opponent = team1.get("teamName")
+        home_away = "Auswärts"
 
     return {
-        "average": None,
-        "starting": None,
-        "form": None,
         "opponent": opponent,
         "homeAway": home_away,
-        "injury": (
-            "Keine aktuelle "
-            "Verletzungsmeldung gefunden"
-        ),
-        "suspension": None,
-        "recommendation": recommendation,
-        "players": squad,
+        "matchDate": match.get("matchDateTimeUTC"),
+        "matchId": match.get("matchID"),
+    }
+
+
+# ============================================================
+# VERLETZUNG / SPERRE
+# ============================================================
+
+
+def find_player_status(player_id, injuries):
+    injury = None
+    suspension = None
+
+    for item in injuries:
+        player = item.get("player", {})
+
+        if player.get("id") != player_id:
+            continue
+
+        type_name = (
+            player.get("type")
+            or item.get("type")
+            or ""
+        )
+        reason = (
+            player.get("reason")
+            or item.get("reason")
+            or "Aktuelle Meldung"
+        )
+
+        if "susp" in str(type_name).lower():
+            suspension = reason
+        else:
+            injury = reason
+
+    return {
+        "injury": injury,
+        "suspension": suspension,
+    }
+
+
+def recommendation(injury, suspension):
+    if injury or suspension:
+        return "Nicht aufstellen"
+    return "Beobachten"
+
+
+# ============================================================
+# SPIELER-INTELLIGENCE
+# ============================================================
+
+
+def build_player_intelligence(player, club_name, next_match, status):
+    player_id = player.get("id")
+    name = player.get("name", "Unbekannter Spieler")
+    position = player.get("position")
+    number = player.get("number")
+
+    injury = status.get("injury")
+    suspension = status.get("suspension")
+
+    if injury or suspension:
+        starting = "Unwahrscheinlich"
+    else:
+        starting = None
+
+    return {
+        "id": player_id,
+        "name": name,
+        "club": club_name,
+        "position": position,
+        "number": number,
+        "starting": starting,
+        "form": None,
+        "opponent": next_match.get("opponent") if next_match else None,
+        "homeAway": next_match.get("homeAway") if next_match else None,
+        "injury": injury or "Keine aktuelle Verletzungsmeldung gefunden",
+        "suspension": suspension or "Keine aktuelle Sperrmeldung gefunden",
+        "recommendation": recommendation(injury, suspension),
+        "sources": [
+            {
+                "title": "API-Football",
+                "url": "https://www.api-football.com/",
+                "date": now_date(),
+            }
+        ],
+        "lastUpdated": now_date(),
+        "confidence": {
+            "starting": "niedrig" if starting is None else "hoch",
+            "injury": "hoch" if injury else "mittel",
+            "suspension": "hoch" if suspension else "mittel",
+            "recommendation": "mittel",
+        },
+    }
+
+
+def build_team_entry(team_key, club_name, api_team, next_match, player_count):
+    return {
+        "club": club_name,
+        "league": "Bundesliga",
+        "season": CURRENT_SEASON,
+        "apiFootballTeamId": api_team.get("id") if api_team else None,
+        "nextMatch": next_match,
+        "playerCount": player_count,
+        "lastUpdated": now_date(),
+        "source": {
+            "name": "OpenLigaDB + API-Football",
+            "url": "https://www.openligadb.de/",
+        },
     }
 
 
@@ -860,384 +467,154 @@ def build_intelligence(
 # HAUPTPROGRAMM
 # ============================================================
 
+
 def main():
+    print("Starte Bundesliga Multi-Team Player-Intelligence-Recherche...")
+    print(f"Saison: {CURRENT_SEASON}/{str(CURRENT_SEASON + 1)[-2:]}")
+    print(f"Teams: {len(TEAMS)}")
 
-    print("=" * 60)
-    print(
-        "Starte Bundesliga "
-        "Player-Intelligence..."
-    )
-    print("=" * 60)
+    data = load_intelligence()
+    if not isinstance(data, dict):
+        data = {}
 
-    print(
-        f"Saison: {CURRENT_SEASON}"
-    )
+    # Wir bauen die Bundesliga-Daten bei jedem Lauf neu auf.
+    # Dadurch bleiben keine alten Spieler aus vorherigen Kadern übrig.
+    new_players = {}
+    new_teams = {}
 
-    print(
-        "Liga: 1. Bundesliga"
-    )
+    processed_teams = 0
+    processed_players = 0
 
-    if not API_FOOTBALL_KEY:
+    for team_key, config in TEAMS.items():
+        club_name = config["name"]
+        search_name = config["search"]
 
-        raise RuntimeError(
-            "API_FOOTBALL_KEY "
-            "ist nicht gesetzt."
-        )
+        print()
+        print("=" * 60)
+        print(f"Verarbeite: {club_name}")
+        print("=" * 60)
 
-    teams = get_bundesliga_teams()
-
-    print(
-        f"{len(teams)} "
-        "Bundesliga-Teams gefunden."
-    )
-
-    if len(teams) != 18:
-
-        raise RuntimeError(
-            "FEHLER: Es müssen "
-            f"18 Teams sein, "
-            f"gefunden: {len(teams)}"
-        )
-
-    print(
-        "Lade Bundesliga-Spielplan..."
-    )
-
-    matches = get_bundesliga_matches()
-
-    print(
-        f"{len(matches)} "
-        "Spiele geladen."
-    )
-
-    old_teams = load_old_data()
-
-    # Neue, saubere Datenbank.
-    data = {
-        "teams": {}
-    }
-
-    updated_teams = 0
-
-    for team in teams:
-
-        team_name = team.get(
-            "teamName",
-            "",
-        )
-
-        if not team_name:
+        # --------------------------------------------------------
+        # API-Football-Team finden
+        # --------------------------------------------------------
+        try:
+            api_team = find_api_team(club_name, search_name)
+        except Exception as error:
+            print(f"  API-Team-Suche fehlgeschlagen: {error}")
             continue
 
-        print()
-        print("=" * 60)
+        if not api_team:
+            print(f"  TEAM NICHT GEFUNDEN: {club_name}")
+            continue
+
+        api_team_id = api_team.get("id")
         print(
-            f"Verarbeite: "
-            f"{team_name}"
-        )
-        print("=" * 60)
-
-        # ----------------------------------------------------
-        # API-TEAM-ID
-        # ----------------------------------------------------
-
-        old_entry = old_teams.get(
-            team_name,
-            {},
+            f"  API-Team gefunden: {api_team.get('name')} "
+            f"(ID {api_team_id})"
         )
 
-        api_team_id = old_entry.get(
-            "apiTeamId"
+        # --------------------------------------------------------
+        # Nächstes Spiel
+        # --------------------------------------------------------
+        next_match = get_next_match(
+            club_name,
+            api_team.get("name"),
+            search_name,
         )
-
-        api_team_name = old_entry.get(
-            "apiTeamName"
-        )
-
-        if api_team_id:
-
-            print(
-                "Gespeicherte "
-                "API-Team-ID: "
-                f"{api_team_id}"
-            )
-
-        else:
-
-            api_team = (
-                find_api_football_team(
-                    team_name
-                )
-            )
-
-            if api_team:
-
-                api_team_id = (
-                    api_team.get("id")
-                )
-
-                api_team_name = (
-                    api_team.get("name")
-                )
-
-            else:
-
-                api_team_id = None
-                api_team_name = None
-
-        # ----------------------------------------------------
-        # KADER
-        # ----------------------------------------------------
-
-        squad = []
-
-        if api_team_id:
-
-            squad = get_current_squad(
-                api_team_id
-            )
-
-        print(
-            f"Kader: "
-            f"{len(squad)} Spieler"
-        )
-
-        # ----------------------------------------------------
-        # NÄCHSTES SPIEL
-        # ----------------------------------------------------
-
-        next_match = (
-            get_next_match_for_team(
-                team_name,
-                matches,
-            )
-        )
-
         if next_match:
-
             print(
-                "Nächstes Spiel: "
-                f"{team_name} vs. "
-                f"{next_match['opponent']}"
+                f"  Nächstes Spiel: {next_match['opponent']} "
+                f"({next_match['homeAway']})"
             )
-
         else:
+            print("  Kein nächstes Spiel gefunden.")
 
-            print(
-                "Kein nächstes Spiel "
-                "gefunden."
-            )
+        # --------------------------------------------------------
+        # Kader
+        # --------------------------------------------------------
+        try:
+            squad = get_team_squad(api_team_id)
+        except Exception as error:
+            print(f"  Kader konnte nicht geladen werden: {error}")
+            squad = []
 
-        # ----------------------------------------------------
-        # INTELLIGENCE
-        # ----------------------------------------------------
+        print(f"  Kader: {len(squad)} Spieler")
 
-        intelligence = (
-            build_intelligence(
-                squad,
+        # --------------------------------------------------------
+        # Verletzungen / Sperren
+        # --------------------------------------------------------
+        injuries = get_team_injuries(api_team_id)
+        print(f"  Verletzungs-/Sperrmeldungen: {len(injuries)}")
+
+        # --------------------------------------------------------
+        # Spieler speichern
+        # --------------------------------------------------------
+        team_player_count = 0
+
+        for player in squad:
+            player_id = player.get("id")
+            player_name = player.get("name", "Unbekannter Spieler")
+
+            if not player_id:
+                continue
+
+            status = find_player_status(player_id, injuries)
+            intelligence = build_player_intelligence(
+                player,
+                club_name,
                 next_match,
-            )
-        )
-
-        # ----------------------------------------------------
-        # TEAM-DATEN
-        # ----------------------------------------------------
-
-        team_output = {
-            "club": team_name,
-            "season": CURRENT_SEASON,
-            "league": "1. Bundesliga",
-
-            "apiTeamId": api_team_id,
-            "apiTeamName": api_team_name,
-
-            "average": intelligence[
-                "average"
-            ],
-
-            "starting": intelligence[
-                "starting"
-            ],
-
-            "form": intelligence[
-                "form"
-            ],
-
-            "opponent": intelligence[
-                "opponent"
-            ],
-
-            "homeAway": intelligence[
-                "homeAway"
-            ],
-
-            "injury": intelligence[
-                "injury"
-            ],
-
-            "suspension": intelligence[
-                "suspension"
-            ],
-
-            "recommendation": intelligence[
-                "recommendation"
-            ],
-
-            "players": intelligence[
-                "players"
-            ],
-
-            "nextMatch": next_match,
-
-            "sources": [
-                {
-                    "title": "OpenLigaDB",
-                    "url": (
-                        "https://www.openligadb.de/"
-                    ),
-                },
-                {
-                    "title": "API-Football",
-                    "url": (
-                        "https://www.api-football.com/"
-                    ),
-                },
-            ],
-        }
-
-        # Ausschließlich die 18 offiziellen
-        # Namen als JSON-Keys.
-        data["teams"][team_name] = (
-            team_output
-        )
-
-        updated_teams += 1
-
-        print(
-            f"OK: {team_name} "
-            "aktualisiert."
-        )
-
-    # ========================================================
-    # META
-    # ========================================================
-
-    data["lastUpdated"] = (
-        datetime.now(
-            timezone.utc
-        ).strftime("%Y-%m-%d")
-    )
-
-    data["season"] = CURRENT_SEASON
-    data["league"] = "1. Bundesliga"
-
-    data["teamCount"] = len(
-        data["teams"]
-    )
-
-    # ========================================================
-    # PRÜFUNG
-    # ========================================================
-
-    if len(data["teams"]) != 18:
-
-        raise RuntimeError(
-            "FEHLER: JSON enthält "
-            f"{len(data['teams'])} "
-            "Teams statt 18."
-        )
-
-    missing_api_ids = []
-    missing_squads = []
-
-    for name, entry in (
-        data["teams"].items()
-    ):
-
-        if not entry.get(
-            "apiTeamId"
-        ):
-            missing_api_ids.append(
-                name
+                status,
             )
 
-        if not entry.get(
-            "players"
-        ):
-            missing_squads.append(
-                name
-            )
+            key = player_key(club_name, player_name)
+            new_players[key] = intelligence
+            team_player_count += 1
+            processed_players += 1
+
+        new_teams[team_key] = build_team_entry(
+            team_key,
+            club_name,
+            api_team,
+            next_match,
+            team_player_count,
+        )
+
+        processed_teams += 1
+        print(f"  {team_player_count} Spieler gespeichert.")
+
+    # ------------------------------------------------------------
+    # Sicherheitsprüfung
+    # ------------------------------------------------------------
+    if processed_teams == 0:
+        raise RuntimeError("Kein einziger Verein konnte aktualisiert werden.")
+
+    if processed_players == 0:
+        raise RuntimeError("Kein einziger Spieler konnte geladen werden.")
+
+    # ------------------------------------------------------------
+    # JSON schreiben
+    # ------------------------------------------------------------
+    output = {
+        "players": new_players,
+        "teams": new_teams,
+        "lastUpdated": now_date(),
+        "league": "Bundesliga",
+        "season": CURRENT_SEASON,
+        "teamCount": len(new_teams),
+        "playerCount": len(new_players),
+    }
+
+    save_intelligence(output)
 
     print()
     print("=" * 60)
-    print("ERGEBNIS")
+    print("ERFOLGREICH ABGESCHLOSSEN")
     print("=" * 60)
-
-    print(
-        f"Teams gespeichert: "
-        f"{len(data['teams'])}/18"
-    )
-
-    print(
-        "Teams mit API-Team-ID: "
-        f"{18 - len(missing_api_ids)}/18"
-    )
-
-    print(
-        "Teams mit Kader: "
-        f"{18 - len(missing_squads)}/18"
-    )
-
-    if missing_api_ids:
-
-        print()
-        print(
-            "Teams ohne API-Team-ID:"
-        )
-
-        for name in missing_api_ids:
-            print(
-                f"  - {name}"
-            )
-
-    if missing_squads:
-
-        print()
-        print(
-            "Teams ohne Kader:"
-        )
-
-        for name in missing_squads:
-            print(
-                f"  - {name}"
-            )
-
-    # ========================================================
-    # JSON SCHREIBEN
-    # ========================================================
-
-    with INTELLIGENCE_FILE.open(
-        "w",
-        encoding="utf-8",
-    ) as file:
-
-        json.dump(
-            data,
-            file,
-            ensure_ascii=False,
-            indent=2,
-        )
-
-    print()
-    print(
-        "player-intelligence.json "
-        "gespeichert."
-    )
-
-    print(
-        f"{updated_teams} Teams "
-        "aktualisiert."
-    )
+    print(f"Teams aktualisiert: {processed_teams}/{len(TEAMS)}")
+    print(f"Spieler aktualisiert: {processed_players}")
+    print(f"Gesamt Teams in JSON: {len(new_teams)}")
+    print(f"Gesamt Spieler in JSON: {len(new_players)}")
+    print(f"Datei: {INTELLIGENCE_FILE}")
 
 
 if __name__ == "__main__":
