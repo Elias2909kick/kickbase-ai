@@ -227,8 +227,13 @@ class BundesligaClubParser(HTMLParser):
 
 class BundesligaPlayersParser(HTMLParser):
     """
-    Extrahiert Spieler aus der offiziellen
-    Bundesliga-Spielerübersicht.
+    Robuster Parser für Bundesliga.com.
+
+    Wichtig: Die Clubnamen werden NICHT mehr nur anhand von
+    h2/h3 erkannt. Bundesliga.com kann die Überschriften je
+    nach Seite unterschiedlich ausliefern. Deshalb erkennen
+    wir Clubnamen und Positionsüberschriften anhand ihres
+    Textinhalts.
     """
 
     def __init__(self):
@@ -238,18 +243,27 @@ class BundesligaPlayersParser(HTMLParser):
         self.current_club = None
         self.current_position = None
 
-        self._heading_depth = 0
-        self._heading_parts = []
-
         self._anchor_href = None
         self._anchor_parts = []
+
+        self._tag_stack = []
+
+        self.club_lookup = {
+            normalize_name(name): name
+            for name in BUNDESLIGA_NAME_MAP.values()
+        }
+
+        self.position_lookup = {
+            normalize_name(
+                value
+            ): value
+            for value in POSITION_MAP.values()
+        }
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
 
-        if tag in ("h2", "h3"):
-            self._heading_depth = 1
-            self._heading_parts = []
+        self._tag_stack.append(tag)
 
         if tag == "a":
             href = attrs.get("href", "")
@@ -264,44 +278,39 @@ class BundesligaPlayersParser(HTMLParser):
     def handle_data(self, data):
         value = " ".join(data.split())
 
-        if self._heading_depth and value:
-            self._heading_parts.append(value)
+        if not value:
+            return
 
-        if self._anchor_href is not None and value:
+        normalized = normalize_name(value)
+
+        # --------------------------------------------------------
+        # Club erkennen – unabhängig von h2/h3/div/span usw.
+        # --------------------------------------------------------
+        mapped_club = self.club_lookup.get(
+            normalized
+        )
+
+        if mapped_club:
+            self.current_club = mapped_club
+            self.current_position = None
+
+        # --------------------------------------------------------
+        # Position erkennen
+        # --------------------------------------------------------
+        mapped_position = self.position_lookup.get(
+            normalized
+        )
+
+        if mapped_position:
+            self.current_position = mapped_position
+
+        # --------------------------------------------------------
+        # Spieler-Link sammeln
+        # --------------------------------------------------------
+        if self._anchor_href is not None:
             self._anchor_parts.append(value)
 
-        normalized = value.casefold()
-
-        if normalized in POSITION_MAP:
-            self.current_position = (
-                POSITION_MAP[normalized]
-            )
-
     def handle_endtag(self, tag):
-        if (
-            self._heading_depth
-            and tag in ("h2", "h3")
-        ):
-            heading = " ".join(
-                self._heading_parts
-            ).strip()
-
-            if heading:
-                normalized = normalize_name(
-                    heading
-                )
-
-                mapped = BUNDESLIGA_NAME_MAP.get(
-                    normalized
-                )
-
-                if mapped:
-                    self.current_club = mapped
-                    self.current_position = None
-
-            self._heading_depth = 0
-            self._heading_parts = []
-
         if (
             tag == "a"
             and self._anchor_href is not None
@@ -312,15 +321,16 @@ class BundesligaPlayersParser(HTMLParser):
 
             if (
                 raw_text
-                and raw_text.casefold() != "image"
                 and self.current_club
                 and self.current_position
             ):
                 number = None
                 name = raw_text
 
+                # Bundesliga.com kann Nummer und Name ohne
+                # Trennzeichen ausliefern, z.B. "1FinnDahmen".
                 match = re.match(
-                    r"^(\d{1,2})\s*(.+)$",
+                    r"^(\d{1,2})(.+)$",
                     raw_text,
                 )
 
@@ -330,6 +340,8 @@ class BundesligaPlayersParser(HTMLParser):
                     )
                     name = match.group(2).strip()
 
+                # Eventuelle zusammengeklebte Namen etwas
+                # lesbarer machen.
                 name = re.sub(
                     r"(?<=[a-zäöüß])(?=[A-ZÄÖÜ])",
                     " ",
@@ -360,6 +372,16 @@ class BundesligaPlayersParser(HTMLParser):
 
             self._anchor_href = None
             self._anchor_parts = []
+
+        if self._tag_stack:
+            # HTMLParser kann bei fehlerhaftem HTML verschachtelte
+            # Tags sehen; deshalb nur den letzten Tag entfernen.
+            if self._tag_stack[-1] == tag:
+                self._tag_stack.pop()
+            elif tag in self._tag_stack:
+                self._tag_stack.remove(tag)
+
+
 
 
 def get_bundesliga_squads():
@@ -428,6 +450,18 @@ def get_bundesliga_squads():
             "Bundesliga.com: "
             f"{total_players} Spieler nach Bereinigung."
         )
+
+        for team_name in BUNDESLIGA_NAME_MAP.values():
+            count = len(
+                squads.get(
+                    team_name,
+                    [],
+                )
+            )
+            print(
+                f"  - {team_name}: "
+                f"{count} Spieler"
+            )
 
         return squads
 
@@ -558,139 +592,6 @@ def get_bundesliga_teams():
         return []
 
 
-
-
-BUNDESLIGA_CLUB_SQUAD_URLS = {
-    "SV Elversberg": (
-        "https://www.bundesliga.com/de/bundesliga/"
-        "clubs/sv-elversberg"
-    ),
-    "Sport-Club Freiburg": (
-        "https://www.bundesliga.com/de/bundesliga/"
-        "clubs/sport-club-freiburg"
-    ),
-}
-
-
-def get_club_page_squad(
-    team_name,
-):
-    """
-    Fallback für einen einzelnen Club.
-
-    Die offizielle Bundesliga-Clubseite enthält den Kader
-    ebenfalls. Wir setzen den Clubnamen hier direkt, weil
-    die Überschrift auf der Clubseite nicht zwingend genauso
-    strukturiert ist wie auf der zentralen Spielerübersicht.
-    """
-
-    url = BUNDESLIGA_CLUB_SQUAD_URLS.get(
-        team_name
-    )
-
-    if not url:
-        return []
-
-    try:
-        html = http_get_text(url)
-
-        parser = BundesligaPlayersParser()
-        parser.current_club = team_name
-        parser.feed(html)
-
-        players = []
-
-        for player in parser.players:
-            if player.get("club") != team_name:
-                continue
-
-            players.append(
-                {
-                    "id": player["id"],
-                    "name": player["name"],
-                    "age": None,
-                    "number": player["number"],
-                    "position": player["position"],
-                    "photo": None,
-                    "injury": None,
-                    "sourceUrl": player["sourceUrl"],
-                }
-            )
-
-        unique = {}
-
-        for player in players:
-            key = (
-                normalize_name(
-                    player.get("name")
-                ),
-                player.get("position"),
-            )
-            unique[key] = player
-
-        players = list(
-            unique.values()
-        )
-
-        if players:
-            print(
-                f"Bundesliga.com Clubseite: "
-                f"{team_name}: "
-                f"{len(players)} Spieler"
-            )
-
-        return players
-
-    except Exception as exc:
-        print(
-            f"Bundesliga.com Clubseite "
-            f"{team_name} fehlgeschlagen: {exc}"
-        )
-        return []
-
-
-def complete_missing_bundesliga_squads(
-    squads,
-):
-    """
-    Ergänzt fehlende Kader über die offiziellen
-    individuellen Clubseiten.
-
-    Der zentrale Bundesliga-Spielerindex bleibt die
-    primäre Quelle. Dieser Fallback wird nur für Clubs
-    verwendet, die dort keinen Kader geliefert haben.
-    """
-
-    result = dict(squads)
-
-    for team_name, url in (
-        BUNDESLIGA_CLUB_SQUAD_URLS.items()
-    ):
-        current = result.get(
-            team_name,
-            [],
-        )
-
-        if current:
-            continue
-
-        print(
-            "Kader-Fallback für "
-            f"{team_name}..."
-        )
-
-        fallback_players = (
-            get_club_page_squad(
-                team_name
-            )
-        )
-
-        if fallback_players:
-            result[team_name] = (
-                fallback_players
-            )
-
-    return result
 
 
 def get_bundesliga_matches():
@@ -1004,12 +905,6 @@ def main():
         get_bundesliga_squads()
     )
 
-    bundesliga_squads = (
-        complete_missing_bundesliga_squads(
-            bundesliga_squads
-        )
-    )
-
     old_teams = load_old_data()
 
     # Neue, saubere Datenbank.
@@ -1268,6 +1163,13 @@ def main():
             print(
                 f"  - {name}"
             )
+
+        print()
+        print(
+            "HINWEIS: Wenn hier ein Team fehlt, "
+            "ist die Zuordnung auf Bundesliga.com "
+            "fehlgeschlagen."
+        )
 
     # ========================================================
     # JSON SCHREIBEN
