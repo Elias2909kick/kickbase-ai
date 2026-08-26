@@ -614,14 +614,14 @@ api_normalized = (
     )
 )
 
-            api_words = set(
-                api_normalized.split()
-            )
+api_words = set(
+    api_normalized.split()
+)
 
-            score = len(
-                target_words
-                & api_words
-            )
+score = len(
+    target_words
+    & api_words
+)
 
             if api_normalized == target:
                 score += 100
