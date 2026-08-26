@@ -837,8 +837,15 @@ def build_intelligence(
     squad,
     next_match,
 ):
-    if next_match:
+    """
+    Baut weiterhin die Team-Intelligence.
 
+    Die eigentlichen Spieler werden separat unter
+    data["players"] gespeichert. Dadurch kann das Frontend
+    später direkt auf einen einzelnen Kickbase-Spieler zugreifen.
+    """
+
+    if next_match:
         opponent = next_match.get(
             "opponent"
         )
@@ -852,7 +859,6 @@ def build_intelligence(
         )
 
     else:
-
         opponent = None
         home_away = None
         recommendation = (
@@ -866,12 +872,84 @@ def build_intelligence(
         "opponent": opponent,
         "homeAway": home_away,
         "injury": (
-            "Keine aktuelle "
-            "Verletzungsmeldung gefunden"
+            "Noch nicht recherchiert"
         ),
-        "suspension": None,
+        "suspension": (
+            "Noch nicht recherchiert"
+        ),
         "recommendation": recommendation,
         "players": squad,
+    }
+
+
+def build_player_intelligence(
+    player,
+    club_name,
+    next_match,
+):
+    """
+    Baut einen einzelnen Spieler-Eintrag.
+
+    Wichtig: Hier werden keine Werte erfunden.
+    Form, Durchschnitt und Startelf bleiben solange None,
+    bis wir dafür echte Quellen anbinden.
+    """
+
+    player_id = player.get("id")
+    name = player.get(
+        "name",
+        "Unbekannter Spieler",
+    )
+
+    if next_match:
+        opponent = next_match.get(
+            "opponent"
+        )
+        home_away = next_match.get(
+            "homeAway"
+        )
+        recommendation = (
+            "Nächstes Spiel vorhanden"
+        )
+    else:
+        opponent = None
+        home_away = None
+        recommendation = (
+            "Kein nächstes Spiel gefunden"
+        )
+
+    return {
+        "id": player_id,
+        "name": name,
+        "club": club_name,
+        "position": player.get(
+            "position"
+        ),
+        "number": player.get(
+            "number"
+        ),
+        "sourceUrl": player.get(
+            "sourceUrl"
+        ),
+        "average": None,
+        "starting": None,
+        "form": None,
+        "opponent": opponent,
+        "homeAway": home_away,
+        "injury": (
+            "Noch nicht recherchiert"
+        ),
+        "suspension": (
+            "Noch nicht recherchiert"
+        ),
+        "recommendation": recommendation,
+        "lastUpdated": datetime.now(
+            timezone.utc
+        ).strftime("%Y-%m-%d"),
+        "source": {
+            "name": "Bundesliga.com",
+            "url": BUNDESLIGA_PLAYERS_URL,
+        },
     }
 
 
@@ -935,7 +1013,8 @@ def main():
 
     # Neue, saubere Datenbank.
     data = {
-        "teams": {}
+        "teams": {},
+        "players": {},
     }
 
     updated_teams = 0
@@ -1040,6 +1119,37 @@ def main():
         )
 
         # ----------------------------------------------------
+        # SPIELER-DATEN
+        # ----------------------------------------------------
+        player_count_before = len(
+            data["players"]
+        )
+
+        for player in squad:
+            player_id = player.get("id")
+
+            if not player_id:
+                continue
+
+            data["players"][player_id] = (
+                build_player_intelligence(
+                    player,
+                    team_name,
+                    next_match,
+                )
+            )
+
+        player_count_after = len(
+            data["players"]
+        )
+
+        print(
+            "Spieler-Intelligence: "
+            f"{player_count_after - player_count_before} "
+            "Spieler hinzugefügt."
+        )
+
+        # ----------------------------------------------------
         # TEAM-DATEN
         # ----------------------------------------------------
 
@@ -1086,6 +1196,8 @@ def main():
             "players": intelligence[
                 "players"
             ],
+
+            "playerCount": len(squad),
 
             "nextMatch": next_match,
 
@@ -1135,6 +1247,10 @@ def main():
         data["teams"]
     )
 
+    data["playerCount"] = len(
+        data["players"]
+    )
+
     # ========================================================
     # PRÜFUNG
     # ========================================================
@@ -1172,6 +1288,11 @@ def main():
     print(
         "Teams mit Bundesliga-Kader: "
         f"{18 - len(missing_squads)}/18"
+    )
+
+    print(
+        "Spieler gespeichert: "
+        f"{len(data['players'])}"
     )
 
     print(
@@ -1220,8 +1341,12 @@ def main():
     )
 
     print(
-        f"{updated_teams} Teams "
-        "aktualisiert."
+        f"{updated_teams} Teams aktualisiert."
+    )
+
+    print(
+        f"{len(data['players'])} Spieler "
+        "gespeichert."
     )
 
 
