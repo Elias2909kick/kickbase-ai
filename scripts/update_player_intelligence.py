@@ -9,6 +9,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from html.parser import HTMLParser
+from urllib.parse import urljoin
 
 # ============================================================
 # KONFIGURATION
@@ -32,45 +33,52 @@ API_MIN_INTERVAL = 6.5
 _last_api_call = 0.0
 
 # ============================================================
-# OFFIZIELLE BUNDESLIGA-QUELLE
+# OFFIZIELLE BUNDESLIGA-QUELLEN
 # ============================================================
 
 BUNDESLIGA_CLUBS_URL = (
-    "https://www.bundesliga.com/"
-    "de/bundesliga/clubs"
+    "https://www.bundesliga.com/de/bundesliga/clubs"
 )
 
-# Die Bundesliga-Seite liefert die Club-URLs.
-# Diese Map dient nur dazu, aus dem URL-Slug den offiziellen
-# JSON-Namen zu machen. Die Auswahl der 18 Clubs kommt
-# jedes Mal live von der Bundesliga-Seite.
-BUNDESLIGA_NAME_BY_SLUG = {
-    "fc-augsburg": "FC Augsburg",
-    "1-fc-union-berlin": "1. FC Union Berlin",
-    "sv-werder-bremen": "SV Werder Bremen",
-    "borussia-dortmund": "Borussia Dortmund",
-    "sv-elversberg": "SV Elversberg",
-    "eintracht-frankfurt": "Eintracht Frankfurt",
-    "sport-club-freiburg": "Sport-Club Freiburg",
-    "hamburger-sv": "Hamburger SV",
-    "tsg-hoffenheim": "TSG Hoffenheim",
-    "1-fc-koeln": "1. FC Köln",
-    "rb-leipzig": "RB Leipzig",
-    "bayer-04-leverkusen": "Bayer 04 Leverkusen",
-    "1-fsv-mainz-05": "1. FSV Mainz 05",
-    "borussia-moenchengladbach": (
-        "Borussia Mönchengladbach"
-    ),
-    "fc-bayern-muenchen": "FC Bayern München",
-    "sc-paderborn-07": "SC Paderborn 07",
-    "fc-schalke-04": "FC Schalke 04",
-    "vfb-stuttgart": "VfB Stuttgart",
+BUNDESLIGA_PLAYERS_URL = (
+    "https://www.bundesliga.com/de/bundesliga/spieler"
+)
+
+# OpenLigaDB bleibt die Quelle für den Spielplan.
+BUNDESLIGA_SHORTCUT = "bl1"
+CURRENT_SEASON = "2026/27"
+OPENLIGADB_SEASON = 2026
+
+# Offizielle Bundesliga-Namen -> stabile JSON-Namen.
+BUNDESLIGA_NAME_MAP = {
+    "fc augsburg": "FC Augsburg",
+    "1 fc union berlin": "1. FC Union Berlin",
+    "sv werder bremen": "SV Werder Bremen",
+    "borussia dortmund": "Borussia Dortmund",
+    "sv elversberg": "SV Elversberg",
+    "eintracht frankfurt": "Eintracht Frankfurt",
+    "sport club freiburg": "Sport-Club Freiburg",
+    "hamburger sv": "Hamburger SV",
+    "tsg hoffenheim": "TSG Hoffenheim",
+    "1 fc koln": "1. FC Köln",
+    "rb leipzig": "RB Leipzig",
+    "bayer 04 leverkusen": "Bayer 04 Leverkusen",
+    "1 fsv mainz 05": "1. FSV Mainz 05",
+    "borussia monchengladbach": "Borussia Mönchengladbach",
+    "fc bayern munchen": "FC Bayern München",
+    "sc paderborn 07": "SC Paderborn 07",
+    "fc schalke 04": "FC Schalke 04",
+    "vfb stuttgart": "VfB Stuttgart",
 }
 
-# API-Football wird NICHT mehr zur Team-Suche verwendet.
-# Bereits gespeicherte IDs werden weiterhin genutzt.
-# Falls keine ID vorhanden ist, läuft der Team-Lauf trotzdem
-# weiter und der Kader bleibt zunächst leer.
+POSITION_MAP = {
+    "torhüter": "Torhüter",
+    "torhueter": "Torhüter",
+    "verteidigung": "Verteidigung",
+    "mittelfeld": "Mittelfeld",
+    "angriff": "Angriff",
+}
+
 # ============================================================
 # ALLGEMEINE HILFSFUNKTIONEN
 # ============================================================
@@ -145,6 +153,292 @@ def http_get_json(
         return json.loads(body)
 
 
+def http_get_text(
+    url,
+    headers=None,
+    timeout=30,
+):
+    """
+    Holt HTML/Text von einer Webseite.
+    """
+
+    request = Request(
+        url,
+        headers={
+            "User-Agent": (
+                "Mozilla/5.0 "
+                "(compatible; Kickbase-AI/2.0)"
+            ),
+            "Accept": (
+                "text/html,application/xhtml+xml,"
+                "application/json;q=0.9,*/*;q=0.8"
+            ),
+            **(headers or {}),
+        },
+    )
+
+    with urlopen(
+        request,
+        timeout=timeout,
+    ) as response:
+        return response.read().decode(
+            "utf-8",
+            "ignore",
+        )
+
+
+class BundesligaClubParser(HTMLParser):
+    """
+    Extrahiert Club-Überschriften aus Bundesliga.com.
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.club_names = []
+        self._heading_depth = 0
+        self._heading_parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ("h2", "h3"):
+            self._heading_depth = 1
+            self._heading_parts = []
+
+    def handle_data(self, data):
+        value = " ".join(data.split())
+
+        if self._heading_depth and value:
+            self._heading_parts.append(value)
+
+    def handle_endtag(self, tag):
+        if (
+            self._heading_depth
+            and tag in ("h2", "h3")
+        ):
+            name = " ".join(
+                self._heading_parts
+            ).strip()
+
+            if name:
+                self.club_names.append(name)
+
+            self._heading_depth = 0
+            self._heading_parts = []
+
+
+class BundesligaPlayersParser(HTMLParser):
+    """
+    Extrahiert Spieler aus der offiziellen
+    Bundesliga-Spielerübersicht.
+    """
+
+    def __init__(self):
+        super().__init__()
+
+        self.players = []
+        self.current_club = None
+        self.current_position = None
+
+        self._heading_depth = 0
+        self._heading_parts = []
+
+        self._anchor_href = None
+        self._anchor_parts = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+
+        if tag in ("h2", "h3"):
+            self._heading_depth = 1
+            self._heading_parts = []
+
+        if tag == "a":
+            href = attrs.get("href", "")
+
+            if (
+                href
+                and "/spieler/" in href
+            ):
+                self._anchor_href = href
+                self._anchor_parts = []
+
+    def handle_data(self, data):
+        value = " ".join(data.split())
+
+        if self._heading_depth and value:
+            self._heading_parts.append(value)
+
+        if self._anchor_href is not None and value:
+            self._anchor_parts.append(value)
+
+        normalized = value.casefold()
+
+        if normalized in POSITION_MAP:
+            self.current_position = (
+                POSITION_MAP[normalized]
+            )
+
+    def handle_endtag(self, tag):
+        if (
+            self._heading_depth
+            and tag in ("h2", "h3")
+        ):
+            heading = " ".join(
+                self._heading_parts
+            ).strip()
+
+            if heading:
+                normalized = normalize_name(
+                    heading
+                )
+
+                mapped = BUNDESLIGA_NAME_MAP.get(
+                    normalized
+                )
+
+                if mapped:
+                    self.current_club = mapped
+                    self.current_position = None
+
+            self._heading_depth = 0
+            self._heading_parts = []
+
+        if (
+            tag == "a"
+            and self._anchor_href is not None
+        ):
+            raw_text = " ".join(
+                self._anchor_parts
+            ).strip()
+
+            if (
+                raw_text
+                and raw_text.casefold() != "image"
+                and self.current_club
+                and self.current_position
+            ):
+                number = None
+                name = raw_text
+
+                match = re.match(
+                    r"^(\d{1,2})\s*(.+)$",
+                    raw_text,
+                )
+
+                if match:
+                    number = int(
+                        match.group(1)
+                    )
+                    name = match.group(2).strip()
+
+                name = re.sub(
+                    r"(?<=[a-zäöüß])(?=[A-ZÄÖÜ])",
+                    " ",
+                    name,
+                )
+
+                href = urljoin(
+                    BUNDESLIGA_PLAYERS_URL,
+                    self._anchor_href,
+                )
+
+                slug = (
+                    self._anchor_href
+                    .rstrip("/")
+                    .split("/")[-1]
+                )
+
+                self.players.append(
+                    {
+                        "club": self.current_club,
+                        "position": self.current_position,
+                        "id": slug or href,
+                        "name": name,
+                        "number": number,
+                        "sourceUrl": href,
+                    }
+                )
+
+            self._anchor_href = None
+            self._anchor_parts = []
+
+
+def get_bundesliga_squads():
+    """
+    Holt alle Bundesliga-Kader direkt von Bundesliga.com.
+    """
+
+    try:
+        html = http_get_text(
+            BUNDESLIGA_PLAYERS_URL
+        )
+
+        parser = BundesligaPlayersParser()
+        parser.feed(html)
+
+        squads = {
+            team_name: []
+            for team_name in BUNDESLIGA_NAME_MAP.values()
+        }
+
+        for player in parser.players:
+            club = player["club"]
+
+            if club not in squads:
+                squads[club] = []
+
+            squads[club].append(
+                {
+                    "id": player["id"],
+                    "name": player["name"],
+                    "age": None,
+                    "number": player["number"],
+                    "position": player["position"],
+                    "photo": None,
+                    "injury": None,
+                    "sourceUrl": player["sourceUrl"],
+                }
+            )
+
+        for team_name, players in squads.items():
+            unique = {}
+
+            for player in players:
+                key = (
+                    normalize_name(
+                        player.get("name")
+                    ),
+                    player.get("position"),
+                )
+                unique[key] = player
+
+            squads[team_name] = list(
+                unique.values()
+            )
+
+        total_players = sum(
+            len(players)
+            for players in squads.values()
+        )
+
+        print(
+            "Bundesliga.com: "
+            f"{len(parser.players)} Spieler gefunden."
+        )
+        print(
+            "Bundesliga.com: "
+            f"{total_players} Spieler nach Bereinigung."
+        )
+
+        return squads
+
+    except Exception as exc:
+        print(
+            "Bundesliga.com Kader "
+            f"fehlgeschlagen: {exc}"
+        )
+        return {}
+
+
 # ============================================================
 # OPENLIGADB
 # ============================================================
@@ -158,162 +452,67 @@ def openligadb_get(endpoint):
     return http_get_json(url)
 
 
-class BundesligaClubParser(HTMLParser):
-    """
-    Liest die Club-Links der offiziellen Bundesliga-Seite.
-
-    Wir sammeln nur Links unter /de/bundesliga/clubs/.
-    Die Club-Auswahl kommt damit live von Bundesliga.com.
-    """
-
-    def __init__(self):
-        super().__init__()
-        self.club_slugs = []
-        self._current_href = None
-        self._current_slug = None
-        self._current_text = []
-        self._depth = 0
-
-    def handle_starttag(self, tag, attrs):
-        if tag != "a":
-            return
-
-        attributes = dict(attrs)
-        href = attributes.get("href", "")
-
-        if "/de/bundesliga/clubs/" not in href:
-            return
-
-        slug = href.rstrip("/").split("/")[-1]
-
-        if not slug:
-            return
-
-        self._current_href = href
-        self._current_slug = slug
-        self._current_text = []
-        self._depth = 1
-
-    def handle_startendtag(self, tag, attrs):
-        self.handle_starttag(tag, attrs)
-        self.handle_endtag(tag)
-
-    def handle_data(self, data):
-        if self._current_href is not None:
-            value = data.strip()
-
-            if value:
-                self._current_text.append(value)
-
-    def handle_endtag(self, tag):
-        if self._current_href is None:
-            return
-
-        if tag != "a":
-            return
-
-        slug = self._current_slug
-
-        if slug not in self.club_slugs:
-            self.club_slugs.append(slug)
-
-        self._current_href = None
-        self._current_slug = None
-        self._current_text = []
-        self._depth = 0
-
-
 def get_bundesliga_teams():
     """
-    Holt die aktuellen Bundesliga-Clubs direkt von
-    der offiziellen Bundesliga-Clubübersicht.
+    Holt die aktuelle Clubübersicht direkt von Bundesliga.com.
 
-    Fallback:
-    Falls Bundesliga.com kurzfristig nicht erreichbar ist,
-    verwenden wir OpenLigaDB, aber KEINE feste 18er-Liste.
+    Keine API-Football-Team-Suche mehr.
+    Fallback: OpenLigaDB.
     """
 
     try:
-        request = Request(
-            BUNDESLIGA_CLUBS_URL,
-            headers={
-                "User-Agent": "kickbase-ai/2.0",
-                "Accept": "text/html",
-            },
+        html = http_get_text(
+            BUNDESLIGA_CLUBS_URL
         )
-
-        with urlopen(
-            request,
-            timeout=30,
-        ) as response:
-
-            html = response.read().decode(
-                "utf-8",
-                "ignore",
-            )
 
         parser = BundesligaClubParser()
         parser.feed(html)
 
         teams = []
+        seen = set()
 
-        for slug in parser.club_slugs:
-
-            team_name = (
-                BUNDESLIGA_NAME_BY_SLUG.get(
-                    slug
-                )
+        for raw_name in parser.club_names:
+            key = normalize_name(raw_name)
+            team_name = BUNDESLIGA_NAME_MAP.get(
+                key,
+                raw_name.strip(),
             )
 
-            if not team_name:
-                # Unbekannter neuer Club:
-                # aus dem Slug einen brauchbaren Namen
-                # erzeugen, statt den Lauf abzubrechen.
-                team_name = slug.replace(
-                    "-",
-                    " ",
-                ).strip().title()
+            normalized_team = normalize_name(
+                team_name
+            )
+
+            if normalized_team in seen:
+                continue
+
+            seen.add(normalized_team)
 
             teams.append(
                 {
                     "teamName": team_name,
                     "source": "Bundesliga.com",
-                    "slug": slug,
                 }
             )
 
-        # Doppelte entfernen, Reihenfolge behalten.
-        unique = {}
-        for team in teams:
-            unique[
-                normalize_name(
-                    team["teamName"]
-                )
-            ] = team
-
-        teams = list(unique.values())
-
         if len(teams) == 18:
             print(
-                "Bundesliga.com: "
-                "18 Clubs gefunden."
+                "Bundesliga.com: 18 Clubs gefunden."
             )
             return teams
 
         print(
             "WARNUNG: Bundesliga.com lieferte "
-            f"{len(teams)} Clubs."
+            f"{len(teams)} Clubs statt 18."
         )
 
     except Exception as exc:
         print(
-            "Bundesliga.com Fehler: "
-            f"{exc}"
+            "Bundesliga.com Clubübersicht "
+            f"fehlgeschlagen: {exc}"
         )
 
-    # Fallback über OpenLigaDB.
     try:
-        fallback_matches = openligadb_get(
+        matches = openligadb_get(
             f"/getmatchdata/"
             f"{BUNDESLIGA_SHORTCUT}/"
             f"{OPENLIGADB_SEASON}"
@@ -321,16 +520,12 @@ def get_bundesliga_teams():
 
         discovered = {}
 
-        for match in fallback_matches or []:
-            for key in (
-                "team1",
-                "team2",
-            ):
+        for match in matches or []:
+            for side in ("team1", "team2"):
                 team = match.get(
-                    key,
+                    side,
                     {},
                 )
-
                 name = team.get(
                     "teamName",
                     "",
@@ -361,6 +556,8 @@ def get_bundesliga_teams():
             f"fehlgeschlagen: {exc}"
         )
         return []
+
+
 
 
 def get_bundesliga_matches():
@@ -520,246 +717,15 @@ def get_next_match_for_team(
 # API-FOOTBALL
 # ============================================================
 
-def api_football_get(
-    endpoint,
-    params=None,
-):
-    """
-    Sicherer API-Football-Request.
-
-    Wichtig:
-    - mindestens 6.5 Sekunden zwischen Requests
-    - HTTP 429 wird nicht aggressiv wiederholt
-    - kein pip/requests nötig
-    """
-
-    global _last_api_call
-
-    if not API_FOOTBALL_KEY:
-        print(
-            "WARNUNG: "
-            "API_FOOTBALL_KEY fehlt."
-        )
-        return None
-
-    params = params or {}
-
-    elapsed = (
-        time.monotonic()
-        - _last_api_call
-    )
-
-    if elapsed < API_MIN_INTERVAL:
-
-        wait = (
-            API_MIN_INTERVAL
-            - elapsed
-        )
-
-        print(
-            "API-Football Pause: "
-            f"{wait:.1f}s"
-        )
-
-        time.sleep(wait)
-
-    query = urlencode(params)
-
-    url = (
-        f"{API_FOOTBALL_URL}/"
-        f"{endpoint.lstrip('/')}"
-    )
-
-    if query:
-        url += f"?{query}"
-
-    try:
-
-        _last_api_call = (
-            time.monotonic()
-        )
-
-        data = http_get_json(
-            url,
-            headers={
-                "x-apisports-key":
-                    API_FOOTBALL_KEY
-            },
-        )
-
-    except HTTPError as exc:
-
-        if exc.code == 429:
-            print(
-                "API-Football HTTP 429: "
-                "Rate Limit erreicht."
-            )
-        else:
-            print(
-                f"API-Football HTTP "
-                f"{exc.code}: {exc}"
-            )
-
-        return None
-
-    except (
-        URLError,
-        TimeoutError,
-        OSError,
-    ) as exc:
-
-        print(
-            "API-Football "
-            f"Netzwerkfehler: {exc}"
-        )
-
-        return None
-
-    except Exception as exc:
-
-        print(
-            f"API-Football Fehler: "
-            f"{exc}"
-        )
-
-        return None
-
-    errors = data.get(
-        "errors"
-    )
-
-    if errors:
-        print(
-            f"API-Football Fehler: "
-            f"{errors}"
-        )
-        return None
-
-    return data
-
-
-def find_api_football_team(
-    team_name,
-):
-    """
-    DEPRECATED.
-
-    Die Bundesliga-Teams werden nicht mehr über
-    API-Football gesucht.
-
-    Diese Funktion bleibt nur erhalten, damit ältere
-    Imports/Referenzen nicht sofort brechen.
-    """
-
-    print(
-        "API-Football-Team-Suche übersprungen: "
-        f"{team_name}"
-    )
-
-    return None
-
-
-def get_current_squad(
-    api_team_id,
-):
-    """
-    Holt den aktuellen Kader über:
-
-        /players/squads?team=ID
-
-    Dieser Endpoint benötigt keine Saison.
-    """
-
-    if not api_team_id:
-        return []
-
-    data = api_football_get(
-        "players/squads",
-        {
-            "team": api_team_id
-        },
-    )
-
-    if not data:
-
-        print(
-            "Keine Kader-Daten erhalten."
-        )
-
-        return []
-
-    response = data.get(
-        "response",
-        [],
-    )
-
-    if not response:
-
-        print(
-            "API-Football liefert "
-            "keinen Kader."
-        )
-
-        return []
-
-    squad = []
-
-    for entry in response:
-
-        players = entry.get(
-            "players",
-            [],
-        )
-
-        if not players:
-            continue
-
-        for player in players:
-
-            if not isinstance(
-                player,
-                dict,
-            ):
-                continue
-
-            player_id = player.get(
-                "id"
-            )
-
-            name = player.get(
-                "name"
-            )
-
-            if not player_id or not name:
-                continue
-
-            squad.append(
-                {
-                    "id": player_id,
-                    "name": name,
-                    "age": player.get(
-                        "age"
-                    ),
-                    "number": player.get(
-                        "number"
-                    ),
-                    "position": player.get(
-                        "position"
-                    ),
-                    "photo": player.get(
-                        "photo"
-                    ),
-                    "injury": None,
-                }
-            )
-
-    print(
-        "Kader geladen: "
-        f"{len(squad)} Spieler"
-    )
-
-    return squad
-
+# API-Football wird in dieser Version NICHT mehr für Teams
+# oder Kader verwendet.
+#
+# Die Bundesliga-Teams und Kader kommen direkt von
+# Bundesliga.com. OpenLigaDB liefert weiterhin den Spielplan.
+#
+# apiTeamId/apiTeamName bleiben in der JSON erhalten, damit
+# ältere Verbraucher der Datei nicht sofort brechen. Sie werden
+# hier aber nicht mehr abgefragt.
 
 # ============================================================
 # ALTE JSON LADEN
@@ -896,6 +862,15 @@ def main():
         "Spiele geladen."
     )
 
+    print(
+        "Lade Bundesliga-Kader von "
+        "Bundesliga.com..."
+    )
+
+    bundesliga_squads = (
+        get_bundesliga_squads()
+    )
+
     old_teams = load_old_data()
 
     # Neue, saubere Datenbank.
@@ -923,60 +898,48 @@ def main():
         )
         print("=" * 60)
 
-        # ----------------------------------------------------
-        # API-TEAM-ID
-        # ----------------------------------------------------
-
         old_entry = old_teams.get(
             team_name,
             {},
         )
 
-        api_team_id = old_entry.get(
-            "apiTeamId"
-        )
-
-        api_team_name = old_entry.get(
-            "apiTeamName"
-        )
-
-        if api_team_id:
-
-            print(
-                "Gespeicherte "
-                "API-Team-ID: "
-                f"{api_team_id}"
-            )
-
-        else:
-
-            # Keine API-Team-Suche mehr!
-            # Die 18 Clubs kommen direkt von Bundesliga.com.
-            # Eine API-Team-ID wird nur verwendet, wenn sie
-            # bereits in der alten JSON gespeichert ist.
-            api_team_id = None
-            api_team_name = None
-
-            print(
-                "Keine gespeicherte "
-                "API-Team-ID vorhanden."
-            )
-
         # ----------------------------------------------------
-        # KADER
+        # KADER VON BUNDESLIGA.COM
         # ----------------------------------------------------
 
-        squad = []
+        squad = bundesliga_squads.get(
+            team_name,
+            [],
+        )
 
-        if api_team_id:
-
-            squad = get_current_squad(
-                api_team_id
+        # Falls die offizielle Seite kurzfristig einen
+        # einzelnen Club nicht liefert, behalten wir den
+        # vorhandenen Kader aus der letzten JSON.
+        if not squad:
+            old_squad = old_entry.get(
+                "players",
+                [],
             )
+
+            if old_squad:
+                squad = old_squad
+                print(
+                    "Bundesliga.com lieferte "
+                    "keinen Kader; alter Kader "
+                    "wird beibehalten."
+                )
 
         print(
             f"Kader: "
             f"{len(squad)} Spieler"
+        )
+
+        # Alte IDs bleiben aus Kompatibilitätsgründen erhalten.
+        api_team_id = old_entry.get(
+            "apiTeamId"
+        )
+        api_team_name = old_entry.get(
+            "apiTeamName"
         )
 
         # ----------------------------------------------------
@@ -1070,19 +1033,13 @@ def main():
                 {
                     "title": "Bundesliga.com",
                     "url": (
-                        BUNDESLIGA_CLUBS_URL
+                        BUNDESLIGA_PLAYERS_URL
                     ),
                 },
                 {
                     "title": "OpenLigaDB",
                     "url": (
                         "https://www.openligadb.de/"
-                    ),
-                },
-                {
-                    "title": "API-Football",
-                    "url": (
-                        "https://www.api-football.com/"
                     ),
                 },
             ],
@@ -1130,20 +1087,11 @@ def main():
             "Teams statt 18."
         )
 
-    missing_api_ids = []
     missing_squads = []
 
     for name, entry in (
         data["teams"].items()
     ):
-
-        if not entry.get(
-            "apiTeamId"
-        ):
-            missing_api_ids.append(
-                name
-            )
-
         if not entry.get(
             "players"
         ):
@@ -1162,30 +1110,11 @@ def main():
     )
 
     print(
-        "Teams mit API-Team-ID: "
-        f"{18 - len(missing_api_ids)}/18"
-    )
-
-    print(
-        "Teams mit Kader: "
+        "Teams mit Bundesliga-Kader: "
         f"{18 - len(missing_squads)}/18"
     )
 
-    if missing_api_ids:
-
-        print()
-        print(
-            "Teams ohne API-Team-ID "
-            "(kein Fehler):"
-        )
-
-        for name in missing_api_ids:
-            print(
-                f"  - {name}"
-            )
-
     if missing_squads:
-
         print()
         print(
             "Teams ohne Kader:"
