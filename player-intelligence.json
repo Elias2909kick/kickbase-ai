@@ -2983,286 +2983,6 @@
           "photo": null,
           "injury": null,
           "sourceUrl": "https://www.bundesliga.com/de/spieler/jessic-ngankam"
-        },
-        {
-          "id": "mio-backhaus",
-          "name": "Mio Backhaus",
-          "age": null,
-          "number": 1,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/mio-backhaus"
-        },
-        {
-          "id": "florian-muller",
-          "name": "Florian Müller",
-          "age": null,
-          "number": 21,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/florian-muller"
-        },
-        {
-          "id": "jannik-huth",
-          "name": "Jannik Huth",
-          "age": null,
-          "number": 24,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/jannik-huth"
-        },
-        {
-          "id": "noah-atubolu",
-          "name": "Noah Atubolu",
-          "age": null,
-          "number": null,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/noah-atubolu"
-        },
-        {
-          "id": "philipp-lienhart",
-          "name": "Philipp Lienhart",
-          "age": null,
-          "number": 3,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/philipp-lienhart"
-        },
-        {
-          "id": "anthony-jung",
-          "name": "Anthony Jung",
-          "age": null,
-          "number": 5,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/anthony-jung"
-        },
-        {
-          "id": "lukas-kubler",
-          "name": "Lukas Kübler",
-          "age": null,
-          "number": 17,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/lukas-kubler"
-        },
-        {
-          "id": "berkay-yilmaz",
-          "name": "Berkay Yilmaz",
-          "age": null,
-          "number": 27,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/berkay-yilmaz"
-        },
-        {
-          "id": "matthias-ginter",
-          "name": "Matthias Ginter",
-          "age": null,
-          "number": 28,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/matthias-ginter"
-        },
-        {
-          "id": "philipp-treu",
-          "name": "Philipp Treu",
-          "age": null,
-          "number": 29,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/philipp-treu"
-        },
-        {
-          "id": "christian-gunter",
-          "name": "Christian Günter",
-          "age": null,
-          "number": 30,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/christian-gunter"
-        },
-        {
-          "id": "jordy-makengo",
-          "name": "Jordy Makengo",
-          "age": null,
-          "number": 33,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/jordy-makengo"
-        },
-        {
-          "id": "max-rosenfelder",
-          "name": "Max Rosenfelder",
-          "age": null,
-          "number": 37,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/max-rosenfelder"
-        },
-        {
-          "id": "bruno-ogbus",
-          "name": "Bruno Ogbus",
-          "age": null,
-          "number": 43,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/bruno-ogbus"
-        },
-        {
-          "id": "patrick-osterhage",
-          "name": "Patrick Osterhage",
-          "age": null,
-          "number": 6,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/patrick-osterhage"
-        },
-        {
-          "id": "maximilian-eggestein",
-          "name": "Maximilian Eggestein",
-          "age": null,
-          "number": 8,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/maximilian-eggestein"
-        },
-        {
-          "id": "yuito-suzuki",
-          "name": "Yuito Suzuki",
-          "age": null,
-          "number": 14,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/yuito-suzuki"
-        },
-        {
-          "id": "yannik-engelhardt",
-          "name": "Yannik Engelhardt",
-          "age": null,
-          "number": 16,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/yannik-engelhardt"
-        },
-        {
-          "id": "niklas-beste",
-          "name": "Niklas Beste",
-          "age": null,
-          "number": 19,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/niklas-beste"
-        },
-        {
-          "id": "rihito-yamamoto",
-          "name": "Rihito Yamamoto",
-          "age": null,
-          "number": 20,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/rihito-yamamoto"
-        },
-        {
-          "id": "florent-muslija",
-          "name": "Florent Muslija",
-          "age": null,
-          "number": 23,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/florent-muslija"
-        },
-        {
-          "id": "vincenzo-grifo",
-          "name": "Vincenzo Grifo",
-          "age": null,
-          "number": 32,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/vincenzo-grifo"
-        },
-        {
-          "id": "rouven-tarnutzer",
-          "name": "Rouven Tarnutzer",
-          "age": null,
-          "number": 39,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/rouven-tarnutzer"
-        },
-        {
-          "id": "derry-scherhant",
-          "name": "Derry Scherhant",
-          "age": null,
-          "number": 7,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/derry-scherhant"
-        },
-        {
-          "id": "lucas-holer",
-          "name": "Lucas Höler",
-          "age": null,
-          "number": 9,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/lucas-holer"
-        },
-        {
-          "id": "cyriaque-irie",
-          "name": "Cyriaque Irié",
-          "age": null,
-          "number": 22,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/cyriaque-irie"
-        },
-        {
-          "id": "igor-matanovic",
-          "name": "Igor Matanović",
-          "age": null,
-          "number": 31,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/igor-matanovic"
-        },
-        {
-          "id": "keisuke-goto",
-          "name": "Keisuke Gotō",
-          "age": null,
-          "number": 42,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/keisuke-goto"
         }
       ],
       "nextMatch": {
@@ -4084,7 +3804,298 @@
       "injury": "Keine aktuelle Verletzungsmeldung gefunden",
       "suspension": null,
       "recommendation": "Nächstes Spiel vorhanden",
-      "players": [],
+      "players": [
+        {
+          "id": "frank-lehmann",
+          "name": "Frank Lehmann",
+          "age": null,
+          "number": 1,
+          "position": "Torhüter",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/frank-lehmann"
+        },
+        {
+          "id": "elias-etringer",
+          "name": "Elias Etringer",
+          "age": null,
+          "number": 12,
+          "position": "Torhüter",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/elias-etringer"
+        },
+        {
+          "id": "nicolas-kristof",
+          "name": "Nicolas Kristof",
+          "age": null,
+          "number": 20,
+          "position": "Torhüter",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/nicolas-kristof"
+        },
+        {
+          "id": "tim-boss",
+          "name": "Tim Boss",
+          "age": null,
+          "number": 28,
+          "position": "Torhüter",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/tim-boss"
+        },
+        {
+          "id": "nicholas-mickelson",
+          "name": "Nicholas Mickelson",
+          "age": null,
+          "number": 2,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/nicholas-mickelson"
+        },
+        {
+          "id": "florian-le-joncour",
+          "name": "Florian Le Joncour",
+          "age": null,
+          "number": 3,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/florian-le-joncour"
+        },
+        {
+          "id": "luis-seifert",
+          "name": "Luis Seifert",
+          "age": null,
+          "number": 4,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/luis-seifert"
+        },
+        {
+          "id": "lukas-pinckert",
+          "name": "Lukas Pinckert",
+          "age": null,
+          "number": 19,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/lukas-pinckert"
+        },
+        {
+          "id": "lasse-gunther",
+          "name": "Lasse Günther",
+          "age": null,
+          "number": 21,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/lasse-gunther"
+        },
+        {
+          "id": "luca-sirch",
+          "name": "Luca Sirch",
+          "age": null,
+          "number": 26,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/luca-sirch"
+        },
+        {
+          "id": "jan-gyamerah",
+          "name": "Jan Gyamerah",
+          "age": null,
+          "number": 30,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/jan-gyamerah"
+        },
+        {
+          "id": "maximilian-rohr",
+          "name": "Maximilian Rohr",
+          "age": null,
+          "number": 31,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/maximilian-rohr"
+        },
+        {
+          "id": "felix-keidel",
+          "name": "Felix Keidel",
+          "age": null,
+          "number": 43,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/felix-keidel"
+        },
+        {
+          "id": "amara-conde",
+          "name": "Amara Condé",
+          "age": null,
+          "number": 6,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/amara-conde"
+        },
+        {
+          "id": "maurice-krattenmacher",
+          "name": "Maurice Krattenmacher",
+          "age": null,
+          "number": 7,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/maurice-krattenmacher"
+        },
+        {
+          "id": "lukasz-poreba",
+          "name": "Łukasz Poręba",
+          "age": null,
+          "number": 8,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/lukasz-poreba"
+        },
+        {
+          "id": "noah-darvich",
+          "name": "Noah Darvich",
+          "age": null,
+          "number": 10,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/noah-darvich"
+        },
+        {
+          "id": "jason-ceka",
+          "name": "Jason Ceka",
+          "age": null,
+          "number": 11,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/jason-ceka"
+        },
+        {
+          "id": "raif-adam",
+          "name": "Raif Adam",
+          "age": null,
+          "number": 15,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/raif-adam"
+        },
+        {
+          "id": "frederik-schmahl",
+          "name": "Frederik Schmahl",
+          "age": null,
+          "number": 17,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/frederik-schmahl"
+        },
+        {
+          "id": "lukas-petkov",
+          "name": "Lukas Petkov",
+          "age": null,
+          "number": 25,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/lukas-petkov"
+        },
+        {
+          "id": "filimon-gerezgiher",
+          "name": "Filimon Gerezgiher",
+          "age": null,
+          "number": 27,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/filimon-gerezgiher"
+        },
+        {
+          "id": "tom-zimmerschied",
+          "name": "Tom Zimmerschied",
+          "age": null,
+          "number": 29,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/tom-zimmerschied"
+        },
+        {
+          "id": "francis-onyeka",
+          "name": "Francis Onyeka",
+          "age": null,
+          "number": 40,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/francis-onyeka"
+        },
+        {
+          "id": "noel-futkeu",
+          "name": "Noel Futkeu",
+          "age": null,
+          "number": 9,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/noel-futkeu"
+        },
+        {
+          "id": "luca-pfeiffer",
+          "name": "Luca Pfeiffer",
+          "age": null,
+          "number": 16,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/luca-pfeiffer"
+        },
+        {
+          "id": "luca-schnellbacher",
+          "name": "Luca Schnellbacher",
+          "age": null,
+          "number": 24,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/luca-schnellbacher"
+        },
+        {
+          "id": "cole-campbell",
+          "name": "Cole Campbell",
+          "age": null,
+          "number": 39,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/cole-campbell"
+        },
+        {
+          "id": "david-mokwa",
+          "name": "David Mokwa",
+          "age": null,
+          "number": 42,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/david-mokwa"
+        }
+      ],
       "nextMatch": {
         "opponent": "Bayer 04 Leverkusen",
         "homeAway": "Heim",
@@ -4807,296 +4818,6 @@
           "photo": null,
           "injury": null,
           "sourceUrl": "https://www.bundesliga.com/de/spieler/mathis-albert"
-        },
-        {
-          "id": "frank-lehmann",
-          "name": "Frank Lehmann",
-          "age": null,
-          "number": 1,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/frank-lehmann"
-        },
-        {
-          "id": "elias-etringer",
-          "name": "Elias Etringer",
-          "age": null,
-          "number": 12,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/elias-etringer"
-        },
-        {
-          "id": "nicolas-kristof",
-          "name": "Nicolas Kristof",
-          "age": null,
-          "number": 20,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/nicolas-kristof"
-        },
-        {
-          "id": "tim-boss",
-          "name": "Tim Boss",
-          "age": null,
-          "number": 28,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/tim-boss"
-        },
-        {
-          "id": "nicholas-mickelson",
-          "name": "Nicholas Mickelson",
-          "age": null,
-          "number": 2,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/nicholas-mickelson"
-        },
-        {
-          "id": "florian-le-joncour",
-          "name": "Florian Le Joncour",
-          "age": null,
-          "number": 3,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/florian-le-joncour"
-        },
-        {
-          "id": "luis-seifert",
-          "name": "Luis Seifert",
-          "age": null,
-          "number": 4,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/luis-seifert"
-        },
-        {
-          "id": "lukas-pinckert",
-          "name": "Lukas Pinckert",
-          "age": null,
-          "number": 19,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/lukas-pinckert"
-        },
-        {
-          "id": "lasse-gunther",
-          "name": "Lasse Günther",
-          "age": null,
-          "number": 21,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/lasse-gunther"
-        },
-        {
-          "id": "luca-sirch",
-          "name": "Luca Sirch",
-          "age": null,
-          "number": 26,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/luca-sirch"
-        },
-        {
-          "id": "jan-gyamerah",
-          "name": "Jan Gyamerah",
-          "age": null,
-          "number": 30,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/jan-gyamerah"
-        },
-        {
-          "id": "maximilian-rohr",
-          "name": "Maximilian Rohr",
-          "age": null,
-          "number": 31,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/maximilian-rohr"
-        },
-        {
-          "id": "felix-keidel",
-          "name": "Felix Keidel",
-          "age": null,
-          "number": 43,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/felix-keidel"
-        },
-        {
-          "id": "amara-conde",
-          "name": "Amara Condé",
-          "age": null,
-          "number": 6,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/amara-conde"
-        },
-        {
-          "id": "maurice-krattenmacher",
-          "name": "Maurice Krattenmacher",
-          "age": null,
-          "number": 7,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/maurice-krattenmacher"
-        },
-        {
-          "id": "lukasz-poreba",
-          "name": "Łukasz Poręba",
-          "age": null,
-          "number": 8,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/lukasz-poreba"
-        },
-        {
-          "id": "noah-darvich",
-          "name": "Noah Darvich",
-          "age": null,
-          "number": 10,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/noah-darvich"
-        },
-        {
-          "id": "jason-ceka",
-          "name": "Jason Ceka",
-          "age": null,
-          "number": 11,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/jason-ceka"
-        },
-        {
-          "id": "raif-adam",
-          "name": "Raif Adam",
-          "age": null,
-          "number": 15,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/raif-adam"
-        },
-        {
-          "id": "frederik-schmahl",
-          "name": "Frederik Schmahl",
-          "age": null,
-          "number": 17,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/frederik-schmahl"
-        },
-        {
-          "id": "lukas-petkov",
-          "name": "Lukas Petkov",
-          "age": null,
-          "number": 25,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/lukas-petkov"
-        },
-        {
-          "id": "filimon-gerezgiher",
-          "name": "Filimon Gerezgiher",
-          "age": null,
-          "number": 27,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/filimon-gerezgiher"
-        },
-        {
-          "id": "tom-zimmerschied",
-          "name": "Tom Zimmerschied",
-          "age": null,
-          "number": 29,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/tom-zimmerschied"
-        },
-        {
-          "id": "francis-onyeka",
-          "name": "Francis Onyeka",
-          "age": null,
-          "number": 40,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/francis-onyeka"
-        },
-        {
-          "id": "noel-futkeu",
-          "name": "Noel Futkeu",
-          "age": null,
-          "number": 9,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/noel-futkeu"
-        },
-        {
-          "id": "luca-pfeiffer",
-          "name": "Luca Pfeiffer",
-          "age": null,
-          "number": 16,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/luca-pfeiffer"
-        },
-        {
-          "id": "luca-schnellbacher",
-          "name": "Luca Schnellbacher",
-          "age": null,
-          "number": 24,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/luca-schnellbacher"
-        },
-        {
-          "id": "cole-campbell",
-          "name": "Cole Campbell",
-          "age": null,
-          "number": 39,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/cole-campbell"
-        },
-        {
-          "id": "david-mokwa",
-          "name": "David Mokwa",
-          "age": null,
-          "number": 42,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/david-mokwa"
         }
       ],
       "nextMatch": {
@@ -5541,7 +5262,288 @@
       "injury": "Keine aktuelle Verletzungsmeldung gefunden",
       "suspension": null,
       "recommendation": "Nächstes Spiel vorhanden",
-      "players": [],
+      "players": [
+        {
+          "id": "mio-backhaus",
+          "name": "Mio Backhaus",
+          "age": null,
+          "number": 1,
+          "position": "Torhüter",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/mio-backhaus"
+        },
+        {
+          "id": "florian-muller",
+          "name": "Florian Müller",
+          "age": null,
+          "number": 21,
+          "position": "Torhüter",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/florian-muller"
+        },
+        {
+          "id": "jannik-huth",
+          "name": "Jannik Huth",
+          "age": null,
+          "number": 24,
+          "position": "Torhüter",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/jannik-huth"
+        },
+        {
+          "id": "noah-atubolu",
+          "name": "Noah Atubolu",
+          "age": null,
+          "number": null,
+          "position": "Torhüter",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/noah-atubolu"
+        },
+        {
+          "id": "philipp-lienhart",
+          "name": "Philipp Lienhart",
+          "age": null,
+          "number": 3,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/philipp-lienhart"
+        },
+        {
+          "id": "anthony-jung",
+          "name": "Anthony Jung",
+          "age": null,
+          "number": 5,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/anthony-jung"
+        },
+        {
+          "id": "lukas-kubler",
+          "name": "Lukas Kübler",
+          "age": null,
+          "number": 17,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/lukas-kubler"
+        },
+        {
+          "id": "berkay-yilmaz",
+          "name": "Berkay Yilmaz",
+          "age": null,
+          "number": 27,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/berkay-yilmaz"
+        },
+        {
+          "id": "matthias-ginter",
+          "name": "Matthias Ginter",
+          "age": null,
+          "number": 28,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/matthias-ginter"
+        },
+        {
+          "id": "philipp-treu",
+          "name": "Philipp Treu",
+          "age": null,
+          "number": 29,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/philipp-treu"
+        },
+        {
+          "id": "christian-gunter",
+          "name": "Christian Günter",
+          "age": null,
+          "number": 30,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/christian-gunter"
+        },
+        {
+          "id": "jordy-makengo",
+          "name": "Jordy Makengo",
+          "age": null,
+          "number": 33,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/jordy-makengo"
+        },
+        {
+          "id": "max-rosenfelder",
+          "name": "Max Rosenfelder",
+          "age": null,
+          "number": 37,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/max-rosenfelder"
+        },
+        {
+          "id": "bruno-ogbus",
+          "name": "Bruno Ogbus",
+          "age": null,
+          "number": 43,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/bruno-ogbus"
+        },
+        {
+          "id": "patrick-osterhage",
+          "name": "Patrick Osterhage",
+          "age": null,
+          "number": 6,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/patrick-osterhage"
+        },
+        {
+          "id": "maximilian-eggestein",
+          "name": "Maximilian Eggestein",
+          "age": null,
+          "number": 8,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/maximilian-eggestein"
+        },
+        {
+          "id": "yuito-suzuki",
+          "name": "Yuito Suzuki",
+          "age": null,
+          "number": 14,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/yuito-suzuki"
+        },
+        {
+          "id": "yannik-engelhardt",
+          "name": "Yannik Engelhardt",
+          "age": null,
+          "number": 16,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/yannik-engelhardt"
+        },
+        {
+          "id": "niklas-beste",
+          "name": "Niklas Beste",
+          "age": null,
+          "number": 19,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/niklas-beste"
+        },
+        {
+          "id": "rihito-yamamoto",
+          "name": "Rihito Yamamoto",
+          "age": null,
+          "number": 20,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/rihito-yamamoto"
+        },
+        {
+          "id": "florent-muslija",
+          "name": "Florent Muslija",
+          "age": null,
+          "number": 23,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/florent-muslija"
+        },
+        {
+          "id": "vincenzo-grifo",
+          "name": "Vincenzo Grifo",
+          "age": null,
+          "number": 32,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/vincenzo-grifo"
+        },
+        {
+          "id": "rouven-tarnutzer",
+          "name": "Rouven Tarnutzer",
+          "age": null,
+          "number": 39,
+          "position": "Mittelfeld",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/rouven-tarnutzer"
+        },
+        {
+          "id": "derry-scherhant",
+          "name": "Derry Scherhant",
+          "age": null,
+          "number": 7,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/derry-scherhant"
+        },
+        {
+          "id": "lucas-holer",
+          "name": "Lucas Höler",
+          "age": null,
+          "number": 9,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/lucas-holer"
+        },
+        {
+          "id": "cyriaque-irie",
+          "name": "Cyriaque Irié",
+          "age": null,
+          "number": 22,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/cyriaque-irie"
+        },
+        {
+          "id": "igor-matanovic",
+          "name": "Igor Matanović",
+          "age": null,
+          "number": 31,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/igor-matanovic"
+        },
+        {
+          "id": "keisuke-goto",
+          "name": "Keisuke Gotō",
+          "age": null,
+          "number": 42,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/keisuke-goto"
+        }
+      ],
       "nextMatch": {
         "opponent": "SV Werder Bremen",
         "homeAway": "Heim",
