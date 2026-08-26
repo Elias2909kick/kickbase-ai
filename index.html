@@ -929,6 +929,13 @@ function extractPlayers(payload){
     const name = raw.name || raw.playerName || raw.fullName;
     if(!name) return;
 
+    /*
+      WICHTIG:
+      Der Verein kommt immer aus den AKTUELLEN Bundesliga-Daten.
+      clubHint stammt aus dem Team, in dessen "players"-Liste
+      dieser Spieler steht. Alte PLAYER_DATABASE-Daten werden
+      hier bewusst NICHT verwendet.
+    */
     const club =
       raw.club ||
       raw.teamName ||
@@ -941,14 +948,20 @@ function extractPlayers(payload){
       raw.position || raw.positionName || raw.positionShort
     );
 
-    const key = `${normalizeText(name)}|${normalizeText(club)}`;
+    const cleanClub = String(club || "").trim();
+
+    const key = `${normalizeText(name)}|${normalizeText(cleanClub)}`;
     if(seen.has(key)) return;
     seen.add(key);
 
     result.push({
-      id: String(raw.id ?? raw.playerId ?? slugify(`${name}-${club}`)),
+      id: String(
+        raw.id ??
+        raw.playerId ??
+        slugify(`${name}-${cleanClub}`)
+      ),
       name: String(name),
-      club: String(club || "Unbekannt"),
+      club: cleanClub || "Unbekannt",
       position,
       number: raw.number ?? raw.shirtNumber ?? null,
       photo: raw.photo || raw.image || raw.imageUrl || "",
@@ -957,8 +970,75 @@ function extractPlayers(payload){
     });
   }
 
+  /*
+    Der aktuelle player-intelligence.json Aufbau enthält:
+      teams
+        └── Team
+              ├── club
+              └── players[]
+
+    Diesen Aufbau behandeln wir zuerst und explizit.
+    Dadurch bekommt z.B. ein Spieler aus der Union-Liste
+    garantiert "1. FC Union Berlin" als Verein, auch wenn
+    der einzelne Spieler-Datensatz selbst kein club-Feld besitzt.
+  */
+  if(payload && payload.teams){
+    const teams = payload.teams;
+
+    if(Array.isArray(teams)){
+      teams.forEach(team => {
+        if(!team || typeof team !== "object") return;
+
+        const club =
+          team.club ||
+          team.teamName ||
+          team.name ||
+          "";
+
+        const players =
+          Array.isArray(team.players) ? team.players :
+          Array.isArray(team.squad) ? team.squad :
+          Array.isArray(team.roster) ? team.roster :
+          [];
+
+        players.forEach(player => addPlayer(player, club));
+      });
+    }else if(typeof teams === "object"){
+      Object.entries(teams).forEach(([teamKey, team]) => {
+        if(!team || typeof team !== "object") return;
+
+        /*
+          Bevorzugt wird das echte club-Feld.
+          Der Dictionary-Key ist nur ein Fallback.
+        */
+        const club =
+          team.club ||
+          team.teamName ||
+          team.name ||
+          (
+            typeof teamKey === "string" &&
+            !["teams","players","squad","roster"].includes(teamKey)
+              ? teamKey
+              : ""
+          );
+
+        const players =
+          Array.isArray(team.players) ? team.players :
+          Array.isArray(team.squad) ? team.squad :
+          Array.isArray(team.roster) ? team.roster :
+          [];
+
+        players.forEach(player => addPlayer(player, club));
+      });
+    }
+  }
+
+  /*
+    Fallback für ältere/abweichende JSON-Strukturen.
+    Auch hier wird der Team-Kontext an die Spieler weitergegeben.
+  */
   function visit(node, clubHint = "", depth = 0){
-    if(depth > 8 || node == null) return;
+    if(depth > 10 || node == null) return;
 
     if(Array.isArray(node)){
       node.forEach(item => visit(item, clubHint, depth + 1));
@@ -968,11 +1048,17 @@ function extractPlayers(payload){
     if(typeof node !== "object") return;
 
     const localClub =
-      node.name && (
-        node.players ||
-        node.squad ||
-        node.roster
-      ) ? String(node.name) : clubHint;
+      node.club ||
+      node.teamName ||
+      node.team?.name ||
+      node.team?.teamName ||
+      clubHint ||
+      (
+        node.name &&
+        (node.players || node.squad || node.roster)
+          ? String(node.name)
+          : ""
+      );
 
     if(Array.isArray(node.players)){
       node.players.forEach(player => addPlayer(player, localClub));
@@ -994,19 +1080,29 @@ function extractPlayers(payload){
       if(["players","squad","roster","player"].includes(key)) continue;
 
       let nextClub = localClub;
+
       if(value && typeof value === "object" && !Array.isArray(value)){
+        nextClub =
+          value.club ||
+          value.teamName ||
+          value.team?.name ||
+          value.team?.teamName ||
+          nextClub;
+
         if(
           value.name &&
           (value.players || value.squad || value.roster)
         ){
-          nextClub = String(value.name);
+          nextClub = String(value.club || value.name);
         }
       }
+
       visit(value, nextClub, depth + 1);
     }
   }
 
   visit(payload);
+
   return result;
 }
 
@@ -1491,6 +1587,13 @@ async function loadPlayerIntelligence(){
     PLAYER_INTELLIGENCE = await response.json();
 
     BUNDESLIGA_PLAYERS = extractPlayers(PLAYER_INTELLIGENCE);
+
+    console.log(
+      `Bundesliga-Spieler geladen: ${BUNDESLIGA_PLAYERS.length}`,
+      BUNDESLIGA_PLAYERS.filter(p => !p.club || p.club === "Unbekannt").length
+        ? "Warnung: Spieler ohne Verein gefunden."
+        : "Alle Spieler haben einen Verein."
+    );
 
     migrateRosterToCurrentBundesligaIds();
     renderRoster();
