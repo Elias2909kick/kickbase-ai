@@ -650,23 +650,20 @@ if score > best_score:
     best_score = score
     best_team = team
 
-        if best_team:
-
-            print(
-                "API-Football Team: "
-                f"{best_team.get('name')} "
-                f"(ID "
-                f"{best_team.get('id')})"
-            )
-
-            return best_team
-
+if best_team:
     print(
-        "API-Football Team "
-        "nicht gefunden."
+        "API-Football Team: "
+        f"{best_team.get('name')} "
+        f"(ID {best_team.get('id')})"
     )
+    return best_team
 
-    return None
+print(
+    "API-Football Team "
+    "nicht gefunden."
+)
+
+return None
 
 
 def get_current_squad(
