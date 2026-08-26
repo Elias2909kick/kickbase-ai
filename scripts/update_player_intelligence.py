@@ -342,7 +342,7 @@ for search_name in search_names:
         break
 
     if not candidates:
-        return None
+        return None    
 
     # Erst exakten Namen suchen
     for entry in candidates:
