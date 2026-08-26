@@ -677,9 +677,9 @@ def main():
 
 # Neue Datenbasis für diesen Lauf aufbauen.
 # Dadurch bleiben keine alten/falschen Teams aus vorherigen Läufen erhalten.
-data = {
-    "teams": {}
-}
+    data = {
+        "teams": {}
+    }
 
     # --------------------------------------------------------
     # ALLE 18 TEAMS
