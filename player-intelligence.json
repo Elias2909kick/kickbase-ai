@@ -1068,6 +1068,16 @@
           "photo": null,
           "injury": null,
           "sourceUrl": "https://www.bundesliga.com/de/spieler/samba-konate"
+        },
+        {
+          "id": "christopher-nkunku",
+          "name": "Christopher Nkunku",
+          "age": null,
+          "number": null,
+          "position": "Angriff",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/christopher-nkunku"
         }
       ],
       "nextMatch": {
