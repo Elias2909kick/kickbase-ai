@@ -55,9 +55,17 @@ BUNDESLIGA_NAME_MAP = {
     "1 fc union berlin": "1. FC Union Berlin",
     "sv werder bremen": "SV Werder Bremen",
     "borussia dortmund": "Borussia Dortmund",
-    "sv elversberg": "SV Elversberg",
+    # Bundesliga.com / OpenLigaDB verwenden hier teils
+    # unterschiedliche Schreibweisen. Alle Varianten werden
+    # auf den Namen des jeweiligen Bundesliga-Spielplans
+    # vereinheitlicht.
+    "sv elversberg": "SV 07 Elversberg",
+    "sv 07 elversberg": "SV 07 Elversberg",
+
     "eintracht frankfurt": "Eintracht Frankfurt",
-    "sport club freiburg": "Sport-Club Freiburg",
+
+    "sport club freiburg": "SC Freiburg",
+    "sc freiburg": "SC Freiburg",
     "hamburger sv": "Hamburger SV",
     "tsg hoffenheim": "TSG Hoffenheim",
     "1 fc koln": "1. FC Köln",
