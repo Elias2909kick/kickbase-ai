@@ -599,12 +599,20 @@ def find_api_football_team(
 
             if not api_name:
                 continue
+# Frauenmannschaften ausschließen
+api_name_normalized = normalize_name(api_name)
 
-            api_normalized = (
-                normalize_name(
-                    api_name
-                )
-            )
+if (
+    api_name_normalized.endswith(" w")
+    or "women" in api_name_normalized.split()
+    or "femenino" in api_name_normalized.split()
+):
+    continue
+api_normalized = (
+    normalize_name(
+        api_name
+    )
+)
 
             api_words = set(
                 api_normalized.split()
