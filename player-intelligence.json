@@ -831,323 +831,7 @@
       "injury": "Keine aktuelle Verletzungsmeldung gefunden",
       "suspension": null,
       "recommendation": "Nächstes Spiel vorhanden",
-      "players": [
-        {
-          "id": 628381,
-          "name": "Louis Babatz",
-          "age": 19,
-          "number": 35,
-          "position": "Goalkeeper",
-          "photo": "https://media.api-sports.io/football/players/628381.png",
-          "injury": null
-        },
-        {
-          "id": 353950,
-          "name": "Luke Gauer",
-          "age": 20,
-          "number": 42,
-          "position": "Goalkeeper",
-          "photo": "https://media.api-sports.io/football/players/353950.png",
-          "injury": null
-        },
-        {
-          "id": 280399,
-          "name": "M. Kinzig",
-          "age": 22,
-          "number": 21,
-          "position": "Goalkeeper",
-          "photo": "https://media.api-sports.io/football/players/280399.png",
-          "injury": null
-        },
-        {
-          "id": 26234,
-          "name": "A. Schwolow",
-          "age": 33,
-          "number": 1,
-          "position": "Goalkeeper",
-          "photo": "https://media.api-sports.io/football/players/26234.png",
-          "injury": null
-        },
-        {
-          "id": 25906,
-          "name": "R. Zentner",
-          "age": 31,
-          "number": 27,
-          "position": "Goalkeeper",
-          "photo": "https://media.api-sports.io/football/players/25906.png",
-          "injury": null
-        },
-        {
-          "id": 25907,
-          "name": "S. Bell",
-          "age": 34,
-          "number": 16,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/25907.png",
-          "injury": null
-        },
-        {
-          "id": 22244,
-          "name": "A. Caci",
-          "age": 28,
-          "number": 19,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/22244.png",
-          "injury": null
-        },
-        {
-          "id": 202845,
-          "name": "F. Gruber",
-          "age": 23,
-          "number": 3,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/202845.png",
-          "injury": null
-        },
-        {
-          "id": 39279,
-          "name": "A. Hanche-Olsen",
-          "age": 28,
-          "number": 25,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/39279.png",
-          "injury": null
-        },
-        {
-          "id": 24842,
-          "name": "L. Maloney",
-          "age": 26,
-          "number": 15,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/24842.png",
-          "injury": null
-        },
-        {
-          "id": 25915,
-          "name": "P. Mwene",
-          "age": 31,
-          "number": 2,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/25915.png",
-          "injury": null
-        },
-        {
-          "id": 711,
-          "name": "S. Posch",
-          "age": 28,
-          "number": 4,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/711.png",
-          "injury": null
-        },
-        {
-          "id": 442546,
-          "name": "K. Potulski",
-          "age": 18,
-          "number": 48,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/442546.png",
-          "injury": null
-        },
-        {
-          "id": 48378,
-          "name": "S. Widmer",
-          "age": 32,
-          "number": 30,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/48378.png",
-          "injury": null
-        },
-        {
-          "id": 1812,
-          "name": "D. da Costa",
-          "age": 32,
-          "number": 21,
-          "position": "Defender",
-          "photo": "https://media.api-sports.io/football/players/1812.png",
-          "injury": null
-        },
-        {
-          "id": 714,
-          "name": "N. Amiri",
-          "age": 29,
-          "number": 10,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/714.png",
-          "injury": null
-        },
-        {
-          "id": 26519,
-          "name": "Hong Hyun-Seok",
-          "age": 26,
-          "number": 24,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/26519.png",
-          "injury": null
-        },
-        {
-          "id": 621880,
-          "name": "D. Imafidon",
-          "age": 19,
-          "number": 34,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/621880.png",
-          "injury": null
-        },
-        {
-          "id": 199897,
-          "name": "S. Kawasaki",
-          "age": 24,
-          "number": 24,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/199897.png",
-          "injury": null
-        },
-        {
-          "id": 979,
-          "name": "D. Kohr",
-          "age": 31,
-          "number": 31,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/979.png",
-          "injury": null
-        },
-        {
-          "id": 2906,
-          "name": "Lee Jae-Sung",
-          "age": 33,
-          "number": 7,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/2906.png",
-          "injury": null
-        },
-        {
-          "id": 162480,
-          "name": "E. Martel",
-          "age": 23,
-          "number": 6,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/162480.png",
-          "injury": null
-        },
-        {
-          "id": 202736,
-          "name": "P. Nebel",
-          "age": 23,
-          "number": 8,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/202736.png",
-          "injury": null
-        },
-        {
-          "id": 25307,
-          "name": "M. Richter",
-          "age": 28,
-          "number": 23,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/25307.png",
-          "injury": null
-        },
-        {
-          "id": 318083,
-          "name": "O. Ruoppi",
-          "age": 19,
-          "number": 34,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/318083.png",
-          "injury": null
-        },
-        {
-          "id": 33889,
-          "name": "K. Sano",
-          "age": 25,
-          "number": 6,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/33889.png",
-          "injury": null
-        },
-        {
-          "id": 618414,
-          "name": "P. Schulz",
-          "age": 21,
-          "number": 2,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/618414.png",
-          "injury": null
-        },
-        {
-          "id": 548539,
-          "name": "T. Yamazaki",
-          "age": 21,
-          "number": 17,
-          "position": "Midfielder",
-          "photo": "https://media.api-sports.io/football/players/548539.png",
-          "injury": null
-        },
-        {
-          "id": 37938,
-          "name": "S. Becker",
-          "age": 30,
-          "number": 23,
-          "position": "Attacker",
-          "photo": "https://media.api-sports.io/football/players/37938.png",
-          "injury": null
-        },
-        {
-          "id": 199931,
-          "name": "W. Bøving",
-          "age": 22,
-          "number": 14,
-          "position": "Attacker",
-          "photo": "https://media.api-sports.io/football/players/199931.png",
-          "injury": null
-        },
-        {
-          "id": 606691,
-          "name": "A. Haidara",
-          "age": 17,
-          "number": null,
-          "position": "Attacker",
-          "photo": "https://media.api-sports.io/football/players/606691.png",
-          "injury": null
-        },
-        {
-          "id": 162773,
-          "name": "R. Königsdörffer",
-          "age": 24,
-          "number": 11,
-          "position": "Attacker",
-          "photo": "https://media.api-sports.io/football/players/162773.png",
-          "injury": null
-        },
-        {
-          "id": 548511,
-          "name": "F. Moreno Fell",
-          "age": 25,
-          "number": 36,
-          "position": "Attacker",
-          "photo": "https://media.api-sports.io/football/players/548511.png",
-          "injury": null
-        },
-        {
-          "id": 20617,
-          "name": "S. Katompa Mvumpa",
-          "age": 27,
-          "number": 26,
-          "position": "Attacker",
-          "photo": "https://media.api-sports.io/football/players/20617.png",
-          "injury": null
-        },
-        {
-          "id": 26171,
-          "name": "P. Tietz",
-          "age": 28,
-          "number": 9,
-          "position": "Attacker",
-          "photo": "https://media.api-sports.io/football/players/26171.png",
-          "injury": null
-        }
-      ],
+      "players": [],
       "sources": [
         {
           "title": "OpenLigaDB",
@@ -1443,7 +1127,341 @@
       "injury": "Keine aktuelle Verletzungsmeldung gefunden",
       "suspension": null,
       "recommendation": "Nächstes Spiel vorhanden",
-      "players": [],
+      "players": [
+        {
+          "id": 668541,
+          "name": "F. Gagzow",
+          "age": 17,
+          "number": null,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/668541.png",
+          "injury": null
+        },
+        {
+          "id": 127471,
+          "name": "C. Klaus",
+          "age": 31,
+          "number": 25,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/127471.png",
+          "injury": null
+        },
+        {
+          "id": 262815,
+          "name": "M. Raab",
+          "age": 27,
+          "number": 31,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/262815.png",
+          "injury": null
+        },
+        {
+          "id": 1798,
+          "name": "F. Rønnow",
+          "age": 33,
+          "number": 1,
+          "position": "Goalkeeper",
+          "photo": "https://media.api-sports.io/football/players/1798.png",
+          "injury": null
+        },
+        {
+          "id": 585741,
+          "name": "S. Barry",
+          "age": 18,
+          "number": null,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/585741.png",
+          "injury": null
+        },
+        {
+          "id": 24839,
+          "name": "M. Friedrich",
+          "age": 30,
+          "number": 5,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/24839.png",
+          "injury": null
+        },
+        {
+          "id": 14330,
+          "name": "J. Juranović",
+          "age": 30,
+          "number": 18,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/14330.png",
+          "injury": null
+        },
+        {
+          "id": 128853,
+          "name": "D. Köhn",
+          "age": 27,
+          "number": 17,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/128853.png",
+          "injury": null
+        },
+        {
+          "id": 413294,
+          "name": "Andrik Markgraf",
+          "age": 19,
+          "number": 3,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/413294.png",
+          "injury": null
+        },
+        {
+          "id": 270,
+          "name": "S. Nsoki",
+          "age": 26,
+          "number": 34,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/270.png",
+          "injury": null
+        },
+        {
+          "id": 412847,
+          "name": "Oluwaseun God Power Osaro Ogbemudia",
+          "age": 19,
+          "number": 41,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/412847.png",
+          "injury": null
+        },
+        {
+          "id": 288206,
+          "name": "L. Querfeld",
+          "age": 22,
+          "number": 14,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/288206.png",
+          "injury": null
+        },
+        {
+          "id": 324957,
+          "name": "T. Rothe",
+          "age": 21,
+          "number": 15,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/324957.png",
+          "injury": null
+        },
+        {
+          "id": 24848,
+          "name": "C. Trimmel",
+          "age": 38,
+          "number": 28,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/24848.png",
+          "injury": null
+        },
+        {
+          "id": 585682,
+          "name": "T. Blaszczak",
+          "age": 18,
+          "number": 44,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/585682.png",
+          "injury": null
+        },
+        {
+          "id": 668543,
+          "name": "M. Etobe",
+          "age": 16,
+          "number": 6,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/668543.png",
+          "injury": null
+        },
+        {
+          "id": 26249,
+          "name": "J. Haberer",
+          "age": 31,
+          "number": 19,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/26249.png",
+          "injury": null
+        },
+        {
+          "id": 512,
+          "name": "Jeong Woo-Yeong",
+          "age": 26,
+          "number": 11,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/512.png",
+          "injury": null
+        },
+        {
+          "id": 668544,
+          "name": "T. Kannegieser",
+          "age": 18,
+          "number": 19,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/668544.png",
+          "injury": null
+        },
+        {
+          "id": 327831,
+          "name": "A. Kemlein",
+          "age": 21,
+          "number": 6,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/327831.png",
+          "injury": null
+        },
+        {
+          "id": 30785,
+          "name": "A. Schäfer",
+          "age": 26,
+          "number": 13,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/30785.png",
+          "injury": null
+        },
+        {
+          "id": 303679,
+          "name": "Z. Van Den Bosch",
+          "age": 22,
+          "number": 4,
+          "position": "Defender",
+          "photo": "https://media.api-sports.io/football/players/303679.png",
+          "injury": null
+        },
+        {
+          "id": 619702,
+          "name": "L. Vulin",
+          "age": 17,
+          "number": null,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/619702.png",
+          "injury": null
+        },
+        {
+          "id": 668546,
+          "name": "M. Witschel",
+          "age": 17,
+          "number": null,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/668546.png",
+          "injury": null
+        },
+        {
+          "id": 380873,
+          "name": "Ilyas  Ansah",
+          "age": 21,
+          "number": 10,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/380873.png",
+          "injury": null
+        },
+        {
+          "id": 440136,
+          "name": "Dmytro Bohdanov",
+          "age": 18,
+          "number": 30,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/440136.png",
+          "injury": null
+        },
+        {
+          "id": 430354,
+          "name": "Livan Burcu",
+          "age": 21,
+          "number": 9,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/430354.png",
+          "injury": null
+        },
+        {
+          "id": 1124,
+          "name": "O. Burke",
+          "age": 28,
+          "number": 7,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/1124.png",
+          "injury": null
+        },
+        {
+          "id": 621185,
+          "name": "O. Engel",
+          "age": 18,
+          "number": null,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/621185.png",
+          "injury": null
+        },
+        {
+          "id": 592161,
+          "name": "Julien Friedrich",
+          "age": 18,
+          "number": 22,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/592161.png",
+          "injury": null
+        },
+        {
+          "id": 655116,
+          "name": "Linus Guther",
+          "age": 16,
+          "number": 49,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/655116.png",
+          "injury": null
+        },
+        {
+          "id": 45892,
+          "name": "A. Ilić",
+          "age": 25,
+          "number": 23,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/45892.png",
+          "injury": null
+        },
+        {
+          "id": 32137,
+          "name": "E. Latte Lath",
+          "age": 26,
+          "number": 29,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/32137.png",
+          "injury": null
+        },
+        {
+          "id": 292218,
+          "name": "M. LjubiÄiÄ",
+          "age": 23,
+          "number": 27,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/292218.png",
+          "injury": null
+        },
+        {
+          "id": 668547,
+          "name": "L. Pepinski",
+          "age": 18,
+          "number": null,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/668547.png",
+          "injury": null
+        },
+        {
+          "id": 24910,
+          "name": "T. Skarke",
+          "age": 29,
+          "number": 21,
+          "position": "Midfielder",
+          "photo": "https://media.api-sports.io/football/players/24910.png",
+          "injury": null
+        },
+        {
+          "id": 1298,
+          "name": "R. Skov",
+          "age": 29,
+          "number": 24,
+          "position": "Attacker",
+          "photo": "https://media.api-sports.io/football/players/1298.png",
+          "injury": null
+        }
+      ],
       "sources": [
         {
           "title": "OpenLigaDB",
