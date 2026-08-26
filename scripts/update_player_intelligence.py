@@ -256,10 +256,28 @@ class BundesligaPlayersParser(HTMLParser):
 
         self._tag_stack = []
 
-        self.club_lookup = {
-            normalize_name(name): name
-            for name in BUNDESLIGA_NAME_MAP.values()
-        }
+        # Sowohl alle bekannten Aliasnamen (Dictionary-Keys)
+        # als auch die kanonischen Namen (Dictionary-Values)
+        # müssen erkannt werden. Genau das war der Fehler bei
+        # SV Elversberg und Sport-Club Freiburg:
+        #
+        # Bundesliga.com: "SV Elversberg"
+        # intern:         "SV 07 Elversberg"
+        #
+        # Bundesliga.com: "Sport-Club Freiburg"
+        # intern:         "SC Freiburg"
+        self.club_lookup = {}
+
+        for alias, canonical in (
+            BUNDESLIGA_NAME_MAP.items()
+        ):
+            self.club_lookup[
+                normalize_name(alias)
+            ] = canonical
+
+            self.club_lookup[
+                normalize_name(canonical)
+            ] = canonical
 
         self.position_lookup = {
             normalize_name(
