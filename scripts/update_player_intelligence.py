@@ -22,26 +22,6 @@ API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY")
 BUNDESLIGA_SHORTCUT = "bl1"
 CURRENT_SEASON = 2026  # Bundesliga 2026/27
 
-BUNDESLIGA_TEAMS = [
-    "1. FC Köln",
-    "Bayer Leverkusen",
-    "FC Bayern München",
-    "Borussia Dortmund",
-    "Borussia Mönchengladbach",
-    "Eintracht Frankfurt",
-    "FC Augsburg",
-    "1. FSV Mainz 05",
-    "Hamburger SV",
-    "RB Leipzig",
-    "SC Freiburg",
-    "SC Paderborn 07",
-    "FC Schalke 04",
-    "SV 07 Elversberg",
-    "TSG Hoffenheim",
-    "1. FC Union Berlin",
-    "VfB Stuttgart",
-    "SV Werder Bremen",
-]
 # ============================================================
 # HTTP
 # ============================================================
@@ -82,14 +62,22 @@ def openligadb_get(path):
 
 def get_bundesliga_teams():
     """
-    Liefert exakt die 18 festgelegten Bundesliga-Mannschaften.
-    Die Mannschaftsnamen werden nicht mehr von OpenLigaDB übernommen.
+    Holt die komplette Bundesliga 2026/27 automatisch.
+
+    Dadurch müssen wir keine Mannschaften wie Bayern,
+    Schalke oder Paderborn manuell eintragen.
     """
 
-    return [
-        {"teamName": team_name}
-        for team_name in BUNDESLIGA_TEAMS
-    ]
+    teams = openligadb_get(
+        f"/getavailableteams/{BUNDESLIGA_SHORTCUT}/{CURRENT_SEASON}"
+    )
+
+    if not teams:
+        raise RuntimeError(
+            "OpenLigaDB hat keine Bundesliga-Teams geliefert."
+        )
+
+    return teams
 
 
 def get_bundesliga_matches():
@@ -269,111 +257,91 @@ def names_match(a, b):
 
 def find_api_football_team(team_name):
     """
-    Sucht einen Verein bei API-Football.
+    Sucht einen Verein bei API-Football ohne league/season-Parameter.
 
-    Wichtig:
-    Wir verwenden NICHT league + season.
-
-    Dadurch umgehen wir die Free-Plan-Saisonbeschränkung.
+    Wir verwenden mehrere Suchvarianten, weil API-Football deutsche
+    Vereinsnamen teilweise anders schreibt.
     """
 
     if not API_FOOTBALL_KEY:
         return None
 
-    # Mehrere Suchvarianten verwenden, weil API-Football
-    # manche deutschen Vereinsnamen anders führt.
-    search_names = [
-        normalize_name(team_name)
-    ]
+    normalized = normalize_name(team_name)
 
     aliases = {
-        "1 fc koln": ["koln", "fc koln"],
-        "borussia monchengladbach": ["monchengladbach", "borussia monchengladbach"],
-        "eintracht frankfurt": ["frankfurt"],
-        "fc bayern munchen": ["bayern munich", "bayern"],
-        "fc schalke 04": ["schalke 04", "schalke"],
-        "tsg hoffenheim": ["hoffenheim"],
-        "sc paderborn 07": ["paderborn"],
-        "sv elversberg": ["elversberg"],
+        "1 fc koln": ["koln", "fc koln", "1 fc koln"],
+        "bayer leverkusen": ["bayer leverkusen", "leverkusen"],
+        "fc bayern munchen": ["bayern munich", "bayern munchen", "bayern"],
+        "borussia dortmund": ["borussia dortmund", "dortmund"],
+        "borussia monchengladbach": ["borussia monchengladbach", "monchengladbach", "gladbach"],
+        "eintracht frankfurt": ["eintracht frankfurt", "frankfurt"],
+        "fc augsburg": ["fc augsburg", "augsburg"],
+        "1 fsv mainz 05": ["mainz 05", "mainz", "1 fsv mainz"],
         "hamburger sv": ["hamburger sv", "hamburg"],
         "rb leipzig": ["rb leipzig", "leipzig"],
-        "sc freiburg": ["freiburg"],
-        "1 fsv mainz 05": ["mainz", "mainz 05"],
-        "fc augsburg": ["augsburg"],
-        "vfb stuttgart": ["stuttgart"],
-        "sv werder bremen": ["werder bremen", "werder"],
-        "1 fc union berlin": ["union berlin"],
+        "sc freiburg": ["sc freiburg", "freiburg"],
+        "sc paderborn 07": ["sc paderborn 07", "paderborn"],
+        "fc schalke 04": ["fc schalke 04", "schalke 04", "schalke"],
+        "sv 07 elversberg": ["sv 07 elversberg", "sv elversberg", "elversberg"],
+        "tsg hoffenheim": ["tsg hoffenheim", "hoffenheim"],
+        "fc union berlin": ["fc union berlin", "union berlin", "union"],
+        "vfb stuttgart": ["vfb stuttgart", "stuttgart"],
+        "sv werder bremen": ["sv werder bremen", "werder bremen", "werder"],
     }
 
-    search_names.extend(
-        aliases.get(
-            normalize_name(team_name),
-            []
+    search_names = [normalized]
+    search_names.extend(aliases.get(normalized, []))
+    search_names = [name for name in dict.fromkeys(search_names) if len(name) >= 3]
+
+    print(f"API-Suche für '{team_name}': {search_names}")
+
+    candidates = []
+
+    for search_name in search_names:
+        data = api_football_get(
+            "teams",
+            {
+                "search": search_name
+            }
         )
-    )
 
-    # Doppelte Suchbegriffe entfernen
-    search_names = list(dict.fromkeys(search_names))
+        if not data:
+            continue
 
-    print(
-        f"API-Suche für '{team_name}': {search_names}"
-    )
+        current_candidates = data.get("response", [])
 
-candidates = []
-
-for search_name in search_names:
-    if len(search_name) < 3:
-        continue
-
-    data = api_football_get(
-        "teams",
-        {
-            "search": search_name
-        }
-    )
-
-    if not data:
-        continue
-
-    candidates = data.get("response", [])
-
-    if candidates:
-        print(f"Treffer mit '{search_name}'")
-        break
+        if current_candidates:
+            print(f"Treffer mit '{search_name}'")
+            candidates = current_candidates
+            break
 
     if not candidates:
-        return None    
+        return None
 
-    # Erst exakten Namen suchen
+    # Zuerst exakten bzw. sehr guten Namenstreffer suchen.
     for entry in candidates:
         team = entry.get("team", {})
-
         api_name = team.get("name", "")
 
         if names_match(team_name, api_name):
             return team
 
-    # Danach vorsichtig über Namensbestandteile
-    target_words = set(
-        normalize_name(team_name).split()
-    )
+    # Danach ueber gemeinsame Namensbestandteile bewerten.
+    target_words = set(normalized.split())
 
     best_team = None
     best_score = 0
 
     for entry in candidates:
         team = entry.get("team", {})
-
         api_name = team.get("name", "")
+        api_words = set(normalize_name(api_name).split())
 
-        api_words = set(
-            normalize_name(api_name).split()
-        )
+        score = len(target_words.intersection(api_words))
 
-        score = len(
-            target_words.intersection(api_words)
-        )
-
+        # Ein Treffer mit mindestens einem sinnvollen Wort ist besser
+        # als gar kein Treffer. Kurze generische Woerter werden nicht
+        # allein als harte Zuordnung verwendet.
         if score > best_score:
             best_score = score
             best_team = team
@@ -720,18 +688,22 @@ def main():
     # ALTE DATEN LADEN
     # --------------------------------------------------------
 
-# Neue Datenbasis für diesen Lauf aufbauen.
-# Dadurch bleiben keine alten/falschen Teams aus vorherigen Läufen erhalten.
-    data = {
-        "teams": {}
-    }
+    data = load_intelligence()
+
+    if not isinstance(data, dict):
+        data = {}
+
+    data.setdefault(
+        "teams",
+        {}
+    )
 
     # --------------------------------------------------------
     # ALLE 18 TEAMS
     # --------------------------------------------------------
 
     updated_teams = 0
-    
+
     for team in teams:
         team_name = team.get(
             "teamName",
@@ -855,7 +827,10 @@ def main():
 
         data["teams"][team_name] = intelligence
 
-
+        # Zusätzlich behalten wir den bisherigen
+        # Kristof-Eintrag, falls vorhanden.
+        if team_name == "SV Elversberg":
+            data["kristof"] = intelligence
 
         updated_teams += 1
 
