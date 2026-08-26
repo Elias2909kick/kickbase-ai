@@ -1489,6 +1489,7 @@ const intelRecommendation = document.getElementById("intelRecommendation");
 function findIntelForPlayer(player){
   if(!PLAYER_INTELLIGENCE || !player) return {};
 
+  // 1) Zuerst echte Spieler-Intelligence pruefen, falls vorhanden.
   const directCandidates = [
     player.id,
     slugify(player.name),
@@ -1496,46 +1497,59 @@ function findIntelForPlayer(player){
   ];
 
   for(const key of directCandidates){
-    if(PLAYER_INTELLIGENCE[key] &&
-       typeof PLAYER_INTELLIGENCE[key] === "object" &&
-       !Array.isArray(PLAYER_INTELLIGENCE[key])){
-      return PLAYER_INTELLIGENCE[key];
+    const value = PLAYER_INTELLIGENCE[key];
+    if(value && typeof value === "object" && !Array.isArray(value) && !value.players){
+      return value;
     }
   }
 
-  /*
-    Die aktuellen Spielplan-/Intelligence-Daten liegen auf Team-Ebene.
-    Deshalb übernehmen wir für einen Spieler die Intelligence seines
-    aktuellen Bundesliga-Vereins. So funktionieren Nächster Gegner und
-    Heim/Auswärts auch dann, wenn der einzelne Spieler-Datensatz diese
-    Felder nicht selbst enthält.
-  */
-  if(PLAYER_INTELLIGENCE && PLAYER_INTELLIGENCE.teams){
+  // 2) Aktuelles Team nicht nur ueber den Vereinsnamen suchen,
+  //    sondern zuerst pruefen, ob der Spieler direkt in dessen
+  //    players[]-Liste steht. Das ist die sicherste Zuordnung.
+  if(PLAYER_INTELLIGENCE.teams){
     const teams = PLAYER_INTELLIGENCE.teams;
     const entries = Array.isArray(teams)
-      ? teams.map(team => ["", team])
+      ? teams.map((team, index) => [String(index), team])
       : Object.entries(teams);
 
-    const teamMatch = entries.find(([teamKey, team]) => {
+    const wantedId = normalizeText(player.id);
+    const wantedName = normalizeText(player.name);
+    const wantedClub = normalizeText(player.club);
+
+    let teamMatch = entries.find(([teamKey, team]) => {
       if(!team || typeof team !== "object") return false;
 
-      const club =
-        team.club ||
-        team.teamName ||
-        team.name ||
-        (typeof teamKey === "string" ? teamKey : "");
+      const players = Array.isArray(team.players) ? team.players :
+                      Array.isArray(team.squad) ? team.squad :
+                      Array.isArray(team.roster) ? team.roster : [];
 
-      return normalizeText(club) === normalizeText(player.club);
+      return players.some(raw => {
+        const rawId = normalizeText(raw?.id ?? raw?.playerId);
+        const rawName = normalizeText(raw?.name ?? raw?.playerName ?? raw?.fullName);
+        return (wantedId && rawId === wantedId) ||
+               (wantedName && rawName === wantedName);
+      });
     });
+
+    // 3) Fallback: aktueller Vereinsname.
+    if(!teamMatch){
+      teamMatch = entries.find(([teamKey, team]) => {
+        if(!team || typeof team !== "object") return false;
+        const club = team.club || team.teamName || team.name ||
+          (typeof teamKey === "string" ? teamKey : "");
+        return wantedClub && normalizeText(club) === wantedClub;
+      });
+    }
 
     if(teamMatch){
       const team = teamMatch[1];
+      const next = team.nextMatch || {};
       return {
         average: team.average ?? null,
         starting: team.starting ?? null,
         form: team.form ?? null,
-        opponent: team.opponent ?? null,
-        homeAway: team.homeAway ?? null,
+        opponent: team.opponent ?? next.opponent ?? null,
+        homeAway: team.homeAway ?? next.homeAway ?? null,
         injury: team.injury ?? null,
         suspension: team.suspension ?? null,
         recommendation: team.recommendation ?? null
@@ -1543,6 +1557,7 @@ function findIntelForPlayer(player){
     }
   }
 
+  // 4) Letzter Fallback fuer aeltere JSON-Strukturen.
   const all = extractPlayers(PLAYER_INTELLIGENCE);
   const match = all.find(candidate =>
     normalizeText(candidate.name) === normalizeText(player.name) &&
