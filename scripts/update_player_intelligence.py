@@ -685,7 +685,6 @@ data = {
     # ALLE 18 TEAMS
     # --------------------------------------------------------
 
-        updated_teams = 0
 
     for team in teams:
         team_name = team.get(
