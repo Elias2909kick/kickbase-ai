@@ -1503,6 +1503,46 @@ function findIntelForPlayer(player){
     }
   }
 
+  /*
+    Die aktuellen Spielplan-/Intelligence-Daten liegen auf Team-Ebene.
+    Deshalb übernehmen wir für einen Spieler die Intelligence seines
+    aktuellen Bundesliga-Vereins. So funktionieren Nächster Gegner und
+    Heim/Auswärts auch dann, wenn der einzelne Spieler-Datensatz diese
+    Felder nicht selbst enthält.
+  */
+  if(PLAYER_INTELLIGENCE && PLAYER_INTELLIGENCE.teams){
+    const teams = PLAYER_INTELLIGENCE.teams;
+    const entries = Array.isArray(teams)
+      ? teams.map(team => ["", team])
+      : Object.entries(teams);
+
+    const teamMatch = entries.find(([teamKey, team]) => {
+      if(!team || typeof team !== "object") return false;
+
+      const club =
+        team.club ||
+        team.teamName ||
+        team.name ||
+        (typeof teamKey === "string" ? teamKey : "");
+
+      return normalizeText(club) === normalizeText(player.club);
+    });
+
+    if(teamMatch){
+      const team = teamMatch[1];
+      return {
+        average: team.average ?? null,
+        starting: team.starting ?? null,
+        form: team.form ?? null,
+        opponent: team.opponent ?? null,
+        homeAway: team.homeAway ?? null,
+        injury: team.injury ?? null,
+        suspension: team.suspension ?? null,
+        recommendation: team.recommendation ?? null
+      };
+    }
+  }
+
   const all = extractPlayers(PLAYER_INTELLIGENCE);
   const match = all.find(candidate =>
     normalizeText(candidate.name) === normalizeText(player.name) &&
