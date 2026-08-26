@@ -254,50 +254,113 @@ def names_match(a, b):
 # API-FOOTBALL TEAM FINDEN
 # ============================================================
 
-
 def find_api_football_team(team_name):
     """
-    Sucht einen Verein bei API-Football ohne league/season-Parameter.
+    Findet einen Verein bei API-Football.
 
-    Wir verwenden mehrere Suchvarianten, weil API-Football deutsche
-    Vereinsnamen teilweise anders schreibt.
+    Verwendet mehrere Suchvarianten und versucht anschließend
+    einen möglichst exakten Namens-Match zu finden.
     """
 
     if not API_FOOTBALL_KEY:
         return None
 
-    normalized = normalize_name(team_name)
-
     aliases = {
         "1 fc koln": ["koln", "fc koln", "1 fc koln"],
-        "bayer leverkusen": ["bayer leverkusen", "leverkusen"],
-        "fc bayern munchen": ["bayern munich", "bayern munchen", "bayern"],
-        "borussia dortmund": ["borussia dortmund", "dortmund"],
-        "borussia monchengladbach": ["borussia monchengladbach", "monchengladbach", "gladbach"],
-        "eintracht frankfurt": ["eintracht frankfurt", "frankfurt"],
-        "fc augsburg": ["fc augsburg", "augsburg"],
-        "1 fsv mainz 05": ["mainz 05", "mainz", "1 fsv mainz"],
-        "hamburger sv": ["hamburger sv", "hamburg"],
-        "rb leipzig": ["rb leipzig", "leipzig"],
-        "sc freiburg": ["sc freiburg", "freiburg"],
-        "sc paderborn 07": ["sc paderborn 07", "paderborn"],
-        "fc schalke 04": ["fc schalke 04", "schalke 04", "schalke"],
-        "sv 07 elversberg": ["sv 07 elversberg", "sv elversberg", "elversberg"],
-        "tsg hoffenheim": ["tsg hoffenheim", "hoffenheim"],
-        "fc union berlin": ["fc union berlin", "union berlin", "union"],
-        "vfb stuttgart": ["vfb stuttgart", "stuttgart"],
-        "sv werder bremen": ["sv werder bremen", "werder bremen", "werder"],
+        "borussia monchengladbach": [
+            "monchengladbach",
+            "borussia monchengladbach"
+        ],
+        "eintracht frankfurt": [
+            "frankfurt",
+            "eintracht frankfurt"
+        ],
+        "fc bayern munchen": [
+            "bayern munich",
+            "bayern"
+        ],
+        "fc schalke 04": [
+            "schalke 04",
+            "schalke"
+        ],
+        "tsg hoffenheim": [
+            "hoffenheim"
+        ],
+        "sc paderborn 07": [
+            "paderborn"
+        ],
+        "sv elversberg": [
+            "elversberg"
+        ],
+        "hamburger sv": [
+            "hamburger sv",
+            "hamburg"
+        ],
+        "rb leipzig": [
+            "rb leipzig",
+            "leipzig"
+        ],
+        "sc freiburg": [
+            "freiburg"
+        ],
+        "1 fsv mainz 05": [
+            "mainz",
+            "mainz 05"
+        ],
+        "fc augsburg": [
+            "augsburg"
+        ],
+        "vfb stuttgart": [
+            "stuttgart"
+        ],
+        "sv werder bremen": [
+            "werder bremen",
+            "werder"
+        ],
+        "1 fc union berlin": [
+            "union berlin"
+        ],
+        "bayer 04 leverkusen": [
+            "bayer leverkusen",
+            "bayer 04 leverkusen",
+            "leverkusen"
+        ],
+        "bayer leverkusen": [
+            "bayer leverkusen",
+            "bayer 04 leverkusen",
+            "leverkusen"
+        ],
     }
 
+    normalized = normalize_name(team_name)
+
     search_names = [normalized]
-    search_names.extend(aliases.get(normalized, []))
-    search_names = [name for name in dict.fromkeys(search_names) if len(name) >= 3]
+
+    if normalized in aliases:
+        search_names.extend(aliases[normalized])
+
+    # Zusätzlich einzelne Wörter verwenden
+    words = normalized.split()
+
+    if len(words) >= 2:
+        search_names.append(" ".join(words[-2:]))
+
+    # Duplikate entfernen
+    search_names = list(dict.fromkeys(
+        name for name in search_names
+        if name and len(name) >= 3
+    ))
 
     print(f"API-Suche für '{team_name}': {search_names}")
+
+    # ---------------------------------------------------------
+    # Alle Suchvarianten ausprobieren
+    # ---------------------------------------------------------
 
     candidates = []
 
     for search_name in search_names:
+
         data = api_football_get(
             "teams",
             {
@@ -308,57 +371,72 @@ def find_api_football_team(team_name):
         if not data:
             continue
 
-        current_candidates = data.get("response", [])
+        found = data.get("response", [])
 
-        if current_candidates:
+        if found:
             print(f"Treffer mit '{search_name}'")
-            candidates = current_candidates
+            candidates = found
             break
 
     if not candidates:
+        print("Keine API-Football Treffer gefunden.")
         return None
 
-    # Zuerst exakten bzw. sehr guten Namenstreffer suchen.
-    for entry in candidates:
-        team = entry.get("team", {})
-        api_name = team.get("name", "")
+    # ---------------------------------------------------------
+    # Exakten / besten Namen auswählen
+    # ---------------------------------------------------------
 
-        if names_match(team_name, api_name):
-            return team
-
-    # Danach ueber gemeinsame Namensbestandteile bewerten.
-    target_words = set(normalized.split())
+    target_words = set(normalize_name(team_name).split())
 
     best_team = None
-    best_score = 0
+    best_score = -1
 
     for entry in candidates:
+
         team = entry.get("team", {})
+
         api_name = team.get("name", "")
-        api_words = set(normalize_name(api_name).split())
+
+        if not api_name:
+            continue
+
+        api_normalized = normalize_name(api_name)
+
+        # Exakter Match
+        if api_normalized == normalized:
+            print(f"Exakter Match: {api_name}")
+            return team
+
+        api_words = set(api_normalized.split())
 
         score = len(target_words.intersection(api_words))
 
-        # Ein Treffer mit mindestens einem sinnvollen Wort ist besser
-        # als gar kein Treffer. Kurze generische Woerter werden nicht
-        # allein als harte Zuordnung verwendet.
+        # Bonus für enthaltenen Namen
+        if normalized in api_normalized:
+            score += 2
+
+        if api_normalized in normalized:
+            score += 2
+
         if score > best_score:
             best_score = score
             best_team = team
 
+    if best_team:
+        print(
+            f"Bester Match: {best_team.get('name')} "
+            f"(Score {best_score})"
+        )
+
     return best_team
-
-
-# ============================================================
-# AKTUELLER KADER
-# ============================================================
 
 
 def get_current_squad(api_team_id):
     """
-    Holt den aktuellen Kader über:
+    Holt den aktuellen Kader eines Vereins über API-Football.
 
-    /players/squads?team=ID
+    Endpoint:
+        /players/squads?team=ID
 
     Dieser Endpoint benötigt keine Saison.
     """
@@ -374,32 +452,60 @@ def get_current_squad(api_team_id):
     )
 
     if not data:
+        print("Keine Kader-Daten erhalten.")
         return []
 
     response = data.get("response", [])
 
     if not response:
+        print("API-Football liefert keinen Kader.")
         return []
+
+    # API-Football liefert normalerweise:
+    #
+    # response: [
+    #   {
+    #       "team": {...},
+    #       "players": [...]
+    #   }
+    # ]
 
     squad = []
 
     for entry in response:
+
         players = entry.get("players", [])
 
+        if not players:
+            continue
+
         for player in players:
-            squad.append(
-                {
-                    "id": player.get("id"),
-                    "name": player.get("name"),
-                    "age": player.get("age"),
-                    "number": player.get("number"),
-                    "position": player.get("position"),
-                    "photo": player.get("photo"),
-                }
-            )
+
+            if not isinstance(player, dict):
+                continue
+
+            player_id = player.get("id")
+
+            name = player.get("name")
+
+            if not player_id or not name:
+                continue
+
+            player_data = {
+                "id": player_id,
+                "name": name,
+                "age": player.get("age"),
+                "number": player.get("number"),
+                "position": player.get("position"),
+                "photo": player.get("photo"),
+                "injury": None
+            }
+
+            squad.append(player_data)
+
+    print(f"Kader geladen: {len(squad)} Spieler")
 
     return squad
-
 
 # ============================================================
 # VERLETZUNGEN
