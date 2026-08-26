@@ -280,12 +280,50 @@ def find_api_football_team(team_name):
     if not API_FOOTBALL_KEY:
         return None
 
-    # API-Football akzeptiert beim Search-Parameter
-    # nur alphanumerische Zeichen und Leerzeichen.
-    search_name = normalize_name(team_name)
-    print(f"API-Suche: '{team_name}' -> '{search_name}'")
+    # Mehrere Suchvarianten verwenden, weil API-Football
+    # manche deutschen Vereinsnamen anders führt.
+    search_names = [
+        normalize_name(team_name)
+    ]
+
+    aliases = {
+        "1 fc koln": ["koln", "fc koln"],
+        "borussia monchengladbach": ["monchengladbach", "borussia monchengladbach"],
+        "eintracht frankfurt": ["frankfurt"],
+        "fc bayern munchen": ["bayern munich", "bayern"],
+        "fc schalke 04": ["schalke 04", "schalke"],
+        "tsg hoffenheim": ["hoffenheim"],
+        "sc paderborn 07": ["paderborn"],
+        "sv elversberg": ["elversberg"],
+        "hamburger sv": ["hamburger sv", "hamburg"],
+        "rb leipzig": ["rb leipzig", "leipzig"],
+        "sc freiburg": ["freiburg"],
+        "1 fsv mainz 05": ["mainz", "mainz 05"],
+        "fc augsburg": ["augsburg"],
+        "vfb stuttgart": ["stuttgart"],
+        "sv werder bremen": ["werder bremen", "werder"],
+        "1 fc union berlin": ["union berlin"],
+    }
+
+    search_names.extend(
+        aliases.get(
+            normalize_name(team_name),
+            []
+        )
+    )
+
+    # Doppelte Suchbegriffe entfernen
+    search_names = list(dict.fromkeys(search_names))
+
+    print(
+        f"API-Suche für '{team_name}': {search_names}"
+    )
+
+candidates = []
+
+for search_name in search_names:
     if len(search_name) < 3:
-        return None
+        continue
 
     data = api_football_get(
         "teams",
@@ -295,9 +333,16 @@ def find_api_football_team(team_name):
     )
 
     if not data:
-        return None
+        continue
 
     candidates = data.get("response", [])
+
+    if candidates:
+        print(f"Treffer mit '{search_name}'")
+        break
+
+if not candidates:
+    return None
 
     # Erst exakten Namen suchen
     for entry in candidates:
