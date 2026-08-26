@@ -158,6 +158,13 @@ def get_next_match_for_team(team_name, matches):
 
 
 def api_football_get(endpoint, params=None):
+    """
+    API-Football Request mit einfacher 429-Behandlung.
+
+    Bei HTTP 429 wird kurz gewartet und der Request
+    maximal zweimal erneut versucht.
+    """
+
     if not API_FOOTBALL_KEY:
         return None
 
@@ -170,24 +177,73 @@ def api_football_get(endpoint, params=None):
     if query:
         url += f"?{query}"
 
-    try:
-        data = http_get_json(
-            url,
-            headers={
-                "x-apisports-key": API_FOOTBALL_KEY
-            },
-        )
-    except Exception as exc:
-        print(f"API-Football Anfrage fehlgeschlagen: {exc}")
-        return None
+    max_attempts = 3
 
-    errors = data.get("errors")
+    for attempt in range(max_attempts):
 
-    if errors:
-        print(f"API-Football Fehler: {errors}")
-        return None
+        try:
+            data = http_get_json(
+                url,
+                headers={
+                    "x-apisports-key": API_FOOTBALL_KEY
+                }
+            )
 
-    return data
+            errors = data.get("errors")
+
+            if errors:
+                print(
+                    f"API-Football Fehler: {errors}"
+                )
+
+                # Rate Limit
+                if (
+                    isinstance(errors, dict)
+                    and (
+                        "rateLimit" in errors
+                        or "rate limit" in str(errors).lower()
+                    )
+                ):
+                    if attempt < max_attempts - 1:
+                        print(
+                            "Rate Limit erreicht. "
+                            "Warte 10 Sekunden..."
+                        )
+
+                        import time
+                        time.sleep(10)
+                        continue
+
+                return None
+
+            return data
+
+        except Exception as exc:
+
+            error_text = str(exc)
+
+            print(
+                f"API-Football Anfrage fehlgeschlagen: "
+                f"{error_text}"
+            )
+
+            # HTTP 429
+            if "429" in error_text:
+
+                if attempt < max_attempts - 1:
+
+                    print(
+                        "HTTP 429 - warte 10 Sekunden "
+                        "vor erneutem Versuch..."
+                    )
+
+                    import time
+                    time.sleep(10)
+                    continue
+
+            return None
+
+    return None
 
 
 # ============================================================
