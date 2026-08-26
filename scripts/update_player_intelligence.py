@@ -283,7 +283,7 @@ def find_api_football_team(team_name):
     # API-Football akzeptiert beim Search-Parameter
     # nur alphanumerische Zeichen und Leerzeichen.
     search_name = normalize_name(team_name)
-
+    print(f"API-Suche: '{team_name}' -> '{search_name}'")
     if len(search_name) < 3:
         return None
 
