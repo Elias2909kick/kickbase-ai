@@ -560,6 +560,139 @@ def get_bundesliga_teams():
 
 
 
+BUNDESLIGA_CLUB_SQUAD_URLS = {
+    "SV Elversberg": (
+        "https://www.bundesliga.com/de/bundesliga/"
+        "clubs/sv-elversberg"
+    ),
+    "Sport-Club Freiburg": (
+        "https://www.bundesliga.com/de/bundesliga/"
+        "clubs/sport-club-freiburg"
+    ),
+}
+
+
+def get_club_page_squad(
+    team_name,
+):
+    """
+    Fallback für einen einzelnen Club.
+
+    Die offizielle Bundesliga-Clubseite enthält den Kader
+    ebenfalls. Wir setzen den Clubnamen hier direkt, weil
+    die Überschrift auf der Clubseite nicht zwingend genauso
+    strukturiert ist wie auf der zentralen Spielerübersicht.
+    """
+
+    url = BUNDESLIGA_CLUB_SQUAD_URLS.get(
+        team_name
+    )
+
+    if not url:
+        return []
+
+    try:
+        html = http_get_text(url)
+
+        parser = BundesligaPlayersParser()
+        parser.current_club = team_name
+        parser.feed(html)
+
+        players = []
+
+        for player in parser.players:
+            if player.get("club") != team_name:
+                continue
+
+            players.append(
+                {
+                    "id": player["id"],
+                    "name": player["name"],
+                    "age": None,
+                    "number": player["number"],
+                    "position": player["position"],
+                    "photo": None,
+                    "injury": None,
+                    "sourceUrl": player["sourceUrl"],
+                }
+            )
+
+        unique = {}
+
+        for player in players:
+            key = (
+                normalize_name(
+                    player.get("name")
+                ),
+                player.get("position"),
+            )
+            unique[key] = player
+
+        players = list(
+            unique.values()
+        )
+
+        if players:
+            print(
+                f"Bundesliga.com Clubseite: "
+                f"{team_name}: "
+                f"{len(players)} Spieler"
+            )
+
+        return players
+
+    except Exception as exc:
+        print(
+            f"Bundesliga.com Clubseite "
+            f"{team_name} fehlgeschlagen: {exc}"
+        )
+        return []
+
+
+def complete_missing_bundesliga_squads(
+    squads,
+):
+    """
+    Ergänzt fehlende Kader über die offiziellen
+    individuellen Clubseiten.
+
+    Der zentrale Bundesliga-Spielerindex bleibt die
+    primäre Quelle. Dieser Fallback wird nur für Clubs
+    verwendet, die dort keinen Kader geliefert haben.
+    """
+
+    result = dict(squads)
+
+    for team_name, url in (
+        BUNDESLIGA_CLUB_SQUAD_URLS.items()
+    ):
+        current = result.get(
+            team_name,
+            [],
+        )
+
+        if current:
+            continue
+
+        print(
+            "Kader-Fallback für "
+            f"{team_name}..."
+        )
+
+        fallback_players = (
+            get_club_page_squad(
+                team_name
+            )
+        )
+
+        if fallback_players:
+            result[team_name] = (
+                fallback_players
+            )
+
+    return result
+
+
 def get_bundesliga_matches():
     """
     Holt den Spielplan 2026/27 von OpenLigaDB.
@@ -871,6 +1004,12 @@ def main():
         get_bundesliga_squads()
     )
 
+    bundesliga_squads = (
+        complete_missing_bundesliga_squads(
+            bundesliga_squads
+        )
+    )
+
     old_teams = load_old_data()
 
     # Neue, saubere Datenbank.
@@ -1112,6 +1251,11 @@ def main():
     print(
         "Teams mit Bundesliga-Kader: "
         f"{18 - len(missing_squads)}/18"
+    )
+
+    print(
+        "API-Football-Team-IDs werden "
+        "für Kader nicht verwendet."
     )
 
     if missing_squads:
