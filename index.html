@@ -331,7 +331,7 @@ button{
 
   <div class="hero">
     <h1>Kickbase AI</h1>
-    <p>V3 · Player Intelligence · mobile first</p>
+    <p>V6 · Player Intelligence · mobile first</p>
   </div>
 
   <div class="grid">
@@ -1486,10 +1486,167 @@ const intelInjury = document.getElementById("intelInjury");
 const intelSuspension = document.getElementById("intelSuspension");
 const intelRecommendation = document.getElementById("intelRecommendation");
 
+function canonicalClubKey(value){
+  const n = normalizeText(value).replace(/\b1\s+fc\b/g,"1 fc");
+
+  const aliases = {
+    "bayern munchen": "bayern",
+    "fc bayern munchen": "bayern",
+    "bayern munich": "bayern",
+
+    "borussia dortmund": "dortmund",
+    "dortmund": "dortmund",
+
+    "rb leipzig": "leipzig",
+    "leipzig": "leipzig",
+
+    "vfb stuttgart": "stuttgart",
+    "stuttgart": "stuttgart",
+
+    "tsg hoffenheim": "hoffenheim",
+    "hoffenheim": "hoffenheim",
+
+    "bayer 04 leverkusen": "leverkusen",
+    "bayer leverkusen": "leverkusen",
+    "leverkusen": "leverkusen",
+
+    "sport club freiburg": "freiburg",
+    "sc freiburg": "freiburg",
+    "freiburg": "freiburg",
+
+    "eintracht frankfurt": "frankfurt",
+    "frankfurt": "frankfurt",
+
+    "fc augsburg": "augsburg",
+    "augsburg": "augsburg",
+
+    "1 fsv mainz 05": "mainz",
+    "fsv mainz 05": "mainz",
+    "mainz 05": "mainz",
+    "mainz": "mainz",
+
+    "1 fc union berlin": "union_berlin",
+    "union berlin": "union_berlin",
+
+    "borussia monchengladbach": "monchengladbach",
+    "monchengladbach": "monchengladbach",
+    "gladbach": "monchengladbach",
+
+    "hamburger sv": "hamburg",
+    "hamburg": "hamburg",
+    "hsv": "hamburg",
+
+    "1 fc koln": "koln",
+    "fc koln": "koln",
+    "koln": "koln",
+
+    "sv werder bremen": "bremen",
+    "werder bremen": "bremen",
+    "werder": "bremen",
+
+    "fc schalke 04": "schalke",
+    "schalke 04": "schalke",
+    "schalke": "schalke",
+
+    "sv elversberg": "elversberg",
+    "sv 07 elversberg": "elversberg",
+    "elversberg": "elversberg",
+
+    "sc paderborn 07": "paderborn",
+    "paderborn": "paderborn"
+  };
+
+  if(aliases[n]) return aliases[n];
+
+  // Allgemeiner Fallback: nur harmlose Vereinspräfixe entfernen.
+  return n
+    .replace(/^1\s+/,"")
+    .replace(/^(sv|fc|sc|vfb|tsg|rb)\s+/i,"")
+    .replace(/\s+04$/," ")
+    .trim()
+    .replace(/\s+/g,"_");
+}
+
 function findIntelForPlayer(player){
   if(!PLAYER_INTELLIGENCE || !player) return {};
 
-  // 1) Zuerst echte Spieler-Intelligence pruefen, falls vorhanden.
+  const wantedName = normalizeText(player.name);
+  const wantedClub = normalizeText(player.club);
+  const wantedClubKey = canonicalClubKey(player.club);
+
+  /*
+    WICHTIG:
+    Spieltagsdaten werden zuerst aus dem Team-Datensatz gelesen.
+    Damit spielt es keine Rolle, ob der Spielerverein z.B.
+    "Augsburg", "FC Augsburg" oder "SV Elversberg" heißt.
+    Alle Varianten werden auf denselben Team-Key aufgelöst.
+  */
+  if(PLAYER_INTELLIGENCE.teams){
+    const teams = PLAYER_INTELLIGENCE.teams;
+    const entries = Array.isArray(teams)
+      ? teams.map((team, index) => [String(index), team])
+      : Object.entries(teams);
+
+    let teamMatch = entries.find(([teamKey, team]) => {
+      if(!team || typeof team !== "object") return false;
+
+      const clubCandidates = [
+        team.club,
+        team.teamName,
+        team.name,
+        teamKey
+      ].filter(Boolean);
+
+      return clubCandidates.some(candidate =>
+        canonicalClubKey(candidate) === wantedClubKey
+      );
+    });
+
+    /*
+      Falls der Vereinsname nicht sauber hinterlegt ist, versuchen wir
+      zusätzlich eine direkte Spielerzuordnung innerhalb der Teams.
+    */
+    if(!teamMatch){
+      teamMatch = entries.find(([teamKey, team]) => {
+        if(!team || typeof team !== "object") return false;
+
+        const players = Array.isArray(team.players) ? team.players :
+                        Array.isArray(team.squad) ? team.squad :
+                        Array.isArray(team.roster) ? team.roster : [];
+
+        return players.some(raw => {
+          const rawId = normalizeText(raw?.id ?? raw?.playerId);
+          const rawName = normalizeText(
+            raw?.name ?? raw?.playerName ?? raw?.fullName
+          );
+
+          return (
+            (player.id && rawId === normalizeText(player.id)) ||
+            (wantedName && rawName === wantedName)
+          );
+        });
+      });
+    }
+
+    if(teamMatch){
+      const team = teamMatch[1];
+      const next = team.nextMatch || {};
+
+      return {
+        average: team.average ?? null,
+        starting: team.starting ?? null,
+        form: team.form ?? null,
+        opponent: team.opponent ?? next.opponent ?? null,
+        homeAway: team.homeAway ?? next.homeAway ?? null,
+        injury: team.injury ?? null,
+        suspension: team.suspension ?? null,
+        recommendation: team.recommendation ?? null,
+        lastUpdated: team.lastUpdated ?? null
+      };
+    }
+  }
+
+  // Fallback: echte Spieler-Intelligence, falls vorhanden.
   const directCandidates = [
     player.id,
     slugify(player.name),
@@ -1503,65 +1660,11 @@ function findIntelForPlayer(player){
     }
   }
 
-  // 2) Aktuelles Team nicht nur ueber den Vereinsnamen suchen,
-  //    sondern zuerst pruefen, ob der Spieler direkt in dessen
-  //    players[]-Liste steht. Das ist die sicherste Zuordnung.
-  if(PLAYER_INTELLIGENCE.teams){
-    const teams = PLAYER_INTELLIGENCE.teams;
-    const entries = Array.isArray(teams)
-      ? teams.map((team, index) => [String(index), team])
-      : Object.entries(teams);
-
-    const wantedId = normalizeText(player.id);
-    const wantedName = normalizeText(player.name);
-    const wantedClub = normalizeText(player.club);
-
-    let teamMatch = entries.find(([teamKey, team]) => {
-      if(!team || typeof team !== "object") return false;
-
-      const players = Array.isArray(team.players) ? team.players :
-                      Array.isArray(team.squad) ? team.squad :
-                      Array.isArray(team.roster) ? team.roster : [];
-
-      return players.some(raw => {
-        const rawId = normalizeText(raw?.id ?? raw?.playerId);
-        const rawName = normalizeText(raw?.name ?? raw?.playerName ?? raw?.fullName);
-        return (wantedId && rawId === wantedId) ||
-               (wantedName && rawName === wantedName);
-      });
-    });
-
-    // 3) Fallback: aktueller Vereinsname.
-    if(!teamMatch){
-      teamMatch = entries.find(([teamKey, team]) => {
-        if(!team || typeof team !== "object") return false;
-        const club = team.club || team.teamName || team.name ||
-          (typeof teamKey === "string" ? teamKey : "");
-        return wantedClub && normalizeText(club) === wantedClub;
-      });
-    }
-
-    if(teamMatch){
-      const team = teamMatch[1];
-      const next = team.nextMatch || {};
-      return {
-        average: team.average ?? null,
-        starting: team.starting ?? null,
-        form: team.form ?? null,
-        opponent: team.opponent ?? next.opponent ?? null,
-        homeAway: team.homeAway ?? next.homeAway ?? null,
-        injury: team.injury ?? null,
-        suspension: team.suspension ?? null,
-        recommendation: team.recommendation ?? null
-      };
-    }
-  }
-
-  // 4) Letzter Fallback fuer aeltere JSON-Strukturen.
+  // Letzter Fallback für ältere JSON-Strukturen.
   const all = extractPlayers(PLAYER_INTELLIGENCE);
   const match = all.find(candidate =>
-    normalizeText(candidate.name) === normalizeText(player.name) &&
-    normalizeText(candidate.club) === normalizeText(player.club)
+    normalizeText(candidate.name) === wantedName &&
+    canonicalClubKey(candidate.club) === wantedClubKey
   );
 
   if(match?.raw){
