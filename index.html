@@ -1107,7 +1107,19 @@ function extractPlayers(payload){
 }
 
 function findBundesligaPlayer(id){
-  return BUNDESLIGA_PLAYERS.find(p => String(p.id) === String(id)) || null;
+  return BUNDESLIGA_PLAYERS.find(p => String(p.id) === String(id))
+    || (
+      INITIAL_PLAYER_DATA[id]
+        ? {
+            id: String(id),
+            ...INITIAL_PLAYER_DATA[id],
+            photo: "",
+            playerUrl: "",
+            raw: INITIAL_PLAYER_DATA[id]
+          }
+        : null
+    )
+    || null;
 }
 
 function findPlayerByNameAndClub(name, club){
@@ -1745,6 +1757,42 @@ async function loadPlayerIntelligence(){
     PLAYER_INTELLIGENCE = await response.json();
 
     BUNDESLIGA_PLAYERS = extractPlayers(PLAYER_INTELLIGENCE);
+
+    /*
+      WICHTIG:
+      Einige der bisher manuell gepflegten Spieler (z.B. Kristof)
+      liegen in player-intelligence.json nur als Intelligence-Eintrag
+      vor und nicht als vollständiger Bundesliga-Spielerdatensatz.
+      Diese Startspieler müssen trotzdem weiterhin such- und
+      hinzufügbar sein.
+
+      Deshalb ergänzen wir fehlende Startspieler nur dann aus
+      INITIAL_PLAYER_DATA. Die aktuellen Intelligence-/Team-Daten
+      bleiben weiterhin die Quelle für Gegner, Heim/Auswärts usw.
+    */
+    const existingPlayerKeys = new Set(
+      BUNDESLIGA_PLAYERS.map(p =>
+        `${normalizeText(p.name)}|${canonicalClubKey(p.club)}`
+      )
+    );
+
+    Object.entries(INITIAL_PLAYER_DATA).forEach(([id, data]) => {
+      const key = `${normalizeText(data.name)}|${canonicalClubKey(data.club)}`;
+
+      if(!existingPlayerKeys.has(key)){
+        BUNDESLIGA_PLAYERS.push({
+          id: String(id),
+          name: data.name,
+          club: data.club,
+          position: data.position,
+          number: null,
+          photo: "",
+          playerUrl: "",
+          raw: data
+        });
+        existingPlayerKeys.add(key);
+      }
+    });
 
     console.log(
       `Bundesliga-Spieler geladen: ${BUNDESLIGA_PLAYERS.length}`,
