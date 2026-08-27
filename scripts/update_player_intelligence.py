@@ -15,6 +15,9 @@ from urllib.parse import urljoin
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 INTELLIGENCE_FILE = BASE_DIR / "player-intelligence.json"
+# Optional: IDs des aktuellen Kickbase-Kaders für intensive Web-Recherche.
+# Die Datei ist bewusst optional, weil GitHub Actions keinen Zugriff auf browser-localStorage hat.
+ACTIVE_ROSTER_FILE = BASE_DIR / "kickbase-roster.json"
 
 OPENLIGADB_URL = "https://api.openligadb.de"
 BUNDESLIGA_SHORTCUT = "bl1"
@@ -763,7 +766,7 @@ def get_next_match_for_team(
 
 
 # ============================================================
-# ÖFFENTLICHE PLAYER-INTELLIGENCE V9
+# ÖFFENTLICHE PLAYER-INTELLIGENCE V10
 # ============================================================
 
 # Bewusst ohne kostenpflichtige Fußball-API-Abhängigkeit.
@@ -1085,27 +1088,62 @@ def extract_player_profile_intelligence(player):
         }
 
 
+def load_active_roster_ids():
+    """
+    Lädt optional die IDs des tatsächlich verwalteten Kickbase-Kaders.
+
+    Erwartete Datei: kickbase-roster.json
+    Unterstützte Formate:
+      ["player-id-1", "player-id-2"]
+    oder:
+      {"playerIds": ["player-id-1", "player-id-2"]}
+
+    Wenn die Datei nicht existiert, wird bewusst KEINE intensive
+    Einzelspieler-Recherche durchgeführt. So bleibt der tägliche Lauf schnell.
+    """
+    if not ACTIVE_ROSTER_FILE.exists():
+        print("Kein kickbase-roster.json gefunden: keine Einzelspieler-Recherche.")
+        return set()
+
+    try:
+        with ACTIVE_ROSTER_FILE.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        if isinstance(data, list):
+            ids = data
+        elif isinstance(data, dict):
+            ids = data.get("playerIds", [])
+        else:
+            ids = []
+
+        result = {str(value).strip() for value in ids if str(value).strip()}
+        print(f"Aktiver Kickbase-Kader: {len(result)} Spieler für Einzelrecherche.")
+        return result
+    except Exception as exc:
+        print(f"kickbase-roster.json konnte nicht geladen werden: {exc}")
+        return set()
+
+
 def build_player_intelligence(
     player,
     club_name,
     next_match,
     old_player=None,
     public_source=None,
+    research_player=False,
 ):
     """
-    Baut einen Spieler-Eintrag ausschließlich aus den erlaubten
-    öffentlichen Quellen und vorhandenen Daten.
+    Baut einen Spieler-Eintrag aus vorhandenen Daten und optionaler
+    Einzelspieler-Recherche.
 
-    Keine kostenpflichtige Fußball-API-Abhängigkeit.
-    Keine erfundenen Kickbase-Punkte.
+    V10-Änderung:
+    - Standardmäßig KEIN Abruf des einzelnen Spielerprofils.
+    - Nur IDs aus kickbase-roster.json werden intensiv recherchiert.
+    - Vorhandene Intelligence bleibt für alle anderen Spieler erhalten.
+    - Keine Kickbase-Daten werden erfunden.
     """
-
     player_id = player.get("id")
-    name = player.get(
-        "name",
-        "Unbekannter Spieler",
-    )
-
+    name = player.get("name", "Unbekannter Spieler")
     old_player = old_player or {}
     public_source = public_source or {}
 
@@ -1116,37 +1154,44 @@ def build_player_intelligence(
         opponent = None
         home_away = None
 
-    public_player = extract_player_profile_intelligence(player)
+    if research_player:
+        public_player = extract_player_profile_intelligence(player)
 
-    # Echte Kickbase-Ø-Punkte bleiben bewusst offen, weil wir
-    # weiterhin keine Kickbase-Daten direkt beziehen.
-    average = None
+        average = old_player.get("average")
+        starting = public_player.get("starting", old_player.get("starting", "Noch nicht recherchiert"))
+        form = public_player.get("form", old_player.get("form", "Noch nicht recherchiert"))
+        injury = public_player.get("injury", old_player.get("injury", "Noch nicht recherchiert"))
+        suspension = public_player.get("suspension", old_player.get("suspension", "Noch nicht recherchiert"))
+        appearances = public_player.get("appearances", old_player.get("appearances"))
+        goals = public_player.get("goals", old_player.get("goals"))
+        assists = public_player.get("assists", old_player.get("assists"))
+        yellow_cards = public_player.get("yellowCards", old_player.get("yellowCards"))
+        last_match = public_player.get("lastMatch", old_player.get("lastMatch"))
+        profile_available = public_player.get("available", False)
+        profile_url = public_player.get("sourceUrl") or player.get("sourceUrl")
+    else:
+        # Keine Netzwerkanfrage: vorhandene Daten werden vollständig erhalten.
+        average = old_player.get("average")
+        starting = old_player.get("starting", "Noch nicht recherchiert")
+        form = old_player.get("form", "Noch nicht recherchiert")
+        injury = old_player.get("injury", "Noch nicht recherchiert")
+        suspension = old_player.get("suspension", "Noch nicht recherchiert")
+        appearances = old_player.get("appearances")
+        goals = old_player.get("goals")
+        assists = old_player.get("assists")
+        yellow_cards = old_player.get("yellowCards")
+        last_match = old_player.get("lastMatch")
+        profile_available = bool(old_player.get("dataStatus", {}).get("playerProfileSource") == "erreichbar")
+        profile_url = old_player.get("sourceUrl") or player.get("sourceUrl")
 
-    starting = public_player.get(
-        "starting",
-        "Noch nicht recherchiert",
-    )
-
-    form = public_player.get(
-        "form",
-        "Noch nicht recherchiert",
-    )
-
-    injury = public_player.get(
-        "injury",
-        "Noch nicht recherchiert",
-    )
-
-    suspension = public_player.get(
-        "suspension",
-        "Noch nicht recherchiert",
-    )
-
-    recommendation = (
-        "Nächstes Spiel vorhanden"
-        if next_match
-        else "Noch nicht ausreichend Daten"
-    )
+    # Dynamische Spieltagsdaten immer neu berechnen.
+    old_recommendation = old_player.get("recommendation")
+    if old_recommendation and old_recommendation != "Noch nicht recherchiert":
+        recommendation = old_recommendation
+    elif next_match:
+        recommendation = "Nächstes Spiel vorhanden"
+    else:
+        recommendation = "Noch nicht ausreichend Daten"
 
     return {
         "id": player_id,
@@ -1155,68 +1200,35 @@ def build_player_intelligence(
         "position": player.get("position"),
         "number": player.get("number"),
         "sourceUrl": player.get("sourceUrl"),
-
-        # Keine Kickbase-Daten erfinden.
         "average": average,
-
         "starting": starting,
         "form": form,
-
-        "footballRating": None,
-        "appearances": public_player.get("appearances"),
-        "starts": None,
-        "minutes": None,
-        "goals": public_player.get("goals"),
-        "assists": public_player.get("assists"),
-        "yellowCards": public_player.get("yellowCards"),
-        "lastMatch": public_player.get("lastMatch"),
-
+        "footballRating": old_player.get("footballRating"),
+        "appearances": appearances,
+        "starts": old_player.get("starts"),
+        "minutes": old_player.get("minutes"),
+        "goals": goals,
+        "assists": assists,
+        "yellowCards": yellow_cards,
+        "lastMatch": last_match,
         "opponent": opponent,
         "homeAway": home_away,
         "injury": injury,
         "suspension": suspension,
         "recommendation": recommendation,
-
-        "lastUpdated": datetime.now(
-            timezone.utc
-        ).strftime("%Y-%m-%d"),
-
+        "lastUpdated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "sources": [
-            {
-                "name": "Bundesliga.com",
-                "url": BUNDESLIGA_PLAYERS_URL,
-            },
-            {
-                "name": "Bundesliga.com Statistik",
-                "url": BUNDESLIGA_STATS_URL,
-            },
-            {
-                "name": "Bundesliga.com Spielerprofil",
-                "url": public_player.get("sourceUrl") or source_url,
-            },
-            {
-                "name": "OpenLigaDB",
-                "url": "https://www.openligadb.de/",
-            },
+            {"name": "Bundesliga.com", "url": BUNDESLIGA_PLAYERS_URL},
+            {"name": "Bundesliga.com Statistik", "url": BUNDESLIGA_STATS_URL},
+            {"name": "Bundesliga.com Spielerprofil", "url": profile_url},
+            {"name": "OpenLigaDB", "url": "https://www.openligadb.de/"},
         ],
-
         "dataStatus": {
-            "kickbaseAverage": (
-                "vorhanden"
-                if average is not None
-                else "nicht verfügbar"
-            ),
-            "publicStatsSource": (
-                "erreichbar"
-                if public_source.get("available")
-                else "nicht erreichbar"
-            ),
-            "playerProfileSource": (
-                "erreichbar"
-                if public_player.get("available")
-                else "nicht erreichbar"
-            ),
+            "kickbaseAverage": "vorhanden" if average is not None else "nicht verfügbar",
+            "publicStatsSource": "erreichbar" if public_source.get("available") else "nicht erreichbar",
+            "playerProfileSource": "erreichbar" if profile_available else "nicht recherchiert",
             "playerValues": "nicht erfunden",
+            "researchMode": "intensiv" if research_player else "bestehende_daten_beibehalten",
         },
     }
 
@@ -1284,6 +1296,11 @@ def main():
     old_data = load_old_data()
     old_teams = old_data.get("teams", {}) if isinstance(old_data, dict) else {}
     old_players = old_data.get("players", {}) if isinstance(old_data, dict) else {}
+    active_roster_ids = load_active_roster_ids()
+    print(
+        "V10-Modus: Einzelspieler-Recherche nur für den aktiven "
+        f"Kader ({len(active_roster_ids)} IDs); alle übrigen Spieler behalten ihre vorhandenen Werte."
+    )
 
     # Neue, saubere Datenbank.
     data = {
@@ -1417,11 +1434,15 @@ def main():
                     next_match,
                     old_player=old_player,
                     public_source=public_source,
+                    research_player=(player_id in active_roster_ids),
                 )
             )
 
-            # Höflicher Abstand zwischen öffentlichen Profilabrufen.
-            time.sleep(0.25)
+            # V10: Kein Sleep für normale Spieler, weil dort kein
+            # Einzelspieler-Profil abgerufen wird. Bei aktivem Kader
+            # wird zwischen öffentlichen Profilabrufen kurz pausiert.
+            if player_id in active_roster_ids:
+                time.sleep(0.25)
 
         player_count_after = len(
             data["players"]
@@ -1539,8 +1560,9 @@ def main():
         "kickbaseSource": "nicht verwendet",
         "teamsAndPlayers": "Bundesliga.com",
         "fixtures": "OpenLigaDB",
-        "playerStats": "öffentliche Bundesliga-Statistikseite / spätere Web-Recherche",
+        "playerStats": "bestehende Werte + optionale Einzelspieler-Web-Recherche für aktiven Kader",
         "externalFootballApi": False,
+        "activeRosterSource": "kickbase-roster.json (optional)",
     }
 
     # ========================================================
