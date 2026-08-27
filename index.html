@@ -1639,16 +1639,67 @@ function findIntelForPlayer(player){
   if(!PLAYER_INTELLIGENCE || !player) return {};
 
   const wantedName = normalizeText(player.name);
-  const wantedClub = normalizeText(player.club);
   const wantedClubKey = canonicalClubKey(player.club);
 
   /*
     WICHTIG:
-    Spieltagsdaten werden zuerst aus dem Team-Datensatz gelesen.
-    Damit spielt es keine Rolle, ob der Spielerverein z.B.
-    "Augsburg", "FC Augsburg" oder "SV Elversberg" heißt.
-    Alle Varianten werden auf denselben Team-Key aufgelöst.
+    Die Spieler-Intelligence ist die primäre Quelle für die
+    Spielerdetails. Bisher wurde zuerst der Team-Datensatz genommen.
+    Dadurch wurden vorhandene individuelle Recherchedaten eines Spielers
+    (z.B. Verletzung, Form oder Startelf) durch "Noch nicht recherchiert"
+    aus dem Team-Datensatz überschrieben.
+
+    Deshalb gilt jetzt:
+      1. direkte Spieler-Intelligence suchen
+      2. Team-Daten nur als Fallback verwenden
+      3. wenn beides vorhanden ist, individuelle Spielerwerte bevorzugen
   */
+
+  let directPlayer = null;
+
+  const directCandidates = [
+    player.id,
+    slugify(player.name),
+    slugify(`${player.name}-${player.club}`)
+  ].filter(Boolean);
+
+  for(const key of directCandidates){
+    const value = PLAYER_INTELLIGENCE[key];
+    if(
+      value &&
+      typeof value === "object" &&
+      !Array.isArray(value) &&
+      !value.players
+    ){
+      const valueName = normalizeText(value.name ?? value.playerName ?? "");
+      const valueClubKey = canonicalClubKey(value.club ?? "");
+
+      if(
+        (!valueName || valueName === wantedName) &&
+        (!valueClubKey || valueClubKey === wantedClubKey)
+      ){
+        directPlayer = value;
+        break;
+      }
+    }
+  }
+
+  /* Fallback: Spieler-Intelligence auch dann finden, wenn der Root-Key
+     nicht exakt zur aktuellen Spieler-ID passt. */
+  if(!directPlayer){
+    const all = extractPlayers(PLAYER_INTELLIGENCE);
+    const match = all.find(candidate =>
+      normalizeText(candidate.name) === wantedName &&
+      canonicalClubKey(candidate.club) === wantedClubKey
+    );
+
+    if(match?.raw && typeof match.raw === "object"){
+      directPlayer = match.raw;
+    }
+  }
+
+  let teamData = {};
+
   if(PLAYER_INTELLIGENCE.teams){
     const teams = PLAYER_INTELLIGENCE.teams;
     const entries = Array.isArray(teams)
@@ -1670,10 +1721,8 @@ function findIntelForPlayer(player){
       );
     });
 
-    /*
-      Falls der Vereinsname nicht sauber hinterlegt ist, versuchen wir
-      zusätzlich eine direkte Spielerzuordnung innerhalb der Teams.
-    */
+    /* Falls der Vereinsname nicht sauber hinterlegt ist, zusätzlich
+       über die Spieler innerhalb der Teams suchen. */
     if(!teamMatch){
       teamMatch = entries.find(([teamKey, team]) => {
         if(!team || typeof team !== "object") return false;
@@ -1697,10 +1746,10 @@ function findIntelForPlayer(player){
     }
 
     if(teamMatch){
-      const team = teamMatch[1];
+      const team = teamMatch[1] || {};
       const next = team.nextMatch || {};
 
-      return {
+      teamData = {
         average: team.average ?? null,
         starting: team.starting ?? null,
         form: team.form ?? null,
@@ -1714,29 +1763,37 @@ function findIntelForPlayer(player){
     }
   }
 
-  // Fallback: echte Spieler-Intelligence, falls vorhanden.
-  const directCandidates = [
-    player.id,
-    slugify(player.name),
-    slugify(`${player.name}-${player.club}`)
-  ];
+  /*
+    Individuelle Spielerdaten gewinnen immer gegen Team-Fallbacks.
+    Null/undefined-Werte des Spielers überschreiben dabei keine
+    vorhandenen Teamwerte.
+  */
+  if(directPlayer){
+    const fields = [
+      "average",
+      "starting",
+      "form",
+      "opponent",
+      "homeAway",
+      "injury",
+      "suspension",
+      "recommendation",
+      "lastUpdated"
+    ];
 
-  for(const key of directCandidates){
-    const value = PLAYER_INTELLIGENCE[key];
-    if(value && typeof value === "object" && !Array.isArray(value) && !value.players){
-      return value;
+    const merged = { ...teamData };
+
+    for(const field of fields){
+      if(directPlayer[field] !== undefined && directPlayer[field] !== null){
+        merged[field] = directPlayer[field];
+      }
     }
+
+    return merged;
   }
 
-  // Letzter Fallback für ältere JSON-Strukturen.
-  const all = extractPlayers(PLAYER_INTELLIGENCE);
-  const match = all.find(candidate =>
-    normalizeText(candidate.name) === wantedName &&
-    canonicalClubKey(candidate.club) === wantedClubKey
-  );
-
-  if(match?.raw){
-    return match.raw;
+  if(Object.keys(teamData).length){
+    return teamData;
   }
 
   return {};
