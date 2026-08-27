@@ -1232,46 +1232,69 @@ function saveRoster(){
 function migrateRosterToCurrentBundesligaIds(){
   let changed = false;
 
+  /*
+    Alte localStorage-Einträge enthalten teilweise nur Nachnamen
+    (z.B. "Friedrich", "Kömür", "Kane").
+
+    Für die Migration verwenden wir deshalb die stabile Spieler-ID
+    aus player-intelligence.json als Zielquelle. Dort liegen die
+    aktuellen Spieler unter PLAYER_INTELLIGENCE.players, z.B.
+    "marvin-friedrich" oder "mert-komur".
+
+    Wichtig:
+    - Der alte Name darf ein Nachname sein.
+    - Der Verein muss ebenfalls passen.
+    - Automatisch migriert wird nur bei genau einem eindeutigen Treffer.
+    - Bereits aktuelle IDs bleiben unverändert.
+  */
+
+  const playerTable = (
+    PLAYER_INTELLIGENCE &&
+    PLAYER_INTELLIGENCE.players &&
+    typeof PLAYER_INTELLIGENCE.players === "object" &&
+    !Array.isArray(PLAYER_INTELLIGENCE.players)
+  ) ? PLAYER_INTELLIGENCE.players : {};
+
+  const intelligencePlayers = Object.entries(playerTable).map(([id, player]) => ({
+    id: String(id),
+    ...(player && typeof player === "object" ? player : {})
+  }));
+
   CURRENT_ROSTER.forEach(entry => {
     const oldData = INITIAL_PLAYER_DATA[entry.id];
     if(!oldData) return;
 
+    // Wenn die aktuelle ID bereits direkt in player-intelligence.json existiert,
+    // müssen wir nichts ändern.
+    if(playerTable[String(entry.id)]) return;
+
     const wantedName = normalizeText(oldData.name);
     const wantedClub = canonicalClubKey(oldData.club);
 
-    /*
-      Alte Start-/localStorage-Einträge enthalten teilweise nur den
-      Nachnamen (z.B. "Friedrich", "Kömür", "Kane"). Die aktuellen
-      Bundesliga-Daten enthalten dagegen den vollständigen Namen
-      (z.B. "Marvin Friedrich", "Mert Kömür", "Harry Kane").
+    const candidates = intelligencePlayers.filter(player => {
+      if(!player.name) return false;
+      if(canonicalClubKey(player.club) !== wantedClub) return false;
 
-      Deshalb zuerst exakt nach Name + Verein suchen. Falls der alte
-      Eintrag nur ein Nachname ist, zusätzlich eindeutig über den
-      Nachnamen + Verein auf die aktuelle stabile Bundesliga-ID mappen.
-    */
-    let current = BUNDESLIGA_PLAYERS.find(player =>
-      normalizeText(player.name) === wantedName &&
-      canonicalClubKey(player.club) === wantedClub
-    );
+      const fullName = normalizeText(player.name);
+      if(fullName === wantedName) return true;
 
-    if(!current){
-      const surnameMatches = BUNDESLIGA_PLAYERS.filter(player => {
-        if(canonicalClubKey(player.club) !== wantedClub) return false;
+      // Alte Daten enthalten häufig nur den Nachnamen.
+      const parts = fullName.split(' ').filter(Boolean);
+      return parts.length > 1 && parts[parts.length - 1] === wantedName;
+    });
 
-        const parts = normalizeText(player.name).split(' ').filter(Boolean);
-        return parts.length > 1 && parts[parts.length - 1] === wantedName;
-      });
-
-      // Nur bei genau einem Treffer automatisch migrieren.
-      if(surnameMatches.length === 1){
-        current = surnameMatches[0];
-      }
-    }
-
-    if(current && String(current.id) !== String(entry.id)){
-      console.log(`Kader-ID migriert: ${entry.id} -> ${current.id} (${current.name})`);
+    if(candidates.length === 1 && String(candidates[0].id) !== String(entry.id)){
+      const current = candidates[0];
+      console.log(
+        `Kader-ID migriert: ${entry.id} -> ${current.id} (${current.name})`
+      );
       entry.id = String(current.id);
       changed = true;
+    } else if(candidates.length > 1){
+      console.warn(
+        `Kader-ID nicht eindeutig migriert: ${entry.id} (${oldData.name})`,
+        candidates.map(player => `${player.name} [${player.id}]`)
+      );
     }
   });
 
