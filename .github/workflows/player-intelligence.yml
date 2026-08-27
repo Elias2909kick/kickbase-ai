@@ -2,6 +2,12 @@ name: Player Intelligence
 
 on:
   workflow_dispatch:
+    inputs:
+      roster:
+        description: "JSON mit dem aktuellen persönlichen Kickbase-Kader"
+        required: false
+        type: string
+        default: "[]"
   schedule:
     - cron: "0 6 * * *"
 
@@ -21,9 +27,76 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Player Intelligence aktualisieren
+      - name: Aktuellen Kader bereitstellen
         env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          ROSTER_INPUT: ${{ inputs.roster }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          raw = os.environ.get("ROSTER_INPUT", "[]").strip()
+
+          try:
+              roster = json.loads(raw)
+          except json.JSONDecodeError as exc:
+              raise SystemExit(f"Ungültiges roster-JSON: {exc}")
+
+          if not isinstance(roster, list):
+              raise SystemExit("roster muss eine JSON-Liste sein.")
+
+          clean = []
+          seen = set()
+
+          for item in roster:
+              if isinstance(item, str):
+                  player_id = item.strip()
+                  player = {"id": player_id}
+              elif isinstance(item, dict):
+                  player_id = str(item.get("id", "")).strip()
+                  player = {
+                      "id": player_id,
+                      "name": item.get("name", ""),
+                      "club": item.get("club", ""),
+                      "position": item.get("position", ""),
+                  }
+              else:
+                  continue
+
+              if not player_id or player_id in seen:
+                  continue
+
+              seen.add(player_id)
+              clean.append(player)
+
+          if len(clean) > 18:
+              raise SystemExit(
+                  f"Der übergebene Kader enthält {len(clean)} Spieler. Maximal 18 erlaubt."
+              )
+
+          Path("kickbase-roster.json").write_text(
+              json.dumps(
+                  {
+                      "version": 1,
+                      "source": "Kickbase AI manueller Kader",
+                      "players": clean,
+                  },
+                  ensure_ascii=False,
+                  indent=2,
+              ),
+              encoding="utf-8",
+          )
+
+          print(f"Aktueller Kader bereitgestellt: {len(clean)}/18 Spieler")
+          for player in clean:
+              print(
+                  f"- {player.get('name') or player['id']} "
+                  f"({player.get('club') or 'Verein unbekannt'})"
+              )
+          PY
+
+      - name: Player Intelligence aktualisieren
         run: python scripts/update_player_intelligence.py
 
       - name: Änderungen prüfen
