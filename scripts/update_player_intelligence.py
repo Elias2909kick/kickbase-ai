@@ -962,6 +962,37 @@ def parse_number_after_label(text, label):
         return None
 
 
+def parse_number_after_labels(text, labels):
+    """Probiert mehrere Sprachvarianten derselben Statistik."""
+    for label in labels:
+        value = parse_number_after_label(text, label)
+        if value is not None:
+            return value
+    return None
+
+
+def _is_goalkeeper(player):
+    position = normalize_name(player.get("position"))
+    return position in {"torhuter", "torhueter", "tw", "goalkeeper"}
+
+
+def _localized_profile_urls(source_url):
+    """Alternative offizielle Bundesliga.com-Sprachpfade für dasselbe Profil."""
+    replacements = (
+        ("/de/spieler/", "/pt/jogador/"),
+        ("/de/spieler/", "/en/player/"),
+        ("/de/spieler/", "/es/jugador/"),
+        ("/de/spieler/", "/fr/joueur/"),
+    )
+    urls = []
+    for old, new in replacements:
+        if old in source_url:
+            candidate = source_url.replace(old, new, 1)
+            if candidate not in urls:
+                urls.append(candidate)
+    return urls
+
+
 def extract_player_profile_intelligence(player):
     """
     Recherchiert einen einzelnen Spieler direkt über sein
@@ -980,6 +1011,7 @@ def extract_player_profile_intelligence(player):
             "appearances": None,
             "goals": None,
             "assists": None,
+            "goalsAgainst": None,
             "yellowCards": None,
             "form": "Noch nicht recherchiert",
             "starting": "Noch nicht recherchiert",
@@ -1004,6 +1036,60 @@ def extract_player_profile_intelligence(player):
         assists = parse_number_after_label(text_only, "Vorlagen")
         yellow_cards = parse_number_after_label(text_only, "Gelbe Karten")
 
+        goals_against = None
+        if _is_goalkeeper(player):
+            goals_against = parse_number_after_labels(
+                text_only,
+                (
+                    "Gegentore",
+                    "Goals conceded",
+                    "Goals against",
+                    "Gols contra",
+                    "Goles encajados",
+                    "Buts encaisses",
+                ),
+            )
+
+            # Die deutsche Profilseite zeigt diese Torwartstatistik
+            # nicht immer als "Gegentore". Wir bleiben bei Bundesliga.com
+            # und probieren dafür offizielle Sprachvarianten derselben Seite.
+            if goals_against is None:
+                for localized_url in _localized_profile_urls(source_url):
+                    try:
+                        localized_html = http_get_text(
+                            localized_url,
+                            timeout=20,
+                        )
+                        localized_text = re.sub(
+                            r"<script\b[^>]*>.*?</script>",
+                            " ",
+                            localized_html,
+                            flags=re.IGNORECASE | re.DOTALL,
+                        )
+                        localized_text = re.sub(
+                            r"<style\b[^>]*>.*?</style>",
+                            " ",
+                            localized_text,
+                            flags=re.IGNORECASE | re.DOTALL,
+                        )
+                        localized_text = re.sub(r"<[^>]+>", " ", localized_text)
+                        localized_text = re.sub(r"\s+", " ", localized_text).strip()
+                        goals_against = parse_number_after_labels(
+                            localized_text,
+                            (
+                                "Gegentore",
+                                "Goals conceded",
+                                "Goals against",
+                                "Gols contra",
+                                "Goles encajados",
+                                "Buts encaisses",
+                            ),
+                        )
+                        if goals_against is not None:
+                            break
+                    except Exception:
+                        continue
+
         # Letztes Spiel nur als Kontext; keine Startelf daraus ableiten.
         last_match = None
         match = re.search(
@@ -1019,10 +1105,15 @@ def extract_player_profile_intelligence(player):
         form_parts = []
         if appearances is not None:
             form_parts.append(f"{appearances} Einsätze")
-        if goals is not None:
-            form_parts.append(f"{goals} Tore")
-        if assists is not None:
-            form_parts.append(f"{assists} Vorlagen")
+
+        if _is_goalkeeper(player):
+            if goals_against is not None:
+                form_parts.append(f"{goals_against} Gegentore")
+        else:
+            if goals is not None:
+                form_parts.append(f"{goals} Tore")
+            if assists is not None:
+                form_parts.append(f"{assists} Vorlagen")
 
         form = " · ".join(form_parts) if form_parts else "Keine Saisonstatistik gefunden"
 
@@ -1060,6 +1151,7 @@ def extract_player_profile_intelligence(player):
             "appearances": appearances,
             "goals": goals,
             "assists": assists,
+            "goalsAgainst": goals_against,
             "yellowCards": yellow_cards,
             "form": form,
             "starting": starting,
@@ -1080,6 +1172,7 @@ def extract_player_profile_intelligence(player):
             "appearances": None,
             "goals": None,
             "assists": None,
+            "goalsAgainst": None,
             "yellowCards": None,
             "form": "Noch nicht recherchiert",
             "starting": "Noch nicht recherchiert",
@@ -1361,6 +1454,7 @@ def build_player_intelligence(
         appearances = public_player.get("appearances", old_player.get("appearances"))
         goals = public_player.get("goals", old_player.get("goals"))
         assists = public_player.get("assists", old_player.get("assists"))
+        goals_against = public_player.get("goalsAgainst", old_player.get("goalsAgainst"))
         yellow_cards = public_player.get("yellowCards", old_player.get("yellowCards"))
         last_match = public_player.get("lastMatch", old_player.get("lastMatch"))
         profile_available = public_player.get("available", False)
@@ -1375,6 +1469,7 @@ def build_player_intelligence(
         appearances = old_player.get("appearances")
         goals = old_player.get("goals")
         assists = old_player.get("assists")
+        goals_against = old_player.get("goalsAgainst")
         yellow_cards = old_player.get("yellowCards")
         last_match = old_player.get("lastMatch")
         profile_available = bool(old_player.get("dataStatus", {}).get("playerProfileSource") == "erreichbar")
@@ -1405,6 +1500,7 @@ def build_player_intelligence(
         "minutes": old_player.get("minutes"),
         "goals": goals,
         "assists": assists,
+        "goalsAgainst": goals_against,
         "yellowCards": yellow_cards,
         "lastMatch": last_match,
         "opponent": opponent,
