@@ -1090,38 +1090,52 @@ def extract_player_profile_intelligence(player):
 
 def load_active_roster_ids():
     """
-    Lädt optional die IDs des tatsächlich verwalteten Kickbase-Kaders.
+    Liefert die Spieler-IDs des aktuell übergebenen persönlichen Kaders.
 
-    Erwartete Datei: kickbase-roster.json
-    Unterstützte Formate:
-      ["player-id-1", "player-id-2"]
-    oder:
-      {"playerIds": ["player-id-1", "player-id-2"]}
+    Priorität:
+    1. kickbase-roster.json aus dem aktuellen GitHub-Workflow-Lauf.
+    2. Wenn die Datei fehlt/leer ist: [].
 
-    Wenn die Datei nicht existiert, wird bewusst KEINE intensive
-    Einzelspieler-Recherche durchgeführt. So bleibt der tägliche Lauf schnell.
+    Wichtig: Ein leerer Kader bedeutet NICHT "alle Bundesliga-Spieler".
+    Damit kann ein Workflow-Lauf ohne Kaderübergabe keine versehentliche
+    Recherche für hunderte Spieler auslösen.
     """
     if not ACTIVE_ROSTER_FILE.exists():
-        print("Kein kickbase-roster.json gefunden: keine Einzelspieler-Recherche.")
-        return set()
+        print("Kein kickbase-roster.json vorhanden.")
+        print("Player-Intelligence-Recherche für persönlichen Kader: 0 Spieler.")
+        return []
 
     try:
-        with ACTIVE_ROSTER_FILE.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-
-        if isinstance(data, list):
-            ids = data
-        elif isinstance(data, dict):
-            ids = data.get("playerIds", [])
-        else:
-            ids = []
-
-        result = {str(value).strip() for value in ids if str(value).strip()}
-        print(f"Aktiver Kickbase-Kader: {len(result)} Spieler für Einzelrecherche.")
-        return result
+        raw = json.loads(ACTIVE_ROSTER_FILE.read_text(encoding="utf-8"))
     except Exception as exc:
-        print(f"kickbase-roster.json konnte nicht geladen werden: {exc}")
-        return set()
+        print(f"kickbase-roster.json konnte nicht gelesen werden: {exc}")
+        return []
+
+    players = raw.get("players", []) if isinstance(raw, dict) else raw
+    if not isinstance(players, list):
+        print("kickbase-roster.json hat kein gültiges players-Array.")
+        return []
+
+    ids = []
+    seen = set()
+
+    for item in players:
+        if isinstance(item, str):
+            player_id = item.strip()
+        elif isinstance(item, dict):
+            player_id = str(item.get("id", "")).strip()
+        else:
+            continue
+
+        if player_id and player_id not in seen:
+            seen.add(player_id)
+            ids.append(player_id)
+
+    print(
+        f"Aktueller persönlicher Kader für Player Intelligence: "
+        f"{len(ids)}/18 Spieler."
+    )
+    return ids
 
 
 def build_player_intelligence(
