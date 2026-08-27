@@ -1136,6 +1136,7 @@ function findPlayerByNameAndClub(name, club){
 
 function getPlayerData(id){
   const dynamic = findBundesligaPlayer(id);
+
   if(dynamic){
     return {
       id: dynamic.id,
@@ -1153,11 +1154,13 @@ function getPlayerData(id){
       playerUrl: dynamic.playerUrl
     };
   }
-}
-  return INITIAL_PLAYER_DATA[id] ? {
-    id,
-    ...INITIAL_PLAYER_DATA[id]
-  } : null;
+
+  return INITIAL_PLAYER_DATA[id]
+    ? {
+        id,
+        ...INITIAL_PLAYER_DATA[id]
+      }
+    : null;
 }
 
 function loadRoster(){
