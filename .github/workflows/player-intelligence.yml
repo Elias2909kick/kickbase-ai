@@ -53,39 +53,33 @@ jobs:
           if not isinstance(roster, list):
               raise SystemExit("roster muss eine JSON-Liste sein.")
 
-          clean = []
+          # Der Workflow-Input enthält bei unserem aktuellen Formular
+          # bereits eine Liste aus Spieler-IDs. Wir übernehmen diese IDs
+          # direkt, ohne sie erneut als Objekte zu interpretieren.
+          ids = []
           seen = set()
 
           for item in roster:
               if isinstance(item, str):
                   player_id = item.strip()
-                  player = {"id": player_id}
               elif isinstance(item, dict):
                   player_id = str(item.get("id", "")).strip()
-                  player = {
-                      "id": player_id,
-                      "name": item.get("name", ""),
-                      "club": item.get("club", ""),
-                      "position": item.get("position", ""),
-                  }
               else:
                   continue
 
-              if not player_id or player_id in seen:
-                  continue
+              if player_id and player_id not in seen:
+                  seen.add(player_id)
+                  ids.append(player_id)
 
-              seen.add(player_id)
-              clean.append(player)
-
-          if not clean:
+          if not ids:
               raise SystemExit(
                   "Der persönliche Kader enthält 0 gültige Spieler. "
                   "Workflow wird aus Sicherheitsgründen abgebrochen."
               )
 
-          if len(clean) > 18:
+          if len(ids) > 18:
               raise SystemExit(
-                  f"Der übergebene Kader enthält {len(clean)} Spieler. "
+                  f"Der übergebene Kader enthält {len(ids)} Spieler. "
                   "Maximal 18 erlaubt."
               )
 
@@ -94,7 +88,7 @@ jobs:
                   {
                       "version": 1,
                       "source": "Kickbase AI manueller Kader",
-                      "players": clean,
+                      "players": ids,
                   },
                   ensure_ascii=False,
                   indent=2,
@@ -102,12 +96,8 @@ jobs:
               encoding="utf-8",
           )
 
-          print(f"Aktueller Kader bereitgestellt: {len(clean)}/18 Spieler")
-          for player in clean:
-              print(
-                  f"- {player.get('name') or player['id']} "
-                  f"({player.get('club') or 'Verein unbekannt'})"
-              )
+          print(f"Aktueller Kader bereitgestellt: {len(ids)}/18 Spieler")
+          print("Kader-IDs:", ", ".join(ids))
           PY
 
       - name: Kader-Übergabe prüfen
@@ -116,11 +106,13 @@ jobs:
           import json
           from pathlib import Path
 
-          data = json.loads(Path("kickbase-roster.json").read_text(encoding="utf-8"))
+          data = json.loads(
+              Path("kickbase-roster.json").read_text(encoding="utf-8")
+          )
           players = data.get("players", [])
 
           print(f"DIAGNOSE: {len(players)}/18 Spieler in kickbase-roster.json")
-          print("DIAGNOSE-IDs:", ", ".join(str(p.get("id", "")) for p in players))
+          print("DIAGNOSE-IDs:", ", ".join(str(p) for p in players))
 
           if not players:
               raise SystemExit("DIAGNOSE FEHLER: Kader ist leer.")
