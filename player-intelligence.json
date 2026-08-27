@@ -22504,20 +22504,20 @@
       "number": 20,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/nicolas-kristof",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Öffentlich nicht verfügbar",
+      "form": "0 Einsätze · 0 Tore",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
+      "goals": 0,
       "assists": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "yellowCards": 0,
+      "lastMatch": "Samstag 22. August Duisburg MSV Duisburg 1 3 Elversberg SV Elversberg Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "suspension": "Noch nicht recherchiert",
+      "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
+      "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-27",
       "sources": [
@@ -22541,9 +22541,9 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
+        "researchMode": "intensiv"
       }
     },
     "tim-boss": {
