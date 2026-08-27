@@ -1522,14 +1522,39 @@ function isLegacyAliasPlayer(player){
 
   /*
     Alte Startspieler bleiben intern für Migration/Kompatibilität erhalten,
-    erscheinen aber nicht mehr als eigener Treffer in "Spieler hinzufügen",
-    sobald ein aktueller vollständiger Spieler beim selben Verein existiert.
-  */
-  return BUNDESLIGA_PLAYERS.some(candidate => {
-    if(!candidate || String(candidate.id) === legacyId) return false;
-    if(canonicalClubKey(candidate.club) !== legacyClub) return false;
+    dürfen aber nicht als zweiter Treffer in "Spieler hinzufügen" erscheinen.
 
-    const candidateName = normalizeText(candidate.name);
+    Die Prüfung verwendet sowohl die aktuelle Bundesliga-Spielerliste als auch
+    die stabile players-Tabelle aus player-intelligence.json. Dadurch funktioniert
+    der Filter auch dann, wenn ein Spieler nur in einer der beiden Strukturen
+    vorhanden ist.
+  */
+  const candidates = [
+    ...BUNDESLIGA_PLAYERS,
+    ...Object.entries(
+      PLAYER_INTELLIGENCE?.players &&
+      typeof PLAYER_INTELLIGENCE.players === "object" &&
+      !Array.isArray(PLAYER_INTELLIGENCE.players)
+        ? PLAYER_INTELLIGENCE.players
+        : {}
+    ).map(([id, value]) => ({
+      id: String(id),
+      ...(value && typeof value === "object" ? value : {})
+    }))
+  ];
+
+  return candidates.some(candidate => {
+    if(!candidate || String(candidate.id) === legacyId) return false;
+
+    const candidateClub = canonicalClubKey(
+      candidate.club || candidate.teamName || ""
+    );
+    if(candidateClub !== legacyClub) return false;
+
+    const candidateName = normalizeText(
+      candidate.name || candidate.playerName || candidate.fullName || ""
+    );
+
     return (
       candidateName === legacyName ||
       candidateName.endsWith(` ${legacyName}`)
