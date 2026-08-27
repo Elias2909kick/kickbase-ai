@@ -1090,30 +1090,69 @@ def extract_player_profile_intelligence(player):
 
 def load_active_roster_ids():
     """
-    Liefert die Spieler-IDs des aktuell übergebenen persönlichen Kaders.
+    Liefert die Spieler-IDs des persönlichen Kaders.
 
-    Priorität:
-    1. kickbase-roster.json aus dem aktuellen GitHub-Workflow-Lauf.
-    2. Wenn die Datei fehlt/leer ist: [].
+    Primär wird der aktuelle workflow_dispatch-Input aus der
+    Umgebungsvariable ROSTER_INPUT verwendet. Das ist absichtlich
+    robuster als sich darauf zu verlassen, dass die temporäre
+    kickbase-roster.json korrekt gelesen wird.
 
-    Wichtig: Ein leerer Kader bedeutet NICHT "alle Bundesliga-Spieler".
-    Damit kann ein Workflow-Lauf ohne Kaderübergabe keine versehentliche
-    Recherche für hunderte Spieler auslösen.
+    Fallback:
+    - kickbase-roster.json, falls vorhanden.
+
+    Ein leerer Kader bedeutet immer 0 Recherche-Spieler und niemals
+    "alle Bundesliga-Spieler".
     """
-    if not ACTIVE_ROSTER_FILE.exists():
-        print("Kein kickbase-roster.json vorhanden.")
-        print("Player-Intelligence-Recherche für persönlichen Kader: 0 Spieler.")
-        return []
 
-    try:
-        raw = json.loads(ACTIVE_ROSTER_FILE.read_text(encoding="utf-8"))
-    except Exception as exc:
-        print(f"kickbase-roster.json konnte nicht gelesen werden: {exc}")
-        return []
+    raw = os.environ.get("ROSTER_INPUT", "").strip()
 
-    players = raw.get("players", []) if isinstance(raw, dict) else raw
+    # workflow_dispatch: direkter Kader-Input
+    if raw:
+        try:
+            parsed = json.loads(raw)
+        except json.JSONDecodeError as exc:
+            print(f"ROSTER_INPUT enthält ungültiges JSON: {exc}")
+            return []
+
+        players = parsed.get("players", []) if isinstance(parsed, dict) else parsed
+        ids = _extract_roster_ids(players)
+
+        print(
+            f"Aktueller persönlicher Kader für Player Intelligence: "
+            f"{len(ids)}/18 Spieler (direkter Workflow-Input)."
+        )
+        return ids
+
+    # Fallback für einen lokal bereitgestellten Kader.
+    if ACTIVE_ROSTER_FILE.exists():
+        try:
+            raw_file = json.loads(
+                ACTIVE_ROSTER_FILE.read_text(encoding="utf-8")
+            )
+        except Exception as exc:
+            print(f"kickbase-roster.json konnte nicht gelesen werden: {exc}")
+            return []
+
+        players = (
+            raw_file.get("players", [])
+            if isinstance(raw_file, dict)
+            else raw_file
+        )
+        ids = _extract_roster_ids(players)
+
+        print(
+            f"Aktueller persönlicher Kader für Player Intelligence: "
+            f"{len(ids)}/18 Spieler (kickbase-roster.json)."
+        )
+        return ids
+
+    print("Kein persönlicher Kader übergeben.")
+    print("Player-Intelligence-Recherche für persönlichen Kader: 0 Spieler.")
+    return []
+
+
+def _extract_roster_ids(players):
     if not isinstance(players, list):
-        print("kickbase-roster.json hat kein gültiges players-Array.")
         return []
 
     ids = []
@@ -1131,10 +1170,12 @@ def load_active_roster_ids():
             seen.add(player_id)
             ids.append(player_id)
 
-    print(
-        f"Aktueller persönlicher Kader für Player Intelligence: "
-        f"{len(ids)}/18 Spieler."
-    )
+    if len(ids) > 18:
+        raise RuntimeError(
+            f"Der persönliche Kader enthält {len(ids)} Spieler. "
+            "Maximal 18 Spieler erlaubt."
+        )
+
     return ids
 
 
