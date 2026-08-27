@@ -804,7 +804,7 @@ button{
   </div>
 
   <div class="intel-row">
-    <span>📈 Form</span>
+    <span id="intelFormLabel">📈 Form</span>
     <strong id="intelForm">–</strong>
   </div>
 
@@ -1510,6 +1510,33 @@ function closeAddPlayerModal(){
   document.getElementById("addPlayerModal").classList.remove("show");
 }
 
+function isLegacyAliasPlayer(player){
+  if(!player || !player.id) return false;
+
+  const legacyId = String(player.id);
+  const legacyData = INITIAL_PLAYER_DATA[legacyId];
+  if(!legacyData) return false;
+
+  const legacyName = normalizeText(legacyData.name);
+  const legacyClub = canonicalClubKey(legacyData.club);
+
+  /*
+    Alte Startspieler bleiben intern für Migration/Kompatibilität erhalten,
+    erscheinen aber nicht mehr als eigener Treffer in "Spieler hinzufügen",
+    sobald ein aktueller vollständiger Spieler beim selben Verein existiert.
+  */
+  return BUNDESLIGA_PLAYERS.some(candidate => {
+    if(!candidate || String(candidate.id) === legacyId) return false;
+    if(canonicalClubKey(candidate.club) !== legacyClub) return false;
+
+    const candidateName = normalizeText(candidate.name);
+    return (
+      candidateName === legacyName ||
+      candidateName.endsWith(` ${legacyName}`)
+    );
+  });
+}
+
 function renderPlayerSearchResults(query){
   const root = document.getElementById("playerSearchResults");
   const q = normalizeText(query);
@@ -1518,6 +1545,7 @@ function renderPlayerSearchResults(query){
 
   const results = BUNDESLIGA_PLAYERS
     .filter(player => !currentIds.has(String(player.id)))
+    .filter(player => !isLegacyAliasPlayer(player))
     .filter(player => {
       if(!q) return true;
       return (
@@ -1602,6 +1630,7 @@ const modalBadges = document.getElementById("modalBadges");
 const modalClose = document.getElementById("modalClose");
 const intelAverage = document.getElementById("intelAverage");
 const intelStarting = document.getElementById("intelStarting");
+const intelFormLabel = document.getElementById("intelFormLabel");
 const intelForm = document.getElementById("intelForm");
 const intelOpponent = document.getElementById("intelOpponent");
 const intelHomeAway = document.getElementById("intelHomeAway");
@@ -1840,6 +1869,7 @@ function findIntelForPlayer(player){
       "average",
       "starting",
       "form",
+      "goalsAgainst",
       "opponent",
       "homeAway",
       "injury",
@@ -1881,7 +1911,21 @@ function openPlayerModal(id){
 
   intelAverage.textContent = intel.average ?? "Noch nicht recherchiert";
   intelStarting.textContent = intel.starting ?? "Noch nicht recherchiert";
-  intelForm.textContent = intel.form ?? "Noch nicht recherchiert";
+
+  /*
+    Torhüter: Die Form-Zeile zeigt "Gegentore" und verwendet ausschließlich
+    ein eigenes goalsAgainst-Feld. Ohne belastbaren Wert wird nichts aus
+    Teamdaten abgeleitet oder erfunden.
+    Feldspieler: weiterhin das vorhandene Form-Feld.
+  */
+  if(normalizeText(data.position) === "tw"){
+    intelFormLabel.textContent = "🥅 Gegentore";
+    intelForm.textContent = intel.goalsAgainst ?? "Noch nicht recherchiert";
+  }else{
+    intelFormLabel.textContent = "📈 Form";
+    intelForm.textContent = intel.form ?? "Noch nicht recherchiert";
+  }
+
   intelOpponent.textContent = intel.opponent ?? "Noch nicht recherchiert";
   intelHomeAway.textContent = intel.homeAway ?? "Noch nicht recherchiert";
   intelInjury.textContent = intel.injury ?? "Noch nicht recherchiert";
