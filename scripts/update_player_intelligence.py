@@ -1178,6 +1178,16 @@ def resolve_active_player_ids(bundesliga_squads, roster_tokens):
 
     roster_norms = {norm(token) for token in roster_tokens if norm(token)}
 
+    # Bekannte Kickbase-Kurz-IDs, deren Schreibweise nicht 1:1 dem
+    # Bundesliga.com-Namen entspricht. Diese Zuordnung ist bewusst eng
+    # begrenzt und dient nur der eindeutigen Auflösung des persönlichen
+    # Kaders; es wird keine externe Fußball-API benötigt.
+    explicit_aliases = {
+        "friedrich": ["marvin friedrich"],
+        "koemuer": ["mert koemuer", "mert kömür"],
+        "hoeler": ["lucas hoeler", "lucas höler"],
+    }
+
     # Alle möglichen eindeutigen Namensbestandteile vorbereiten.
     surname_counts = {}
     token_counts = {}
@@ -1215,6 +1225,19 @@ def resolve_active_player_ids(bundesliga_squads, roster_tokens):
         for player, player_id, name_norm, parts, surname in player_meta:
             if token_norm == norm(player_id) or token_norm == name_norm:
                 candidates.append(player)
+
+        # 1b) Explizite, eindeutige Kickbase-Kurz-ID.
+        # Nur verwenden, wenn genau ein Bundesliga.com-Spieler passt.
+        if not candidates and token_norm in explicit_aliases:
+            alias_names = {norm(name) for name in explicit_aliases[token_norm]}
+            alias_candidates = [
+                player
+                for player, player_id, name_norm, parts, surname
+                in player_meta
+                if name_norm in alias_names
+            ]
+            if len(alias_candidates) == 1:
+                candidates = alias_candidates
 
         # 2) Eindeutiger Nachname
         if not candidates and surname_counts.get(token_norm, 0) == 1:
