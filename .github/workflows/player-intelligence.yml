@@ -27,6 +27,76 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Kader-Input testen
+        env:
+          ROSTER_INPUT: ${{ inputs.roster }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          raw = os.environ.get("ROSTER_INPUT", "").strip()
+          print("ROSTER_INPUT erhalten:")
+          print(raw)
+
+          if not raw:
+              raise SystemExit("FEHLER: ROSTER_INPUT ist leer.")
+
+          try:
+              roster = json.loads(raw)
+          except Exception as exc:
+              raise SystemExit(f"FEHLER: ROSTER_INPUT ist kein gültiges JSON: {exc}")
+
+          if not isinstance(roster, list):
+              raise SystemExit("FEHLER: ROSTER_INPUT ist keine JSON-Liste.")
+
+          # GitHub hat den übergebenen Kader in diesem Lauf als
+          # eine verschachtelte Liste geliefert: [[...17 IDs...]].
+          # Eine Ebene wird deshalb robust entfernt.
+          if len(roster) == 1 and isinstance(roster[0], list):
+              roster = roster[0]
+
+          # Für diesen Diagnoselauf keinerlei eigene Spieler-Logik:
+          # die vom Formular gelieferte Liste wird 1:1 als players gespeichert.
+          Path("kickbase-roster.json").write_text(
+              json.dumps(
+                  {
+                      "version": 1,
+                      "source": "Kickbase AI manueller Kader",
+                      "players": roster,
+                  },
+                  ensure_ascii=False,
+                  indent=2,
+              ),
+              encoding="utf-8",
+          )
+
+          print(f"JSON-Liste erkannt: {len(roster)} Einträge.")
+          print("Kader-Datei geschrieben.")
+          PY
+
+      - name: Kader-Übergabe prüfen
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(
+              Path("kickbase-roster.json").read_text(encoding="utf-8")
+          )
+          players = data.get("players", [])
+
+          print(f"DIAGNOSE: {len(players)}/18 Spieler in kickbase-roster.json")
+          print("DIAGNOSE-IDs:", ", ".join(str(p) for p in players))
+
+          if not players:
+              raise SystemExit("DIAGNOSE FEHLER: Kader ist leer.")
+          if len(players) > 18:
+              raise SystemExit("DIAGNOSE FEHLER: Mehr als 18 Spieler.")
+          PY
+
+
       - name: Player Intelligence aktualisieren
         run: python scripts/update_player_intelligence.py
 
