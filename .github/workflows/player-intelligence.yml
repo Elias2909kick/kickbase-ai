@@ -51,6 +51,12 @@ jobs:
           if not isinstance(roster, list):
               raise SystemExit("FEHLER: ROSTER_INPUT ist keine JSON-Liste.")
 
+          # GitHub hat den übergebenen Kader in diesem Lauf als
+          # eine verschachtelte Liste geliefert: [[...17 IDs...]].
+          # Eine Ebene wird deshalb robust entfernt.
+          if len(roster) == 1 and isinstance(roster[0], list):
+              roster = roster[0]
+
           # Für diesen Diagnoselauf keinerlei eigene Spieler-Logik:
           # die vom Formular gelieferte Liste wird 1:1 als players gespeichert.
           Path("kickbase-roster.json").write_text(
