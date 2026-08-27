@@ -1141,12 +1141,19 @@ function getPlayerData(id){
       id: dynamic.id,
       name: dynamic.name,
       club: dynamic.club,
-      position: dynamic.position,
+      position: ({
+        "Torhüter": "TW",
+        "Torwart": "TW",
+        "Verteidigung": "ABW",
+        "Abwehr": "ABW",
+        "Mittelfeld": "MF",
+        "Angriff": "ANG"
+      }[dynamic.position] || dynamic.position),
       photo: dynamic.photo,
       playerUrl: dynamic.playerUrl
     };
   }
-
+}
   return INITIAL_PLAYER_DATA[id] ? {
     id,
     ...INITIAL_PLAYER_DATA[id]
