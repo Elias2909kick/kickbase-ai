@@ -763,7 +763,7 @@ def get_next_match_for_team(
 
 
 # ============================================================
-# ÖFFENTLICHE PLAYER-INTELLIGENCE
+# ÖFFENTLICHE PLAYER-INTELLIGENCE V9
 # ============================================================
 
 # Bewusst ohne kostenpflichtige Fußball-API-Abhängigkeit.
@@ -939,6 +939,152 @@ def build_intelligence(
     }
 
 
+
+def parse_number_after_label(text, label):
+    """
+    Liest einfache Bundesliga.com-Spielerprofil-Werte aus dem
+    sichtbaren Text. Beispiel: 'Einsätze 2'.
+    """
+    pattern = rf"{re.escape(label)}\s+(\d+(?:[.,]\d+)?)"
+    match = re.search(pattern, text, flags=re.IGNORECASE)
+    if not match:
+        return None
+
+    value = match.group(1).replace(",", ".")
+    try:
+        number = float(value)
+        return int(number) if number.is_integer() else number
+    except ValueError:
+        return None
+
+
+def extract_player_profile_intelligence(player):
+    """
+    Recherchiert einen einzelnen Spieler direkt über sein
+    öffentliches Bundesliga.com-Spielerprofil.
+
+    Keine externe Fußball-API.
+    Die Funktion liefert nur Werte, die auf dem öffentlichen
+    Profil tatsächlich gefunden wurden.
+    """
+    source_url = player.get("sourceUrl")
+
+    if not source_url:
+        return {
+            "available": False,
+            "sourceUrl": None,
+            "appearances": None,
+            "goals": None,
+            "assists": None,
+            "yellowCards": None,
+            "form": "Noch nicht recherchiert",
+            "starting": "Noch nicht recherchiert",
+            "injury": "Noch nicht recherchiert",
+            "suspension": "Noch nicht recherchiert",
+            "lastMatch": None,
+        }
+
+    try:
+        html = http_get_text(source_url, timeout=20)
+
+        # HTML grob in sichtbaren Text umwandeln.
+        text_only = re.sub(r"<script\b[^>]*>.*?</script>", " ", html,
+                           flags=re.IGNORECASE | re.DOTALL)
+        text_only = re.sub(r"<style\b[^>]*>.*?</style>", " ", text_only,
+                           flags=re.IGNORECASE | re.DOTALL)
+        text_only = re.sub(r"<[^>]+>", " ", text_only)
+        text_only = re.sub(r"\s+", " ", text_only).strip()
+
+        appearances = parse_number_after_label(text_only, "Einsätze")
+        goals = parse_number_after_label(text_only, "Tore")
+        assists = parse_number_after_label(text_only, "Vorlagen")
+        yellow_cards = parse_number_after_label(text_only, "Gelbe Karten")
+
+        # Letztes Spiel nur als Kontext; keine Startelf daraus ableiten.
+        last_match = None
+        match = re.search(
+            r"Letztes Spiel\s+(.{0,180}?)(?:News|Mitspieler|Kompletter Kader|$)",
+            text_only,
+            flags=re.IGNORECASE,
+        )
+        if match:
+            last_match = re.sub(r"\s+", " ", match.group(1)).strip()
+
+        # Form wird transparent als aktuelle Saisonstatistik
+        # dargestellt und nicht als erfundener Rating-Wert.
+        form_parts = []
+        if appearances is not None:
+            form_parts.append(f"{appearances} Einsätze")
+        if goals is not None:
+            form_parts.append(f"{goals} Tore")
+        if assists is not None:
+            form_parts.append(f"{assists} Vorlagen")
+
+        form = " · ".join(form_parts) if form_parts else "Keine Saisonstatistik gefunden"
+
+        # Bundesliga.com-Spielerprofile liefern nicht zuverlässig
+        # eine Startelfquote. Deshalb keine künstliche Prozentzahl.
+        starting = "Öffentlich nicht verfügbar"
+
+        # Sehr konservative Recherche: nur explizite Hinweise auf
+        # Verletzung/Krankheit/Sperre im öffentlichen Profiltext.
+        lower = text_only.lower()
+
+        injury_terms = (
+            "verletzt", "verletzung", "angeschlagen",
+            "krank", "erkrankt", "muskelverletzung",
+        )
+        suspension_terms = (
+            "gesperrt", "sperre", "rotgesperrt",
+            "gelb-rot", "gelbrote karte",
+        )
+
+        injury = "Keine Verletzungsmeldung auf dem Profil gefunden"
+        suspension = "Keine Sperrmeldung auf dem Profil gefunden"
+
+        injury_hit = next((term for term in injury_terms if term in lower), None)
+        suspension_hit = next((term for term in suspension_terms if term in lower), None)
+
+        if injury_hit:
+            injury = f"Hinweis auf: {injury_hit}"
+        if suspension_hit:
+            suspension = f"Hinweis auf: {suspension_hit}"
+
+        return {
+            "available": True,
+            "sourceUrl": source_url,
+            "appearances": appearances,
+            "goals": goals,
+            "assists": assists,
+            "yellowCards": yellow_cards,
+            "form": form,
+            "starting": starting,
+            "injury": injury,
+            "suspension": suspension,
+            "lastMatch": last_match,
+        }
+
+    except Exception as exc:
+        print(
+            f"Bundesliga.com-Spielerprofil fehlgeschlagen "
+            f"({player.get('name', 'unbekannt')}): {exc}"
+        )
+
+        return {
+            "available": False,
+            "sourceUrl": source_url,
+            "appearances": None,
+            "goals": None,
+            "assists": None,
+            "yellowCards": None,
+            "form": "Noch nicht recherchiert",
+            "starting": "Noch nicht recherchiert",
+            "injury": "Noch nicht recherchiert",
+            "suspension": "Noch nicht recherchiert",
+            "lastMatch": None,
+        }
+
+
 def build_player_intelligence(
     player,
     club_name,
@@ -970,15 +1116,31 @@ def build_player_intelligence(
         opponent = None
         home_away = None
 
-    # Keine alten, möglicherweise aus einer anderen Quelle
-    # stammenden Spielerwerte weiterverwenden. Bis eine belastbare
-    # öffentliche Recherchequelle den Wert liefert, bleibt er
-    # bewusst offen.
+    public_player = extract_player_profile_intelligence(player)
+
+    # Echte Kickbase-Ø-Punkte bleiben bewusst offen, weil wir
+    # weiterhin keine Kickbase-Daten direkt beziehen.
     average = None
-    starting = "Noch nicht recherchiert"
-    form = "Noch nicht recherchiert"
-    injury = "Noch nicht recherchiert"
-    suspension = "Noch nicht recherchiert"
+
+    starting = public_player.get(
+        "starting",
+        "Noch nicht recherchiert",
+    )
+
+    form = public_player.get(
+        "form",
+        "Noch nicht recherchiert",
+    )
+
+    injury = public_player.get(
+        "injury",
+        "Noch nicht recherchiert",
+    )
+
+    suspension = public_player.get(
+        "suspension",
+        "Noch nicht recherchiert",
+    )
 
     recommendation = (
         "Nächstes Spiel vorhanden"
@@ -1001,11 +1163,13 @@ def build_player_intelligence(
         "form": form,
 
         "footballRating": None,
-        "appearances": None,
+        "appearances": public_player.get("appearances"),
         "starts": None,
         "minutes": None,
-        "goals": None,
-        "assists": None,
+        "goals": public_player.get("goals"),
+        "assists": public_player.get("assists"),
+        "yellowCards": public_player.get("yellowCards"),
+        "lastMatch": public_player.get("lastMatch"),
 
         "opponent": opponent,
         "homeAway": home_away,
@@ -1027,6 +1191,10 @@ def build_player_intelligence(
                 "url": BUNDESLIGA_STATS_URL,
             },
             {
+                "name": "Bundesliga.com Spielerprofil",
+                "url": public_player.get("sourceUrl") or source_url,
+            },
+            {
                 "name": "OpenLigaDB",
                 "url": "https://www.openligadb.de/",
             },
@@ -1041,6 +1209,11 @@ def build_player_intelligence(
             "publicStatsSource": (
                 "erreichbar"
                 if public_source.get("available")
+                else "nicht erreichbar"
+            ),
+            "playerProfileSource": (
+                "erreichbar"
+                if public_player.get("available")
                 else "nicht erreichbar"
             ),
             "playerValues": "nicht erfunden",
@@ -1246,6 +1419,9 @@ def main():
                     public_source=public_source,
                 )
             )
+
+            # Höflicher Abstand zwischen öffentlichen Profilabrufen.
+            time.sleep(0.25)
 
         player_count_after = len(
             data["players"]
