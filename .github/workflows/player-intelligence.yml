@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Aktuellen Kader bereitstellen
+      - name: Aktuellen Kader validieren und bereitstellen
         env:
           ROSTER_INPUT: ${{ inputs.roster }}
         run: |
@@ -36,7 +36,14 @@ jobs:
           import os
           from pathlib import Path
 
-          raw = os.environ.get("ROSTER_INPUT", "[]").strip()
+          raw = os.environ.get("ROSTER_INPUT", "").strip()
+          print("ROSTER_INPUT erhalten:", repr(raw))
+
+          if not raw:
+              raise SystemExit(
+                  "Kein persönlicher Kader übergeben. "
+                  "Workflow wird aus Sicherheitsgründen abgebrochen."
+              )
 
           try:
               roster = json.loads(raw)
@@ -70,9 +77,16 @@ jobs:
               seen.add(player_id)
               clean.append(player)
 
+          if not clean:
+              raise SystemExit(
+                  "Der persönliche Kader enthält 0 gültige Spieler. "
+                  "Workflow wird aus Sicherheitsgründen abgebrochen."
+              )
+
           if len(clean) > 18:
               raise SystemExit(
-                  f"Der übergebene Kader enthält {len(clean)} Spieler. Maximal 18 erlaubt."
+                  f"Der übergebene Kader enthält {len(clean)} Spieler. "
+                  "Maximal 18 erlaubt."
               )
 
           Path("kickbase-roster.json").write_text(
@@ -96,9 +110,23 @@ jobs:
               )
           PY
 
+      - name: Kader-Übergabe prüfen
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("kickbase-roster.json").read_text(encoding="utf-8"))
+          players = data.get("players", [])
+
+          print(f"DIAGNOSE: {len(players)}/18 Spieler in kickbase-roster.json")
+          print("DIAGNOSE-IDs:", ", ".join(str(p.get("id", "")) for p in players))
+
+          if not players:
+              raise SystemExit("DIAGNOSE FEHLER: Kader ist leer.")
+          PY
+
       - name: Player Intelligence aktualisieren
-        env:
-          ROSTER_INPUT: ${{ inputs.roster }}
         run: python scripts/update_player_intelligence.py
 
       - name: Änderungen prüfen
