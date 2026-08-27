@@ -1153,61 +1153,118 @@ def load_active_roster_ids():
 
 def resolve_active_player_ids(bundesliga_squads, roster_tokens):
     """
-    Löst die Kader-Tokens gegen die Bundesliga.com-Spieler auf.
+    Löst die Kader-Tokens robust gegen Bundesliga.com-Spieler auf.
 
-    Reihenfolge:
-    - exakte Bundesliga.com-ID
-    - exakter voller Spielername
-    - eindeutiger Nachname
+    Match-Reihenfolge:
+    1. exakte Bundesliga.com-ID
+    2. exakter voller Name
+    3. eindeutiger Nachname
+    4. eindeutiger Namensbestandteil / zusammengesetzter Name
 
-    So kann der Workflow weiterhin mit einfachen Kickbase-Tokens
-    arbeiten, ohne API-Football zu benötigen.
+    Dabei werden Umlaute, Akzente, Bindestriche und Groß-/Kleinschreibung
+    normalisiert. API-Football wird hierfür nicht verwendet.
     """
+    def norm(value):
+        value = str(value or "").strip().lower()
+        value = unicodedata.normalize("NFKD", value)
+        value = "".join(ch for ch in value if not unicodedata.combining(ch))
+        value = value.replace("ß", "ss")
+        value = re.sub(r"[^a-z0-9]+", " ", value)
+        return " ".join(value.split())
+
     all_players = []
     for squad in bundesliga_squads.values():
         all_players.extend(squad)
 
-    roster_norms = {normalize_name(token) for token in roster_tokens}
+    roster_norms = {norm(token) for token in roster_tokens if norm(token)}
 
+    # Alle möglichen eindeutigen Namensbestandteile vorbereiten.
     surname_counts = {}
-    for player in all_players:
-        parts = normalize_name(player.get("name", "")).split()
-        if parts:
-            surname = parts[-1]
-            surname_counts[surname] = surname_counts.get(surname, 0) + 1
+    token_counts = {}
 
-    active_ids = set()
-    matches = []
-
+    player_meta = []
     for player in all_players:
         player_id = str(player.get("id", "")).strip()
         player_name = str(player.get("name", "")).strip()
-
-        id_norm = normalize_name(player_id)
-        name_norm = normalize_name(player_name)
+        name_norm = norm(player_name)
         parts = name_norm.split()
-        surname_norm = parts[-1] if parts else ""
 
-        matched = (
-            bool(id_norm and id_norm in roster_norms)
-            or bool(name_norm and name_norm in roster_norms)
-            or bool(
-                surname_norm
-                and surname_norm in roster_norms
-                and surname_counts.get(surname_norm, 0) == 1
-            )
-        )
+        surname = parts[-1] if parts else ""
+        if surname:
+            surname_counts[surname] = surname_counts.get(surname, 0) + 1
 
-        if matched and player_id:
-            active_ids.add(player_id)
-            matches.append(f"{player_name} [{player_id}]")
+        for part in set(parts):
+            if len(part) >= 4:
+                token_counts[part] = token_counts.get(part, 0) + 1
+
+        player_meta.append((player, player_id, name_norm, parts, surname))
+
+    active_ids = set()
+    matches = []
+    unresolved = []
+
+    for roster_token in roster_tokens:
+        token_norm = norm(roster_token)
+        if not token_norm:
+            unresolved.append(roster_token)
+            continue
+
+        candidates = []
+
+        # 1) Exakte ID / voller Name
+        for player, player_id, name_norm, parts, surname in player_meta:
+            if token_norm == norm(player_id) or token_norm == name_norm:
+                candidates.append(player)
+
+        # 2) Eindeutiger Nachname
+        if not candidates and surname_counts.get(token_norm, 0) == 1:
+            candidates = [
+                player for player, player_id, name_norm, parts, surname
+                in player_meta
+                if surname == token_norm
+            ]
+
+        # 3) Eindeutiger Namensbestandteil
+        if not candidates and len(token_norm) >= 4:
+            candidates = [
+                player for player, player_id, name_norm, parts, surname
+                in player_meta
+                if token_norm in parts and token_counts.get(token_norm, 0) == 1
+            ]
+
+        # 4) Zusammengesetzte/leicht abweichende Schreibweise:
+        #    Token muss vollständig in genau einem Namen vorkommen.
+        if not candidates and len(token_norm) >= 5:
+            fuzzy = [
+                player for player, player_id, name_norm, parts, surname
+                in player_meta
+                if token_norm in name_norm
+            ]
+            if len(fuzzy) == 1:
+                candidates = fuzzy
+
+        if len(candidates) == 1:
+            player = candidates[0]
+            player_id = str(player.get("id", "")).strip()
+            if player_id:
+                active_ids.add(player_id)
+                matches.append(
+                    f"{roster_token} -> "
+                    f"{player.get('name', 'Unbekannt')} [{player_id}]"
+                )
+        else:
+            unresolved.append(roster_token)
 
     print(
         "Aktive Spieler für intensive Recherche: "
         f"{len(active_ids)}/{len(roster_tokens)} Kader-Tokens zugeordnet."
     )
+
     if matches:
-        print("Zugeordnete Spieler: " + ", ".join(matches))
+        print("Zugeordnete Spieler: " + "; ".join(matches))
+
+    if unresolved:
+        print("Nicht eindeutig zugeordnet: " + ", ".join(unresolved))
 
     return active_ids
 
