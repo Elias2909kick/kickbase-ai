@@ -1663,8 +1663,20 @@ function findIntelForPlayer(player){
     slugify(`${player.name}-${player.club}`)
   ].filter(Boolean);
 
+  /*
+    Die aktuelle player-intelligence.json legt die individuellen Spieler
+    unter PLAYER_INTELLIGENCE.players ab. Zuerst dort suchen.
+    Der Root-Key-Fallback bleibt für ältere JSON-Strukturen erhalten.
+  */
+  const playerTable = (
+    PLAYER_INTELLIGENCE.players &&
+    typeof PLAYER_INTELLIGENCE.players === "object" &&
+    !Array.isArray(PLAYER_INTELLIGENCE.players)
+  ) ? PLAYER_INTELLIGENCE.players : {};
+
   for(const key of directCandidates){
-    const value = PLAYER_INTELLIGENCE[key];
+    const value = playerTable[key] || PLAYER_INTELLIGENCE[key];
+
     if(
       value &&
       typeof value === "object" &&
