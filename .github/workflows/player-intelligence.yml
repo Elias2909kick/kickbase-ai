@@ -97,6 +97,8 @@ jobs:
           PY
 
       - name: Player Intelligence aktualisieren
+        env:
+          ROSTER_INPUT: ${{ inputs.roster }}
         run: python scripts/update_player_intelligence.py
 
       - name: Änderungen prüfen
