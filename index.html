@@ -379,9 +379,17 @@ button{
       berücksichtigt.
     </div>
 
-    <button type="button" class="add-player-button" id="addPlayerButton">
-      + Spieler hinzufügen
-    </button>
+    <div class="roster-buttons">
+      <button type="button" class="add-player-button" id="addPlayerButton">
+        + Spieler hinzufügen
+      </button>
+      <button type="button" class="sync-roster-button" id="syncRosterButton">
+        Kader exportieren
+      </button>
+    </div>
+    <div class="roster-sync-status" id="rosterSyncStatus">
+      Kader lokal gespeichert
+    </div>
 
   </div>
 
@@ -567,6 +575,40 @@ button{
   border-radius:999px;
   background:#f0f2f5;
   font-weight:600;
+}
+
+.roster-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+
+.roster-buttons > button{
+  flex:1;
+  margin-top:0;
+}
+
+.sync-roster-button{
+  background:#e5e7eb;
+  color:var(--ink);
+}
+
+.sync-roster-button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+.roster-sync-status{
+  margin-top:9px;
+  color:var(--muted);
+  font-size:13px;
+  text-align:center;
+}
+
+@media(max-width:520px){
+  .roster-buttons{
+    flex-direction:column;
+  }
 }
 
 .add-player-button{
@@ -1181,6 +1223,10 @@ function loadRoster(){
 
 function saveRoster(){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(CURRENT_ROSTER));
+  if(rosterSyncStatus){
+    rosterSyncStatus.textContent =
+      `Kader lokal gespeichert · ${CURRENT_ROSTER.length}/${MAX_ROSTER_SIZE} Spieler`;
+  }
 }
 
 function migrateRosterToCurrentBundesligaIds(){
@@ -1742,6 +1788,11 @@ playerModal.addEventListener("click", event => {
 
 document.getElementById("addPlayerButton").addEventListener("click", openAddPlayerModal);
 
+document.getElementById("syncRosterButton")?.addEventListener(
+  "click",
+  exportRosterJson
+);
+
 document.getElementById("addPlayerClose").addEventListener("click", closeAddPlayerModal);
 
 document.getElementById("addPlayerModal").addEventListener("click", event => {
@@ -1753,6 +1804,46 @@ document.getElementById("addPlayerModal").addEventListener("click", event => {
 document.getElementById("playerSearch").addEventListener("input", event => {
   renderPlayerSearchResults(event.target.value);
 });
+
+function buildRosterExport(){
+  return CURRENT_ROSTER.map(entry => {
+    const player = getPlayerData(entry.id);
+    return {
+      id: String(entry.id),
+      name: player?.name || entry.id,
+      club: player?.club || "",
+      position: player?.position || "",
+      value: entry.value || "Wert folgt"
+    };
+  });
+}
+
+function exportRosterJson(){
+  const payload = {
+    version: 1,
+    updatedAt: new Date().toISOString(),
+    players: buildRosterExport()
+  };
+
+  const blob = new Blob(
+    [JSON.stringify(payload, null, 2)],
+    {type:"application/json;charset=utf-8"}
+  );
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "kickbase-roster.json";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+  if(rosterSyncStatus){
+    rosterSyncStatus.textContent =
+      `Export erstellt · ${CURRENT_ROSTER.length}/${MAX_ROSTER_SIZE} Spieler`;
+  }
+}
 
 async function loadPlayerIntelligence(){
   try{
