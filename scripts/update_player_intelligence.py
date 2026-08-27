@@ -21,6 +21,7 @@ INTELLIGENCE_FILE = BASE_DIR / "player-intelligence.json"
 OPENLIGADB_URL = "https://api.openligadb.de"
 API_FOOTBALL_URL = "https://v3.football.api-sports.io"
 API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
+API_FOOTBALL_LEAGUE_ID = 78  # Bundesliga
 
 BUNDESLIGA_SHORTCUT = "bl1"
 CURRENT_SEASON = "2026/27"
@@ -830,6 +831,377 @@ def load_old_data():
 
 
 # ============================================================
+# API-FOOTBALL: SPIELER-INTELLIGENCE
+# ============================================================
+
+def api_football_get(endpoint, params=None):
+    """
+    Führt einen API-Football-Request mit Rate-Limit und Fehlerbehandlung aus.
+
+    Wichtig:
+    - Kein Zugriff auf Kickbase.
+    - API-Football wird nur für öffentliche Fußball-/Spielerdaten verwendet.
+    - Bei fehlendem API-Key wird sauber übersprungen.
+    """
+
+    global _last_api_call
+
+    if not API_FOOTBALL_KEY:
+        return None
+
+    elapsed = time.time() - _last_api_call
+    if elapsed < API_MIN_INTERVAL:
+        time.sleep(API_MIN_INTERVAL - elapsed)
+
+    query = urlencode(params or {})
+    url = f"{API_FOOTBALL_URL}/{endpoint.lstrip('/')}"
+    if query:
+        url = f"{url}?{query}"
+
+    try:
+        result = http_get_json(
+            url,
+            headers={
+                "x-apisports-key": API_FOOTBALL_KEY,
+            },
+        )
+        _last_api_call = time.time()
+        return result
+
+    except (HTTPError, URLError, TimeoutError) as exc:
+        _last_api_call = time.time()
+        print(
+            "API-Football Request fehlgeschlagen: "
+            f"{endpoint}: {exc}"
+        )
+        return None
+    except Exception as exc:
+        _last_api_call = time.time()
+        print(
+            "API-Football unerwarteter Fehler: "
+            f"{endpoint}: {exc}"
+        )
+        return None
+
+
+def get_api_football_players():
+    """
+    Lädt die Bundesliga-Spieler inkl. Saisonstatistiken.
+
+    Der /players-Endpunkt liefert Profil + Saisonstatistiken und ist
+    paginiert. Wir laden deshalb alle Seiten der Bundesliga-Saison.
+
+    Das Ergebnis wird nach normalisiertem Spielernamen indiziert.
+    """
+
+    if not API_FOOTBALL_KEY:
+        print(
+            "API_FOOTBALL_KEY fehlt. "
+            "Player-Statistiken werden übersprungen."
+        )
+        return {}
+
+    first = api_football_get(
+        "players",
+        {
+            "league": API_FOOTBALL_LEAGUE_ID,
+            "season": OPENLIGADB_SEASON,
+            "page": 1,
+        },
+    )
+
+    if not first:
+        return {}
+
+    response = first.get("response") or []
+    paging = first.get("paging") or {}
+    total_pages = int(paging.get("total") or 1)
+
+    all_players = list(response)
+
+    print(
+        "API-Football: "
+        f"Seite 1/{total_pages}, "
+        f"{len(response)} Spieler."
+    )
+
+    for page in range(2, total_pages + 1):
+        payload = api_football_get(
+            "players",
+            {
+                "league": API_FOOTBALL_LEAGUE_ID,
+                "season": OPENLIGADB_SEASON,
+                "page": page,
+            },
+        )
+
+        if not payload:
+            print(
+                f"API-Football: Seite {page} konnte "
+                "nicht geladen werden."
+            )
+            continue
+
+        page_players = payload.get("response") or []
+        all_players.extend(page_players)
+
+        print(
+            "API-Football: "
+            f"Seite {page}/{total_pages}, "
+            f"{len(page_players)} Spieler."
+        )
+
+    index = {}
+
+    for entry in all_players:
+        player = entry.get("player") or {}
+        name = player.get("name") or ""
+
+        if not name:
+            continue
+
+        key = normalize_name(name)
+        index[key] = entry
+
+    print(
+        "API-Football: "
+        f"{len(index)} Spieler indexiert."
+    )
+
+    return index
+
+
+def get_api_football_injuries():
+    """
+    Lädt aktuelle Verletzungen/Sperren der Bundesliga.
+
+    Die API liefert bei /injuries sowohl type=Injury als auch
+    type=Suspension. Deshalb können wir beide UI-Felder getrennt
+    befüllen, ohne Kickbase direkt abzufragen.
+    """
+
+    if not API_FOOTBALL_KEY:
+        return {}
+
+    first = api_football_get(
+        "injuries",
+        {
+            "league": API_FOOTBALL_LEAGUE_ID,
+            "season": OPENLIGADB_SEASON,
+            "page": 1,
+        },
+    )
+
+    if not first:
+        return {}
+
+    all_rows = list(first.get("response") or [])
+    paging = first.get("paging") or {}
+    total_pages = int(paging.get("total") or 1)
+
+    for page in range(2, total_pages + 1):
+        payload = api_football_get(
+            "injuries",
+            {
+                "league": API_FOOTBALL_LEAGUE_ID,
+                "season": OPENLIGADB_SEASON,
+                "page": page,
+            },
+        )
+
+        if payload:
+            all_rows.extend(payload.get("response") or [])
+
+    index = {}
+
+    for row in all_rows:
+        player = row.get("player") or {}
+        team = row.get("team") or {}
+
+        name = player.get("name") or ""
+        if not name:
+            continue
+
+        key = normalize_name(name)
+        item = {
+            "type": row.get("type"),
+            "reason": row.get("reason"),
+            "team": team.get("name"),
+        }
+
+        # Falls ein Spieler mehrere Einträge hat, behalten wir
+        # Verletzung und Sperre getrennt.
+        existing = index.setdefault(
+            key,
+            {
+                "injury": None,
+                "suspension": None,
+            },
+        )
+
+        row_type = normalize_name(row.get("type"))
+
+        if "suspension" in row_type:
+            existing["suspension"] = item
+        else:
+            existing["injury"] = item
+
+    print(
+        "API-Football: "
+        f"{len(index)} Spieler mit Verletzungs-/Sperrinfos."
+    )
+
+    return index
+
+
+def find_api_player(api_players, player_name, club_name):
+    """Findet den API-Football-Spieler zuerst exakt, dann über Namensteile."""
+
+    if not api_players:
+        return None
+
+    exact = api_players.get(
+        normalize_name(player_name)
+    )
+
+    if exact:
+        return exact
+
+    normalized = normalize_name(player_name)
+    if not normalized:
+        return None
+
+    # Fallback für Schreibweisen wie Initialen oder Bindestriche.
+    candidates = []
+    for key, entry in api_players.items():
+        api_name = (entry.get("player") or {}).get("name", "")
+        if names_match(player_name, api_name):
+            candidates.append(entry)
+
+    if not candidates:
+        return None
+
+    # Bei Namensgleichheit den Verein bevorzugen.
+    for entry in candidates:
+        for stat in entry.get("statistics") or []:
+            team = stat.get("team") or {}
+            if names_match(club_name, team.get("name", "")):
+                return entry
+
+    return candidates[0]
+
+
+def choose_api_stat_block(api_entry, club_name):
+    """Wählt den Bundesliga-Statistikblock des aktuellen Vereins."""
+
+    if not api_entry:
+        return None
+
+    blocks = api_entry.get("statistics") or []
+    if not blocks:
+        return None
+
+    matching = []
+
+    for block in blocks:
+        league = block.get("league") or {}
+        team = block.get("team") or {}
+
+        if (
+            league.get("id") == API_FOOTBALL_LEAGUE_ID
+            and names_match(club_name, team.get("name", ""))
+        ):
+            matching.append(block)
+
+    if matching:
+        return max(
+            matching,
+            key=lambda item: (
+                item.get("games") or {}
+            ).get("minutes") or 0,
+        )
+
+    bundesliga_blocks = [
+        block
+        for block in blocks
+        if (block.get("league") or {}).get("id")
+        == API_FOOTBALL_LEAGUE_ID
+    ]
+
+    if bundesliga_blocks:
+        return max(
+            bundesliga_blocks,
+            key=lambda item: (
+                item.get("games") or {}
+            ).get("minutes") or 0,
+        )
+
+    return None
+
+
+def parse_float(value):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def build_recommendation(
+    player,
+    next_match,
+    stat_block,
+    injury_info,
+    suspension_info,
+):
+    """
+    Ein transparenter erster Empfehlungs-Score.
+
+    Noch bewusst kein Kickbase-Punkte-Score: echte Kickbase-
+    Durchschnittspunkte stehen uns ohne Kickbase-Datenquelle nicht
+    zur Verfügung und werden deshalb nicht erfunden.
+    """
+
+    if suspension_info:
+        return "Nicht aufstellen – gesperrt"
+
+    if injury_info:
+        return "Vorsicht – verletzt"
+
+    if not stat_block:
+        return (
+            "Nächstes Spiel vorhanden"
+            if next_match
+            else "Noch nicht ausreichend Daten"
+        )
+
+    games = stat_block.get("games") or {}
+    appearances = games.get("appearences") or 0
+    starts = games.get("lineups") or 0
+    minutes = games.get("minutes") or 0
+    rating = parse_float(games.get("rating"))
+
+    start_rate = (
+        starts / appearances
+        if appearances
+        else 0
+    )
+
+    if rating is not None and start_rate >= 0.65:
+        return "Gute Option"
+
+    if rating is not None and start_rate >= 0.35:
+        return "Beobachten"
+
+    if appearances == 0:
+        return "Noch keine Saison-Einsätze"
+
+    if minutes < 180:
+        return "Rotationsrisiko"
+
+    return "Beobachten"
+
+
+# ============================================================
 # INTELLIGENCE
 # ============================================================
 
@@ -886,13 +1258,22 @@ def build_player_intelligence(
     player,
     club_name,
     next_match,
+    api_entry=None,
+    injury_entry=None,
 ):
     """
     Baut einen einzelnen Spieler-Eintrag.
 
-    Wichtig: Hier werden keine Werte erfunden.
-    Form, Durchschnitt und Startelf bleiben solange None,
-    bis wir dafür echte Quellen anbinden.
+    Quellen:
+    - Bundesliga.com: Spieler, Verein, Position, stabile Zuordnung
+    - OpenLigaDB: nächster Gegner + Heim/Auswärts
+    - API-Football: Saisonrating, Einsätze, Startelf, Minuten,
+      Verletzungs-/Sperrstatus
+
+    Wichtig:
+    Echte Kickbase-Ø-Punkte werden NICHT erfunden. Dafür bräuchten
+    wir eine zulässige Kickbase-Datenquelle. Das Feld "average"
+    bleibt deshalb None, bis wir eine solche Quelle haben.
     """
 
     player_id = player.get("id")
@@ -901,55 +1282,141 @@ def build_player_intelligence(
         "Unbekannter Spieler",
     )
 
+    stat_block = choose_api_stat_block(
+        api_entry,
+        club_name,
+    )
+
+    player_profile = (
+        (api_entry or {}).get("player") or {}
+    )
+
+    current_injury = None
+    current_suspension = None
+
+    if injury_entry:
+        current_injury = injury_entry.get("injury")
+        current_suspension = injury_entry.get("suspension")
+
+    if player_profile.get("injured"):
+        if not current_injury:
+            current_injury = {
+                "type": "Injury",
+                "reason": "Aktuell verletzt",
+            }
+
     if next_match:
-        opponent = next_match.get(
-            "opponent"
-        )
-        home_away = next_match.get(
-            "homeAway"
-        )
-        recommendation = (
-            "Nächstes Spiel vorhanden"
-        )
+        opponent = next_match.get("opponent")
+        home_away = next_match.get("homeAway")
     else:
         opponent = None
         home_away = None
-        recommendation = (
-            "Kein nächstes Spiel gefunden"
+
+    starting = None
+    form = "Noch nicht recherchiert"
+    football_rating = None
+    appearances = None
+    starts = None
+    minutes = None
+    goals = None
+    assists = None
+
+    if stat_block:
+        games = stat_block.get("games") or {}
+        goals_data = stat_block.get("goals") or {}
+
+        appearances = games.get("appearences")
+        starts = games.get("lineups")
+        minutes = games.get("minutes")
+        goals = goals_data.get("total")
+        assists = goals_data.get("assists")
+
+        rating = parse_float(
+            games.get("rating")
         )
+
+        football_rating = rating
+
+        if appearances:
+            start_rate = (
+                (starts or 0) / appearances
+            )
+            starting = round(
+                start_rate * 100
+            )
+
+        if rating is not None:
+            form = f"{rating:.2f}/10"
+
+    injury_text = (
+        current_injury.get("reason")
+        if current_injury
+        else "Keine aktuelle Verletzung"
+    )
+
+    suspension_text = (
+        current_suspension.get("reason")
+        if current_suspension
+        else "Keine aktuelle Sperre"
+    )
+
+    recommendation = build_recommendation(
+        player,
+        next_match,
+        stat_block,
+        current_injury,
+        current_suspension,
+    )
 
     return {
         "id": player_id,
         "name": name,
         "club": club_name,
-        "position": player.get(
-            "position"
-        ),
-        "number": player.get(
-            "number"
-        ),
-        "sourceUrl": player.get(
-            "sourceUrl"
-        ),
+        "position": player.get("position"),
+        "number": player.get("number"),
+        "sourceUrl": player.get("sourceUrl"),
+
+        # Bewusst None: keine erfundenen Kickbase-Punkte.
         "average": None,
-        "starting": None,
-        "form": None,
+
+        # Neue öffentliche Fußball-Daten.
+        "starting": (
+            f"{starting}%"
+            if starting is not None
+            else "Noch nicht recherchiert"
+        ),
+        "form": form,
+        "footballRating": football_rating,
+        "appearances": appearances,
+        "starts": starts,
+        "minutes": minutes,
+        "goals": goals,
+        "assists": assists,
+
         "opponent": opponent,
         "homeAway": home_away,
-        "injury": (
-            "Noch nicht recherchiert"
-        ),
-        "suspension": (
-            "Noch nicht recherchiert"
-        ),
+        "injury": injury_text,
+        "suspension": suspension_text,
         "recommendation": recommendation,
+
         "lastUpdated": datetime.now(
             timezone.utc
         ).strftime("%Y-%m-%d"),
-        "source": {
-            "name": "Bundesliga.com",
-            "url": BUNDESLIGA_PLAYERS_URL,
-        },
+
+        "sources": [
+            {
+                "name": "Bundesliga.com",
+                "url": BUNDESLIGA_PLAYERS_URL,
+            },
+            {
+                "name": "OpenLigaDB",
+                "url": "https://www.openligadb.de/",
+            },
+            {
+                "name": "API-Football",
+                "url": API_FOOTBALL_URL,
+            },
+        ],
     }
 
 
@@ -1008,6 +1475,13 @@ def main():
     bundesliga_squads = (
         get_bundesliga_squads()
     )
+
+    print()
+    print("Lade öffentliche Player-Statistiken...")
+    api_players = get_api_football_players()
+
+    print("Lade aktuelle Verletzungen und Sperren...")
+    api_injuries = get_api_football_injuries()
 
     old_teams = load_old_data()
 
@@ -1131,11 +1605,25 @@ def main():
             if not player_id:
                 continue
 
+            api_entry = find_api_player(
+                api_players,
+                player.get("name", ""),
+                team_name,
+            )
+
+            injury_entry = api_injuries.get(
+                normalize_name(
+                    player.get("name", "")
+                )
+            )
+
             data["players"][player_id] = (
                 build_player_intelligence(
                     player,
                     team_name,
                     next_match,
+                    api_entry=api_entry,
+                    injury_entry=injury_entry,
                 )
             )
 
