@@ -384,11 +384,11 @@ button{
         + Spieler hinzufügen
       </button>
       <button type="button" class="sync-roster-button" id="syncRosterButton">
-        Kader exportieren
+        🔄 Kader Refresh
       </button>
     </div>
     <div class="roster-sync-status" id="rosterSyncStatus">
-      Kader lokal gespeichert
+      Kader lokal gespeichert · bereit für Kader Refresh
     </div>
 
   </div>
@@ -1983,7 +1983,7 @@ document.getElementById("addPlayerButton").addEventListener("click", openAddPlay
 
 document.getElementById("syncRosterButton")?.addEventListener(
   "click",
-  exportRosterJson
+  refreshRoster
 );
 
 document.getElementById("addPlayerClose").addEventListener("click", closeAddPlayerModal);
@@ -1998,6 +1998,16 @@ document.getElementById("playerSearch").addEventListener("input", event => {
   renderPlayerSearchResults(event.target.value);
 });
 
+/*
+  ============================================================
+  KADER REFRESH
+  ============================================================
+  Hier die URL deines Cloudflare Workers eintragen.
+  Beispiel:
+  https://kickbase-ai-refresh.deinname.workers.dev
+*/
+const KADER_REFRESH_URL = "https://DEIN-KADER-REFRESH-WORKER.workers.dev";
+
 function buildRosterExport(){
   return CURRENT_ROSTER.map(entry => {
     const player = getPlayerData(entry.id);
@@ -2011,6 +2021,98 @@ function buildRosterExport(){
   });
 }
 
+async function refreshRoster(){
+  const button = document.getElementById("syncRosterButton");
+
+  if(!KADER_REFRESH_URL || KADER_REFRESH_URL.includes("DEIN-KADER-REFRESH-WORKER")){
+    if(rosterSyncStatus){
+      rosterSyncStatus.textContent =
+        "Kader Refresh noch nicht konfiguriert · Worker-URL in index.html eintragen";
+    }
+    return;
+  }
+
+  if(CURRENT_ROSTER.length > MAX_ROSTER_SIZE){
+    if(rosterSyncStatus){
+      rosterSyncStatus.textContent =
+        `Fehler · maximal ${MAX_ROSTER_SIZE} Spieler erlaubt`;
+    }
+    return;
+  }
+
+  if(button){
+    button.disabled = true;
+    button.textContent = "⏳ Refresh wird gestartet…";
+  }
+
+  if(rosterSyncStatus){
+    rosterSyncStatus.textContent =
+      `Übertrage aktuellen Kader · ${CURRENT_ROSTER.length}/${MAX_ROSTER_SIZE} Spieler…`;
+  }
+
+  try{
+    const roster = CURRENT_ROSTER.map(entry => String(entry.id));
+
+    const response = await fetch(KADER_REFRESH_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        roster
+      })
+    });
+
+    let result = {};
+    try{
+      result = await response.json();
+    }catch(_){
+      result = {};
+    }
+
+    if(!response.ok){
+      throw new Error(
+        result.message ||
+        result.error ||
+        `Worker antwortete mit HTTP ${response.status}`
+      );
+    }
+
+    if(rosterSyncStatus){
+      rosterSyncStatus.textContent =
+        `✅ Kader Refresh gestartet · ${roster.length}/${MAX_ROSTER_SIZE} Spieler · GitHub recherchiert im Hintergrund`;
+    }
+
+    if(button){
+      button.textContent = "✅ Refresh gestartet";
+    }
+
+    // Nach kurzer Zeit wieder freigeben, damit ein versehentlicher
+    // Doppelklick nicht direkt einen zweiten Workflow startet.
+    setTimeout(() => {
+      if(button){
+        button.disabled = false;
+        button.textContent = "🔄 Kader Refresh";
+      }
+    }, 15000);
+
+  }catch(error){
+    console.error("Kader Refresh fehlgeschlagen:", error);
+
+    if(rosterSyncStatus){
+      rosterSyncStatus.textContent =
+        `❌ Kader Refresh fehlgeschlagen · ${error.message}`;
+    }
+
+    if(button){
+      button.disabled = false;
+      button.textContent = "🔄 Kader Refresh";
+    }
+  }
+}
+
+// Manueller JSON-Export bleibt intern als Diagnose-/Fallback-Funktion
+// erhalten, wird aber nicht mehr über den Hauptbutton angeboten.
 function exportRosterJson(){
   const payload = {
     version: 1,
@@ -2031,11 +2133,6 @@ function exportRosterJson(){
   link.click();
   link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-  if(rosterSyncStatus){
-    rosterSyncStatus.textContent =
-      `Export erstellt · ${CURRENT_ROSTER.length}/${MAX_ROSTER_SIZE} Spieler`;
-  }
 }
 
 async function loadPlayerIntelligence(){
