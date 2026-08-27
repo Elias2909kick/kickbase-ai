@@ -1121,13 +1121,13 @@ def extract_player_profile_intelligence(player):
         # eine Startelfquote. Deshalb keine künstliche Prozentzahl.
         starting = "Öffentlich nicht verfügbar"
 
-        # Verletzung/Krankheit/Sperre dürfen NICHT aus dem gesamten
-        # Spielerprofiltext abgeleitet werden. Bundesliga.com hängt
-        # historische News an das Profil; darin können alte Verletzungen
-        # erwähnt werden (z.B. Bornauw 2019). Das wäre ein False Positive.
-        #
-        # Deshalb berücksichtigen wir nur den aktuellen Profilbereich vor
-        # "Letztes Spiel". Alles danach kann historische News enthalten.
+        # --------------------------------------------------------
+        # AKTUELLER VERLETZUNGS-/SPERRSTATUS
+        # --------------------------------------------------------
+        # Historische News und allgemeine Erwähnungen von Verletzungen
+        # dürfen keinen aktuellen Status erzeugen. Deshalb akzeptieren
+        # wir nur eindeutig aktuelle Formulierungen.
+
         current_profile_text = re.split(
             r"\bLetztes Spiel\b",
             text_only,
@@ -1136,30 +1136,41 @@ def extract_player_profile_intelligence(player):
         )[0]
         lower = current_profile_text.lower()
 
-        injury_terms = (
-            "aktuell verletzt",
-            "aktuelle verletzung",
-            "derzeit verletzt",
-            "derzeitige verletzung",
-            "angeschlagen",
-            "krank",
-            "erkrankt",
+        injury_patterns = (
+            r"\baktuell\s+verletzt\b",
+            r"\bderzeit\s+verletzt\b",
+            r"\baktuell\s+angeschlagen\b",
+            r"\bderzeit\s+angeschlagen\b",
+            r"\baktuell\s+krank\b",
+            r"\bderzeit\s+krank\b",
+            r"\baktuell\s+erkrankt\b",
+            r"\bderzeit\s+erkrankt\b",
         )
-        suspension_terms = (
-            "gesperrt", "sperre", "rotgesperrt",
-            "gelb-rot", "gelbrote karte",
+
+        suspension_patterns = (
+            r"\baktuell\s+gesperrt\b",
+            r"\bderzeit\s+gesperrt\b",
+            r"\baktuelle\s+sperre\b",
+            r"\bderzeitige\s+sperre\b",
         )
 
         injury = "Keine Verletzungsmeldung auf dem Profil gefunden"
         suspension = "Keine Sperrmeldung auf dem Profil gefunden"
 
-        injury_hit = next((term for term in injury_terms if term in lower), None)
-        suspension_hit = next((term for term in suspension_terms if term in lower), None)
+        injury_hit = next(
+            (pattern for pattern in injury_patterns if re.search(pattern, lower)),
+            None,
+        )
+        suspension_hit = next(
+            (pattern for pattern in suspension_patterns if re.search(pattern, lower)),
+            None,
+        )
 
         if injury_hit:
-            injury = f"Hinweis auf: {injury_hit}"
+            injury = "Hinweis auf aktuelle Verletzung"
+
         if suspension_hit:
-            suspension = f"Hinweis auf: {suspension_hit}"
+            suspension = "Hinweis auf aktuelle Sperre"
 
         return {
             "available": True,
