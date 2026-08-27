@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Aktuellen Kader validieren und bereitstellen
+      - name: Kader-Input testen
         env:
           ROSTER_INPUT: ${{ inputs.roster }}
         run: |
@@ -37,58 +37,28 @@ jobs:
           from pathlib import Path
 
           raw = os.environ.get("ROSTER_INPUT", "").strip()
-          print("ROSTER_INPUT erhalten:", repr(raw))
+          print("ROSTER_INPUT erhalten:")
+          print(raw)
 
           if not raw:
-              raise SystemExit(
-                  "Kein persönlicher Kader übergeben. "
-                  "Workflow wird aus Sicherheitsgründen abgebrochen."
-              )
+              raise SystemExit("FEHLER: ROSTER_INPUT ist leer.")
 
           try:
               roster = json.loads(raw)
-          except json.JSONDecodeError as exc:
-              raise SystemExit(f"Ungültiges roster-JSON: {exc}")
+          except Exception as exc:
+              raise SystemExit(f"FEHLER: ROSTER_INPUT ist kein gültiges JSON: {exc}")
 
           if not isinstance(roster, list):
-              raise SystemExit("roster muss eine JSON-Liste sein.")
+              raise SystemExit("FEHLER: ROSTER_INPUT ist keine JSON-Liste.")
 
-          # Der Workflow-Input enthält bei unserem aktuellen Formular
-          # bereits eine Liste aus Spieler-IDs. Wir übernehmen diese IDs
-          # direkt, ohne sie erneut als Objekte zu interpretieren.
-          ids = []
-          seen = set()
-
-          for item in roster:
-              if isinstance(item, str):
-                  player_id = item.strip()
-              elif isinstance(item, dict):
-                  player_id = str(item.get("id", "")).strip()
-              else:
-                  continue
-
-              if player_id and player_id not in seen:
-                  seen.add(player_id)
-                  ids.append(player_id)
-
-          if not ids:
-              raise SystemExit(
-                  "Der persönliche Kader enthält 0 gültige Spieler. "
-                  "Workflow wird aus Sicherheitsgründen abgebrochen."
-              )
-
-          if len(ids) > 18:
-              raise SystemExit(
-                  f"Der übergebene Kader enthält {len(ids)} Spieler. "
-                  "Maximal 18 erlaubt."
-              )
-
+          # Für diesen Diagnoselauf keinerlei eigene Spieler-Logik:
+          # die vom Formular gelieferte Liste wird 1:1 als players gespeichert.
           Path("kickbase-roster.json").write_text(
               json.dumps(
                   {
                       "version": 1,
                       "source": "Kickbase AI manueller Kader",
-                      "players": ids,
+                      "players": roster,
                   },
                   ensure_ascii=False,
                   indent=2,
@@ -96,8 +66,8 @@ jobs:
               encoding="utf-8",
           )
 
-          print(f"Aktueller Kader bereitgestellt: {len(ids)}/18 Spieler")
-          print("Kader-IDs:", ", ".join(ids))
+          print(f"JSON-Liste erkannt: {len(roster)} Einträge.")
+          print("Kader-Datei geschrieben.")
           PY
 
       - name: Kader-Übergabe prüfen
@@ -116,10 +86,15 @@ jobs:
 
           if not players:
               raise SystemExit("DIAGNOSE FEHLER: Kader ist leer.")
+          if len(players) > 18:
+              raise SystemExit("DIAGNOSE FEHLER: Mehr als 18 Spieler.")
           PY
 
-      - name: Player Intelligence aktualisieren
-        run: python scripts/update_player_intelligence.py
+      - name: Diagnose beenden
+        run: |
+          echo "KADER-DIAGNOSE ERFOLGREICH."
+          echo "Player Intelligence wird in diesem Testlauf bewusst NICHT gestartet."
+          exit 0
 
       - name: Änderungen prüfen
         id: changes
