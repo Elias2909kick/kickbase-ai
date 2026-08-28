@@ -160,6 +160,85 @@ BUNDESLIGA_MATCHDAY_STATUS_TEMPLATE = (
 _MATCHDAY_STATUS_CACHE = {}
 _TEAMCHECK_CACHE = {}
 
+# V19: Ligaweite Bundesliga-Statistikseiten werden pro Kategorie nur EINMAL
+# geladen und anschließend für alle aktiven Kaderspieler wiederverwendet.
+_BUNDESLIGA_STATS_TEXT_CACHE = {}
+
+BUNDESLIGA_STATS_SEASON = "2026-2027"
+
+BUNDESLIGA_PLAYER_STAT_CATEGORIES = {
+    "goals": {
+        "slug": "tore",
+        "heading": "Tore",
+        "kind": "count",
+    },
+    "assists": {
+        "slug": "vorlagen",
+        "heading": "Vorlagen",
+        "kind": "count",
+    },
+    "shots": {
+        "slug": "torschuesse",
+        "heading": "Torschüsse",
+        "kind": "count",
+    },
+    "woodwork": {
+        "slug": "pfosten-oder-lattentreffer",
+        "heading": "Pfosten- oder Lattentreffer",
+        "kind": "count",
+    },
+    "penalties": {
+        "slug": "elfmeter",
+        "heading": "Elfmeter",
+        "kind": "count",
+    },
+    "penaltiesScored": {
+        "slug": "verwandelte-elfmeter",
+        "heading": "Verwandelte Elfmeter",
+        "kind": "count",
+    },
+    "passAccuracy": {
+        "slug": "passquote",
+        "heading": "Passquote",
+        "kind": "rate",
+    },
+    "duelsWon": {
+        "slug": "gewonnene-zweikaempfe",
+        "heading": "Gewonnene Zweikämpfe",
+        "kind": "count",
+    },
+    "aerialDuelsWon": {
+        "slug": "gewonnene-kopfballduelle",
+        "heading": "Gewonnene Kopfballduelle",
+        "kind": "count",
+    },
+    "crosses": {
+        "slug": "flanken-aus-dem-spiel",
+        "heading": "Flanken aus dem Spiel",
+        "kind": "count",
+    },
+    "yellowCards": {
+        "slug": "gelbe-karten",
+        "heading": "Gelbe Karten",
+        "kind": "count",
+    },
+    "cards": {
+        "slug": "karten",
+        "heading": "Karten",
+        "kind": "count",
+    },
+    "fouls": {
+        "slug": "fouls-am-gegner",
+        "heading": "Fouls am Gegner",
+        "kind": "count",
+    },
+    "saves": {
+        "slug": "gehaltene-torschuesse",
+        "heading": "Gehaltene Torschüsse",
+        "kind": "count",
+    },
+}
+
 BUNDESLIGA_CLUB_NEWS_SLUGS = {
     "FC Bayern München": "fc-bayern-muenchen",
     "VfB Stuttgart": "vfb-stuttgart",
@@ -1142,6 +1221,170 @@ def parse_float_after_labels(text, labels):
             except ValueError:
                 pass
     return None
+
+
+
+def _bundesliga_stat_url(slug):
+    return (
+        "https://www.bundesliga.com/de/bundesliga/statistiken/"
+        f"spieler/{slug}/{BUNDESLIGA_STATS_SEASON}"
+    )
+
+
+def _get_bundesliga_stat_text(metric_key):
+    """
+    Lädt eine Bundesliga-Rankingseite einmal und cached den geglätteten Text.
+    Bei nicht erreichbarer Seite wird None gecached, damit nicht wiederholt
+    angefragt wird.
+    """
+    if metric_key in _BUNDESLIGA_STATS_TEXT_CACHE:
+        return _BUNDESLIGA_STATS_TEXT_CACHE[metric_key]
+
+    config = BUNDESLIGA_PLAYER_STAT_CATEGORIES.get(metric_key)
+    if not config:
+        _BUNDESLIGA_STATS_TEXT_CACHE[metric_key] = (None, None)
+        return None, None
+
+    url = _bundesliga_stat_url(config["slug"])
+
+    try:
+        html = http_get_text(url, timeout=8)
+        page_text = _html_to_visible_text(html)
+        _BUNDESLIGA_STATS_TEXT_CACHE[metric_key] = (page_text, url)
+        print(
+            f"STATS-CACHE {metric_key}: geladen "
+            f"({len(page_text)} Zeichen) | {url}"
+        )
+        return page_text, url
+    except Exception as exc:
+        print(f"STATS-CACHE FEHLER {metric_key}: {exc}")
+        _BUNDESLIGA_STATS_TEXT_CACHE[metric_key] = (None, url)
+        return None, url
+
+
+def _normalize_player_lookup_name(value):
+    value = normalize_name(value or "")
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def _extract_metric_from_ranking_text(page_text, heading, player_name):
+    """
+    Extrahiert den Wert eines Spielers aus dem sichtbaren Rankingtext.
+
+    Die Bundesliga-Seiten rendern serverseitig Einträge in der Form:
+      Rang Spielername Wert
+
+    Der Ausschnitt wird auf den Bereich der gewählten Kategorie begrenzt,
+    um Seitenspalten mit anderen Rankings nicht versehentlich zu verwenden.
+    """
+    if not page_text or not player_name:
+        return None
+
+    # Hauptkategorie ab ihrer Überschrift bis zum nächsten typischen Ranking-
+    # oder Navigationsmarker eingrenzen. Ein großzügiger Ausschnitt reicht,
+    # weil die aktuelle Saison zu Beginn nur wenige Nicht-Null-Werte enthält.
+    heading_match = re.search(
+        re.escape(heading),
+        page_text,
+        flags=re.IGNORECASE,
+    )
+    if not heading_match:
+        return None
+
+    start = heading_match.start()
+    segment = page_text[start:start + 7000]
+
+    # Exakten Namen bevorzugen.
+    name_patterns = [
+        re.escape(str(player_name).strip()),
+    ]
+
+    # Unicode-/Akzent-robuster Fallback über Nachnamen.
+    parts = str(player_name).strip().split()
+    if parts:
+        surname = parts[-1]
+        if surname and surname != player_name:
+            name_patterns.append(re.escape(surname))
+
+    for name_pattern in name_patterns:
+        for match in re.finditer(
+            rf"\b{name_pattern}\b",
+            segment,
+            flags=re.IGNORECASE,
+        ):
+            tail = segment[match.end():match.end() + 60]
+
+            # Wert direkt nach dem Namen. Dezimalzahlen und Komma zulassen.
+            value_match = re.search(
+                r"^\s*(\d+(?:[.,]\d+)?)\b",
+                tail,
+            )
+            if value_match:
+                raw = value_match.group(1).replace(",", ".")
+                try:
+                    value = float(raw)
+                    return int(value) if value.is_integer() else value
+                except ValueError:
+                    continue
+
+    return None
+
+
+def collect_bundesliga_rankings_for_player(player):
+    """
+    V19: Alle ligaweiten Kategorien für EINEN Spieler aus bereits gecachten
+    Statistikseiten auslesen.
+
+    Zählstatistiken:
+      Wenn die Seite erfolgreich geladen wurde und der Spieler nicht in der
+      Nicht-Null-Rangliste erscheint, wird 0 verwendet.
+
+    Quoten:
+      Fehlender Eintrag bleibt None; eine Quote darf niemals als 0 erfunden
+      werden.
+    """
+    player_name = str(player.get("name") or "").strip()
+
+    values = {}
+    sources = {}
+    pages_available = 0
+
+    for metric_key, config in BUNDESLIGA_PLAYER_STAT_CATEGORIES.items():
+        page_text, url = _get_bundesliga_stat_text(metric_key)
+
+        if not page_text:
+            values[metric_key] = None
+            continue
+
+        pages_available += 1
+        value = _extract_metric_from_ranking_text(
+            page_text,
+            config["heading"],
+            player_name,
+        )
+
+        if value is None and config["kind"] == "count":
+            # Bundesliga-Rankings führen nur Spieler mit >0 in der sichtbaren
+            # Wertung. Ist die Seite erreichbar, ist "nicht gelistet" für eine
+            # reine Zählstatistik ein belastbares 0.
+            value = 0
+
+        values[metric_key] = value
+        if value is not None:
+            sources[metric_key] = url
+
+    # "cards" ist Gesamtzahl Karten, aber redCards lässt sich daraus nicht
+    # sauber ableiten, weil Gelb-Rot separat enthalten sein kann. Deshalb
+    # redCards bewusst NICHT schätzen.
+    values["redCards"] = None
+
+    print(
+        f"STATS-PLAYER {player_name}: "
+        f"{sum(v is not None for v in values.values())} Werte | "
+        f"{pages_available} Rankingseiten verfügbar"
+    )
+
+    return values, sources
 
 
 def build_performance_layer(values, old_performance=None):
@@ -3116,11 +3359,16 @@ def build_player_intelligence(
         profile_available = bool(old_player.get("dataStatus", {}).get("playerProfileSource") == "erreichbar")
         profile_url = old_player.get("sourceUrl") or player.get("sourceUrl")
 
-    # V18: Performance-Layer aufbauen. Neue öffentliche Werte haben Vorrang,
-    # vorhandene Werte bleiben erhalten, wenn die Quelle sie diesmal nicht liefert.
+    # V19: Performance-Layer.
+    # Spielerprofil + ligaweite Bundesliga-Rankings werden zusammengeführt.
     old_performance = old_player.get("performance") or {}
+    performance_sources = dict(old_player.get("performanceSources") or {})
 
     if research_player:
+        ranking_values, ranking_sources = collect_bundesliga_rankings_for_player(
+            research_input
+        )
+
         perf_values = {
             "appearances": public_player.get("appearances"),
             "starts": public_player.get("starts"),
@@ -3143,6 +3391,15 @@ def build_player_intelligence(
             "cleanSheets": public_player.get("cleanSheets"),
             "goalsAgainst": public_player.get("goalsAgainst"),
         }
+
+        # Ranking-Werte ergänzen/überschreiben nur, wenn sie tatsächlich
+        # verfügbar sind. So bleiben Profilwerte für nicht abgedeckte Felder.
+        for metric_key, value in ranking_values.items():
+            if value is not None:
+                perf_values[metric_key] = value
+
+        performance_sources.update(ranking_sources)
+
     else:
         perf_values = dict(old_performance)
 
@@ -3151,11 +3408,12 @@ def build_player_intelligence(
         old_performance=old_performance,
     )
 
-    print(
-        f"PERFORMANCE {name}: Coverage {data_coverage['coveragePercent']}% | "
-        f"vorhanden={len(data_coverage['availableMetrics'])} | "
-        f"fehlend={len(data_coverage['missingMetrics'])}"
-    )
+    if research_player:
+        print(
+            f"PERFORMANCE {name}: Coverage {data_coverage['coveragePercent']}% | "
+            f"vorhanden={len(data_coverage['availableMetrics'])} | "
+            f"fehlend={len(data_coverage['missingMetrics'])}"
+        )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
     old_recommendation = old_player.get("recommendation")
@@ -3179,6 +3437,7 @@ def build_player_intelligence(
         "footballRating": old_player.get("footballRating"),
         "kickbaseAiScore": None,
         "performance": performance,
+        "performanceSources": performance_sources,
         "dataCoverage": data_coverage,
         "appearances": appearances,
         "starts": old_player.get("starts"),
@@ -3289,7 +3548,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V18-Performance-Modus: Startelf + Status + transparente Statistikschicht nur für den aufgelösten "
+        "V19-Stats-Cache-Modus: ligaweite Bundesliga-Rankings + Performance-Coverage nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
