@@ -29584,8 +29584,8 @@
       "injuryExpectedAbsence": null,
       "injurySourceUrl": null,
       "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -33840,8 +33840,8 @@
       "injuryExpectedAbsence": "weiterhin Reha; Rückkehr nicht öffentlich terminiert",
       "injurySourceUrl": "https://www.werder.de/news/maenner/2026-2027/personal-update-260826",
       "injuryEvidence": "carried_confirmed_injury",
-      "suspension": "Keine Sperre",
-      "suspensionEvidence": "checked_no_suspension",
+      "suspension": "Noch nicht recherchiert",
+      "suspensionEvidence": "unknown",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -33956,8 +33956,8 @@
       "injuryExpectedAbsence": null,
       "injurySourceUrl": null,
       "injuryEvidence": "unknown",
-      "suspension": "Keine Sperre",
-      "suspensionEvidence": "checked_no_suspension",
+      "suspension": "Noch nicht recherchiert",
+      "suspensionEvidence": "unknown",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
