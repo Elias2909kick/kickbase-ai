@@ -9,7 +9,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlparse, parse_qs, unquote, urlencode
-from urllib.parse import quote_plus, unquote
+from urllib.parse import unquote
 
 # ============================================================
 # KONFIGURATION
@@ -159,6 +159,27 @@ BUNDESLIGA_MATCHDAY_STATUS_TEMPLATE = (
 
 _MATCHDAY_STATUS_CACHE = {}
 _TEAMCHECK_CACHE = {}
+
+BUNDESLIGA_CLUB_NEWS_SLUGS = {
+    "FC Bayern München": "fc-bayern-muenchen",
+    "VfB Stuttgart": "vfb-stuttgart",
+    "RB Leipzig": "rb-leipzig",
+    "Borussia Mönchengladbach": "borussia-moenchengladbach",
+    "1. FSV Mainz 05": "1-fsv-mainz-05",
+    "SC Paderborn 07": "sc-paderborn-07",
+    "1. FC Union Berlin": "1-fc-union-berlin",
+    "Eintracht Frankfurt": "eintracht-frankfurt",
+    "1. FC Köln": "1-fc-koeln",
+    "TSG Hoffenheim": "tsg-hoffenheim",
+    "SV 07 Elversberg": "sv-elversberg",
+    "Bayer 04 Leverkusen": "bayer-04-leverkusen",
+    "Borussia Dortmund": "borussia-dortmund",
+    "Hamburger SV": "hamburger-sv",
+    "SC Freiburg": "sc-freiburg",
+    "SV Werder Bremen": "sv-werder-bremen",
+    "FC Augsburg": "fc-augsburg",
+    "FC Schalke 04": "fc-schalke-04",
+}
 _STATUS_RESEARCH_STARTED_AT = None
 
 LEGACY_NO_INJURY_TEXTS = {
@@ -1563,53 +1584,90 @@ def _slugify_for_search(value):
 
 def _discover_bundesliga_teamcheck_url(club):
     """
-    Generischer Fallback: findet den aktuellen offiziellen Bundesliga-Teamcheck
-    des Vereins über die Bundesliga-Suche. Pro Verein nur einmal pro Lauf.
+    V17: Findet den Teamcheck ausschließlich über die offizielle
+    Bundesliga-Club-Newsseite. Keine Google-/Suchmaschinen-Abhängigkeit.
     """
     if not club:
         return None
 
-    if club in _TEAMCHECK_CACHE:
-        return _TEAMCHECK_CACHE[club].get("url")
+    cached = _TEAMCHECK_CACHE.get(club)
+    if cached and "url" in cached:
+        return cached.get("url")
 
-    query = quote_plus(
-        f'site:bundesliga.com/de/bundesliga/news/teamcheck-saisonvorschau-2026-27 "{club}"'
-    )
-    search_url = f"https://www.google.com/search?q={query}"
+    slug = BUNDESLIGA_CLUB_NEWS_SLUGS.get(club)
+    if not slug:
+        _TEAMCHECK_CACHE[club] = {"url": None, "text": None}
+        print(f"TEAMCHECK-DISCOVERY {club}: kein Bundesliga-Club-Slug hinterlegt.")
+        return None
+
+    news_url = f"https://www.bundesliga.com/de/bundesliga/clubs/{slug}/news"
 
     try:
-        html = http_get_text(search_url, timeout=8)
-    except Exception:
-        html = ""
+        html = http_get_text(news_url, timeout=10)
+    except Exception as exc:
+        _TEAMCHECK_CACHE[club] = {"url": None, "text": None}
+        print(f"TEAMCHECK-DISCOVERY {club}: Newsseite nicht ladbar -> {exc}")
+        return None
 
-    urls = re.findall(
-        r'https?://www\.bundesliga\.com/de/bundesliga/news/'
-        r'teamcheck-saisonvorschau-2026-27-[^&"<> ]+',
+    # Direkte absolute und relative Teamcheck-Links akzeptieren.
+    hrefs = re.findall(
+        r'href=["\']([^"\']*teamcheck-saisonvorschau-2026-27[^"\']*)["\']',
         html,
         flags=re.IGNORECASE,
     )
 
-    cleaned = []
-    for url in urls:
-        url = unquote(url)
-        url = url.split("&")[0]
-        if url not in cleaned:
-            cleaned.append(url)
+    candidates = []
+    for href in hrefs:
+        href = href.replace("&amp;", "&").strip()
 
+        if href.startswith("//"):
+            href = "https:" + href
+        elif href.startswith("/"):
+            href = "https://www.bundesliga.com" + href
+        elif not href.startswith("http"):
+            continue
+
+        # Nur Bundesliga-Domain und aktuelle Saison.
+        if (
+            "bundesliga.com/" not in href.lower()
+            or "teamcheck-saisonvorschau-2026-27" not in href.lower()
+        ):
+            continue
+
+        href = href.split("?")[0].split("#")[0]
+        if href not in candidates:
+            candidates.append(href)
+
+    # Falls mehrere Teamchecks auf der Newsseite auftauchen:
+    # Clubname/Slug im Link bevorzugen.
     club_tokens = [
-        token for token in _slugify_for_search(club).split("-")
-        if len(token) >= 4 and token not in {"verein"}
+        token
+        for token in re.sub(r"[^a-z0-9]+", "-", slug.lower()).split("-")
+        if len(token) >= 3 and token not in {"club"}
     ]
 
-    best = None
-    for url in cleaned:
-        score = sum(token in url.lower() for token in club_tokens)
-        if best is None or score > best[0]:
-            best = (score, url)
+    best_url = None
+    best_score = -1
 
-    result_url = best[1] if best else None
-    _TEAMCHECK_CACHE[club] = {"url": result_url, "text": None}
-    return result_url
+    for url in candidates:
+        lower = url.lower()
+        score = sum(token in lower for token in club_tokens)
+        if score > best_score:
+            best_score = score
+            best_url = url
+
+    _TEAMCHECK_CACHE[club] = {
+        "url": best_url,
+        "text": None,
+        "newsUrl": news_url,
+    }
+
+    print(
+        f"TEAMCHECK-DISCOVERY {club}: "
+        f"{len(candidates)} Kandidat(en) -> {best_url or 'kein Treffer'}"
+    )
+
+    return best_url
 
 
 def _get_teamcheck_text(club):
@@ -1664,10 +1722,11 @@ def _derive_lineup_probability(player, section):
     club = str(player.get("club") or "").strip()
     lineup = _extract_team_lineup(section, club)
 
+    # Matchday-Aufstellung eindeutig erkannt.
     if _name_matches_in_lineup(lineup, player_name):
         return "Sehr wahrscheinlich"
 
-    # Explizite Ausfallliste hat Vorrang vor jedem Fallback.
+    # Explizite Ausfallliste hat Vorrang.
     parts = player_name.split()
     surname = parts[-1] if parts else player_name
     if re.search(
@@ -1677,7 +1736,8 @@ def _derive_lineup_probability(player, section):
     ):
         return "Nein"
 
-    # Fallback 1: Spieler erscheint im Matchday-Aufstellungsbereich.
+    # Spieler erscheint im Aufstellungsbereich, aber Parser kann die
+    # exakte Teamzeile nicht sicher isolieren.
     first_missing = re.search(
         r"\bEs\s+fehlen\s*:",
         section or "",
@@ -1688,19 +1748,31 @@ def _derive_lineup_probability(player, section):
         if first_missing
         else (section or "")
     )
+
     if _name_matches_in_lineup(pre_missing, player_name):
         return "Wahrscheinlich"
 
-    # Fallback 2 (V16): offizieller Bundesliga-Teamcheck des Vereins.
+    # V17: offizieller Bundesliga-Teamcheck über Club-Newsseite.
     teamcheck_text, teamcheck_url = _get_teamcheck_text(club)
-    if _player_in_teamcheck_starting_xi(player_name, teamcheck_text):
-        print(
-            f"TEAMCHECK-STARTELF {player_name}: "
-            f"offizielle mögliche Startelf gefunden | {teamcheck_url}"
-        )
-        return "Wahrscheinlich"
 
-    return "Eher Bank / offen"
+    if teamcheck_text:
+        if _player_in_teamcheck_starting_xi(player_name, teamcheck_text):
+            print(
+                f"TEAMCHECK-STARTELF {player_name}: JA | {teamcheck_url}"
+            )
+            return "Wahrscheinlich"
+
+        print(
+            f"TEAMCHECK-STARTELF {player_name}: NEIN | {teamcheck_url}"
+        )
+        return "Eher Bank / offen"
+
+    # Keine belastbare Aufstellungsquelle -> keine negative Behauptung.
+    print(
+        f"TEAMCHECK-STARTELF {player_name}: "
+        "keine belastbare Teamcheck-Quelle gefunden."
+    )
+    return "Noch nicht recherchiert"
 
 
 def _derive_form_from_stats(player):
@@ -3054,7 +3126,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V16-Teamcheck-Modus: Matchday + offizieller Teamcheck-Fallback nur für den aufgelösten "
+        "V17-Bundesliga-News-Modus: Matchday + Club-News-Teamcheck-Fallback nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
