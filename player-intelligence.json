@@ -8019,13 +8019,13 @@
       "lastMatch": "Samstag 22. August Dortmund Borussia Dortmund BVB 1 FCB 2 Bayern FC Bayern München",
       "opponent": "VfB Stuttgart",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -8040,6 +8040,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/harry-kane"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -9923,13 +9927,13 @@
       "lastMatch": "Freitag 21. August Rostock F.C. Hansa Rostock 0 4 Stuttgart VfB Stuttgart Liveticker",
       "opponent": "FC Bayern München",
       "homeAway": "Auswärts",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -9944,6 +9948,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/badredine-bouanani"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -15187,11 +15195,11 @@
       "lastMatch": "Sonntag 23. August Krieschow VfB 1921 Krieschow 0 9 Mainz 1. FSV Mainz 05 Liveticker",
       "opponent": "SC Paderborn 07",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -15208,6 +15216,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/sheraldo-becker"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -17651,13 +17663,13 @@
       "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Eintracht Frankfurt",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
-      "injuryDiagnosis": null,
+      "injury": "Verletzt · Blessur · Ausfallzeit nicht öffentlich verfügbar",
+      "injuryDiagnosis": "Blessur",
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "injured",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -17672,6 +17684,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/marvin-friedrich"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -18211,13 +18227,13 @@
       "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Eintracht Frankfurt",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -18232,6 +18248,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/woo-yeong-jeong"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -18379,13 +18399,13 @@
       "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Eintracht Frankfurt",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -18400,6 +18420,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/michel-aebischer"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -24091,13 +24115,13 @@
       "lastMatch": "Samstag 22. August Aue FC Erzgebirge Aue 0 4 Hoffenheim TSG Hoffenheim Liveticker",
       "opponent": "1. FC Köln",
       "homeAway": "Auswärts",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -24112,6 +24136,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/adam-daghim"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -24371,11 +24399,11 @@
       "lastMatch": "Samstag 22. August Duisburg MSV Duisburg 1 3 Elversberg SV Elversberg Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -24392,6 +24420,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/nicolas-kristof"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -26499,13 +26531,13 @@
       "lastMatch": "Samstag 22. August Wiesbaden SV Wehen Wiesbaden 0 4 Leverkusen Bayer 04 Leverkusen Liveticker",
       "opponent": "SV 07 Elversberg",
       "homeAway": "Auswärts",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -26520,6 +26552,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/lucas-vazquez"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -29579,11 +29615,11 @@
       "lastMatch": "Montag 24. August Verl SC Verl 0 3 Hamburg Hamburger SV Liveticker",
       "opponent": "Borussia Dortmund",
       "homeAway": "Auswärts",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -29600,6 +29636,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/sebastiaan-bornauw"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -30587,11 +30627,11 @@
       "lastMatch": "Montag 24. August Verl SC Verl 0 3 Hamburg Hamburger SV Liveticker",
       "opponent": "Borussia Dortmund",
       "homeAway": "Auswärts",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -30608,6 +30648,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/bakery-jatta"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -32043,13 +32087,13 @@
       "lastMatch": "Sonntag 23. August Düsseldorf Fortuna Düsseldorf 1 5 Freiburg Sport-Club Freiburg Liveticker",
       "opponent": "SV Werder Bremen",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -32064,6 +32108,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/derry-scherhant"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -32099,13 +32147,13 @@
       "lastMatch": "Sonntag 23. August Düsseldorf Fortuna Düsseldorf 1 5 Freiburg Sport-Club Freiburg Liveticker",
       "opponent": "SV Werder Bremen",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -32120,6 +32168,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/lucas-holer"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -33835,13 +33887,13 @@
       "lastMatch": "Samstag 22. August Lüneburg Lüneburger SK Hansa 0 3 Bremen SV Werder Bremen Liveticker",
       "opponent": "SC Freiburg",
       "homeAway": "Auswärts",
-      "injury": "Verletzt · Kreuzbandriss (linkes Knie) · weiterhin Reha; Rückkehr nicht öffentlich terminiert",
-      "injuryDiagnosis": "Kreuzbandriss (linkes Knie)",
-      "injuryExpectedAbsence": "weiterhin Reha; Rückkehr nicht öffentlich terminiert",
-      "injurySourceUrl": "https://www.werder.de/news/maenner/2026-2027/personal-update-260826",
-      "injuryEvidence": "carried_confirmed_injury",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injury": "Verletzt · Kreuzbandriss · Ausfallzeit nicht öffentlich verfügbar",
+      "injuryDiagnosis": "Kreuzbandriss",
+      "injuryExpectedAbsence": null,
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "injured",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -33859,7 +33911,7 @@
         },
         {
           "name": "Offizielle Vereinsmeldung",
-          "url": "https://www.werder.de/news/maenner/2026-2027/personal-update-260826"
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -33951,13 +34003,13 @@
       "lastMatch": "Samstag 22. August Lüneburg Lüneburger SK Hansa 0 3 Bremen SV Werder Bremen Liveticker",
       "opponent": "SC Freiburg",
       "homeAway": "Auswärts",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -33972,6 +34024,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/justin-njinmah"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -35071,11 +35127,11 @@
       "lastMatch": "Samstag 22. August FC Energie FC Energie Cottbus 0 2 Augsburg FC Augsburg Liveticker",
       "opponent": "FC Schalke 04",
       "homeAway": "Heim",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -35092,6 +35148,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/mert-komur"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
@@ -37087,13 +37147,13 @@
       "lastMatch": "Montag 24. August Halle Hallescher FC 2 2 5 2 Schalke FC Schalke 04 Liveticker",
       "opponent": "FC Augsburg",
       "homeAway": "Auswärts",
-      "injury": "Status nicht eindeutig verfügbar",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -37108,6 +37168,10 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/adil-aouchiche"
+        },
+        {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
         },
         {
           "name": "OpenLigaDB",
