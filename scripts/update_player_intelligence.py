@@ -140,6 +140,17 @@ STATUS_URL_KEYWORDS = (
 
 SEARCH_URL = "https://html.duckduckgo.com/html/"
 
+# V13 FAST MODE
+# Ziel: kompletter Kader-Refresh in wenigen Minuten statt >15 Minuten.
+STATUS_SEARCH_TIMEOUT = 5
+STATUS_PAGE_TIMEOUT = 6
+STATUS_MAX_SEARCH_QUERIES = 1
+STATUS_MAX_CANDIDATE_URLS = 4
+STATUS_MAX_PAGES_PER_PLAYER = 3
+STATUS_GLOBAL_BUDGET_SECONDS = 120
+
+_STATUS_RESEARCH_STARTED_AT = None
+
 LEGACY_NO_INJURY_TEXTS = {
     "keine verletzungsmeldung auf dem profil gefunden",
     "keine verletzungsmeldung gefunden",
@@ -1296,7 +1307,7 @@ def _search_query_urls(query, allowed_domains=None, max_urls=12):
         html = http_get_text(
             url,
             headers={"Accept-Language": "de-DE,de;q=0.9,en;q=0.7"},
-            timeout=18,
+            timeout=STATUS_SEARCH_TIMEOUT,
         )
     except Exception as exc:
         print(f"SEARCH-DEBUG: Suche fehlgeschlagen: {query} -> {exc}")
@@ -1337,15 +1348,13 @@ def _search_query_urls(query, allowed_domains=None, max_urls=12):
 
 def discover_official_status_urls(player):
     """
-    V12: Recherche pro Spieler statt pro Vereins-Sitemap.
+    V13 FAST:
+    - keine Sitemap-Crawls
+    - maximal EINE gezielte Suche pro Spieler
+    - höchstens wenige offizielle Kandidaten
+    - bekannte offizielle Club-Seeds bleiben kostenlos nutzbar
 
-    Reihenfolge:
-      1. bekannte offizielle Club-Seeds
-      2. gezielte Suchabfragen auf der offiziellen Clubdomain
-      3. Sitemap als Ergänzung
-
-    Dadurch kann z.B. Harry Kane auf Bayern-Personal-/Training-Seiten
-    gefunden werden, ohne für ihn einen Hardcode anzulegen.
+    Dadurch vermeiden wir die 19-Minuten-Laufzeit aus V12.
     """
     club = str(player.get("club") or "").strip()
     player_name = str(player.get("name") or "").strip()
@@ -1366,48 +1375,29 @@ def discover_official_status_urls(player):
             seen.add(url)
             urls.append(url)
 
-    # Bereits bekannte offizielle News-Seiten zuerst.
+    # Kostenlose bekannte Seeds zuerst
     for url in OFFICIAL_STATUS_SEEDS.get(club, []):
         add(url)
 
-    year = datetime.now(timezone.utc).year
+    # Nur EINE kombinierte Suchanfrage
+    query = (
+        f'site:{domain} "{player_name}" '
+        f'(Verletzung OR verletzt OR Reha OR Training OR gesperrt OR Personal)'
+    )
 
-    # Gezielt pro Spieler suchen. Mehrere Formulierungen sind absichtlich
-    # enthalten, weil Clubs "Personal", "Training", "Ausfall", "Reha" usw.
-    # unterschiedlich verwenden.
-    queries = [
-        f'site:{domain} "{player_name}" {year}',
-        f'site:{domain} "{player_name}" Verletzung',
-        f'site:{domain} "{player_name}" verletzt',
-        f'site:{domain} "{player_name}" Training',
-        f'site:{domain} "{player_name}" Personal',
-        f'site:{domain} "{player_name}" Reha',
-        f'site:{domain} "{player_name}" zurück',
-        f'site:{domain} "{player_name}" gesperrt',
-    ]
-
-    for query in queries:
-        for url in _search_query_urls(
-            query,
-            allowed_domains=[domain],
-            max_urls=8,
-        ):
-            add(url)
-
-        if len(urls) >= 24:
-            break
-
-    # Sitemap nur noch als Ergänzung, nicht mehr als Hauptmechanismus.
-    if len(urls) < 8:
-        for url in _discover_urls_via_sitemaps(domain, max_urls=20):
-            add(url)
+    for url in _search_query_urls(
+        query,
+        allowed_domains=[domain],
+        max_urls=STATUS_MAX_CANDIDATE_URLS,
+    ):
+        add(url)
 
     print(
         f"STATUS-DISCOVERY {player_name}: "
         f"{len(urls)} offizielle Kandidaten für {club}."
     )
 
-    return urls[:30]
+    return urls[:STATUS_MAX_CANDIDATE_URLS]
 
 
 def _html_to_visible_text(html):
@@ -1599,8 +1589,30 @@ def get_official_status_for_player(player):
 
     Keine spielerspezifischen Sonderfälle.
     """
+    global _STATUS_RESEARCH_STARTED_AT
+
+    if _STATUS_RESEARCH_STARTED_AT is None:
+        _STATUS_RESEARCH_STARTED_AT = time.monotonic()
+
     club = str(player.get("club") or "").strip()
     player_name = str(player.get("name") or "").strip()
+
+    elapsed = time.monotonic() - _STATUS_RESEARCH_STARTED_AT
+    if elapsed >= STATUS_GLOBAL_BUDGET_SECONDS:
+        print(
+            f"STATUS {player_name}: Fast-Mode-Zeitbudget erreicht; "
+            "vorhandene Daten werden beibehalten."
+        )
+        return {
+            "checked": False,
+            "evidence": "budget_exhausted",
+            "injured": False,
+            "injuryDiagnosis": None,
+            "injuryExpectedAbsence": None,
+            "suspended": False,
+            "sourceUrl": None,
+        }
+
     urls = discover_official_status_urls(player)
 
     result = {
@@ -1628,11 +1640,11 @@ def get_official_status_for_player(player):
     pages_checked = 0
 
     for url in urls:
-        if pages_checked >= 20:
+        if pages_checked >= STATUS_MAX_PAGES_PER_PLAYER:
             break
 
         try:
-            html = http_get_text(url, timeout=15)
+            html = http_get_text(url, timeout=STATUS_PAGE_TIMEOUT)
             page_text = _html_to_visible_text(html)
             pages_checked += 1
             result["checked"] = True
@@ -2298,7 +2310,7 @@ def build_player_intelligence(
         )
 
         if (
-            injury_evidence == "unknown"
+            injury_evidence in {"unknown", "budget_exhausted"}
             and old_injury_confirmed
         ):
             injury = old_injury
@@ -2310,6 +2322,16 @@ def build_player_intelligence(
             injury_evidence = old_player.get(
                 "injuryEvidence",
                 "carried_confirmed_injury",
+            )
+
+        if (
+            suspension_evidence in {"unknown", "budget_exhausted"}
+            and old_player.get("suspension") in {"Gesperrt", "Keine Sperre"}
+        ):
+            suspension = old_player.get("suspension")
+            suspension_evidence = old_player.get(
+                "suspensionEvidence",
+                "carried_status",
             )
 
         appearances = public_player.get("appearances", old_player.get("appearances"))
@@ -2478,7 +2500,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V10-Modus: Einzelspieler-Recherche nur für den aufgelösten "
+        "V13-Fast-Modus: Einzelspieler-Recherche nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
