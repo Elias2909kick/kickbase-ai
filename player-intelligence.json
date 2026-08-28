@@ -6800,6 +6800,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -6907,6 +6908,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7014,6 +7016,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7121,6 +7124,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7228,6 +7232,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7335,6 +7340,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7442,6 +7448,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7549,6 +7556,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7656,6 +7664,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7763,6 +7772,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7870,6 +7880,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7977,6 +7988,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8084,6 +8096,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8191,6 +8204,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8298,6 +8312,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8405,6 +8420,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8512,6 +8528,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8619,6 +8636,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8726,6 +8744,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8833,6 +8852,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8940,6 +8960,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9047,6 +9068,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9140,19 +9162,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -9160,26 +9197,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -9266,6 +9303,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9373,6 +9411,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9480,6 +9519,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9587,6 +9627,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9694,6 +9735,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9801,6 +9843,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9908,6 +9951,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10015,6 +10059,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10122,6 +10167,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10229,6 +10275,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10336,6 +10383,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10443,6 +10491,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10550,6 +10599,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10657,6 +10707,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10764,6 +10815,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10871,6 +10923,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10978,6 +11031,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11085,6 +11139,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11192,6 +11247,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11299,6 +11355,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11406,6 +11463,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11513,6 +11571,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11620,6 +11679,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11727,6 +11787,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11834,6 +11895,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11941,6 +12003,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12048,6 +12111,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12155,6 +12219,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12262,6 +12327,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12369,6 +12435,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12476,6 +12543,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12583,6 +12651,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12690,6 +12759,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12783,19 +12853,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -12803,26 +12888,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -12909,6 +12994,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13016,6 +13102,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13123,6 +13210,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13230,6 +13318,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13337,6 +13426,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13444,6 +13534,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13551,6 +13642,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13658,6 +13750,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13765,6 +13858,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13872,6 +13966,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13979,6 +14074,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14086,6 +14182,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14193,6 +14290,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14300,6 +14398,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14407,6 +14506,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14514,6 +14614,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14621,6 +14722,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14728,6 +14830,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14835,6 +14938,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14942,6 +15046,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15049,6 +15154,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15156,6 +15262,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15263,6 +15370,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15370,6 +15478,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15477,6 +15586,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15584,6 +15694,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15691,6 +15802,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15798,6 +15910,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15905,6 +16018,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16012,6 +16126,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16119,6 +16234,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16226,6 +16342,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16333,6 +16450,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16440,6 +16558,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16547,6 +16666,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16654,6 +16774,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16761,6 +16882,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16868,6 +16990,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16975,6 +17098,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17082,6 +17206,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17189,6 +17314,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17296,6 +17422,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17403,6 +17530,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17510,6 +17638,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17617,6 +17746,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17724,6 +17854,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17831,6 +17962,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17938,6 +18070,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18045,6 +18178,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18152,6 +18286,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18259,6 +18394,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18366,6 +18502,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18473,6 +18610,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18580,6 +18718,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18687,6 +18826,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18794,6 +18934,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18901,6 +19042,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19008,6 +19150,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19115,6 +19258,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19222,6 +19366,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19329,6 +19474,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19436,6 +19582,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19543,6 +19690,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19650,6 +19798,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19757,6 +19906,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19864,6 +20014,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19971,6 +20122,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20078,6 +20230,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20185,6 +20338,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20292,6 +20446,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20399,6 +20554,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20506,6 +20662,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20613,6 +20770,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20720,6 +20878,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20827,6 +20986,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20934,6 +21094,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21041,6 +21202,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21148,6 +21310,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21255,6 +21418,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21362,6 +21526,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21469,6 +21634,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21576,6 +21742,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21683,6 +21850,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21790,6 +21958,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21897,6 +22066,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22004,6 +22174,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22111,6 +22282,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22218,6 +22390,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22325,6 +22498,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22432,6 +22606,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22539,6 +22714,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22646,6 +22822,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22753,6 +22930,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22846,19 +23024,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -22866,26 +23059,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -22972,6 +23165,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23079,6 +23273,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23186,6 +23381,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23293,6 +23489,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23400,6 +23597,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23507,6 +23705,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23614,6 +23813,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23721,6 +23921,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23828,6 +24029,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23935,6 +24137,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24042,6 +24245,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24149,6 +24353,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24256,6 +24461,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24363,6 +24569,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24470,6 +24677,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24577,6 +24785,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24684,6 +24893,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24791,6 +25001,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24898,6 +25109,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25005,6 +25217,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25112,6 +25325,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25219,6 +25433,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25326,6 +25541,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25433,6 +25649,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25540,6 +25757,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25647,6 +25865,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25754,6 +25973,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25861,6 +26081,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25968,6 +26189,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26075,6 +26297,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26182,6 +26405,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26289,6 +26513,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26396,6 +26621,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26503,6 +26729,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26610,6 +26837,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26717,6 +26945,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26824,6 +27053,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26931,6 +27161,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27038,6 +27269,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27145,6 +27377,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27252,6 +27485,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27359,6 +27593,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27466,6 +27701,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27559,19 +27795,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -27579,26 +27830,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -27685,6 +27936,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27792,6 +28044,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27899,6 +28152,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28006,6 +28260,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28113,6 +28368,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28220,6 +28476,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28327,6 +28584,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28434,6 +28692,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28541,6 +28800,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28634,19 +28894,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -28654,26 +28929,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -28760,6 +29035,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28867,6 +29143,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28960,19 +29237,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -28980,26 +29272,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -29086,6 +29378,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29193,6 +29486,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29300,6 +29594,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29407,6 +29702,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29514,6 +29810,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29621,6 +29918,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29728,6 +30026,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29835,6 +30134,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29942,6 +30242,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30049,6 +30350,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30156,6 +30458,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30263,6 +30566,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30370,6 +30674,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30477,6 +30782,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30584,6 +30890,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30691,6 +30998,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30798,6 +31106,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30905,6 +31214,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31012,6 +31322,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31119,6 +31430,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31226,6 +31538,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31333,6 +31646,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31440,6 +31754,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31547,6 +31862,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31654,6 +31970,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31761,6 +32078,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31868,6 +32186,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31975,6 +32294,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32082,6 +32402,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32189,6 +32510,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32296,6 +32618,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32403,6 +32726,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32510,6 +32834,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32617,6 +32942,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32724,6 +33050,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32831,6 +33158,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32938,6 +33266,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33045,6 +33374,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33152,6 +33482,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33259,6 +33590,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33366,6 +33698,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33473,6 +33806,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33580,6 +33914,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33687,6 +34022,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33794,6 +34130,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33901,6 +34238,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34008,6 +34346,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34115,6 +34454,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34222,6 +34562,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34329,6 +34670,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34436,6 +34778,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34543,6 +34886,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34650,6 +34994,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34757,6 +35102,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34864,6 +35210,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34971,6 +35318,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35078,6 +35426,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35185,6 +35534,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35292,6 +35642,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35399,6 +35750,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35506,6 +35858,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35613,6 +35966,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35720,6 +36074,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35827,6 +36182,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35934,6 +36290,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36041,6 +36398,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36148,6 +36506,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36255,6 +36614,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36362,6 +36722,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36469,6 +36830,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36576,6 +36938,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36683,6 +37046,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36790,6 +37154,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36897,6 +37262,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37004,6 +37370,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37111,6 +37478,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37218,6 +37586,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37325,6 +37694,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37432,6 +37802,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37539,6 +37910,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37646,6 +38018,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37753,6 +38126,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37860,6 +38234,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37967,6 +38342,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38074,6 +38450,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38181,6 +38558,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38288,6 +38666,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38395,6 +38774,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38502,6 +38882,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38609,6 +38990,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38716,6 +39098,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38823,6 +39206,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38930,6 +39314,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39037,6 +39422,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39144,6 +39530,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39251,6 +39638,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39358,6 +39746,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39465,6 +39854,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39572,6 +39962,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39679,6 +40070,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39786,6 +40178,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39879,19 +40272,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -39899,26 +40307,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -40005,6 +40413,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40112,6 +40521,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40219,6 +40629,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40326,6 +40737,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40416,50 +40828,65 @@
         "starts": null,
         "minutes": null,
         "goals": 0,
-        "assists": null,
+        "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
+        "woodwork": 0,
+        "penalties": 0,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": 0
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
           "appearances",
           "goals",
+          "assists",
           "shots",
+          "woodwork",
+          "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
+          "crosses",
           "fouls",
           "yellowCards",
+          "saves",
           "goalsAgainst"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
-          "assists",
           "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
           "redCards",
-          "saves",
           "cleanSheets"
         ],
-        "coveragePercent": 30,
-        "scoreReady": false,
+        "coveragePercent": 70,
+        "scoreReady": true,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
       "appearances": 0,
@@ -40545,6 +40972,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40652,6 +41080,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40759,6 +41188,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40866,6 +41296,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40973,6 +41404,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41080,6 +41512,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41187,6 +41620,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41294,6 +41728,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41401,6 +41836,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41508,6 +41944,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41615,6 +42052,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41722,6 +42160,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41829,6 +42268,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41936,6 +42376,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42043,6 +42484,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42150,6 +42592,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42257,6 +42700,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42364,6 +42808,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42471,6 +42916,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42578,6 +43024,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42685,6 +43132,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42792,6 +43240,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42899,6 +43348,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43006,6 +43456,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43113,6 +43564,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43220,6 +43672,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43327,6 +43780,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43434,6 +43888,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43541,6 +43996,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43648,6 +44104,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43755,6 +44212,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43862,6 +44320,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43969,6 +44428,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44076,6 +44536,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44183,6 +44644,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44290,6 +44752,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44397,6 +44860,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44490,19 +44954,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -44510,26 +44989,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -44616,6 +45095,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44723,6 +45203,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44830,6 +45311,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44937,6 +45419,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45044,6 +45527,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45151,6 +45635,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45258,6 +45743,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45365,6 +45851,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45472,6 +45959,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45579,6 +46067,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45686,6 +46175,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45793,6 +46283,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45900,6 +46391,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46007,6 +46499,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46114,6 +46607,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46221,6 +46715,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46328,6 +46823,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46435,6 +46931,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46542,6 +47039,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46649,6 +47147,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46756,6 +47255,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46863,6 +47363,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46970,6 +47471,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47077,6 +47579,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47184,6 +47687,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47291,6 +47795,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47398,6 +47903,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47505,6 +48011,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47612,6 +48119,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47719,6 +48227,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47826,6 +48335,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47933,6 +48443,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48040,6 +48551,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48147,6 +48659,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48254,6 +48767,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48361,6 +48875,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48468,6 +48983,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48575,6 +49091,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48682,6 +49199,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48789,6 +49307,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48896,6 +49415,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49003,6 +49523,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49110,6 +49631,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49217,6 +49739,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49324,6 +49847,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49431,6 +49955,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49538,6 +50063,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49645,6 +50171,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49752,6 +50279,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49859,6 +50387,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49966,6 +50495,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50073,6 +50603,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50180,6 +50711,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50287,6 +50819,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50380,19 +50913,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -50400,26 +50948,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -50506,6 +51054,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50613,6 +51162,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50720,6 +51270,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50827,6 +51378,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50934,6 +51486,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51041,6 +51594,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51148,6 +51702,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51255,6 +51810,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51362,6 +51918,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51469,6 +52026,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51576,6 +52134,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51683,6 +52242,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51790,6 +52350,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51897,6 +52458,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52004,6 +52566,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52111,6 +52674,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52218,6 +52782,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52311,19 +52876,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -52331,26 +52911,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -52437,6 +53017,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52544,6 +53125,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52651,6 +53233,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52758,6 +53341,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52865,6 +53449,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52972,6 +53557,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53079,6 +53665,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53186,6 +53773,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53293,6 +53881,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53400,6 +53989,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53507,6 +54097,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53614,6 +54205,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53721,6 +54313,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53828,6 +54421,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53935,6 +54529,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54042,6 +54637,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54149,6 +54745,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54256,6 +54853,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54363,6 +54961,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54470,6 +55069,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54577,6 +55177,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54684,6 +55285,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54791,6 +55393,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54898,6 +55501,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55005,6 +55609,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55098,19 +55703,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -55118,26 +55738,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -55210,19 +55830,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -55230,26 +55865,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -55336,6 +55971,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55443,6 +56079,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55550,6 +56187,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55657,6 +56295,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55764,6 +56403,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55871,6 +56511,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55978,6 +56619,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56085,6 +56727,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56192,6 +56835,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56299,6 +56943,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56406,6 +57051,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56513,6 +57159,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56620,6 +57267,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56727,6 +57375,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56834,6 +57483,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56941,6 +57591,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57048,6 +57699,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57155,6 +57807,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57262,6 +57915,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57369,6 +58023,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57476,6 +58131,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57583,6 +58239,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57690,6 +58347,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57797,6 +58455,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57904,6 +58563,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58011,6 +58671,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58118,6 +58779,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58225,6 +58887,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58332,6 +58995,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58439,6 +59103,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58532,19 +59197,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -58552,26 +59232,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -58658,6 +59338,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58751,19 +59432,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -58771,26 +59467,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -58877,6 +59573,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58984,6 +59681,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59091,6 +59789,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59198,6 +59897,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59305,6 +60005,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59412,6 +60113,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59519,6 +60221,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59626,6 +60329,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59733,6 +60437,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59840,6 +60545,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59947,6 +60653,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60054,6 +60761,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60161,6 +60869,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60268,6 +60977,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60375,6 +61085,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60482,6 +61193,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60589,6 +61301,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60696,6 +61409,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60803,6 +61517,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60896,19 +61611,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -60916,26 +61646,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -61022,6 +61752,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61129,6 +61860,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61236,6 +61968,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61343,6 +62076,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61450,6 +62184,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61557,6 +62292,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61664,6 +62400,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61771,6 +62508,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61878,6 +62616,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61985,6 +62724,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62092,6 +62832,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62199,6 +62940,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62306,6 +63048,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62413,6 +63156,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62520,6 +63264,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62627,6 +63372,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62734,6 +63480,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62841,6 +63588,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62948,6 +63696,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63055,6 +63804,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63162,6 +63912,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63269,6 +64020,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63376,6 +64128,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63483,6 +64236,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63590,6 +64344,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63697,6 +64452,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63804,6 +64560,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63911,6 +64668,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64018,6 +64776,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64125,6 +64884,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64232,6 +64992,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64339,6 +65100,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64446,6 +65208,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64553,6 +65316,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64660,6 +65424,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64753,19 +65518,34 @@
         "assists": 0,
         "shots": 0,
         "shotsOnTarget": null,
-        "woodwork": null,
+        "woodwork": 0,
         "penalties": 0,
-        "penaltiesScored": null,
+        "penaltiesScored": 0,
         "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
+        "duelsWon": 0,
+        "aerialDuelsWon": 0,
         "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 0,
         "cleanSheets": null,
         "goalsAgainst": null
+      },
+      "performanceSources": {
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
+        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2026-2027",
+        "woodwork": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/pfosten-oder-lattentreffer/2026-2027",
+        "penalties": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/elfmeter/2026-2027",
+        "penaltiesScored": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/verwandelte-elfmeter/2026-2027",
+        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
+        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
+        "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+        "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
+        "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -64773,26 +65553,26 @@
           "goals",
           "assists",
           "shots",
+          "woodwork",
           "penalties",
+          "penaltiesScored",
+          "duelsWon",
+          "aerialDuelsWon",
           "crosses",
           "fouls",
-          "yellowCards"
+          "yellowCards",
+          "saves"
         ],
         "missingMetrics": [
           "starts",
           "minutes",
           "shotsOnTarget",
-          "woodwork",
-          "penaltiesScored",
           "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
           "redCards",
-          "saves",
           "cleanSheets",
           "goalsAgainst"
         ],
-        "coveragePercent": 40,
+        "coveragePercent": 65,
         "scoreReady": false,
         "note": "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine geschätzten Einzelaktionen."
       },
@@ -64879,6 +65659,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64986,6 +65767,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65093,6 +65875,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65200,6 +65983,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65307,6 +66091,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65414,6 +66199,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65521,6 +66307,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65628,6 +66415,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65735,6 +66523,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65842,6 +66631,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65949,6 +66739,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -66056,6 +66847,7 @@
         "cleanSheets": null,
         "goalsAgainst": null
       },
+      "performanceSources": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
