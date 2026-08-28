@@ -9914,24 +9914,24 @@
       "number": 27,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/badredine-bouanani",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Eher Bank / offen",
+      "form": "Noch keine belastbare Formbasis",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
-      "assists": null,
+      "goals": 0,
+      "assists": 0,
       "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "yellowCards": 0,
+      "lastMatch": "Freitag 21. August Rostock F.C. Hansa Rostock 0 4 Stuttgart VfB Stuttgart Liveticker",
       "opponent": "FC Bayern München",
       "homeAway": "Auswärts",
-      "injury": "Noch nicht recherchiert",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -9950,6 +9950,10 @@
           "url": "https://www.bundesliga.com/de/spieler/badredine-bouanani"
         },
         {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
+        },
+        {
           "name": "OpenLigaDB",
           "url": "https://www.openligadb.de/"
         }
@@ -9957,7 +9961,7 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
         "researchMode": "intensiv"
       }
@@ -18210,24 +18214,24 @@
       "number": 11,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/woo-yeong-jeong",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Eher Bank / offen",
+      "form": "Noch keine belastbare Formbasis",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
-      "assists": null,
+      "goals": 0,
+      "assists": 0,
       "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "yellowCards": 0,
+      "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Eintracht Frankfurt",
       "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -18246,6 +18250,10 @@
           "url": "https://www.bundesliga.com/de/spieler/woo-yeong-jeong"
         },
         {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
+        },
+        {
           "name": "OpenLigaDB",
           "url": "https://www.openligadb.de/"
         }
@@ -18253,7 +18261,7 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
         "researchMode": "intensiv"
       }
@@ -18378,24 +18386,24 @@
       "number": 20,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/michel-aebischer",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Eher Bank / offen",
+      "form": "Noch keine belastbare Formbasis",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
-      "assists": null,
+      "goals": 0,
+      "assists": 0,
       "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "yellowCards": 0,
+      "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Eintracht Frankfurt",
       "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -18414,6 +18422,10 @@
           "url": "https://www.bundesliga.com/de/spieler/michel-aebischer"
         },
         {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
+        },
+        {
           "name": "OpenLigaDB",
           "url": "https://www.openligadb.de/"
         }
@@ -18421,7 +18433,7 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
         "researchMode": "intensiv"
       }
@@ -24374,24 +24386,24 @@
       "number": 20,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/nicolas-kristof",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Eher Bank / offen",
+      "form": "Noch keine belastbare Formbasis",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
+      "goals": 0,
       "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "goalsAgainst": 0,
+      "yellowCards": 0,
+      "lastMatch": "Samstag 22. August Duisburg MSV Duisburg 1 3 Elversberg SV Elversberg Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -24410,6 +24422,10 @@
           "url": "https://www.bundesliga.com/de/spieler/nicolas-kristof"
         },
         {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
+        },
+        {
           "name": "OpenLigaDB",
           "url": "https://www.openligadb.de/"
         }
@@ -24417,7 +24433,7 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
         "researchMode": "intensiv"
       }
@@ -32058,24 +32074,24 @@
       "number": 7,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/derry-scherhant",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Eher Bank / offen",
+      "form": "Noch keine belastbare Formbasis",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
-      "assists": null,
+      "goals": 0,
+      "assists": 0,
       "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "yellowCards": 0,
+      "lastMatch": "Sonntag 23. August Düsseldorf Fortuna Düsseldorf 1 5 Freiburg Sport-Club Freiburg Liveticker",
       "opponent": "SV Werder Bremen",
       "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -32094,6 +32110,10 @@
           "url": "https://www.bundesliga.com/de/spieler/derry-scherhant"
         },
         {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
+        },
+        {
           "name": "OpenLigaDB",
           "url": "https://www.openligadb.de/"
         }
@@ -32101,7 +32121,7 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
         "researchMode": "intensiv"
       }
@@ -32114,24 +32134,24 @@
       "number": 9,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/lucas-holer",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Eher Bank / offen",
+      "form": "Noch keine belastbare Formbasis",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
-      "assists": null,
+      "goals": 0,
+      "assists": 0,
       "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "yellowCards": 0,
+      "lastMatch": "Sonntag 23. August Düsseldorf Fortuna Düsseldorf 1 5 Freiburg Sport-Club Freiburg Liveticker",
       "opponent": "SV Werder Bremen",
       "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -32150,6 +32170,10 @@
           "url": "https://www.bundesliga.com/de/spieler/lucas-holer"
         },
         {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
+        },
+        {
           "name": "OpenLigaDB",
           "url": "https://www.openligadb.de/"
         }
@@ -32157,7 +32181,7 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
         "researchMode": "intensiv"
       }
@@ -35090,24 +35114,24 @@
       "number": 10,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/mert-komur",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Eher Bank / offen",
+      "form": "Noch keine belastbare Formbasis",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
-      "assists": null,
+      "goals": 0,
+      "assists": 0,
       "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "yellowCards": 0,
+      "lastMatch": "Samstag 22. August FC Energie FC Energie Cottbus 0 2 Augsburg FC Augsburg Liveticker",
       "opponent": "FC Schalke 04",
       "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397",
+      "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
       "recommendation": "Nächstes Spiel vorhanden",
@@ -35126,6 +35150,10 @@
           "url": "https://www.bundesliga.com/de/spieler/mert-komur"
         },
         {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-1-24397"
+        },
+        {
           "name": "OpenLigaDB",
           "url": "https://www.openligadb.de/"
         }
@@ -35133,7 +35161,7 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
         "researchMode": "intensiv"
       }
