@@ -9956,21 +9956,21 @@
       "number": 2,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/abdoul-kone",
       "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "starting": "Öffentlich nicht verfügbar",
+      "form": "0 Einsätze · 0 Tore · 0 Vorlagen",
       "footballRating": null,
-      "appearances": null,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": null,
-      "assists": null,
+      "goals": 0,
+      "assists": 0,
       "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "yellowCards": 0,
+      "lastMatch": "Samstag 22. August Trier Eintracht-Trier 05 0 6 Leipzig RB Leipzig Liveticker",
       "opponent": "Borussia Mönchengladbach",
       "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "suspension": "Noch nicht recherchiert",
+      "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
+      "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
       "lastUpdated": "2026-08-28",
       "sources": [
@@ -9994,9 +9994,9 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
+        "researchMode": "intensiv"
       }
     },
     "maxime-esteve": {
@@ -12087,7 +12087,7 @@
         "publicStatsSource": "erreichbar",
         "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
-        "researchMode": "intensiv"
+        "researchMode": "bestehende_daten_beibehalten"
       }
     },
     "joe-scally": {
