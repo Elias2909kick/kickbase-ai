@@ -9,6 +9,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlparse, parse_qs, unquote, urlencode
+from urllib.parse import quote_plus, unquote
 
 # ============================================================
 # KONFIGURATION
