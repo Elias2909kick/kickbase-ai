@@ -149,6 +149,14 @@ STATUS_MAX_CANDIDATE_URLS = 4
 STATUS_MAX_PAGES_PER_PLAYER = 3
 STATUS_GLOBAL_BUDGET_SECONDS = 120
 
+# V14: eine einzige Bundesliga-Spieltagseite statt Websuche pro Spieler.
+BUNDESLIGA_MATCHDAY_STATUS_TEMPLATE = (
+    "https://www.bundesliga.com/de/bundesliga/news/"
+    "voraussichtliche-aufstellungen-spieltag-verletzungen-"
+    "sperren-ubersicht-{matchday}-24397"
+)
+
+_MATCHDAY_STATUS_CACHE = {}
 _STATUS_RESEARCH_STARTED_AT = None
 
 LEGACY_NO_INJURY_TEXTS = {
@@ -1346,6 +1354,249 @@ def _search_query_urls(query, allowed_domains=None, max_urls=12):
     return found
 
 
+
+def _matchday_from_next_match(next_match):
+    if not isinstance(next_match, dict):
+        return None
+
+    match = next_match.get("match") or {}
+    group = match.get("group") or {}
+
+    candidates = (
+        group.get("groupOrderID"),
+        group.get("groupOrderId"),
+        match.get("groupOrderID"),
+        match.get("groupOrderId"),
+    )
+
+    for value in candidates:
+        try:
+            number = int(value)
+            if 1 <= number <= 34:
+                return number
+        except (TypeError, ValueError):
+            continue
+
+    return None
+
+
+def _get_matchday_status_text(matchday):
+    """
+    Lädt die offizielle Bundesliga-Spieltagübersicht genau EINMAL pro Lauf.
+    Die Seite enthält voraussichtliche Aufstellungen sowie 'Es fehlen'
+    mit Verletzungen/Sperren für alle Vereine.
+    """
+    if not matchday:
+        return None, None
+
+    if matchday in _MATCHDAY_STATUS_CACHE:
+        return _MATCHDAY_STATUS_CACHE[matchday]
+
+    url = BUNDESLIGA_MATCHDAY_STATUS_TEMPLATE.format(matchday=matchday)
+
+    try:
+        html = http_get_text(url, timeout=10)
+        page_text = _html_to_visible_text(html)
+        result = (page_text, url)
+        print(
+            f"MATCHDAY-STATUS: Spieltag {matchday} geladen "
+            f"({len(page_text)} Zeichen)."
+        )
+    except Exception as exc:
+        print(
+            f"MATCHDAY-STATUS FEHLER: Spieltag {matchday} "
+            f"konnte nicht geladen werden: {exc}"
+        )
+        result = (None, url)
+
+    _MATCHDAY_STATUS_CACHE[matchday] = result
+    return result
+
+
+def _extract_team_match_section(page_text, club, opponent):
+    """
+    Schneidet möglichst nur die Partie des gesuchten Vereins aus der
+    Ligaübersicht heraus.
+    """
+    if not page_text:
+        return ""
+
+    patterns = []
+    if club and opponent:
+        patterns.extend([
+            rf"{re.escape(club)}\s*-\s*{re.escape(opponent)}",
+            rf"{re.escape(opponent)}\s*-\s*{re.escape(club)}",
+        ])
+
+    start = None
+    for pattern in patterns:
+        match = re.search(pattern, page_text, flags=re.IGNORECASE)
+        if match:
+            start = match.start()
+            break
+
+    if start is None:
+        # Fallback: erster Clubtreffer
+        match = re.search(re.escape(club or ""), page_text, flags=re.IGNORECASE)
+        start = match.start() if match else 0
+
+    # 3500 Zeichen reichen typischerweise für beide Teams einer Partie,
+    # ohne große Teile des nächsten Spiels mitzunehmen.
+    return page_text[start:start + 3500]
+
+
+def _classify_absence_reason(reason):
+    lower = (reason or "").lower()
+
+    suspension_terms = (
+        "sperre", "gesperrt", "rotsperre", "gelbsperre",
+        "gelb-rot", "rote karte", "gelbe karte",
+    )
+    non_injury_terms = (
+        "nicht berücksichtigt",
+        "nicht beruecksichtigt",
+        "belastungssteuerung",
+        "rotation",
+    )
+
+    if any(term in lower for term in suspension_terms):
+        return "suspension"
+
+    if any(term in lower for term in non_injury_terms):
+        return "other"
+
+    return "injury"
+
+
+def get_matchday_status_for_player(player):
+    """
+    V14: Status aus einer einzigen offiziellen Bundesliga-Seite.
+
+    Wenn ein Spieler unter 'Es fehlen' mit Grund aufgeführt wird:
+      - Sperrgrund -> Gesperrt
+      - sonst      -> Verletzt + Grund
+
+    Wenn die aktuelle Spieltagseite erfolgreich geladen wurde und der
+    Spieler NICHT unter 'Es fehlen' steht:
+      - Verletzung -> Fit
+      - Sperre     -> Keine Sperre
+    """
+    player_name = str(player.get("name") or "").strip()
+    club = str(player.get("club") or "").strip()
+    opponent = str(player.get("_opponent") or "").strip()
+    matchday = player.get("_matchday")
+
+    page_text, source_url = _get_matchday_status_text(matchday)
+
+    if not page_text:
+        return {
+            "checked": False,
+            "evidence": "unknown",
+            "injured": False,
+            "injuryDiagnosis": None,
+            "injuryExpectedAbsence": None,
+            "suspended": False,
+            "sourceUrl": None,
+        }
+
+    section = _extract_team_match_section(
+        page_text,
+        club,
+        opponent,
+    )
+
+    parts = player_name.split()
+    surname = parts[-1] if parts else player_name
+
+    # Bundesliga führt in der Aufstellung meist nur den Nachnamen.
+    name_patterns = []
+    if player_name:
+        name_patterns.append(re.escape(player_name))
+    if surname and surname != player_name:
+        name_patterns.append(re.escape(surname))
+
+    reason = None
+
+    for name_pattern in name_patterns:
+        # Abwesenheitslisten haben zuverlässig die Form:
+        # Spielername (Grund)
+        matches = list(re.finditer(
+            rf"\b{name_pattern}\b\s*\(([^)]{{2,180}})\)",
+            section,
+            flags=re.IGNORECASE,
+        ))
+        if matches:
+            reason = re.sub(
+                r"\s+",
+                " ",
+                matches[0].group(1),
+            ).strip()
+            break
+
+    if reason:
+        category = _classify_absence_reason(reason)
+
+        if category == "suspension":
+            print(
+                f"MATCHDAY-STATUS {player_name}: "
+                f"Gesperrt | Grund={reason}"
+            )
+            return {
+                "checked": True,
+                "evidence": "suspended",
+                "injured": False,
+                "injuryDiagnosis": None,
+                "injuryExpectedAbsence": None,
+                "suspended": True,
+                "sourceUrl": source_url,
+            }
+
+        if category == "injury":
+            print(
+                f"MATCHDAY-STATUS {player_name}: "
+                f"Verletzt | Grund={reason}"
+            )
+            return {
+                "checked": True,
+                "evidence": "injured",
+                "injured": True,
+                "injuryDiagnosis": reason,
+                "injuryExpectedAbsence": None,
+                "suspended": False,
+                "sourceUrl": source_url,
+            }
+
+        # Nicht berücksichtigt / Rotation etc. ist keine Verletzung.
+        print(
+            f"MATCHDAY-STATUS {player_name}: "
+            f"kein Verletzungs-/Sperrgrund | Hinweis={reason}"
+        )
+        return {
+            "checked": True,
+            "evidence": "fit",
+            "injured": False,
+            "injuryDiagnosis": None,
+            "injuryExpectedAbsence": None,
+            "suspended": False,
+            "sourceUrl": source_url,
+        }
+
+    # Seite erfolgreich geprüft und Spieler steht nicht in der Ausfallliste.
+    print(
+        f"MATCHDAY-STATUS {player_name}: "
+        "nicht unter 'Es fehlen' -> Fit / Keine Sperre"
+    )
+    return {
+        "checked": True,
+        "evidence": "fit",
+        "injured": False,
+        "injuryDiagnosis": None,
+        "injuryExpectedAbsence": None,
+        "suspended": False,
+        "sourceUrl": source_url,
+    }
+
+
 def discover_official_status_urls(player):
     """
     V13 FAST:
@@ -1904,7 +2155,9 @@ def extract_player_profile_intelligence(player):
             None,
         )
 
-        official_status = get_official_status_for_player(player)
+        # V14: zuerst die ligaweite offizielle Spieltagübersicht.
+        # Das ist ein einziger HTTP-Abruf für alle Kaderspieler.
+        official_status = get_matchday_status_for_player(player)
 
         official_evidence = official_status.get("evidence", "unknown")
         official_injured = bool(official_status.get("injured"))
@@ -1924,9 +2177,9 @@ def extract_player_profile_intelligence(player):
                 injury_expected_absence,
             )
             injury_evidence = "injured"
-        elif official_evidence == "recovered":
+        elif official_evidence in {"recovered", "fit"}:
             injury = "Fit"
-            injury_evidence = "recovered"
+            injury_evidence = official_evidence
         else:
             # Wichtig: "nichts gefunden" ist nicht automatisch "Fit".
             injury = "Status nicht eindeutig verfügbar"
@@ -2253,6 +2506,12 @@ def build_player_intelligence(
     if research_player:
         research_input = dict(player)
         research_input["club"] = club_name
+        research_input["_opponent"] = (
+            next_match.get("opponent")
+            if isinstance(next_match, dict)
+            else None
+        )
+        research_input["_matchday"] = _matchday_from_next_match(next_match)
         public_player = extract_player_profile_intelligence(research_input)
 
         print(
@@ -2500,7 +2759,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V13-Fast-Modus: Einzelspieler-Recherche nur für den aufgelösten "
+        "V14-Matchday-Modus: Einzelspieler-Recherche nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
