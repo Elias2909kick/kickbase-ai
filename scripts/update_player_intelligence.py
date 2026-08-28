@@ -1283,38 +1283,131 @@ def _discover_urls_via_search(player_name, domain, max_urls=8):
     return found
 
 
+def _search_query_urls(query, allowed_domains=None, max_urls=12):
+    """
+    Sucht gezielt nach einem Spieler. Die Suchmaschine dient ausschließlich
+    zur URL-Ermittlung; die Inhalte werden danach von den Zielseiten geladen.
+    """
+    found = []
+    seen = set()
+
+    try:
+        url = SEARCH_URL + "?" + urlencode({"q": query})
+        html = http_get_text(
+            url,
+            headers={"Accept-Language": "de-DE,de;q=0.9,en;q=0.7"},
+            timeout=18,
+        )
+    except Exception as exc:
+        print(f"SEARCH-DEBUG: Suche fehlgeschlagen: {query} -> {exc}")
+        return []
+
+    hrefs = re.findall(
+        r'<a[^>]+href=["\']([^"\']+)["\']',
+        html,
+        flags=re.IGNORECASE,
+    )
+
+    for href in hrefs:
+        target = _decode_duckduckgo_url(href)
+        if not target or target in seen:
+            continue
+
+        try:
+            host = (urlparse(target).hostname or "").lower()
+        except Exception:
+            continue
+
+        if allowed_domains:
+            ok = any(
+                host == domain or host.endswith("." + domain)
+                for domain in allowed_domains
+            )
+            if not ok:
+                continue
+
+        seen.add(target)
+        found.append(target)
+
+        if len(found) >= max_urls:
+            break
+
+    return found
+
+
 def discover_official_status_urls(player):
+    """
+    V12: Recherche pro Spieler statt pro Vereins-Sitemap.
+
+    Reihenfolge:
+      1. bekannte offizielle Club-Seeds
+      2. gezielte Suchabfragen auf der offiziellen Clubdomain
+      3. Sitemap als Ergänzung
+
+    Dadurch kann z.B. Harry Kane auf Bayern-Personal-/Training-Seiten
+    gefunden werden, ohne für ihn einen Hardcode anzulegen.
+    """
     club = str(player.get("club") or "").strip()
     player_name = str(player.get("name") or "").strip()
     domain = OFFICIAL_CLUB_DOMAINS.get(club)
 
-    if not domain:
+    if not domain or not player_name:
         return []
 
     urls = []
     seen = set()
 
+    def add(url):
+        if (
+            url
+            and url not in seen
+            and _official_host_matches(url, domain)
+        ):
+            seen.add(url)
+            urls.append(url)
+
+    # Bereits bekannte offizielle News-Seiten zuerst.
     for url in OFFICIAL_STATUS_SEEDS.get(club, []):
-        if url not in seen:
-            seen.add(url)
-            urls.append(url)
+        add(url)
 
-    # Sitemap zuerst: reproduzierbarer und ohne Suchmaschinenabhängigkeit.
-    for url in _discover_urls_via_sitemaps(domain):
-        if url not in seen:
-            seen.add(url)
-            urls.append(url)
+    year = datetime.now(timezone.utc).year
 
-    # Suchmaschine nur als Fallback / Ergänzung.
-    for url in _discover_urls_via_search(player_name, domain):
-        if url not in seen:
-            seen.add(url)
-            urls.append(url)
+    # Gezielt pro Spieler suchen. Mehrere Formulierungen sind absichtlich
+    # enthalten, weil Clubs "Personal", "Training", "Ausfall", "Reha" usw.
+    # unterschiedlich verwenden.
+    queries = [
+        f'site:{domain} "{player_name}" {year}',
+        f'site:{domain} "{player_name}" Verletzung',
+        f'site:{domain} "{player_name}" verletzt',
+        f'site:{domain} "{player_name}" Training',
+        f'site:{domain} "{player_name}" Personal',
+        f'site:{domain} "{player_name}" Reha',
+        f'site:{domain} "{player_name}" zurück',
+        f'site:{domain} "{player_name}" gesperrt',
+    ]
 
-    # Neuere URLs zuerst; bei Datumsformaten in URLs funktioniert das
-    # meist ausreichend gut und ist besser als zufällige Reihenfolge.
-    urls.sort(reverse=True)
-    return urls[:45]
+    for query in queries:
+        for url in _search_query_urls(
+            query,
+            allowed_domains=[domain],
+            max_urls=8,
+        ):
+            add(url)
+
+        if len(urls) >= 24:
+            break
+
+    # Sitemap nur noch als Ergänzung, nicht mehr als Hauptmechanismus.
+    if len(urls) < 8:
+        for url in _discover_urls_via_sitemaps(domain, max_urls=20):
+            add(url)
+
+    print(
+        f"STATUS-DISCOVERY {player_name}: "
+        f"{len(urls)} offizielle Kandidaten für {club}."
+    )
+
+    return urls[:30]
 
 
 def _html_to_visible_text(html):
@@ -1511,7 +1604,7 @@ def get_official_status_for_player(player):
     urls = discover_official_status_urls(player)
 
     result = {
-        "checked": bool(urls),
+        "checked": False,
         "evidence": "unknown",
         "injured": False,
         "injuryDiagnosis": None,
@@ -1527,6 +1620,9 @@ def get_official_status_for_player(player):
         )
         return result
 
+    for debug_url in urls[:5]:
+        print(f"STATUS-URL {player_name}: {debug_url}")
+
     # Nur eine begrenzte Zahl Seiten laden, damit 17/18 Spieler
     # den Workflow nicht unnötig verlangsamen.
     pages_checked = 0
@@ -1539,6 +1635,7 @@ def get_official_status_for_player(player):
             html = http_get_text(url, timeout=15)
             page_text = _html_to_visible_text(html)
             pages_checked += 1
+            result["checked"] = True
         except Exception:
             continue
 
