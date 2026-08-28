@@ -993,6 +993,89 @@ def _localized_profile_urls(source_url):
     return urls
 
 
+
+def _clean_detail_text(value):
+    """Bereinigt kurze Diagnose-/Ausfallzeit-Texte für die JSON-Ausgabe."""
+    if not value:
+        return None
+
+    value = re.sub(r"\s+", " ", str(value)).strip(" \t\r\n:;,.|-")
+    if not value:
+        return None
+
+    if len(value) > 120:
+        value = value[:120].rsplit(" ", 1)[0].strip()
+
+    return value or None
+
+
+def _extract_current_injury_details(text):
+    """
+    Extrahiert nur ausdrücklich aktuelle Diagnose-/Ausfallzeit-Angaben.
+
+    Wichtig:
+    - Es werden keine Diagnosen oder Zeiträume erfunden.
+    - Ohne explizite Angabe bleiben Diagnose/Ausfallzeit None.
+    """
+    if not text:
+        return None, None
+
+    compact = re.sub(r"\s+", " ", text).strip()
+
+    diagnosis = None
+    expected_absence = None
+
+    diagnosis_patterns = (
+        r"\bDiagnose\s*[:\-]\s*([^.;|]{3,120})",
+        r"\bVerletzung\s*[:\-]\s*([^.;|]{3,120})",
+        r"\bverletzt\s+(?:wegen|aufgrund|mit)\s+([^.;|]{3,120})",
+        r"\bangeschlagen\s+(?:wegen|aufgrund|mit)\s+([^.;|]{3,120})",
+    )
+
+    for pattern in diagnosis_patterns:
+        match = re.search(pattern, compact, flags=re.IGNORECASE)
+        if match:
+            diagnosis = _clean_detail_text(match.group(1))
+            if diagnosis:
+                break
+
+    absence_patterns = (
+        r"\bAusfallzeit\s*[:\-]\s*([^.;|]{2,100})",
+        r"\bvoraussichtlich\s+(?:bis|für)\s+([^.;|]{2,100})",
+        r"\bfehlt\s+voraussichtlich\s+([^.;|]{2,100})",
+        r"\bRückkehr\s*[:\-]\s*([^.;|]{2,100})",
+        r"\bComeback\s*[:\-]\s*([^.;|]{2,100})",
+    )
+
+    for pattern in absence_patterns:
+        match = re.search(pattern, compact, flags=re.IGNORECASE)
+        if match:
+            expected_absence = _clean_detail_text(match.group(1))
+            if expected_absence:
+                break
+
+    return diagnosis, expected_absence
+
+
+def _format_injury_status(is_injured, diagnosis=None, expected_absence=None):
+    if not is_injured:
+        return "Fit"
+
+    parts = ["Verletzt"]
+
+    if diagnosis:
+        parts.append(diagnosis)
+    else:
+        parts.append("Diagnose nicht öffentlich verfügbar")
+
+    if expected_absence:
+        parts.append(f"voraussichtlich {expected_absence}")
+    else:
+        parts.append("Ausfallzeit nicht öffentlich verfügbar")
+
+    return " · ".join(parts)
+
+
 def extract_player_profile_intelligence(player):
     """
     Recherchiert einen einzelnen Spieler direkt über sein
@@ -1016,6 +1099,8 @@ def extract_player_profile_intelligence(player):
             "form": "Noch nicht recherchiert",
             "starting": "Noch nicht recherchiert",
             "injury": "Noch nicht recherchiert",
+            "injuryDiagnosis": None,
+            "injuryExpectedAbsence": None,
             "suspension": "Noch nicht recherchiert",
             "lastMatch": None,
         }
@@ -1154,9 +1239,6 @@ def extract_player_profile_intelligence(player):
             r"\bderzeitige\s+sperre\b",
         )
 
-        injury = "Keine Verletzungsmeldung auf dem Profil gefunden"
-        suspension = "Keine Sperrmeldung auf dem Profil gefunden"
-
         injury_hit = next(
             (pattern for pattern in injury_patterns if re.search(pattern, lower)),
             None,
@@ -1166,11 +1248,21 @@ def extract_player_profile_intelligence(player):
             None,
         )
 
-        if injury_hit:
-            injury = "Hinweis auf aktuelle Verletzung"
+        injury_diagnosis = None
+        injury_expected_absence = None
 
-        if suspension_hit:
-            suspension = "Hinweis auf aktuelle Sperre"
+        if injury_hit:
+            injury_diagnosis, injury_expected_absence = (
+                _extract_current_injury_details(current_profile_text)
+            )
+
+        injury = _format_injury_status(
+            bool(injury_hit),
+            injury_diagnosis,
+            injury_expected_absence,
+        )
+
+        suspension = "Gesperrt" if suspension_hit else "Keine Sperre"
 
         return {
             "available": True,
@@ -1183,6 +1275,8 @@ def extract_player_profile_intelligence(player):
             "form": form,
             "starting": starting,
             "injury": injury,
+            "injuryDiagnosis": injury_diagnosis,
+            "injuryExpectedAbsence": injury_expected_absence,
             "suspension": suspension,
             "lastMatch": last_match,
         }
@@ -1204,6 +1298,8 @@ def extract_player_profile_intelligence(player):
             "form": "Noch nicht recherchiert",
             "starting": "Noch nicht recherchiert",
             "injury": "Noch nicht recherchiert",
+            "injuryDiagnosis": None,
+            "injuryExpectedAbsence": None,
             "suspension": "Noch nicht recherchiert",
             "lastMatch": None,
         }
@@ -1477,6 +1573,14 @@ def build_player_intelligence(
         starting = public_player.get("starting", old_player.get("starting", "Noch nicht recherchiert"))
         form = public_player.get("form", old_player.get("form", "Noch nicht recherchiert"))
         injury = public_player.get("injury", old_player.get("injury", "Noch nicht recherchiert"))
+        injury_diagnosis = public_player.get(
+            "injuryDiagnosis",
+            old_player.get("injuryDiagnosis"),
+        )
+        injury_expected_absence = public_player.get(
+            "injuryExpectedAbsence",
+            old_player.get("injuryExpectedAbsence"),
+        )
         suspension = public_player.get("suspension", old_player.get("suspension", "Noch nicht recherchiert"))
         appearances = public_player.get("appearances", old_player.get("appearances"))
         goals = public_player.get("goals", old_player.get("goals"))
@@ -1492,6 +1596,8 @@ def build_player_intelligence(
         starting = old_player.get("starting", "Noch nicht recherchiert")
         form = old_player.get("form", "Noch nicht recherchiert")
         injury = old_player.get("injury", "Noch nicht recherchiert")
+        injury_diagnosis = old_player.get("injuryDiagnosis")
+        injury_expected_absence = old_player.get("injuryExpectedAbsence")
         suspension = old_player.get("suspension", "Noch nicht recherchiert")
         appearances = old_player.get("appearances")
         goals = old_player.get("goals")
@@ -1533,6 +1639,8 @@ def build_player_intelligence(
         "opponent": opponent,
         "homeAway": home_away,
         "injury": injury,
+        "injuryDiagnosis": injury_diagnosis,
+        "injuryExpectedAbsence": injury_expected_absence,
         "suspension": suspension,
         "recommendation": recommendation,
         "lastUpdated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
