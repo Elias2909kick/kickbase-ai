@@ -1062,8 +1062,8 @@ def build_intelligence(
 
     return {
         "average": None,
-        "starting": starting,
-        "form": form,
+        "starting": "Noch nicht recherchiert",
+        "form": "Noch nicht recherchiert",
         "opponent": opponent,
         "homeAway": home_away,
         "injury": (
@@ -1706,6 +1706,7 @@ def get_matchday_status_for_player(player):
             "injuryExpectedAbsence": None,
             "suspended": False,
             "sourceUrl": source_url,
+            "lineupProbability": lineup_probability,
         }
 
     # Seite erfolgreich geprüft und Spieler steht nicht in der Ausfallliste.
