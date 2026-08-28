@@ -2334,6 +2334,16 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/fritz-gagzow"
         },
         {
+          "id": "felix-uduokhai",
+          "name": "Felix Uduokhai",
+          "age": null,
+          "number": 2,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/felix-uduokhai"
+        },
+        {
           "id": "andrik-markgraf",
           "name": "Andrik Markgraf",
           "age": null,
@@ -2522,16 +2532,6 @@
           "photo": null,
           "injury": null,
           "sourceUrl": "https://www.bundesliga.com/de/spieler/duje-sliskovic"
-        },
-        {
-          "id": "tim-blaszczak",
-          "name": "Tim Blaszczak",
-          "age": null,
-          "number": 44,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/tim-blaszczak"
         },
         {
           "id": "linus-guther",
@@ -3360,16 +3360,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/marius-bulter"
         },
         {
-          "id": "youssoupha-niang",
-          "name": "Youssoupha Niang",
-          "age": null,
-          "number": 38,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/youssoupha-niang"
-        },
-        {
           "id": "imad-rondic",
           "name": "Imad Rondić",
           "age": null,
@@ -3380,7 +3370,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/imad-rondic"
         }
       ],
-      "playerCount": 32,
+      "playerCount": 31,
       "nextMatch": {
         "opponent": "TSG Hoffenheim",
         "homeAway": "Heim",
@@ -4414,16 +4404,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/patrik-schick"
         },
         {
-          "id": "ernest-poku",
-          "name": "Ernest Poku",
-          "age": null,
-          "number": 19,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/ernest-poku"
-        },
-        {
           "id": "victor-boniface",
           "name": "Victor Boniface",
           "age": null,
@@ -4474,7 +4454,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/eliesse-ben-seghir"
         }
       ],
-      "playerCount": 30,
+      "playerCount": 29,
       "nextMatch": {
         "opponent": "SV 07 Elversberg",
         "homeAway": "Auswärts",
@@ -6124,6 +6104,16 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/jeffrey-gouweleeuw"
         },
         {
+          "id": "youngwoo-seol",
+          "name": "Youngwoo Seol",
+          "age": null,
+          "number": 7,
+          "position": "Verteidigung",
+          "photo": null,
+          "injury": null,
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/youngwoo-seol"
+        },
+        {
           "id": "hennes-behrens",
           "name": "Hennes Behrens",
           "age": null,
@@ -6354,7 +6344,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/uchenna-ogundu"
         }
       ],
-      "playerCount": 29,
+      "playerCount": 30,
       "nextMatch": {
         "opponent": "FC Schalke 04",
         "homeAway": "Heim",
@@ -6513,7 +6503,7 @@
         },
         {
           "id": "tomas-kalas",
-          "name": "Tomas Kalas",
+          "name": "Tomáš Kalas",
           "age": null,
           "number": 26,
           "position": "Verteidigung",
@@ -6820,7 +6810,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -6871,7 +6861,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -6922,7 +6912,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -6973,7 +6963,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7024,7 +7014,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7075,7 +7065,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7126,7 +7116,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7177,7 +7167,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7228,7 +7218,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7279,7 +7269,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7330,7 +7320,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7381,7 +7371,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7432,7 +7422,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7483,7 +7473,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7534,7 +7524,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7585,7 +7575,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7636,7 +7626,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7687,7 +7677,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7738,7 +7728,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7789,7 +7779,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7840,7 +7830,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7891,7 +7881,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7942,7 +7932,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -7993,7 +7983,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8044,7 +8034,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8095,7 +8085,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8146,7 +8136,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8197,7 +8187,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8248,7 +8238,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8299,7 +8289,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8350,7 +8340,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8401,7 +8391,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8452,7 +8442,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8503,7 +8493,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8554,7 +8544,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8605,7 +8595,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8656,7 +8646,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8707,7 +8697,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8758,7 +8748,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8809,7 +8799,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8860,7 +8850,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8911,7 +8901,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -8962,7 +8952,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9013,7 +9003,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9064,7 +9054,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9115,7 +9105,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9166,7 +9156,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9217,7 +9207,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9268,7 +9258,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9319,7 +9309,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9370,7 +9360,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9421,7 +9411,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9472,7 +9462,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9523,7 +9513,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9574,7 +9564,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9625,7 +9615,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9676,7 +9666,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9727,7 +9717,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9778,7 +9768,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9829,7 +9819,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9880,7 +9870,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9931,7 +9921,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -9982,7 +9972,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10033,7 +10023,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10084,7 +10074,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10135,7 +10125,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10186,7 +10176,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10237,7 +10227,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10288,7 +10278,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10339,7 +10329,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10390,7 +10380,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10441,7 +10431,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10492,7 +10482,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10543,7 +10533,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10594,7 +10584,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10645,7 +10635,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10696,7 +10686,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10747,7 +10737,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10798,7 +10788,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10849,7 +10839,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10900,7 +10890,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -10951,7 +10941,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11002,7 +10992,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11053,7 +11043,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11104,7 +11094,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11155,7 +11145,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11206,7 +11196,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11257,7 +11247,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11308,7 +11298,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11359,7 +11349,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11410,7 +11400,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11461,7 +11451,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11512,7 +11502,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11563,7 +11553,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11614,7 +11604,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11665,7 +11655,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11716,7 +11706,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11767,7 +11757,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11818,7 +11808,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11869,7 +11859,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11920,7 +11910,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -11971,7 +11961,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12022,7 +12012,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12073,7 +12063,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12124,7 +12114,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12175,7 +12165,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12226,7 +12216,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12277,7 +12267,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12328,7 +12318,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12379,7 +12369,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12430,7 +12420,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12481,7 +12471,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12532,7 +12522,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12583,7 +12573,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12634,7 +12624,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12685,7 +12675,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12736,7 +12726,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12787,7 +12777,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12838,7 +12828,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12889,7 +12879,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12940,7 +12930,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -12991,7 +12981,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13042,7 +13032,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13093,7 +13083,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13144,7 +13134,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13195,7 +13185,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13246,7 +13236,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13297,7 +13287,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13348,7 +13338,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13399,7 +13389,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13450,7 +13440,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13501,7 +13491,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13552,7 +13542,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13603,7 +13593,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13654,7 +13644,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Hinweis auf: sperre",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13705,7 +13695,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13756,7 +13746,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13807,7 +13797,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13858,7 +13848,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13909,7 +13899,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -13960,7 +13950,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14011,7 +14001,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14062,7 +14052,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14113,7 +14103,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14164,7 +14154,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14215,7 +14205,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14266,7 +14256,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14317,7 +14307,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14368,7 +14358,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14419,7 +14409,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14470,7 +14460,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14521,7 +14511,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14572,7 +14562,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14623,7 +14613,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14674,7 +14664,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14725,7 +14715,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14776,7 +14766,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14827,7 +14817,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14878,7 +14868,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14929,7 +14919,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -14980,7 +14970,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15031,7 +15021,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15082,7 +15072,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15133,7 +15123,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15184,7 +15174,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15235,7 +15225,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15286,7 +15276,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15337,7 +15327,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15388,7 +15378,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15439,7 +15429,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15490,7 +15480,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15541,7 +15531,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15592,7 +15582,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15643,7 +15633,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15694,7 +15684,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15745,7 +15735,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15796,7 +15786,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15847,7 +15837,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15898,7 +15888,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -15949,7 +15939,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16000,7 +15990,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16051,7 +16041,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16102,7 +16092,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16153,7 +16143,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16204,7 +16194,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16255,7 +16245,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16306,7 +16296,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16357,7 +16347,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16408,7 +16398,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16459,7 +16449,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16510,7 +16500,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16523,6 +16513,57 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/fritz-gagzow"
+        },
+        {
+          "name": "OpenLigaDB",
+          "url": "https://www.openligadb.de/"
+        }
+      ],
+      "dataStatus": {
+        "kickbaseAverage": "nicht verfügbar",
+        "publicStatsSource": "erreichbar",
+        "playerProfileSource": "nicht recherchiert",
+        "playerValues": "nicht erfunden",
+        "researchMode": "bestehende_daten_beibehalten"
+      }
+    },
+    "felix-uduokhai": {
+      "id": "felix-uduokhai",
+      "name": "Felix Uduokhai",
+      "club": "1. FC Union Berlin",
+      "position": "Verteidigung",
+      "number": 2,
+      "sourceUrl": "https://www.bundesliga.com/de/spieler/felix-uduokhai",
+      "average": null,
+      "starting": "Noch nicht recherchiert",
+      "form": "Noch nicht recherchiert",
+      "footballRating": null,
+      "appearances": null,
+      "starts": null,
+      "minutes": null,
+      "goals": null,
+      "assists": null,
+      "goalsAgainst": null,
+      "yellowCards": null,
+      "lastMatch": null,
+      "opponent": "Eintracht Frankfurt",
+      "homeAway": "Heim",
+      "injury": "Noch nicht recherchiert",
+      "suspension": "Noch nicht recherchiert",
+      "recommendation": "Nächstes Spiel vorhanden",
+      "lastUpdated": "2026-08-28",
+      "sources": [
+        {
+          "name": "Bundesliga.com",
+          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
+        },
+        {
+          "name": "Bundesliga.com Statistik",
+          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
+        },
+        {
+          "name": "Bundesliga.com Spielerprofil",
+          "url": "https://www.bundesliga.com/de/spieler/felix-uduokhai"
         },
         {
           "name": "OpenLigaDB",
@@ -16561,7 +16602,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16612,7 +16653,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16663,7 +16704,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16714,7 +16755,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16765,7 +16806,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16816,7 +16857,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16867,7 +16908,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16918,7 +16959,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -16969,7 +17010,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17020,7 +17061,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17071,7 +17112,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17122,7 +17163,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17173,7 +17214,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17224,7 +17265,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17275,7 +17316,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17326,7 +17367,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17377,7 +17418,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17428,7 +17469,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17479,7 +17520,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17492,57 +17533,6 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/duje-sliskovic"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
-    "tim-blaszczak": {
-      "id": "tim-blaszczak",
-      "name": "Tim Blaszczak",
-      "club": "1. FC Union Berlin",
-      "position": "Mittelfeld",
-      "number": 44,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/tim-blaszczak",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "Eintracht Frankfurt",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "suspension": "Noch nicht recherchiert",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/tim-blaszczak"
         },
         {
           "name": "OpenLigaDB",
@@ -17581,7 +17571,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17632,7 +17622,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17683,7 +17673,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17734,7 +17724,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17785,7 +17775,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17836,7 +17826,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17887,7 +17877,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17938,7 +17928,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -17989,7 +17979,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18040,7 +18030,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18091,7 +18081,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18142,7 +18132,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18193,7 +18183,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18244,7 +18234,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18295,7 +18285,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18346,7 +18336,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18397,7 +18387,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18448,7 +18438,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18499,7 +18489,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18550,7 +18540,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18601,7 +18591,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18652,7 +18642,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18703,7 +18693,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18754,7 +18744,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18805,7 +18795,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18856,7 +18846,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18907,7 +18897,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -18958,7 +18948,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19009,7 +18999,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19060,7 +19050,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19111,7 +19101,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19162,7 +19152,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19213,7 +19203,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19264,7 +19254,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19315,7 +19305,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19366,7 +19356,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19417,7 +19407,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19468,7 +19458,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19519,7 +19509,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19570,7 +19560,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19621,7 +19611,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19672,7 +19662,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19723,7 +19713,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19774,7 +19764,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19825,7 +19815,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19876,7 +19866,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19927,7 +19917,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -19978,7 +19968,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20029,7 +20019,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20080,7 +20070,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20131,7 +20121,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20182,7 +20172,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20233,7 +20223,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20284,7 +20274,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20335,7 +20325,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20386,7 +20376,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20437,7 +20427,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20488,7 +20478,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20539,7 +20529,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20590,7 +20580,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20641,7 +20631,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20692,7 +20682,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20743,7 +20733,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20794,7 +20784,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20845,7 +20835,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20896,7 +20886,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20947,7 +20937,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -20998,7 +20988,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21049,7 +21039,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21062,57 +21052,6 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/marius-bulter"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
-    "youssoupha-niang": {
-      "id": "youssoupha-niang",
-      "name": "Youssoupha Niang",
-      "club": "1. FC Köln",
-      "position": "Angriff",
-      "number": 38,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/youssoupha-niang",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "TSG Hoffenheim",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "suspension": "Noch nicht recherchiert",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/youssoupha-niang"
         },
         {
           "name": "OpenLigaDB",
@@ -21151,7 +21090,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21202,7 +21141,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21253,7 +21192,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21304,7 +21243,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21355,7 +21294,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21406,7 +21345,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21457,7 +21396,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21508,7 +21447,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21559,7 +21498,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21610,7 +21549,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21661,7 +21600,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21712,7 +21651,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21763,7 +21702,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21814,7 +21753,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21865,7 +21804,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21916,7 +21855,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -21967,7 +21906,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22018,7 +21957,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22069,7 +22008,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22120,7 +22059,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22171,7 +22110,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22222,7 +22161,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22273,7 +22212,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22324,7 +22263,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22375,7 +22314,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22426,7 +22365,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22477,7 +22416,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22528,7 +22467,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22579,7 +22518,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22630,7 +22569,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22681,7 +22620,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22732,7 +22671,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22783,7 +22722,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22834,7 +22773,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22885,7 +22824,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22936,7 +22875,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -22987,7 +22926,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23038,7 +22977,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23089,7 +23028,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23140,7 +23079,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23191,7 +23130,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23242,7 +23181,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23293,7 +23232,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23344,7 +23283,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23395,7 +23334,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23446,7 +23385,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23497,7 +23436,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23548,7 +23487,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23599,7 +23538,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23650,7 +23589,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23701,7 +23640,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23752,7 +23691,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23803,7 +23742,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23854,7 +23793,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23905,7 +23844,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -23956,7 +23895,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24007,7 +23946,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24058,7 +23997,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24109,7 +24048,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24160,7 +24099,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24211,7 +24150,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24262,7 +24201,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24313,7 +24252,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24364,7 +24303,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24415,7 +24354,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24466,7 +24405,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24517,7 +24456,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24568,7 +24507,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24619,7 +24558,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24670,7 +24609,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24721,7 +24660,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24772,7 +24711,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24823,7 +24762,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24874,7 +24813,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24925,7 +24864,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -24976,7 +24915,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25027,7 +24966,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25078,7 +25017,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25129,7 +25068,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25180,7 +25119,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25231,7 +25170,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25282,7 +25221,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25333,7 +25272,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25384,7 +25323,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25397,57 +25336,6 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/patrik-schick"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
-    "ernest-poku": {
-      "id": "ernest-poku",
-      "name": "Ernest Poku",
-      "club": "Bayer 04 Leverkusen",
-      "position": "Angriff",
-      "number": 19,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/ernest-poku",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "SV 07 Elversberg",
-      "homeAway": "Auswärts",
-      "injury": "Noch nicht recherchiert",
-      "suspension": "Noch nicht recherchiert",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/ernest-poku"
         },
         {
           "name": "OpenLigaDB",
@@ -25486,7 +25374,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25537,7 +25425,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25588,7 +25476,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25639,7 +25527,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25690,7 +25578,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25741,7 +25629,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25792,7 +25680,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25843,7 +25731,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25894,7 +25782,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25945,7 +25833,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -25996,7 +25884,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26047,7 +25935,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26098,7 +25986,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26149,7 +26037,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26200,7 +26088,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26251,7 +26139,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26302,7 +26190,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26353,7 +26241,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26404,7 +26292,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26455,7 +26343,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26506,7 +26394,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26557,7 +26445,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26608,7 +26496,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26659,7 +26547,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26710,7 +26598,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26761,7 +26649,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26812,7 +26700,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26863,7 +26751,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26914,7 +26802,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -26965,7 +26853,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27016,7 +26904,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27067,7 +26955,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27118,7 +27006,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27169,7 +27057,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27220,7 +27108,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27271,7 +27159,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27322,7 +27210,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27373,7 +27261,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27424,7 +27312,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27475,7 +27363,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27526,7 +27414,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27577,7 +27465,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27628,7 +27516,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27679,7 +27567,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27730,7 +27618,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27781,7 +27669,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27832,7 +27720,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27883,7 +27771,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27934,7 +27822,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -27985,7 +27873,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28036,7 +27924,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28087,7 +27975,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28138,7 +28026,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28189,7 +28077,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28240,7 +28128,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28291,7 +28179,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28342,7 +28230,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28393,7 +28281,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28444,7 +28332,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28495,7 +28383,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28546,7 +28434,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28597,7 +28485,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28648,7 +28536,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28699,7 +28587,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28750,7 +28638,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28801,7 +28689,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28852,7 +28740,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28903,7 +28791,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -28954,7 +28842,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29005,7 +28893,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29056,7 +28944,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29107,7 +28995,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29158,7 +29046,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29209,7 +29097,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29260,7 +29148,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29311,7 +29199,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29362,7 +29250,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29413,7 +29301,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29464,7 +29352,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29515,7 +29403,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29566,7 +29454,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29617,7 +29505,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29668,7 +29556,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29719,7 +29607,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29770,7 +29658,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29821,7 +29709,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29872,7 +29760,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29923,7 +29811,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -29974,7 +29862,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30025,7 +29913,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30076,7 +29964,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30127,7 +30015,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30178,7 +30066,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30229,7 +30117,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30280,7 +30168,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30331,7 +30219,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30382,7 +30270,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30433,7 +30321,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30484,7 +30372,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30535,7 +30423,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30586,7 +30474,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30637,7 +30525,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30688,7 +30576,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30739,7 +30627,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30790,7 +30678,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30841,7 +30729,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30892,7 +30780,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30943,7 +30831,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -30994,7 +30882,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31045,7 +30933,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31096,7 +30984,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31147,7 +31035,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31198,7 +31086,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31249,7 +31137,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31300,7 +31188,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31351,7 +31239,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31402,7 +31290,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31453,7 +31341,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31504,7 +31392,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31555,7 +31443,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31606,7 +31494,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31657,7 +31545,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31708,7 +31596,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31759,7 +31647,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31810,7 +31698,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31861,7 +31749,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31912,7 +31800,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -31963,7 +31851,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32014,7 +31902,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32065,7 +31953,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32116,7 +32004,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32167,7 +32055,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32218,7 +32106,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32269,7 +32157,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32320,7 +32208,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32371,7 +32259,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32384,6 +32272,57 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/jeffrey-gouweleeuw"
+        },
+        {
+          "name": "OpenLigaDB",
+          "url": "https://www.openligadb.de/"
+        }
+      ],
+      "dataStatus": {
+        "kickbaseAverage": "nicht verfügbar",
+        "publicStatsSource": "erreichbar",
+        "playerProfileSource": "nicht recherchiert",
+        "playerValues": "nicht erfunden",
+        "researchMode": "bestehende_daten_beibehalten"
+      }
+    },
+    "youngwoo-seol": {
+      "id": "youngwoo-seol",
+      "name": "Youngwoo Seol",
+      "club": "FC Augsburg",
+      "position": "Verteidigung",
+      "number": 7,
+      "sourceUrl": "https://www.bundesliga.com/de/spieler/youngwoo-seol",
+      "average": null,
+      "starting": "Noch nicht recherchiert",
+      "form": "Noch nicht recherchiert",
+      "footballRating": null,
+      "appearances": null,
+      "starts": null,
+      "minutes": null,
+      "goals": null,
+      "assists": null,
+      "goalsAgainst": null,
+      "yellowCards": null,
+      "lastMatch": null,
+      "opponent": "FC Schalke 04",
+      "homeAway": "Heim",
+      "injury": "Noch nicht recherchiert",
+      "suspension": "Noch nicht recherchiert",
+      "recommendation": "Nächstes Spiel vorhanden",
+      "lastUpdated": "2026-08-28",
+      "sources": [
+        {
+          "name": "Bundesliga.com",
+          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
+        },
+        {
+          "name": "Bundesliga.com Statistik",
+          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
+        },
+        {
+          "name": "Bundesliga.com Spielerprofil",
+          "url": "https://www.bundesliga.com/de/spieler/youngwoo-seol"
         },
         {
           "name": "OpenLigaDB",
@@ -32422,7 +32361,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32473,7 +32412,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32524,7 +32463,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32575,7 +32514,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32626,7 +32565,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32677,7 +32616,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32728,7 +32667,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32779,7 +32718,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32830,7 +32769,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32881,7 +32820,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32932,7 +32871,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -32983,7 +32922,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33034,7 +32973,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33085,7 +33024,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33136,7 +33075,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33187,7 +33126,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33238,7 +33177,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33289,7 +33228,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33340,7 +33279,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33391,7 +33330,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33442,7 +33381,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33493,7 +33432,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33544,7 +33483,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33595,7 +33534,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33646,7 +33585,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33697,7 +33636,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33748,7 +33687,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33799,7 +33738,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33850,7 +33789,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33901,7 +33840,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -33952,7 +33891,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34003,7 +33942,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34032,7 +33971,7 @@
     },
     "tomas-kalas": {
       "id": "tomas-kalas",
-      "name": "Tomas Kalas",
+      "name": "Tomáš Kalas",
       "club": "FC Schalke 04",
       "position": "Verteidigung",
       "number": 26,
@@ -34054,7 +33993,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34105,7 +34044,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34156,7 +34095,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34207,7 +34146,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34258,7 +34197,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34309,7 +34248,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34360,7 +34299,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34411,7 +34350,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34462,7 +34401,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34513,7 +34452,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34564,7 +34503,7 @@
       "injury": "Keine Verletzungsmeldung auf dem Profil gefunden",
       "suspension": "Keine Sperrmeldung auf dem Profil gefunden",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34615,7 +34554,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34666,7 +34605,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34717,7 +34656,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34768,7 +34707,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34819,7 +34758,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34870,7 +34809,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34921,7 +34860,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -34972,7 +34911,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -35023,7 +34962,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -35074,7 +35013,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -35125,7 +35064,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -35176,7 +35115,7 @@
       "injury": "Noch nicht recherchiert",
       "suspension": "Noch nicht recherchiert",
       "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-27",
+      "lastUpdated": "2026-08-28",
       "sources": [
         {
           "name": "Bundesliga.com",
@@ -35204,11 +35143,11 @@
       }
     }
   },
-  "lastUpdated": "2026-08-27",
+  "lastUpdated": "2026-08-28",
   "season": "2026/27",
   "league": "1. Bundesliga",
   "teamCount": 18,
-  "playerCount": 557,
+  "playerCount": 556,
   "architecture": {
     "kickbaseSource": "nicht verwendet",
     "teamsAndPlayers": "Bundesliga.com",
