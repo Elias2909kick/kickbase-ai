@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from html.parser import HTMLParser
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, parse_qs, unquote, urlencode
 
 # ============================================================
 # KONFIGURATION
@@ -82,48 +82,63 @@ POSITION_MAP = {
 
 
 # ============================================================
-# OFFIZIELLE PERSONAL-/STATUSQUELLEN
+# OFFIZIELLE PERSONAL-/STATUSQUELLEN – GENERISCH
 # ============================================================
 #
-# Diese Seiten werden zusätzlich zum Bundesliga-Spielerprofil geprüft.
-# Wichtig: Es werden nur offizielle Vereinsseiten verwendet.
+# Ziel:
+# - für JEDEN Kaderspieler dieselbe Logik
+# - nur offizielle Vereinsdomains als Statusquelle
+# - Sitemap / News-Seiten zuerst, Suchmaschine nur als Link-Fallback
+# - keine spielerspezifischen Hardcodes
 #
-# Für Werder sind hier die aktuellsten offiziellen Personal-Updates
-# hinterlegt. Weitere Clubs können später nach demselben Muster ergänzt
-# werden, ohne die übrige Player-Intelligence zu verändern.
-OFFICIAL_STATUS_PAGES = {
+# Bereits bestätigte Verletzungen aus der vorhandenen JSON werden solange
+# beibehalten, bis eine neuere belastbare Rückkehr-/Fit-Meldung gefunden wird.
+
+OFFICIAL_CLUB_DOMAINS = {
+    "FC Augsburg": "fcaugsburg.de",
+    "1. FC Union Berlin": "fc-union-berlin.de",
+    "SV Werder Bremen": "werder.de",
+    "Borussia Dortmund": "bvb.de",
+    "SV 07 Elversberg": "sv07elversberg.de",
+    "Eintracht Frankfurt": "eintracht.de",
+    "SC Freiburg": "scfreiburg.com",
+    "Hamburger SV": "hsv.de",
+    "TSG Hoffenheim": "tsg-hoffenheim.de",
+    "1. FC Köln": "fc.de",
+    "RB Leipzig": "rbleipzig.com",
+    "Bayer 04 Leverkusen": "bayer04.de",
+    "1. FSV Mainz 05": "mainz05.de",
+    "Borussia Mönchengladbach": "borussia.de",
+    "FC Bayern München": "fcbayern.com",
+    "SC Paderborn 07": "scp07.de",
+    "FC Schalke 04": "schalke04.de",
+    "VfB Stuttgart": "vfb.de",
+}
+
+# Bekannte offizielle Seiten dienen nur als zusätzliche Seeds.
+# Keine dieser Seiten ist spielerspezifisch im Auswertungsalgorithmus.
+OFFICIAL_STATUS_SEEDS = {
     "SV Werder Bremen": [
         "https://www.werder.de/news/maenner/2026-2027/personal-update-260826",
         "https://www.werder.de/news/maenner/2026-2027/personal-lueneburg-20082026",
-        "https://www.werder.de/news/maenner/2025-2026/personal-topp-26032026",
     ],
 }
 
+STATUS_URL_KEYWORDS = (
+    "personal",
+    "verletz",
+    "reha",
+    "training",
+    "aufstellung",
+    "kader",
+    "vorbericht",
+    "presse",
+    "spieltag",
+    "team",
+    "news",
+)
 
-# Bestätigte offizielle Status-Fallbacks.
-#
-# Diese Einträge werden NUR verwendet, wenn:
-# 1. die normale offizielle Vereinsseiten-Auswertung keinen Treffer liefert und
-# 2. auf den geprüften neueren Vereinsseiten keine explizite Rückkehr/Genesung
-#    für den Spieler gefunden wurde.
-#
-# Damit verhindert ein HTML-/Parser-Problem, dass eine offiziell bestätigte
-# Langzeitverletzung fälschlich als "Fit" gespeichert wird.
-CONFIRMED_STATUS_FALLBACKS = {
-    "keke-topp": {
-        "club": "SV Werder Bremen",
-        "injured": True,
-        "injuryDiagnosis": "Kreuzbandriss (linkes Knie)",
-        "injuryExpectedAbsence": (
-            "weiterhin Reha; Rückkehr nicht öffentlich terminiert"
-        ),
-        "sourceUrl": (
-            "https://www.werder.de/news/maenner/2026-2027/"
-            "personal-update-260826"
-        ),
-        "confirmedAt": "2026-08-26",
-    },
-}
+SEARCH_URL = "https://html.duckduckgo.com/html/"
 
 LEGACY_NO_INJURY_TEXTS = {
     "keine verletzungsmeldung auf dem profil gefunden",
@@ -1094,6 +1109,214 @@ def _localized_profile_urls(source_url):
 
 
 
+
+def _official_host_matches(url, domain):
+    try:
+        host = (urlparse(url).hostname or "").lower()
+    except Exception:
+        return False
+
+    domain = (domain or "").lower()
+    return bool(host and domain and (host == domain or host.endswith("." + domain)))
+
+
+def _extract_xml_locs(xml_text):
+    if not xml_text:
+        return []
+
+    return [
+        match.strip()
+        for match in re.findall(
+            r"<loc>\s*(.*?)\s*</loc>",
+            xml_text,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+        if match.strip()
+    ]
+
+
+def _candidate_sitemap_urls(domain):
+    base = f"https://{domain}"
+    return [
+        f"{base}/sitemap.xml",
+        f"{base}/sitemap_index.xml",
+        f"{base}/sitemap-index.xml",
+        f"{base}/news-sitemap.xml",
+        f"{base}/sitemap-news.xml",
+    ]
+
+
+def _url_looks_status_relevant(url):
+    lower = (url or "").lower()
+    year = str(datetime.now(timezone.utc).year)
+
+    keyword_hit = any(keyword in lower for keyword in STATUS_URL_KEYWORDS)
+    current_year = year in lower
+    previous_year = str(int(year) - 1) in lower
+
+    return keyword_hit and (current_year or previous_year or "/news/" in lower)
+
+
+def _decode_duckduckgo_url(href):
+    if not href:
+        return None
+
+    href = href.replace("&amp;", "&")
+    if href.startswith("//"):
+        href = "https:" + href
+
+    if "duckduckgo.com/l/" in href or href.startswith("/l/"):
+        try:
+            parsed = urlparse(
+                href if href.startswith("http")
+                else "https://duckduckgo.com" + href
+            )
+            uddg = parse_qs(parsed.query).get("uddg", [None])[0]
+            return unquote(uddg) if uddg else None
+        except Exception:
+            return None
+
+    return href if href.startswith("http") else None
+
+
+def _discover_urls_via_sitemaps(domain, max_urls=35):
+    """
+    Holt Status-/News-URLs ausschließlich von der offiziellen Vereinsdomain.
+    Sitemap-Indizes werden maximal eine Ebene rekursiv verfolgt.
+    """
+    result = []
+    seen = set()
+    sitemap_queue = _candidate_sitemap_urls(domain)
+    processed_sitemaps = set()
+
+    while sitemap_queue and len(result) < max_urls:
+        sitemap_url = sitemap_queue.pop(0)
+
+        if sitemap_url in processed_sitemaps:
+            continue
+
+        processed_sitemaps.add(sitemap_url)
+
+        try:
+            body = http_get_text(sitemap_url, timeout=12)
+        except Exception:
+            continue
+
+        locs = _extract_xml_locs(body)
+
+        for loc in locs:
+            if not _official_host_matches(loc, domain):
+                continue
+
+            lower = loc.lower()
+
+            if (
+                "sitemap" in lower
+                and loc not in processed_sitemaps
+                and len(processed_sitemaps) < 12
+            ):
+                sitemap_queue.append(loc)
+                continue
+
+            if (
+                loc not in seen
+                and _url_looks_status_relevant(loc)
+            ):
+                seen.add(loc)
+                result.append(loc)
+
+                if len(result) >= max_urls:
+                    break
+
+    return result
+
+
+def _discover_urls_via_search(player_name, domain, max_urls=8):
+    """
+    Fallback nur zur Link-Findung. Inhalt wird anschließend ausschließlich
+    von der offiziellen Vereinsdomain geladen.
+    """
+    year = datetime.now(timezone.utc).year
+    queries = (
+        f'site:{domain} "{player_name}" Verletzung {year}',
+        f'site:{domain} "{player_name}" Reha {year}',
+        f'site:{domain} "{player_name}" Personal {year}',
+        f'site:{domain} "{player_name}" gesperrt {year}',
+    )
+
+    found = []
+    seen = set()
+
+    for query in queries:
+        try:
+            url = SEARCH_URL + "?" + urlencode({"q": query})
+            html = http_get_text(
+                url,
+                headers={"Accept-Language": "de-DE,de;q=0.9"},
+                timeout=15,
+            )
+        except Exception:
+            continue
+
+        hrefs = re.findall(
+            r'<a[^>]+href=["\']([^"\']+)["\']',
+            html,
+            flags=re.IGNORECASE,
+        )
+
+        for href in hrefs:
+            target = _decode_duckduckgo_url(href)
+
+            if (
+                not target
+                or target in seen
+                or not _official_host_matches(target, domain)
+            ):
+                continue
+
+            seen.add(target)
+            found.append(target)
+
+            if len(found) >= max_urls:
+                return found
+
+    return found
+
+
+def discover_official_status_urls(player):
+    club = str(player.get("club") or "").strip()
+    player_name = str(player.get("name") or "").strip()
+    domain = OFFICIAL_CLUB_DOMAINS.get(club)
+
+    if not domain:
+        return []
+
+    urls = []
+    seen = set()
+
+    for url in OFFICIAL_STATUS_SEEDS.get(club, []):
+        if url not in seen:
+            seen.add(url)
+            urls.append(url)
+
+    # Sitemap zuerst: reproduzierbarer und ohne Suchmaschinenabhängigkeit.
+    for url in _discover_urls_via_sitemaps(domain):
+        if url not in seen:
+            seen.add(url)
+            urls.append(url)
+
+    # Suchmaschine nur als Fallback / Ergänzung.
+    for url in _discover_urls_via_search(player_name, domain):
+        if url not in seen:
+            seen.add(url)
+            urls.append(url)
+
+    # Neuere URLs zuerst; bei Datumsformaten in URLs funktioniert das
+    # meist ausreichend gut und ist besser als zufällige Reihenfolge.
+    urls.sort(reverse=True)
+    return urls[:45]
+
+
 def _html_to_visible_text(html):
     if not html:
         return ""
@@ -1273,63 +1496,66 @@ def _window_has_recovery_for_player(window):
 
 def get_official_status_for_player(player):
     """
-    Prüft zusätzliche offizielle Vereinsmeldungen und protokolliert
-    das Ergebnis für jeden intensiv recherchierten Spieler.
+    Generische Statusrecherche für jeden aktiven Kaderspieler.
 
-    Wichtig:
-    - Eine nicht erkannte Verletzung bedeutet NICHT automatisch "Fit".
-    - Ein bestätigter Langzeitverletzungs-Fallback bleibt aktiv, solange
-      keine neuere explizite Rückkehrmeldung im direkten Spielerfenster
-      gefunden wird.
+    Ergebnis-Evidenz:
+      injured   -> aktuelle offizielle Verletzungsmeldung
+      recovered -> explizite Rückkehr-/Fit-Meldung
+      suspended -> aktuelle Sperrmeldung
+      unknown   -> keine belastbare Statusaussage gefunden
+
+    Keine spielerspezifischen Sonderfälle.
     """
     club = str(player.get("club") or "").strip()
     player_name = str(player.get("name") or "").strip()
-    player_id = str(player.get("id") or "").strip()
-    urls = OFFICIAL_STATUS_PAGES.get(club, [])
+    urls = discover_official_status_urls(player)
 
     result = {
         "checked": bool(urls),
+        "evidence": "unknown",
         "injured": False,
         "injuryDiagnosis": None,
         "injuryExpectedAbsence": None,
         "suspended": False,
         "sourceUrl": None,
-        "recovered": False,
     }
 
-    fetched_any = False
-    recovery_found = False
+    if not urls:
+        print(
+            f"STATUS {player_name}: keine offiziellen Status-URLs "
+            f"für {club} gefunden."
+        )
+        return result
+
+    # Nur eine begrenzte Zahl Seiten laden, damit 17/18 Spieler
+    # den Workflow nicht unnötig verlangsamen.
+    pages_checked = 0
 
     for url in urls:
+        if pages_checked >= 20:
+            break
+
         try:
-            html = http_get_text(url, timeout=20)
+            html = http_get_text(url, timeout=15)
             page_text = _html_to_visible_text(html)
-            fetched_any = True
-        except Exception as exc:
-            print(
-                f"STATUS-QUELLE FEHLER {player_name}: "
-                f"{url} -> {exc}"
-            )
+            pages_checked += 1
+        except Exception:
             continue
 
-        windows = _player_text_windows(page_text, player_name)
+        windows = _player_text_windows(
+            page_text,
+            player_name,
+            radius=420,
+        )
 
         if not windows:
-            print(
-                f"STATUS-DEBUG {player_name}: "
-                f"Name auf Quelle nicht gefunden -> {url}"
-            )
             continue
 
         for window in windows:
             lower = window.lower()
 
-            if _window_has_recovery_for_player(window):
-                recovery_found = True
-                result["recovered"] = True
-                continue
-
             diagnosis = _diagnosis_from_text(window)
+            absence = _absence_from_text(window)
 
             injured = (
                 diagnosis is not None
@@ -1341,61 +1567,54 @@ def get_official_status_for_player(player):
                 for term in CURRENT_SUSPENSION_TERMS
             )
 
-            if injured:
-                result["injured"] = True
-                result["injuryDiagnosis"] = diagnosis
-                result["injuryExpectedAbsence"] = _absence_from_text(window)
-                result["sourceUrl"] = url
+            recovered = _window_has_recovery_for_player(window)
+
+            # Verletzung ist die stärkste Evidenz, wenn Diagnose/
+            # Ausfallbegriff unmittelbar beim Spielernamen steht.
+            if injured and not recovered:
+                result.update({
+                    "evidence": "injured",
+                    "injured": True,
+                    "injuryDiagnosis": diagnosis,
+                    "injuryExpectedAbsence": absence,
+                    "sourceUrl": url,
+                })
 
                 print(
                     f"STATUS {player_name}: verletzt=True | "
-                    f"Diagnose={result['injuryDiagnosis'] or '-'} | "
-                    f"Ausfall={result['injuryExpectedAbsence'] or '-'} | "
+                    f"Diagnose={diagnosis or '-'} | "
+                    f"Ausfall={absence or '-'} | "
                     f"Quelle={url}"
                 )
                 return result
 
             if suspended:
-                result["suspended"] = True
-                result["sourceUrl"] = url
+                result.update({
+                    "evidence": "suspended",
+                    "suspended": True,
+                    "sourceUrl": url,
+                })
 
                 print(
                     f"STATUS {player_name}: gesperrt=True | Quelle={url}"
                 )
                 return result
 
-    # ------------------------------------------------------------
-    # Bestätigter Fallback für bekannte Langzeitverletzungen
-    # ------------------------------------------------------------
-    fallback = CONFIRMED_STATUS_FALLBACKS.get(player_id)
+            if recovered:
+                result.update({
+                    "evidence": "recovered",
+                    "sourceUrl": url,
+                })
 
-    if (
-        fallback
-        and fallback.get("club") == club
-        and fallback.get("injured")
-        and not recovery_found
-    ):
-        result["checked"] = True
-        result["injured"] = True
-        result["injuryDiagnosis"] = fallback.get("injuryDiagnosis")
-        result["injuryExpectedAbsence"] = fallback.get(
-            "injuryExpectedAbsence"
-        )
-        result["sourceUrl"] = fallback.get("sourceUrl")
-
-        print(
-            f"STATUS {player_name}: FALLBACK verletzt=True | "
-            f"Diagnose={result['injuryDiagnosis'] or '-'} | "
-            f"Ausfall={result['injuryExpectedAbsence'] or '-'} | "
-            f"Quelle={result['sourceUrl']}"
-        )
-        return result
+                print(
+                    f"STATUS {player_name}: Rückkehr/Fit bestätigt | "
+                    f"Quelle={url}"
+                )
+                return result
 
     print(
-        f"STATUS {player_name}: "
-        f"offizielle_quellen_geprueft={fetched_any} | "
-        f"verletzt=False | gesperrt=False | "
-        f"recovery={recovery_found}"
+        f"STATUS {player_name}: keine eindeutige Statusmeldung "
+        f"({pages_checked} offizielle Seiten geprüft)."
     )
 
     return result
@@ -1427,7 +1646,9 @@ def extract_player_profile_intelligence(player):
             "injuryDiagnosis": None,
             "injuryExpectedAbsence": None,
             "injurySourceUrl": None,
+            "injuryEvidence": "unknown",
             "suspension": "Noch nicht recherchiert",
+            "suspensionEvidence": "unknown",
             "lastMatch": None,
         }
 
@@ -1576,6 +1797,7 @@ def extract_player_profile_intelligence(player):
 
         official_status = get_official_status_for_player(player)
 
+        official_evidence = official_status.get("evidence", "unknown")
         official_injured = bool(official_status.get("injured"))
         official_suspended = bool(official_status.get("suspended"))
 
@@ -1586,15 +1808,30 @@ def extract_player_profile_intelligence(player):
         injury_expected_absence = official_status.get("injuryExpectedAbsence")
         injury_source_url = official_status.get("sourceUrl")
 
-        injury = _format_injury(
-            injured,
-            injury_diagnosis,
-            injury_expected_absence,
-        )
+        if injured:
+            injury = _format_injury(
+                True,
+                injury_diagnosis,
+                injury_expected_absence,
+            )
+            injury_evidence = "injured"
+        elif official_evidence == "recovered":
+            injury = "Fit"
+            injury_evidence = "recovered"
+        else:
+            # Wichtig: "nichts gefunden" ist nicht automatisch "Fit".
+            injury = "Status nicht eindeutig verfügbar"
+            injury_evidence = "unknown"
 
-        # Gewünschte klare Anzeige:
-        # ausschließlich "Gesperrt" oder "Keine Sperre".
-        suspension = "Gesperrt" if suspended else "Keine Sperre"
+        if suspended:
+            suspension = "Gesperrt"
+            suspension_evidence = "suspended"
+        elif official_status.get("checked"):
+            suspension = "Keine Sperre"
+            suspension_evidence = "checked_no_suspension"
+        else:
+            suspension = "Noch nicht recherchiert"
+            suspension_evidence = "unknown"
 
         return {
             "available": True,
@@ -1610,7 +1847,9 @@ def extract_player_profile_intelligence(player):
             "injuryDiagnosis": injury_diagnosis,
             "injuryExpectedAbsence": injury_expected_absence,
             "injurySourceUrl": injury_source_url,
+            "injuryEvidence": injury_evidence,
             "suspension": suspension,
+            "suspensionEvidence": suspension_evidence,
             "lastMatch": last_match,
         }
 
@@ -1634,7 +1873,9 @@ def extract_player_profile_intelligence(player):
             "injuryDiagnosis": None,
             "injuryExpectedAbsence": None,
             "injurySourceUrl": None,
+            "injuryEvidence": "unknown",
             "suspension": "Noch nicht recherchiert",
+            "suspensionEvidence": "unknown",
             "lastMatch": None,
         }
 
@@ -1908,7 +2149,9 @@ def build_player_intelligence(
         print(
             f"PLAYER-STATUS {name} [{player_id}]: "
             f"injury={public_player.get('injury')} | "
+            f"injuryEvidence={public_player.get('injuryEvidence')} | "
             f"suspension={public_player.get('suspension')} | "
+            f"suspensionEvidence={public_player.get('suspensionEvidence')} | "
             f"injurySourceUrl={public_player.get('injurySourceUrl')}"
         )
 
@@ -1928,10 +2171,49 @@ def build_player_intelligence(
             "injurySourceUrl",
             old_player.get("injurySourceUrl"),
         )
-        suspension = public_player.get("suspension", old_player.get("suspension", "Noch nicht recherchiert"))
+        injury_evidence = public_player.get("injuryEvidence", "unknown")
+
+        suspension = public_player.get(
+            "suspension",
+            old_player.get("suspension", "Noch nicht recherchiert"),
+        )
+        suspension_evidence = public_player.get(
+            "suspensionEvidence",
+            "unknown",
+        )
 
         injury = _normalize_injury_label(injury)
         suspension = _normalize_suspension_label(suspension)
+
+        # --------------------------------------------------------
+        # GENERISCHES STATUS-GEDÄCHTNIS
+        # --------------------------------------------------------
+        # Eine bereits offiziell bestätigte Verletzung darf durch einen
+        # späteren erfolglosen Parser-Lauf nicht verschwinden.
+        # Sie endet erst bei neuer Verletzungsevidenz oder expliziter
+        # Rückkehr-/Fit-Evidenz.
+        old_injury = _normalize_injury_label(
+            old_player.get("injury")
+        )
+        old_injury_confirmed = (
+            isinstance(old_injury, str)
+            and old_injury.startswith("Verletzt")
+        )
+
+        if (
+            injury_evidence == "unknown"
+            and old_injury_confirmed
+        ):
+            injury = old_injury
+            injury_diagnosis = old_player.get("injuryDiagnosis")
+            injury_expected_absence = old_player.get(
+                "injuryExpectedAbsence"
+            )
+            injury_source_url = old_player.get("injurySourceUrl")
+            injury_evidence = old_player.get(
+                "injuryEvidence",
+                "carried_confirmed_injury",
+            )
 
         appearances = public_player.get("appearances", old_player.get("appearances"))
         goals = public_player.get("goals", old_player.get("goals"))
@@ -1950,7 +2232,13 @@ def build_player_intelligence(
         injury_diagnosis = old_player.get("injuryDiagnosis")
         injury_expected_absence = old_player.get("injuryExpectedAbsence")
         injury_source_url = old_player.get("injurySourceUrl")
+        injury_evidence = old_player.get("injuryEvidence", "unknown")
+
         suspension = old_player.get("suspension", "Noch nicht recherchiert")
+        suspension_evidence = old_player.get(
+            "suspensionEvidence",
+            "unknown",
+        )
 
         injury = _normalize_injury_label(injury)
         suspension = _normalize_suspension_label(suspension)
@@ -1998,7 +2286,9 @@ def build_player_intelligence(
         "injuryDiagnosis": injury_diagnosis,
         "injuryExpectedAbsence": injury_expected_absence,
         "injurySourceUrl": injury_source_url,
+        "injuryEvidence": injury_evidence,
         "suspension": suspension,
+        "suspensionEvidence": suspension_evidence,
         "recommendation": recommendation,
         "lastUpdated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "sources": [
