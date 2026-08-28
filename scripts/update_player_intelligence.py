@@ -1128,6 +1128,78 @@ def parse_number_after_labels(text, labels):
     return None
 
 
+
+def parse_float_after_labels(text, labels):
+    """Liest einen numerischen Wert hinter einem von mehreren Labels."""
+    for label in labels:
+        pattern = rf"{re.escape(label)}\s+(\d+(?:[.,]\d+)?)"
+        match = re.search(pattern, text or "", flags=re.IGNORECASE)
+        if match:
+            raw = match.group(1).replace(",", ".")
+            try:
+                value = float(raw)
+                return int(value) if value.is_integer() else value
+            except ValueError:
+                pass
+    return None
+
+
+def build_performance_layer(values, old_performance=None):
+    """
+    V18: Transparente Statistikschicht für den späteren Kickbase-AI Score.
+    Es werden ausschließlich tatsächlich gefundene Werte gespeichert.
+    Kein Wert wird aus anderen Statistiken geschätzt.
+    """
+    old_performance = old_performance or {}
+
+    metric_names = (
+        "appearances",
+        "starts",
+        "minutes",
+        "goals",
+        "assists",
+        "shots",
+        "shotsOnTarget",
+        "woodwork",
+        "penalties",
+        "penaltiesScored",
+        "passAccuracy",
+        "duelsWon",
+        "aerialDuelsWon",
+        "crosses",
+        "fouls",
+        "yellowCards",
+        "redCards",
+        "saves",
+        "cleanSheets",
+        "goalsAgainst",
+    )
+
+    performance = {}
+    for key in metric_names:
+        new_value = values.get(key)
+        performance[key] = (
+            new_value
+            if new_value is not None
+            else old_performance.get(key)
+        )
+
+    available = [key for key in metric_names if performance.get(key) is not None]
+    missing = [key for key in metric_names if performance.get(key) is None]
+    coverage = round((len(available) / len(metric_names)) * 100) if metric_names else 0
+
+    return performance, {
+        "availableMetrics": available,
+        "missingMetrics": missing,
+        "coveragePercent": coverage,
+        "scoreReady": coverage >= 70,
+        "note": (
+            "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine "
+            "geschätzten Einzelaktionen."
+        ),
+    }
+
+
 def _is_goalkeeper(player):
     position = normalize_name(player.get("position"))
     return position in {"torhuter", "torhueter", "tw", "goalkeeper"}
@@ -2387,6 +2459,38 @@ def extract_player_profile_intelligence(player):
         assists = parse_number_after_label(text_only, "Vorlagen")
         yellow_cards = parse_number_after_label(text_only, "Gelbe Karten")
 
+        # V18: zusätzliche öffentliche Leistungswerte. Nur übernehmen,
+        # wenn das Spielerprofil den Wert tatsächlich ausweist.
+        starts = parse_float_after_labels(text_only, ("Startelf", "Startelfeinsätze"))
+        minutes = parse_float_after_labels(text_only, ("Spielminuten", "Minuten"))
+        shots = parse_float_after_labels(text_only, ("Torschüsse", "Schüsse"))
+        shots_on_target = parse_float_after_labels(
+            text_only, ("Torschüsse aufs Tor", "Schüsse aufs Tor")
+        )
+        woodwork = parse_float_after_labels(text_only, ("Aluminiumtreffer", "Pfostentreffer"))
+        penalties = parse_float_after_labels(text_only, ("Elfmeter",))
+        penalties_scored = parse_float_after_labels(
+            text_only, ("Verwandelte Elfmeter", "Elfmetertore")
+        )
+        pass_accuracy = parse_float_after_labels(
+            text_only, ("Passquote", "Passgenauigkeit")
+        )
+        duels_won = parse_float_after_labels(
+            text_only, ("Gewonnene Zweikämpfe", "Zweikämpfe gewonnen")
+        )
+        aerial_duels_won = parse_float_after_labels(
+            text_only, ("Gewonnene Kopfballduelle", "Kopfballduelle gewonnen")
+        )
+        crosses = parse_float_after_labels(text_only, ("Flanken",))
+        fouls = parse_float_after_labels(text_only, ("Fouls",))
+        red_cards = parse_float_after_labels(text_only, ("Rote Karten",))
+        saves = parse_float_after_labels(
+            text_only, ("Gehaltene Torschüsse", "Paraden")
+        )
+        clean_sheets = parse_float_after_labels(
+            text_only, ("Weiße Weste", "Zu null", "Clean Sheets")
+        )
+
         goals_against = None
         if _is_goalkeeper(player):
             goals_against = parse_number_after_labels(
@@ -2565,10 +2669,25 @@ def extract_player_profile_intelligence(player):
             "available": True,
             "sourceUrl": source_url,
             "appearances": appearances,
+            "starts": starts,
+            "minutes": minutes,
             "goals": goals,
             "assists": assists,
-            "goalsAgainst": goals_against,
+            "shots": shots,
+            "shotsOnTarget": shots_on_target,
+            "woodwork": woodwork,
+            "penalties": penalties,
+            "penaltiesScored": penalties_scored,
+            "passAccuracy": pass_accuracy,
+            "duelsWon": duels_won,
+            "aerialDuelsWon": aerial_duels_won,
+            "crosses": crosses,
+            "fouls": fouls,
             "yellowCards": yellow_cards,
+            "redCards": red_cards,
+            "saves": saves,
+            "cleanSheets": clean_sheets,
+            "goalsAgainst": goals_against,
             "form": form,
             "starting": starting,
             "injury": injury,
@@ -2997,6 +3116,47 @@ def build_player_intelligence(
         profile_available = bool(old_player.get("dataStatus", {}).get("playerProfileSource") == "erreichbar")
         profile_url = old_player.get("sourceUrl") or player.get("sourceUrl")
 
+    # V18: Performance-Layer aufbauen. Neue öffentliche Werte haben Vorrang,
+    # vorhandene Werte bleiben erhalten, wenn die Quelle sie diesmal nicht liefert.
+    old_performance = old_player.get("performance") or {}
+
+    if research_player:
+        perf_values = {
+            "appearances": public_player.get("appearances"),
+            "starts": public_player.get("starts"),
+            "minutes": public_player.get("minutes"),
+            "goals": public_player.get("goals"),
+            "assists": public_player.get("assists"),
+            "shots": public_player.get("shots"),
+            "shotsOnTarget": public_player.get("shotsOnTarget"),
+            "woodwork": public_player.get("woodwork"),
+            "penalties": public_player.get("penalties"),
+            "penaltiesScored": public_player.get("penaltiesScored"),
+            "passAccuracy": public_player.get("passAccuracy"),
+            "duelsWon": public_player.get("duelsWon"),
+            "aerialDuelsWon": public_player.get("aerialDuelsWon"),
+            "crosses": public_player.get("crosses"),
+            "fouls": public_player.get("fouls"),
+            "yellowCards": public_player.get("yellowCards"),
+            "redCards": public_player.get("redCards"),
+            "saves": public_player.get("saves"),
+            "cleanSheets": public_player.get("cleanSheets"),
+            "goalsAgainst": public_player.get("goalsAgainst"),
+        }
+    else:
+        perf_values = dict(old_performance)
+
+    performance, data_coverage = build_performance_layer(
+        perf_values,
+        old_performance=old_performance,
+    )
+
+    print(
+        f"PERFORMANCE {name}: Coverage {data_coverage['coveragePercent']}% | "
+        f"vorhanden={len(data_coverage['availableMetrics'])} | "
+        f"fehlend={len(data_coverage['missingMetrics'])}"
+    )
+
     # Dynamische Spieltagsdaten immer neu berechnen.
     old_recommendation = old_player.get("recommendation")
     if old_recommendation and old_recommendation != "Noch nicht recherchiert":
@@ -3017,6 +3177,9 @@ def build_player_intelligence(
         "starting": starting,
         "form": form,
         "footballRating": old_player.get("footballRating"),
+        "kickbaseAiScore": None,
+        "performance": performance,
+        "dataCoverage": data_coverage,
         "appearances": appearances,
         "starts": old_player.get("starts"),
         "minutes": old_player.get("minutes"),
@@ -3126,7 +3289,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V17-Bundesliga-News-Modus: Matchday + Club-News-Teamcheck-Fallback nur für den aufgelösten "
+        "V18-Performance-Modus: Startelf + Status + transparente Statistikschicht nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
