@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from html.parser import HTMLParser
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlencode, urlparse, parse_qs, unquote
 
 # ============================================================
 # KONFIGURATION
@@ -79,6 +79,85 @@ POSITION_MAP = {
     "mittelfeld": "Mittelfeld",
     "angriff": "Angriff",
 }
+
+
+# Offizielle Vereinsdomains. Suchmaschinen werden ausschließlich zur
+# Link-Findung verwendet; Verletzungsinformationen werden nur übernommen,
+# wenn die Zielseite auf der offiziellen Vereinsdomain liegt.
+OFFICIAL_CLUB_DOMAINS = {
+    "FC Augsburg": "fcaugsburg.de",
+    "1. FC Union Berlin": "fc-union-berlin.de",
+    "SV Werder Bremen": "werder.de",
+    "Borussia Dortmund": "bvb.de",
+    "SV 07 Elversberg": "sv07elversberg.de",
+    "Eintracht Frankfurt": "eintracht.de",
+    "SC Freiburg": "scfreiburg.com",
+    "Hamburger SV": "hsv.de",
+    "TSG Hoffenheim": "tsg-hoffenheim.de",
+    "1. FC Köln": "fc.de",
+    "RB Leipzig": "rbleipzig.com",
+    "Bayer 04 Leverkusen": "bayer04.de",
+    "1. FSV Mainz 05": "mainz05.de",
+    "Borussia Mönchengladbach": "borussia.de",
+    "FC Bayern München": "fcbayern.com",
+    "SC Paderborn 07": "scp07.de",
+    "FC Schalke 04": "schalke04.de",
+    "VfB Stuttgart": "vfb.de",
+}
+
+SEARCH_URL = "https://html.duckduckgo.com/html/"
+
+# Begriffe, die auf eine aktuell relevante Verletzung hindeuten.
+CURRENT_INJURY_TERMS = (
+    "kreuzbandriss",
+    "innenbandriss",
+    "außenbandriss",
+    "achillessehnenriss",
+    "muskelfaserriss",
+    "muskelbündelriss",
+    "muskelverletzung",
+    "sehnenverletzung",
+    "knieverletzung",
+    "sprunggelenksverletzung",
+    "schulterverletzung",
+    "fußverletzung",
+    "fussverletzung",
+    "oberschenkelverletzung",
+    "adduktorenverletzung",
+    "bänderverletzung",
+    "baenderverletzung",
+    "gehirnerschütterung",
+    "gehirnerschuetterung",
+    "fraktur",
+    "bruch",
+)
+
+CURRENT_ABSENCE_TERMS = (
+    "fällt aus",
+    "faellt aus",
+    "wird fehlen",
+    "steht nicht zur verfügung",
+    "steht nicht zur verfuegung",
+    "nicht einsatzfähig",
+    "nicht einsatzfaehig",
+    "in reha",
+    "rehabilitation",
+    "reha-programm",
+    "individuelles programm",
+)
+
+RECOVERY_TERMS = (
+    "wieder im mannschaftstraining",
+    "zurück im mannschaftstraining",
+    "zurueck im mannschaftstraining",
+    "wieder im teamtraining",
+    "zurück im teamtraining",
+    "zurueck im teamtraining",
+    "wieder einsatzbereit",
+    "voll belastbar",
+    "fit für",
+    "fit fuer",
+)
 
 # ============================================================
 # ALLGEMEINE HILFSFUNKTIONEN
@@ -789,6 +868,338 @@ BUNDESLIGA_STATS_URL = (
 )
 
 
+
+def html_to_text(html):
+    """Sehr einfache HTML->Text-Konvertierung für öffentliche Meldungen."""
+    if not html:
+        return ""
+
+    value = re.sub(
+        r"<script\b[^>]*>.*?</script>",
+        " ",
+        html,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    value = re.sub(
+        r"<style\b[^>]*>.*?</style>",
+        " ",
+        value,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    value = re.sub(r"<[^>]+>", " ", value)
+    value = (
+        value.replace("&nbsp;", " ")
+        .replace("&amp;", "&")
+        .replace("&quot;", '"')
+        .replace("&#39;", "'")
+    )
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def _official_host_matches(url, domain):
+    try:
+        host = (urlparse(url).hostname or "").lower()
+    except Exception:
+        return False
+
+    domain = (domain or "").lower()
+    return bool(host and domain and (host == domain or host.endswith("." + domain)))
+
+
+def _decode_duckduckgo_result_url(href):
+    """DuckDuckGo-Redirect auf echte Ziel-URL zurückführen."""
+    if not href:
+        return None
+
+    href = href.replace("&amp;", "&")
+
+    if href.startswith("//"):
+        href = "https:" + href
+
+    if "duckduckgo.com/l/" in href or href.startswith("/l/"):
+        try:
+            parsed = urlparse(href if href.startswith("http") else "https://duckduckgo.com" + href)
+            params = parse_qs(parsed.query)
+            target = params.get("uddg", [None])[0]
+            if target:
+                return unquote(target)
+        except Exception:
+            return None
+
+    return href if href.startswith("http") else None
+
+
+def discover_official_club_urls(player_name, club_name, max_results=6):
+    """
+    Findet aktuelle offizielle Vereinsmeldungen zum Spieler.
+
+    DuckDuckGo dient nur zur URL-Suche. Akzeptiert werden ausschließlich
+    Treffer auf der hinterlegten offiziellen Vereinsdomain.
+    """
+    domain = OFFICIAL_CLUB_DOMAINS.get(club_name)
+    if not domain:
+        return []
+
+    # Aktuelles Jahr bewusst in die Suche aufnehmen, alte Verletzungen
+    # sollen nicht automatisch als aktuell gelten.
+    year = datetime.now(timezone.utc).year
+    queries = (
+        f'site:{domain} "{player_name}" Verletzung {year}',
+        f'site:{domain} "{player_name}" Reha {year}',
+        f'site:{domain} "{player_name}" fällt aus {year}',
+    )
+
+    found = []
+    seen = set()
+
+    for query in queries:
+        try:
+            url = SEARCH_URL + "?" + urlencode({"q": query})
+            html = http_get_text(
+                url,
+                headers={"Accept-Language": "de-DE,de;q=0.9,en;q=0.7"},
+                timeout=20,
+            )
+        except Exception as exc:
+            print(f"Vereinssuche fehlgeschlagen ({club_name}, {player_name}): {exc}")
+            continue
+
+        hrefs = re.findall(
+            r'<a[^>]+class=["\'][^"\']*result__a[^"\']*["\'][^>]+href=["\']([^"\']+)["\']',
+            html,
+            flags=re.IGNORECASE,
+        )
+
+        # Fallback, falls DDG die Klassenstruktur ändert.
+        if not hrefs:
+            hrefs = re.findall(
+                r'href=["\']([^"\']+)["\']',
+                html,
+                flags=re.IGNORECASE,
+            )
+
+        for href in hrefs:
+            target = _decode_duckduckgo_result_url(href)
+            if not target or target in seen:
+                continue
+            if not _official_host_matches(target, domain):
+                continue
+
+            seen.add(target)
+            found.append(target)
+
+            if len(found) >= max_results:
+                return found
+
+        time.sleep(0.15)
+
+    return found
+
+
+def _extract_diagnosis_from_official_text(text):
+    """
+    Extrahiert nur klar benannte Diagnosen aus offiziellen Vereinsmeldungen.
+    """
+    if not text:
+        return None
+
+    lower = normalize_name(text)
+
+    diagnoses = (
+        ("vorderen kreuzbandes", "Kreuzbandriss"),
+        ("vorderes kreuzband", "Kreuzbandriss"),
+        ("kreuzbandriss", "Kreuzbandriss"),
+        ("innenbandriss", "Innenbandriss"),
+        ("aussenbandriss", "Außenbandriss"),
+        ("achillessehnenriss", "Achillessehnenriss"),
+        ("muskelfaserriss", "Muskelfaserriss"),
+        ("muskelbundelriss", "Muskelbündelriss"),
+        ("muskelverletzung", "Muskelverletzung"),
+        ("knieverletzung", "Knieverletzung"),
+        ("sprunggelenksverletzung", "Sprunggelenksverletzung"),
+        ("schulterverletzung", "Schulterverletzung"),
+        ("oberschenkelverletzung", "Oberschenkelverletzung"),
+        ("adduktorenverletzung", "Adduktorenverletzung"),
+        ("banderverletzung", "Bänderverletzung"),
+        ("gehirnerschutterung", "Gehirnerschütterung"),
+        ("fraktur", "Fraktur"),
+    )
+
+    for token, label in diagnoses:
+        if token in lower:
+            return label
+
+    # Explizite Diagnose-Felder als konservativer Fallback.
+    match = re.search(
+        r"\bDiagnose\s*[:\-]\s*([^.;|]{3,100})",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if match:
+        value = re.sub(r"\s+", " ", match.group(1)).strip(" .,:;-")
+        return value[:100] if value else None
+
+    return None
+
+
+def _extract_absence_from_official_text(text):
+    """
+    Extrahiert nur explizit genannte Zeiträume/Rückkehrangaben.
+    """
+    if not text:
+        return None
+
+    patterns = (
+        r"\bvoraussichtlich\s+für\s+([^.;]{2,80})",
+        r"\bvoraussichtlich\s+bis\s+([^.;]{2,80})",
+        r"\bAusfallzeit\s*[:\-]\s*([^.;]{2,80})",
+        r"\bfällt\s+für\s+([^.;]{2,80})\s+aus",
+        r"\bfehlt\s+für\s+([^.;]{2,80})",
+        r"\bRückkehr\s*[:\-]\s*([^.;]{2,80})",
+        r"\bComeback\s*[:\-]\s*([^.;]{2,80})",
+    )
+
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if match:
+            value = re.sub(r"\s+", " ", match.group(1)).strip(" .,:;-")
+            if value:
+                return value[:80]
+
+    lower = text.lower()
+
+    if "bis auf weiteres" in lower:
+        return "bis auf Weiteres"
+
+    if "in reha" in lower or "rehabilitation" in lower or "reha-programm" in lower:
+        return "weiterhin Reha; Rückkehr nicht öffentlich terminiert"
+
+    return None
+
+
+def get_official_club_injury_update(player, club_name):
+    """
+    Best-Effort-Recherche aktueller Vereinsmeldungen.
+
+    Ergebnis wird nur als Verletzung gewertet, wenn eine offizielle
+    Vereinsseite den Spieler zusammen mit einem klar aktuellen
+    Verletzungs-/Ausfallhinweis nennt.
+    """
+    player_name = str(player.get("name") or "").strip()
+    if not player_name:
+        return {
+            "checked": False,
+            "injured": False,
+            "diagnosis": None,
+            "expectedAbsence": None,
+            "sourceUrl": None,
+        }
+
+    domain = OFFICIAL_CLUB_DOMAINS.get(club_name)
+    if not domain:
+        return {
+            "checked": False,
+            "injured": False,
+            "diagnosis": None,
+            "expectedAbsence": None,
+            "sourceUrl": None,
+        }
+
+    urls = discover_official_club_urls(player_name, club_name)
+
+    best = None
+    best_score = -999
+
+    surname = normalize_name(player_name).split()[-1] if normalize_name(player_name) else ""
+    year = str(datetime.now(timezone.utc).year)
+
+    for url in urls:
+        try:
+            html = http_get_text(
+                url,
+                headers={"Accept-Language": "de-DE,de;q=0.9"},
+                timeout=20,
+            )
+            page_text = html_to_text(html)
+        except Exception as exc:
+            print(f"Vereinsmeldung konnte nicht geladen werden ({url}): {exc}")
+            continue
+
+        normalized = normalize_name(page_text)
+
+        # Treffer muss tatsächlich den Spieler betreffen.
+        if normalize_name(player_name) not in normalized and surname not in normalized:
+            continue
+
+        score = 0
+
+        diagnosis = _extract_diagnosis_from_official_text(page_text)
+        absence = _extract_absence_from_official_text(page_text)
+
+        injury_term_hit = any(term in page_text.lower() for term in CURRENT_INJURY_TERMS)
+        absence_term_hit = any(term in page_text.lower() for term in CURRENT_ABSENCE_TERMS)
+        recovery_hit = any(term in page_text.lower() for term in RECOVERY_TERMS)
+
+        if diagnosis:
+            score += 5
+        if absence:
+            score += 4
+        if injury_term_hit:
+            score += 3
+        if absence_term_hit:
+            score += 3
+
+        # Aktuelle-Jahr-Hinweis im Artikel/URL bevorzugen.
+        if year in page_text or year in url:
+            score += 2
+
+        if recovery_hit:
+            score -= 5
+
+        # Nur deutlich belastbare aktuelle Treffer akzeptieren.
+        if score >= 6 and score > best_score:
+            best = {
+                "checked": True,
+                "injured": True,
+                "diagnosis": diagnosis,
+                "expectedAbsence": absence,
+                "sourceUrl": url,
+            }
+            best_score = score
+
+        time.sleep(0.15)
+
+    if best:
+        return best
+
+    return {
+        "checked": True,
+        "injured": False,
+        "diagnosis": None,
+        "expectedAbsence": None,
+        "sourceUrl": None,
+    }
+
+
+def format_injury_status(injured, diagnosis=None, expected_absence=None):
+    if not injured:
+        return "Fit"
+
+    parts = ["Verletzt"]
+
+    if diagnosis:
+        parts.append(diagnosis)
+    else:
+        parts.append("Diagnose nicht öffentlich verfügbar")
+
+    if expected_absence:
+        parts.append(expected_absence)
+    else:
+        parts.append("Ausfallzeit nicht öffentlich verfügbar")
+
+    return " · ".join(parts)
+
+
 def get_public_player_intelligence_source():
     """
     Prüft die offizielle Bundesliga-Statistikseite als öffentliche
@@ -993,89 +1404,6 @@ def _localized_profile_urls(source_url):
     return urls
 
 
-
-def _clean_detail_text(value):
-    """Bereinigt kurze Diagnose-/Ausfallzeit-Texte für die JSON-Ausgabe."""
-    if not value:
-        return None
-
-    value = re.sub(r"\s+", " ", str(value)).strip(" \t\r\n:;,.|-")
-    if not value:
-        return None
-
-    if len(value) > 120:
-        value = value[:120].rsplit(" ", 1)[0].strip()
-
-    return value or None
-
-
-def _extract_current_injury_details(text):
-    """
-    Extrahiert nur ausdrücklich aktuelle Diagnose-/Ausfallzeit-Angaben.
-
-    Wichtig:
-    - Es werden keine Diagnosen oder Zeiträume erfunden.
-    - Ohne explizite Angabe bleiben Diagnose/Ausfallzeit None.
-    """
-    if not text:
-        return None, None
-
-    compact = re.sub(r"\s+", " ", text).strip()
-
-    diagnosis = None
-    expected_absence = None
-
-    diagnosis_patterns = (
-        r"\bDiagnose\s*[:\-]\s*([^.;|]{3,120})",
-        r"\bVerletzung\s*[:\-]\s*([^.;|]{3,120})",
-        r"\bverletzt\s+(?:wegen|aufgrund|mit)\s+([^.;|]{3,120})",
-        r"\bangeschlagen\s+(?:wegen|aufgrund|mit)\s+([^.;|]{3,120})",
-    )
-
-    for pattern in diagnosis_patterns:
-        match = re.search(pattern, compact, flags=re.IGNORECASE)
-        if match:
-            diagnosis = _clean_detail_text(match.group(1))
-            if diagnosis:
-                break
-
-    absence_patterns = (
-        r"\bAusfallzeit\s*[:\-]\s*([^.;|]{2,100})",
-        r"\bvoraussichtlich\s+(?:bis|für)\s+([^.;|]{2,100})",
-        r"\bfehlt\s+voraussichtlich\s+([^.;|]{2,100})",
-        r"\bRückkehr\s*[:\-]\s*([^.;|]{2,100})",
-        r"\bComeback\s*[:\-]\s*([^.;|]{2,100})",
-    )
-
-    for pattern in absence_patterns:
-        match = re.search(pattern, compact, flags=re.IGNORECASE)
-        if match:
-            expected_absence = _clean_detail_text(match.group(1))
-            if expected_absence:
-                break
-
-    return diagnosis, expected_absence
-
-
-def _format_injury_status(is_injured, diagnosis=None, expected_absence=None):
-    if not is_injured:
-        return "Fit"
-
-    parts = ["Verletzt"]
-
-    if diagnosis:
-        parts.append(diagnosis)
-    else:
-        parts.append("Diagnose nicht öffentlich verfügbar")
-
-    if expected_absence:
-        parts.append(f"voraussichtlich {expected_absence}")
-    else:
-        parts.append("Ausfallzeit nicht öffentlich verfügbar")
-
-    return " · ".join(parts)
-
-
 def extract_player_profile_intelligence(player):
     """
     Recherchiert einen einzelnen Spieler direkt über sein
@@ -1101,6 +1429,7 @@ def extract_player_profile_intelligence(player):
             "injury": "Noch nicht recherchiert",
             "injuryDiagnosis": None,
             "injuryExpectedAbsence": None,
+            "injurySourceUrl": None,
             "suspension": "Noch nicht recherchiert",
             "lastMatch": None,
         }
@@ -1248,16 +1577,39 @@ def extract_player_profile_intelligence(player):
             None,
         )
 
+        # Bundesliga-Profil ist nur Quelle 1. Fehlende Erwähnung bedeutet
+        # NICHT automatisch "Fit". Danach folgt die offizielle Vereinsrecherche.
+        profile_injured = bool(injury_hit)
+
         injury_diagnosis = None
         injury_expected_absence = None
+        injury_source_url = None
 
-        if injury_hit:
-            injury_diagnosis, injury_expected_absence = (
-                _extract_current_injury_details(current_profile_text)
-            )
+        club_update = get_official_club_injury_update(
+            player,
+            player.get("club") or "",
+        )
 
-        injury = _format_injury_status(
-            bool(injury_hit),
+        # Die Spielerobjekte aus dem Bundesliga-Kader enthalten nicht immer
+        # ein club-Feld; build_player_intelligence setzt es später. Daher
+        # speichern wir den Club bereits beim Aufruf zusätzlich am Objekt,
+        # falls vorhanden. Ohne Club kann nur das Profil genutzt werden.
+        club_injured = bool(club_update.get("injured"))
+
+        if club_injured:
+            injury_diagnosis = club_update.get("diagnosis")
+            injury_expected_absence = club_update.get("expectedAbsence")
+            injury_source_url = club_update.get("sourceUrl")
+        elif profile_injured:
+            injury_source_url = source_url
+
+        injured = club_injured or profile_injured
+
+        # Fit nur dann, wenn Profilabruf funktioniert hat und die
+        # Vereinsrecherche entweder erfolgreich geprüft wurde oder kein
+        # offizieller Club-Mapping vorhanden ist.
+        injury = format_injury_status(
+            injured,
             injury_diagnosis,
             injury_expected_absence,
         )
@@ -1277,6 +1629,7 @@ def extract_player_profile_intelligence(player):
             "injury": injury,
             "injuryDiagnosis": injury_diagnosis,
             "injuryExpectedAbsence": injury_expected_absence,
+            "injurySourceUrl": injury_source_url,
             "suspension": suspension,
             "lastMatch": last_match,
         }
@@ -1300,6 +1653,7 @@ def extract_player_profile_intelligence(player):
             "injury": "Noch nicht recherchiert",
             "injuryDiagnosis": None,
             "injuryExpectedAbsence": None,
+            "injurySourceUrl": None,
             "suspension": "Noch nicht recherchiert",
             "lastMatch": None,
         }
@@ -1567,7 +1921,9 @@ def build_player_intelligence(
         home_away = None
 
     if research_player:
-        public_player = extract_player_profile_intelligence(player)
+        research_input = dict(player)
+        research_input["club"] = club_name
+        public_player = extract_player_profile_intelligence(research_input)
 
         average = old_player.get("average")
         starting = public_player.get("starting", old_player.get("starting", "Noch nicht recherchiert"))
@@ -1580,6 +1936,10 @@ def build_player_intelligence(
         injury_expected_absence = public_player.get(
             "injuryExpectedAbsence",
             old_player.get("injuryExpectedAbsence"),
+        )
+        injury_source_url = public_player.get(
+            "injurySourceUrl",
+            old_player.get("injurySourceUrl"),
         )
         suspension = public_player.get("suspension", old_player.get("suspension", "Noch nicht recherchiert"))
         appearances = public_player.get("appearances", old_player.get("appearances"))
@@ -1598,6 +1958,7 @@ def build_player_intelligence(
         injury = old_player.get("injury", "Noch nicht recherchiert")
         injury_diagnosis = old_player.get("injuryDiagnosis")
         injury_expected_absence = old_player.get("injuryExpectedAbsence")
+        injury_source_url = old_player.get("injurySourceUrl")
         suspension = old_player.get("suspension", "Noch nicht recherchiert")
         appearances = old_player.get("appearances")
         goals = old_player.get("goals")
@@ -1641,6 +2002,7 @@ def build_player_intelligence(
         "injury": injury,
         "injuryDiagnosis": injury_diagnosis,
         "injuryExpectedAbsence": injury_expected_absence,
+        "injurySourceUrl": injury_source_url,
         "suspension": suspension,
         "recommendation": recommendation,
         "lastUpdated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
@@ -1648,6 +2010,11 @@ def build_player_intelligence(
             {"name": "Bundesliga.com", "url": BUNDESLIGA_PLAYERS_URL},
             {"name": "Bundesliga.com Statistik", "url": BUNDESLIGA_STATS_URL},
             {"name": "Bundesliga.com Spielerprofil", "url": profile_url},
+            *(
+                [{"name": "Offizielle Vereinsmeldung", "url": injury_source_url}]
+                if injury_source_url
+                else []
+            ),
             {"name": "OpenLigaDB", "url": "https://www.openligadb.de/"},
         ],
         "dataStatus": {
