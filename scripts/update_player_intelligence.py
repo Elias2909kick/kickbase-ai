@@ -1062,8 +1062,8 @@ def build_intelligence(
 
     return {
         "average": None,
-        "starting": None,
-        "form": None,
+        "starting": starting,
+        "form": form,
         "opponent": opponent,
         "homeAway": home_away,
         "injury": (
@@ -1468,6 +1468,129 @@ def _classify_absence_reason(reason):
     return "injury"
 
 
+
+def _name_matches_in_lineup(lineup_text, player_name):
+    if not lineup_text or not player_name:
+        return False
+    parts = str(player_name).split()
+    surname = parts[-1] if parts else player_name
+    patterns = [re.escape(player_name)]
+    if surname and surname != player_name:
+        patterns.append(re.escape(surname))
+    return any(
+        re.search(rf"\b{pattern}\b", lineup_text, flags=re.IGNORECASE)
+        for pattern in patterns
+    )
+
+
+def _extract_team_lineup(section, club):
+    """
+    Extrahiert die voraussichtliche Elf des Clubs aus dem bereits einmal
+    geladenen Bundesliga-Matchday-Text.
+    """
+    if not section or not club:
+        return ""
+
+    aliases = {
+        "FC Bayern München": ("FCB", "Bayern"),
+        "VfB Stuttgart": ("VFB", "Stuttgart"),
+        "RB Leipzig": ("RBL", "Leipzig"),
+        "Borussia Mönchengladbach": ("BMG", "Gladbach"),
+        "1. FSV Mainz 05": ("M05", "Mainz"),
+        "SC Paderborn 07": ("SCP", "Paderborn"),
+        "1. FC Union Berlin": ("FCU", "Union"),
+        "Eintracht Frankfurt": ("SGE", "Frankfurt"),
+        "1. FC Köln": ("KOE", "Köln"),
+        "TSG Hoffenheim": ("TSG", "Hoffenheim"),
+        "SV 07 Elversberg": ("SVE", "Elversberg"),
+        "Bayer 04 Leverkusen": ("B04", "Leverkusen"),
+        "Borussia Dortmund": ("BVB", "Dortmund"),
+        "Hamburger SV": ("HSV",),
+        "SC Freiburg": ("SCF", "Freiburg"),
+        "SV Werder Bremen": ("SVW", "Werder"),
+        "FC Augsburg": ("FCA", "Augsburg"),
+        "FC Schalke 04": ("S04", "Schalke"),
+    }
+
+    candidates = aliases.get(club, ()) + (club,)
+    for label in candidates:
+        match = re.search(
+            rf"(?:^|\n)\s*{re.escape(label)}\s*:\s*(.+?)(?=\n\s*Es fehlen:|\n[A-ZÄÖÜ0-9][^\n]{{0,35}}\s*:|$)",
+            section,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+        if match:
+            return re.sub(r"\s+", " ", match.group(1)).strip()
+    return ""
+
+
+def _derive_lineup_probability(player, section):
+    player_name = str(player.get("name") or "").strip()
+    club = str(player.get("club") or "").strip()
+    lineup = _extract_team_lineup(section, club)
+
+    if _name_matches_in_lineup(lineup, player_name):
+        return "Sehr wahrscheinlich"
+
+    # Wenn der Spieler explizit fehlt, ist Startelf ausgeschlossen.
+    parts = player_name.split()
+    surname = parts[-1] if parts else player_name
+    if re.search(
+        rf"\b{re.escape(surname)}\b\s*\(",
+        section or "",
+        flags=re.IGNORECASE,
+    ):
+        return "Nein"
+
+    return "Eher Bank / offen"
+
+
+def _derive_form_from_stats(player):
+    """
+    Form bleibt bewusst konservativ und nutzt nur bereits vorhandene
+    strukturierte Match-/Spielerwerte. Keine erfundenen Kickbase-Punkte.
+    """
+    appearances = player.get("appearances")
+    starts = player.get("starts")
+    goals = player.get("goals")
+    assists = player.get("assists")
+
+    nums = []
+    for value in (appearances, starts, goals, assists):
+        try:
+            nums.append(int(value) if value is not None else None)
+        except (TypeError, ValueError):
+            nums.append(None)
+
+    appearances, starts, goals, assists = nums
+
+    if appearances is None:
+        return "Noch keine belastbare Formbasis"
+
+    if appearances == 0:
+        return "Noch kein Saisoneinsatz"
+
+    parts = [f"{appearances} Einsätze"]
+    if starts is not None:
+        parts.append(f"{starts} Startelf")
+    if goals is not None:
+        parts.append(f"{goals} Tore")
+    if assists is not None:
+        parts.append(f"{assists} Vorlagen")
+    return " · ".join(parts)
+
+
+def _normalize_yellow_cards(player):
+    for key in ("yellowCards", "yellow_cards", "yellowcards"):
+        value = player.get(key)
+        if value is None:
+            continue
+        try:
+            return int(value)
+        except (TypeError, ValueError):
+            pass
+    return 0
+
 def get_matchday_status_for_player(player):
     """
     V14: Status aus einer einzigen offiziellen Bundesliga-Seite.
@@ -1504,6 +1627,8 @@ def get_matchday_status_for_player(player):
         club,
         opponent,
     )
+
+    lineup_probability = _derive_lineup_probability(player, section)
 
     parts = player_name.split()
     surname = parts[-1] if parts else player_name
@@ -1549,6 +1674,7 @@ def get_matchday_status_for_player(player):
                 "injuryExpectedAbsence": None,
                 "suspended": True,
                 "sourceUrl": source_url,
+                "lineupProbability": lineup_probability,
             }
 
         if category == "injury":
@@ -1564,6 +1690,7 @@ def get_matchday_status_for_player(player):
                 "injuryExpectedAbsence": None,
                 "suspended": False,
                 "sourceUrl": source_url,
+                "lineupProbability": lineup_probability,
             }
 
         # Nicht berücksichtigt / Rotation etc. ist keine Verletzung.
@@ -1594,6 +1721,7 @@ def get_matchday_status_for_player(player):
         "injuryExpectedAbsence": None,
         "suspended": False,
         "sourceUrl": source_url,
+        "lineupProbability": lineup_probability,
     }
 
 
@@ -2160,6 +2288,13 @@ def extract_player_profile_intelligence(player):
         official_status = get_matchday_status_for_player(player)
 
         official_evidence = official_status.get("evidence", "unknown")
+        starting = official_status.get(
+            "lineupProbability",
+            "Öffentlich nicht verfügbar",
+        )
+        form = _derive_form_from_stats(player)
+        yellow_cards = _normalize_yellow_cards(player)
+
         official_injured = bool(official_status.get("injured"))
         official_suspended = bool(official_status.get("suspended"))
 
@@ -2212,6 +2347,7 @@ def extract_player_profile_intelligence(player):
             "injuryEvidence": injury_evidence,
             "suspension": suspension,
             "suspensionEvidence": suspension_evidence,
+            "yellowCards": yellow_cards,
             "lastMatch": last_match,
         }
 
@@ -2759,7 +2895,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V14-Matchday-Modus: Einzelspieler-Recherche nur für den aufgelösten "
+        "V15-Lineup-Modus: Matchday-Status + Startelf + Form + Karten nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
