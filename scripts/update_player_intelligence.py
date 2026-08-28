@@ -1485,43 +1485,65 @@ def _name_matches_in_lineup(lineup_text, player_name):
 
 def _extract_team_lineup(section, club):
     """
-    Extrahiert die voraussichtliche Elf des Clubs aus dem bereits einmal
-    geladenen Bundesliga-Matchday-Text.
+    Extrahiert die voraussichtliche Elf aus geglättetem Seitentext.
+    Funktioniert ohne Zeilenumbrüche.
     """
     if not section or not club:
         return ""
 
     aliases = {
-        "FC Bayern München": ("FCB", "Bayern"),
-        "VfB Stuttgart": ("VFB", "Stuttgart"),
-        "RB Leipzig": ("RBL", "Leipzig"),
-        "Borussia Mönchengladbach": ("BMG", "Gladbach"),
-        "1. FSV Mainz 05": ("M05", "Mainz"),
-        "SC Paderborn 07": ("SCP", "Paderborn"),
-        "1. FC Union Berlin": ("FCU", "Union"),
-        "Eintracht Frankfurt": ("SGE", "Frankfurt"),
-        "1. FC Köln": ("KOE", "Köln"),
-        "TSG Hoffenheim": ("TSG", "Hoffenheim"),
-        "SV 07 Elversberg": ("SVE", "Elversberg"),
-        "Bayer 04 Leverkusen": ("B04", "Leverkusen"),
-        "Borussia Dortmund": ("BVB", "Dortmund"),
-        "Hamburger SV": ("HSV",),
-        "SC Freiburg": ("SCF", "Freiburg"),
-        "SV Werder Bremen": ("SVW", "Werder"),
-        "FC Augsburg": ("FCA", "Augsburg"),
-        "FC Schalke 04": ("S04", "Schalke"),
+        "FC Bayern München": ("FCB", "Bayern", "FC Bayern München"),
+        "VfB Stuttgart": ("VFB", "VfB Stuttgart", "Stuttgart"),
+        "RB Leipzig": ("RBL", "RB Leipzig", "Leipzig"),
+        "Borussia Mönchengladbach": ("BMG", "Borussia Mönchengladbach", "Gladbach"),
+        "1. FSV Mainz 05": ("M05", "1. FSV Mainz 05", "Mainz"),
+        "SC Paderborn 07": ("SCP", "SC Paderborn 07", "Paderborn"),
+        "1. FC Union Berlin": ("FCU", "1. FC Union Berlin", "Union Berlin"),
+        "Eintracht Frankfurt": ("SGE", "Eintracht Frankfurt", "Frankfurt"),
+        "1. FC Köln": ("KOE", "1. FC Köln", "Köln"),
+        "TSG Hoffenheim": ("TSG", "TSG Hoffenheim", "Hoffenheim"),
+        "SV 07 Elversberg": ("SVE", "SV 07 Elversberg", "Elversberg"),
+        "Bayer 04 Leverkusen": ("B04", "Bayer 04 Leverkusen", "Leverkusen"),
+        "Borussia Dortmund": ("BVB", "Borussia Dortmund", "Dortmund"),
+        "Hamburger SV": ("HSV", "Hamburger SV"),
+        "SC Freiburg": ("SCF", "SC Freiburg", "Freiburg"),
+        "SV Werder Bremen": ("SVW", "SV Werder Bremen", "Werder Bremen"),
+        "FC Augsburg": ("FCA", "FC Augsburg", "Augsburg"),
+        "FC Schalke 04": ("S04", "FC Schalke 04", "Schalke"),
     }
 
-    candidates = aliases.get(club, ()) + (club,)
-    for label in candidates:
-        match = re.search(
-            rf"(?:^|\n)\s*{re.escape(label)}\s*:\s*(.+?)(?=\n\s*Es fehlen:|\n[A-ZÄÖÜ0-9][^\n]{{0,35}}\s*:|$)",
-            section,
-            flags=re.IGNORECASE | re.DOTALL,
-        )
-        if match:
-            return re.sub(r"\s+", " ", match.group(1)).strip()
-    return ""
+    labels = aliases.get(club, (club,))
+    start_candidates = []
+
+    for label in labels:
+        for pat in (
+            rf"Voraussichtliche\s+Aufstellung(?:en)?\s+{re.escape(label)}\s*[:\-]?\s*",
+            rf"Predicted\s+line-?up\s*[:\-]?\s*{re.escape(label)}\s*",
+            rf"\b{re.escape(label)}\s*:\s*",
+        ):
+            match = re.search(pat, section, flags=re.IGNORECASE)
+            if match:
+                start_candidates.append(match.end())
+
+    if not start_candidates:
+        return ""
+
+    start = min(start_candidates)
+    tail = section[start:]
+
+    end_patterns = [
+        r"\bEs\s+fehlen\s*:",
+        r"\bVoraussichtliche\s+Aufstellung(?:en)?\b",
+        r"\bPredicted\s+line-?up\b",
+    ]
+
+    end = len(tail)
+    for end_pattern in end_patterns:
+        match = re.search(end_pattern, tail, flags=re.IGNORECASE)
+        if match and match.start() > 10:
+            end = min(end, match.start())
+
+    return re.sub(r"\s+", " ", tail[:end]).strip()
 
 
 def _derive_lineup_probability(player, section):
@@ -1531,6 +1553,22 @@ def _derive_lineup_probability(player, section):
 
     if _name_matches_in_lineup(lineup, player_name):
         return "Sehr wahrscheinlich"
+
+    # Fallback für geglätteten Bundesliga-Text:
+    # Der Spielername steht vor der ersten "Es fehlen"-Liste der Partie.
+    first_missing = re.search(
+        r"\bEs\s+fehlen\s*:",
+        section or "",
+        flags=re.IGNORECASE,
+    )
+    pre_missing = (
+        (section or "")[:first_missing.start()]
+        if first_missing
+        else (section or "")
+    )
+
+    if _name_matches_in_lineup(pre_missing, player_name):
+        return "Wahrscheinlich"
 
     # Wenn der Spieler explizit fehlt, ist Startelf ausgeschlossen.
     parts = player_name.split()
