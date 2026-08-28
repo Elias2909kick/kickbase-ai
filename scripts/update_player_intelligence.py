@@ -80,70 +80,6 @@ POSITION_MAP = {
     "angriff": "Angriff",
 }
 
-
-# ============================================================
-# OFFIZIELLE PERSONAL-/STATUSQUELLEN
-# ============================================================
-#
-# Diese Seiten werden zusätzlich zum Bundesliga-Spielerprofil geprüft.
-# Wichtig: Es werden nur offizielle Vereinsseiten verwendet.
-#
-# Für Werder sind hier die aktuellsten offiziellen Personal-Updates
-# hinterlegt. Weitere Clubs können später nach demselben Muster ergänzt
-# werden, ohne die übrige Player-Intelligence zu verändern.
-OFFICIAL_STATUS_PAGES = {
-    "SV Werder Bremen": [
-        "https://www.werder.de/news/maenner/2026-2027/personal-update-260826",
-        "https://www.werder.de/news/maenner/2026-2027/personal-lueneburg-20082026",
-        "https://www.werder.de/news/maenner/2025-2026/personal-topp-26032026",
-    ],
-}
-
-INJURY_DIAGNOSES = (
-    ("kreuzbandriss", "Kreuzbandriss"),
-    ("riss des vorderen kreuzbandes", "Kreuzbandriss"),
-    ("muskelfaserriss", "Muskelfaserriss"),
-    ("muskelbündelriss", "Muskelbündelriss"),
-    ("muskelverletzung", "Muskelverletzung"),
-    ("knieverletzung", "Knieverletzung"),
-    ("sprunggelenksverletzung", "Sprunggelenksverletzung"),
-    ("schulterverletzung", "Schulterverletzung"),
-    ("bänderriss", "Bänderriss"),
-    ("baenderriss", "Bänderriss"),
-    ("fraktur", "Fraktur"),
-)
-
-CURRENT_INJURY_TERMS = (
-    "verletzt",
-    "verletzung",
-    "fällt aus",
-    "faellt aus",
-    "fehlt weiterhin",
-    "nicht zur verfügung",
-    "nicht zur verfuegung",
-    "in der reha",
-    "in reha",
-    "rehabilitation",
-)
-
-CURRENT_SUSPENSION_TERMS = (
-    "gesperrt",
-    "sperre",
-    "rotsperre",
-    "gelbsperre",
-    "5. gelbe karte",
-    "fünfte gelbe karte",
-    "fuenfte gelbe karte",
-)
-
-RECOVERY_TERMS = (
-    "wieder im mannschaftstraining",
-    "zurück im mannschaftstraining",
-    "zurueck im mannschaftstraining",
-    "wieder einsatzbereit",
-    "voll belastbar",
-)
-
 # ============================================================
 # ALLGEMEINE HILFSFUNKTIONEN
 # ============================================================
@@ -1057,211 +993,6 @@ def _localized_profile_urls(source_url):
     return urls
 
 
-
-def _html_to_visible_text(html):
-    if not html:
-        return ""
-
-    value = re.sub(
-        r"<script\b[^>]*>.*?</script>",
-        " ",
-        html,
-        flags=re.IGNORECASE | re.DOTALL,
-    )
-    value = re.sub(
-        r"<style\b[^>]*>.*?</style>",
-        " ",
-        value,
-        flags=re.IGNORECASE | re.DOTALL,
-    )
-    value = re.sub(r"<[^>]+>", " ", value)
-    value = (
-        value.replace("&nbsp;", " ")
-        .replace("&amp;", "&")
-        .replace("&quot;", '"')
-        .replace("&#39;", "'")
-    )
-    return re.sub(r"\s+", " ", value).strip()
-
-
-def _player_text_windows(text, player_name, radius=320):
-    """
-    Liefert nur Textbereiche direkt um den Spielernamen.
-    Dadurch wird vermieden, dass die Verletzung/Sperre eines
-    Teamkollegen dem falschen Spieler zugeordnet wird.
-    """
-    if not text or not player_name:
-        return []
-
-    name_pattern = re.escape(player_name)
-    windows = []
-
-    for match in re.finditer(name_pattern, text, flags=re.IGNORECASE):
-        start = max(0, match.start() - radius)
-        end = min(len(text), match.end() + radius)
-        windows.append(text[start:end])
-
-    # Fallback auf Nachnamen, wenn der vollständige Name in der Meldung
-    # anders geschrieben ist.
-    if not windows:
-        parts = str(player_name).strip().split()
-        if parts:
-            surname = parts[-1]
-            for match in re.finditer(
-                re.escape(surname),
-                text,
-                flags=re.IGNORECASE,
-            ):
-                start = max(0, match.start() - radius)
-                end = min(len(text), match.end() + radius)
-                windows.append(text[start:end])
-
-    return windows
-
-
-def _diagnosis_from_text(text):
-    lower = (text or "").lower()
-
-    # Konkreten Kreuzbandbefund inklusive Knie-Seite bevorzugen.
-    if (
-        "riss des vorderen kreuzbandes" in lower
-        or "kreuzbandriss" in lower
-    ):
-        side = None
-        if "linken knie" in lower or "linkes knie" in lower:
-            side = "linkes Knie"
-        elif "rechten knie" in lower or "rechtes knie" in lower:
-            side = "rechtes Knie"
-
-        return (
-            f"Kreuzbandriss ({side})"
-            if side
-            else "Kreuzbandriss"
-        )
-
-    for token, label in INJURY_DIAGNOSES:
-        if token in lower:
-            return label
-
-    return None
-
-
-def _absence_from_text(text):
-    lower = (text or "").lower()
-
-    if "weiterhin in der reha" in lower or "noch in der reha" in lower:
-        return "weiterhin Reha; Rückkehr nicht öffentlich terminiert"
-
-    if "in der reha" in lower or "in reha" in lower:
-        return "Reha; Rückkehr nicht öffentlich terminiert"
-
-    patterns = (
-        r"\bvoraussichtlich\s+für\s+([^.;]{2,80})",
-        r"\bvoraussichtlich\s+bis\s+([^.;]{2,80})",
-        r"\bausfallzeit\s*[:\-]\s*([^.;]{2,80})",
-        r"\bfällt\s+für\s+([^.;]{2,80})\s+aus",
-        r"\bfehlt\s+für\s+([^.;]{2,80})",
-    )
-
-    for pattern in patterns:
-        match = re.search(pattern, text or "", flags=re.IGNORECASE)
-        if match:
-            value = re.sub(r"\s+", " ", match.group(1)).strip(" .,:;-")
-            if value:
-                return value[:80]
-
-    return None
-
-
-def _format_injury(injured, diagnosis=None, absence=None):
-    if not injured:
-        return "Fit"
-
-    parts = ["Verletzt"]
-
-    if diagnosis:
-        parts.append(diagnosis)
-    else:
-        parts.append("Diagnose nicht öffentlich verfügbar")
-
-    if absence:
-        parts.append(absence)
-    else:
-        parts.append("Ausfallzeit nicht öffentlich verfügbar")
-
-    return " · ".join(parts)
-
-
-def get_official_status_for_player(player):
-    """
-    Prüft zusätzliche offizielle Vereinsmeldungen.
-
-    Rückgabe:
-      injury / injuryDiagnosis / injuryExpectedAbsence
-      suspension / sourceUrl
-
-    Ein Spieler gilt nur dann als verletzt/gesperrt, wenn die relevante
-    Formulierung im direkten Textumfeld seines Namens steht.
-    """
-    club = str(player.get("club") or "").strip()
-    player_name = str(player.get("name") or "").strip()
-    urls = OFFICIAL_STATUS_PAGES.get(club, [])
-
-    result = {
-        "checked": bool(urls),
-        "injured": False,
-        "injuryDiagnosis": None,
-        "injuryExpectedAbsence": None,
-        "suspended": False,
-        "sourceUrl": None,
-    }
-
-    for url in urls:
-        try:
-            html = http_get_text(url, timeout=20)
-            page_text = _html_to_visible_text(html)
-        except Exception as exc:
-            print(
-                f"Offizielle Statusquelle fehlgeschlagen "
-                f"({player_name}, {url}): {exc}"
-            )
-            continue
-
-        windows = _player_text_windows(page_text, player_name)
-
-        for window in windows:
-            lower = window.lower()
-
-            # Neuere explizite Rückkehr-Aussage schlägt alte Verletzung.
-            if any(term in lower for term in RECOVERY_TERMS):
-                continue
-
-            diagnosis = _diagnosis_from_text(window)
-            injured = (
-                diagnosis is not None
-                or any(term in lower for term in CURRENT_INJURY_TERMS)
-            )
-
-            suspended = any(
-                term in lower
-                for term in CURRENT_SUSPENSION_TERMS
-            )
-
-            if injured:
-                result["injured"] = True
-                result["injuryDiagnosis"] = diagnosis
-                result["injuryExpectedAbsence"] = _absence_from_text(window)
-                result["sourceUrl"] = url
-                return result
-
-            if suspended:
-                result["suspended"] = True
-                result["sourceUrl"] = url
-                return result
-
-    return result
-
-
 def extract_player_profile_intelligence(player):
     """
     Recherchiert einen einzelnen Spieler direkt über sein
@@ -1285,9 +1016,6 @@ def extract_player_profile_intelligence(player):
             "form": "Noch nicht recherchiert",
             "starting": "Noch nicht recherchiert",
             "injury": "Noch nicht recherchiert",
-            "injuryDiagnosis": None,
-            "injuryExpectedAbsence": None,
-            "injurySourceUrl": None,
             "suspension": "Noch nicht recherchiert",
             "lastMatch": None,
         }
@@ -1426,6 +1154,9 @@ def extract_player_profile_intelligence(player):
             r"\bderzeitige\s+sperre\b",
         )
 
+        injury = "Keine Verletzungsmeldung auf dem Profil gefunden"
+        suspension = "Keine Sperrmeldung auf dem Profil gefunden"
+
         injury_hit = next(
             (pattern for pattern in injury_patterns if re.search(pattern, lower)),
             None,
@@ -1435,27 +1166,11 @@ def extract_player_profile_intelligence(player):
             None,
         )
 
-        official_status = get_official_status_for_player(player)
+        if injury_hit:
+            injury = "Hinweis auf aktuelle Verletzung"
 
-        official_injured = bool(official_status.get("injured"))
-        official_suspended = bool(official_status.get("suspended"))
-
-        injured = bool(injury_hit) or official_injured
-        suspended = bool(suspension_hit) or official_suspended
-
-        injury_diagnosis = official_status.get("injuryDiagnosis")
-        injury_expected_absence = official_status.get("injuryExpectedAbsence")
-        injury_source_url = official_status.get("sourceUrl")
-
-        injury = _format_injury(
-            injured,
-            injury_diagnosis,
-            injury_expected_absence,
-        )
-
-        # Gewünschte klare Anzeige:
-        # ausschließlich "Gesperrt" oder "Keine Sperre".
-        suspension = "Gesperrt" if suspended else "Keine Sperre"
+        if suspension_hit:
+            suspension = "Hinweis auf aktuelle Sperre"
 
         return {
             "available": True,
@@ -1468,9 +1183,6 @@ def extract_player_profile_intelligence(player):
             "form": form,
             "starting": starting,
             "injury": injury,
-            "injuryDiagnosis": injury_diagnosis,
-            "injuryExpectedAbsence": injury_expected_absence,
-            "injurySourceUrl": injury_source_url,
             "suspension": suspension,
             "lastMatch": last_match,
         }
@@ -1492,9 +1204,6 @@ def extract_player_profile_intelligence(player):
             "form": "Noch nicht recherchiert",
             "starting": "Noch nicht recherchiert",
             "injury": "Noch nicht recherchiert",
-            "injuryDiagnosis": None,
-            "injuryExpectedAbsence": None,
-            "injurySourceUrl": None,
             "suspension": "Noch nicht recherchiert",
             "lastMatch": None,
         }
@@ -1762,26 +1471,12 @@ def build_player_intelligence(
         home_away = None
 
     if research_player:
-        research_input = dict(player)
-        research_input["club"] = club_name
-        public_player = extract_player_profile_intelligence(research_input)
+        public_player = extract_player_profile_intelligence(player)
 
         average = old_player.get("average")
         starting = public_player.get("starting", old_player.get("starting", "Noch nicht recherchiert"))
         form = public_player.get("form", old_player.get("form", "Noch nicht recherchiert"))
         injury = public_player.get("injury", old_player.get("injury", "Noch nicht recherchiert"))
-        injury_diagnosis = public_player.get(
-            "injuryDiagnosis",
-            old_player.get("injuryDiagnosis"),
-        )
-        injury_expected_absence = public_player.get(
-            "injuryExpectedAbsence",
-            old_player.get("injuryExpectedAbsence"),
-        )
-        injury_source_url = public_player.get(
-            "injurySourceUrl",
-            old_player.get("injurySourceUrl"),
-        )
         suspension = public_player.get("suspension", old_player.get("suspension", "Noch nicht recherchiert"))
         appearances = public_player.get("appearances", old_player.get("appearances"))
         goals = public_player.get("goals", old_player.get("goals"))
@@ -1797,9 +1492,6 @@ def build_player_intelligence(
         starting = old_player.get("starting", "Noch nicht recherchiert")
         form = old_player.get("form", "Noch nicht recherchiert")
         injury = old_player.get("injury", "Noch nicht recherchiert")
-        injury_diagnosis = old_player.get("injuryDiagnosis")
-        injury_expected_absence = old_player.get("injuryExpectedAbsence")
-        injury_source_url = old_player.get("injurySourceUrl")
         suspension = old_player.get("suspension", "Noch nicht recherchiert")
         appearances = old_player.get("appearances")
         goals = old_player.get("goals")
@@ -1841,9 +1533,6 @@ def build_player_intelligence(
         "opponent": opponent,
         "homeAway": home_away,
         "injury": injury,
-        "injuryDiagnosis": injury_diagnosis,
-        "injuryExpectedAbsence": injury_expected_absence,
-        "injurySourceUrl": injury_source_url,
         "suspension": suspension,
         "recommendation": recommendation,
         "lastUpdated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
@@ -1851,11 +1540,6 @@ def build_player_intelligence(
             {"name": "Bundesliga.com", "url": BUNDESLIGA_PLAYERS_URL},
             {"name": "Bundesliga.com Statistik", "url": BUNDESLIGA_STATS_URL},
             {"name": "Bundesliga.com Spielerprofil", "url": profile_url},
-            *(
-                [{"name": "Offizielle Vereinsmeldung", "url": injury_source_url}]
-                if injury_source_url
-                else []
-            ),
             {"name": "OpenLigaDB", "url": "https://www.openligadb.de/"},
         ],
         "dataStatus": {
