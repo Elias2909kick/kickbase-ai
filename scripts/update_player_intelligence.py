@@ -300,6 +300,17 @@ BUNDESLIGA_CLUB_NEWS_SLUGS = {
     "FC Augsburg": "fc-augsburg",
     "FC Schalke 04": "fc-schalke-04",
 }
+
+HISTORICAL_MATCH_EVIDENCE_CACHE = {}
+BUNDESLIGA_CLUB_SCHEDULE_SLUGS = {
+    "SV 07 Elversberg": "sv-elversberg",
+    "SV Elversberg": "sv-elversberg",
+    "Hamburger SV": "hamburger-sv",
+    "1. FC Köln": "1-fc-koeln",
+    "FC Schalke 04": "fc-schalke-04",
+    "SC Paderborn 07": "sc-paderborn-07",
+}
+
 _STATUS_RESEARCH_STARTED_AT = None
 
 LEGACY_NO_INJURY_TEXTS = {
@@ -1440,6 +1451,151 @@ def collect_bundesliga_rankings_for_player(player):
     return values, sources
 
 
+
+def _extract_match_links_from_schedule(html, competition, season):
+    """Extract unique match URLs from an official Bundesliga club schedule."""
+    if not html:
+        return []
+
+    # HTML can contain escaped or absolute links.
+    html = html.replace("\\/", "/")
+    pattern = re.compile(
+        rf'(?:https://www\.bundesliga\.com)?'
+        rf'(/de/{re.escape(competition)}/spieltag/{re.escape(season)}/\d+/'
+        rf'[^"\'<>?#]+)'
+    )
+
+    links = []
+    seen = set()
+    for match in pattern.finditer(html):
+        path = match.group(1).rstrip("/")
+        # Strip tab suffix if schedule already links to one.
+        path = re.sub(r"/(?:lineup|stats|liveticker|table|news)$", "", path)
+        if path not in seen:
+            seen.add(path)
+            links.append("https://www.bundesliga.com" + path)
+    return links
+
+
+def _historical_match_evidence_for_club(club_name, competition):
+    """
+    V26 fallback: use official 2025/26 club schedule + match lineup pages.
+
+    Cached per club/competition so all players from the same club reuse the
+    same downloaded season evidence.
+    """
+    cache_key = (club_name, competition, BUNDESLIGA_PRIOR_SEASON)
+    if cache_key in HISTORICAL_MATCH_EVIDENCE_CACHE:
+        return HISTORICAL_MATCH_EVIDENCE_CACHE[cache_key]
+
+    slug = BUNDESLIGA_CLUB_SCHEDULE_SLUGS.get(club_name)
+    if not slug:
+        result = {"available": False, "reason": "club_slug_missing", "players": {}}
+        HISTORICAL_MATCH_EVIDENCE_CACHE[cache_key] = result
+        return result
+
+    schedule_url = (
+        f"https://www.bundesliga.com/de/{competition}/spieltag/"
+        f"{BUNDESLIGA_PRIOR_SEASON}/{slug}"
+    )
+    try:
+        schedule_html = http_get_text(schedule_url, timeout=15)
+    except Exception as exc:
+        result = {
+            "available": False,
+            "reason": f"schedule_fetch_failed:{type(exc).__name__}",
+            "scheduleUrl": schedule_url,
+            "players": {},
+        }
+        HISTORICAL_MATCH_EVIDENCE_CACHE[cache_key] = result
+        return result
+
+    match_links = _extract_match_links_from_schedule(
+        schedule_html, competition, BUNDESLIGA_PRIOR_SEASON
+    )
+
+    # Safety cap: a league season has 34 matches. Allow a few duplicates/odd links.
+    match_links = match_links[:40]
+    player_rows = {}
+    loaded = 0
+
+    for match_url in match_links:
+        lineup_url = match_url + "/lineup"
+        try:
+            lineup_html = http_get_text(lineup_url, timeout=12)
+        except Exception:
+            continue
+        loaded += 1
+
+        # Server-rendered lineup text contains player names. We deliberately do
+        # not infer minutes or performance stats from absence/presence.
+        plain = re.sub(r"<[^>]+>", " ", lineup_html)
+        plain = re.sub(r"\s+", " ", plain)
+
+        # Keep raw normalized text once per match; player-specific matching is
+        # done later to avoid inventing a roster parser.
+        player_rows[match_url] = _normalize_player_lookup_name(plain)
+
+    result = {
+        "available": bool(loaded),
+        "scheduleUrl": schedule_url,
+        "matchesDiscovered": len(match_links),
+        "lineupsLoaded": loaded,
+        "matchTexts": player_rows,
+    }
+    HISTORICAL_MATCH_EVIDENCE_CACHE[cache_key] = result
+    return result
+
+
+def collect_historical_match_evidence(player, competition):
+    """
+    Player-specific historical evidence. This is intentionally a role/usage
+    fallback, not a replacement for missing event metrics.
+    """
+    name = str(player.get("name") or "").strip()
+    club = str(player.get("club") or player.get("team") or "").strip()
+    club_data = _historical_match_evidence_for_club(club, competition)
+
+    if not club_data.get("available"):
+        print(
+            f"PRIOR-MATCH-EVIDENCE {name}: nicht verfügbar | "
+            f"Grund={club_data.get('reason', 'unknown')}"
+        )
+        return {
+            "available": False,
+            "matchesFound": 0,
+            "lineupsLoaded": club_data.get("lineupsLoaded", 0),
+            "matchesDiscovered": club_data.get("matchesDiscovered", 0),
+            "sourceUrl": club_data.get("scheduleUrl"),
+        }
+
+    needle = _normalize_player_lookup_name(name)
+    found_urls = [
+        url for url, normalized_text in club_data.get("matchTexts", {}).items()
+        if needle and needle in normalized_text
+    ]
+
+    print(
+        f"PRIOR-MATCH-EVIDENCE {name}: "
+        f"{len(found_urls)} Match-Lineups gefunden | "
+        f"{club_data.get('lineupsLoaded', 0)} Lineups geladen | "
+        f"Liga={competition}"
+    )
+
+    return {
+        "available": True,
+        "matchesFound": len(found_urls),
+        "lineupsLoaded": club_data.get("lineupsLoaded", 0),
+        "matchesDiscovered": club_data.get("matchesDiscovered", 0),
+        "sourceUrl": club_data.get("scheduleUrl"),
+        "sampleMatchUrls": found_urls[:5],
+        "note": (
+            "Offizielle historische Match-/Aufstellungs-Evidenz. "
+            "Wird nicht als fehlende Eventstatistik ausgegeben."
+        ),
+    }
+
+
 def _collect_historical_prior_from_competition(player, competition):
     """
     Collects the 2025/26 prior from one competition.
@@ -1525,6 +1681,10 @@ def collect_bundesliga_historical_prior(player):
 
     league_label, competition, values, sources, pages_available, explicit_hits = best
 
+    match_evidence = None
+    if explicit_hits == 0:
+        match_evidence = collect_historical_match_evidence(player, competition)
+
     available = [key for key, value in values.items() if value is not None]
     missing = [key for key, value in values.items() if value is None]
     coverage = round(
@@ -1559,6 +1719,7 @@ def collect_bundesliga_historical_prior(player):
             {"league": label, "competition": comp, "explicitRankingHits": hits}
             for label, comp, _vals, _srcs, _pages, hits in candidates
         ],
+        "matchEvidence": match_evidence,
         "note": (
             "Historischer Prior; automatisch zwischen Bundesliga und "
             "2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
@@ -4072,7 +4233,7 @@ def build_player_intelligence(
     if research_player:
         kickbase_ai_projection = None
         print(
-            f"AI-PROJECTION {name}: pausiert in V25 | "
+            f"AI-PROJECTION {name}: pausiert in V26 | "
             "Data-Coverage-Upgrade wird validiert"
         )
     else:
@@ -4232,7 +4393,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V25-Prior-Matching-Modus: vollständige Rankingseite + robustes Namensmatching + ehrliche Liga-Ties nur für den aufgelösten "
+        "V26-Match-Evidence-Modus: Ranking-Prior + offizieller Match/Lineup-Fallback bei 0 Treffern nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
