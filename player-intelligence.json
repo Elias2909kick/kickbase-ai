@@ -66073,6 +66073,11 @@
             "saves",
             "yellowCards"
           ]
+        },
+        "currentGoalkeeperProfileValues": {
+          "saves": 2,
+          "appearances": 1,
+          "yellowCards": 1
         }
       },
       "kickbaseFactorCoverage": {
