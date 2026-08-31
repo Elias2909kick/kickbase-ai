@@ -43152,7 +43152,7 @@
         "minutesIfStart": 0,
         "minutesIfBench": 0,
         "startProbability": 0,
-        "positionModel": "ALL",
+        "positionModel": "ABW",
         "scenario": {
           "start": 0,
           "bench": 0
@@ -65736,22 +65736,22 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 33,
-      "kickbaseAiScore": 33,
+      "footballRating": 29,
+      "kickbaseAiScore": 29,
       "kickbaseAiProjection": {
-        "expectedPoints": 33,
+        "expectedPoints": 29,
         "rangeMin": 0,
-        "rangeMax": 75,
+        "rangeMax": 72,
         "confidence": 46,
         "recommendation": "Beobachten",
-        "expectedMinutes": 58,
-        "minutesIfStart": 80,
-        "minutesIfBench": 20,
+        "expectedMinutes": 56,
+        "minutesIfStart": 90,
+        "minutesIfBench": 0,
         "startProbability": 63,
-        "positionModel": "ALL",
+        "positionModel": "TW",
         "scenario": {
-          "starterPoints": 47.7,
-          "benchPoints": 8.5
+          "starterPoints": 47.0,
+          "benchPoints": 0.0
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -65768,14 +65768,12 @@
           "confidenceBoost": 10
         },
         "components": {
-          "minutesBase": 37.3,
+          "minutesBase": 42.0,
           "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 5.3,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 0.0,
           "saves": 0.0,
           "goalsAgainst": -0.0,
           "fouls": -0.0,
@@ -65783,7 +65781,7 @@
           "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "reason": "ALL-Szenariomodell | Start 63% | 80 Min bei Start | Current 58% | Prior 0%",
+        "reason": "TW-Szenariomodell | Start 63% | 90 Min bei Start | Current 58% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
@@ -72820,14 +72818,14 @@
         "rangeMax": 87,
         "confidence": 33,
         "recommendation": "Beobachten",
-        "expectedMinutes": 76,
-        "minutesIfStart": 80,
-        "minutesIfBench": 20,
+        "expectedMinutes": 79,
+        "minutesIfStart": 83,
+        "minutesIfBench": 16,
         "startProbability": 94,
-        "positionModel": "ALL",
+        "positionModel": "ABW",
         "scenario": {
-          "starterPoints": 48.0,
-          "benchPoints": 7.2
+          "starterPoints": 49.0,
+          "benchPoints": 5.8
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -72844,21 +72842,20 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 37.3,
+          "minutesBase": 38.7,
           "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 1.2,
-          "saves": 0.0,
-          "fouls": -1.6,
+          "crosses": 1.3,
+          "fouls": -2.0,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "reason": "ALL-Szenariomodell | Start 94% | 80 Min bei Start | Current 54% | Prior 0%",
+        "reason": "ABW-Szenariomodell | Start 94% | 83 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
@@ -83267,17 +83264,17 @@
       "kickbaseAiProjection": {
         "expectedPoints": 29,
         "rangeMin": 0,
-        "rangeMax": 76,
+        "rangeMax": 77,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
-        "minutesIfStart": 80,
-        "minutesIfBench": 20,
+        "minutesIfStart": 83,
+        "minutesIfBench": 16,
         "startProbability": 56,
-        "positionModel": "ALL",
+        "positionModel": "ABW",
         "scenario": {
-          "starterPoints": 45.9,
-          "benchPoints": 7.2
+          "starterPoints": 46.7,
+          "benchPoints": 5.8
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -83294,7 +83291,7 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 37.3,
+          "minutesBase": 38.7,
           "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
@@ -83302,13 +83299,12 @@
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
-          "saves": 0.0,
-          "fouls": -2.4,
+          "fouls": -3.0,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "reason": "ALL-Szenariomodell | Start 56% | 80 Min bei Start | Current 54% | Prior 0%",
+        "reason": "ABW-Szenariomodell | Start 56% | 83 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
