@@ -1778,69 +1778,78 @@ def _v32_official_goalkeeper_current_profile(player):
     return {}, {}, None
 
 
-def _v33_official_goalkeeper_match_prior(player, competition):
-    """Aggregate only explicit GK saves from official Bundesliga match pages."""
+def _v34_official_goalkeeper_season_prior(player, season="2025-2026"):
+    """
+    Official Bundesliga season-ranking collector for goalkeeper saves.
+    It deliberately distinguishes:
+      - explicit player row -> usable value
+      - player absent from loaded ranking -> unknown, never zero
+    """
     if _v29_position_group(player.get("position")) != "TW":
         return {}, {}, None
-    name=str(player.get("name") or "").strip()
-    club=str(player.get("club") or player.get("team") or "").strip()
-    if not name or not club:
+
+    name = str(player.get("name") or "").strip()
+    if not name:
         return {}, {}, None
 
-    club_data=_historical_match_evidence_for_club(club, competition)
-    if not club_data.get("available"):
-        return {}, {}, None
-    needle=_normalize_player_lookup_name(name)
-    match_urls=[
-        u for u,norm in club_data.get("matchTexts",{}).items()
-        if needle and needle in norm
+    league_paths = [
+        ("2bundesliga", "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/" + season),
+        ("bundesliga", "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/" + season),
     ]
 
-    save_values=[]
-    save_sources=[]
-    pages_loaded=0
-    for match_url in match_urls[:40]:
+    wanted = _normalize_player_lookup_name(name)
+    checked = []
+    for league, url in league_paths:
         try:
-            visible=_html_to_visible_text(http_get_text(match_url,timeout=10))
-        except Exception:
+            html = http_get_text(url, timeout=15)
+        except Exception as exc:
+            checked.append({"league": league, "url": url, "error": type(exc).__name__})
             continue
-        pages_loaded+=1
-        patterns=[
-            rf"Goalkeeper Efficiency of\s+{re.escape(name)}.*?Saves\s+(\d+)",
-            rf"Torwart-Effizienz von\s+{re.escape(name)}.*?(?:Paraden|Abgewehrte Schüsse)\s+(\d+)",
-            rf"{re.escape(name)}.*?Goalkeeper Efficiency.*?Saves\s+(\d+)",
+
+        visible = _html_to_visible_text(html)
+        normalized = _normalize_player_lookup_name(visible)
+        checked.append({"league": league, "url": url, "loaded": True})
+
+        # Accept only an explicit row/name occurrence followed closely by a numeric value.
+        # Do not interpret absence from a top-N ranking as zero.
+        candidates = [
+            rf"{re.escape(name)}\s+(\d+)",
+            rf"{re.escape(wanted)}\s+(\d+)",
         ]
-        found=None
-        for pattern in patterns:
-            m=re.search(pattern,visible,flags=re.I|re.S)
+        saves = None
+        for pattern in candidates:
+            m = re.search(pattern, visible, flags=re.I)
             if m:
-                found=int(m.group(1))
-                break
-        if found is not None:
-            save_values.append(found)
-            save_sources.append(match_url)
+                try:
+                    saves = int(m.group(1))
+                except (TypeError, ValueError):
+                    saves = None
+                if saves is not None:
+                    break
 
-    meta={
-        "provider":"Bundesliga.com",
-        "competition":competition,
-        "matchesWithLineup":len(match_urls),
-        "pagesLoaded":pages_loaded,
-        "saveSamples":len(save_values),
-        "note":"Fehlende Matchwerte bleiben unbekannt und werden nicht als 0 interpretiert.",
+        if saves is not None:
+            meta = {
+                "provider": "Bundesliga.com",
+                "season": season,
+                "league": league,
+                "sourceUrl": url,
+                "explicit": True,
+                "metrics": ["saves"],
+                "checked": checked,
+            }
+            print(f"V34-GK-SEASON {name}: Liga={league} | Saves={saves} | explizit=JA")
+            return {"saves": saves}, {"saves": url}, meta
+
+    print(f"V34-GK-SEASON {name}: kein expliziter Saison-Rankingwert | unknown")
+    return {}, {}, {
+        "provider": "Bundesliga.com",
+        "season": season,
+        "explicit": False,
+        "metrics": [],
+        "checked": checked,
+        "note": "Nicht im geladenen Ranking = unbekannt, nicht 0.",
     }
-    if not save_values:
-        print(f"V33-GK-MATCHES {name}: Matches={len(match_urls)} | Seiten={pages_loaded} | keine expliziten Save-Werte")
-        return {},{},meta
 
-    total=sum(save_values)
-    avg=total/len(save_values)
-    meta.update({
-        "totalSavesInSamples":total,
-        "averageSavesPerSample":round(avg,3),
-        "sampleUrls":save_sources[:5],
-    })
-    print(f"V33-GK-MATCHES {name}: Matches={len(match_urls)} | Seiten={pages_loaded} | SaveSamples={len(save_values)} | Saves={total} | ØSaves={avg:.2f}")
-    return {"saves":total},{"saves":save_sources[0]},meta
 
 
 def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
@@ -1855,16 +1864,16 @@ def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
     starts = int(evidence.get("matchesFound") or 0)
     loaded = int(evidence.get("lineupsLoaded") or 0)
 
-    # V33: official historical match pages can provide explicit GK events even
-    # when ranking pages omit the player.
-    competition=str(meta.get("competition") or "2bundesliga")
-    gk_match_values,gk_match_sources,gk_match_meta=_v33_official_goalkeeper_match_prior(player,competition)
-    if gk_match_meta:
-        meta["goalkeeperMatchPerformancePrior"]=gk_match_meta
-    for key,value in gk_match_values.items():
+    # V34: use the official season ranking directly. No 34-page match scrape.
+    gk_season_values,gk_season_sources,gk_season_meta=_v34_official_goalkeeper_season_prior(
+        player, "2025-2026"
+    )
+    if gk_season_meta:
+        meta["goalkeeperSeasonPerformancePrior"]=gk_season_meta
+    for key,value in gk_season_values.items():
         if value is not None and values.get(key) is None:
             values[key]=value
-            sources[key]=gk_match_sources.get(key)
+            sources[key]=gk_season_sources.get(key)
 
     if starts > 0:
         if values.get("appearances") is None:
@@ -2356,12 +2365,11 @@ def build_kickbase_ai_projection(
 
         if prior_apps > 0:
             if performance.get("saves") is None and historical_prior.get("saves") is not None:
-                match_meta=(historical_prior_coverage or {}).get("goalkeeperMatchPerformancePrior") or {}
-                save_denominator=int(match_meta.get("saveSamples") or 0)
-                if save_denominator <= 0:
-                    save_denominator=prior_apps
-                value=float(historical_prior["saves"])/max(float(save_denominator),1.0)*7.0
-                gk_prior_components["saves"]=max(0.0,min(value,30.0))
+                season_meta=(historical_prior_coverage or {}).get("goalkeeperSeasonPerformancePrior") or {}
+                # Hard coverage gate: only an explicit official season value is allowed.
+                if season_meta.get("explicit") is True and prior_apps >= 8:
+                    value=float(historical_prior["saves"])/max(float(prior_apps),1.0)*7.0
+                    gk_prior_components["saves"]=max(0.0,min(value,30.0))
             if performance.get("cleanSheets") is None and historical_prior.get("cleanSheets") is not None:
                 value = float(historical_prior["cleanSheets"]) / prior_apps * 30.0
                 gk_prior_components["cleanSheets"] = max(0.0, min(value, 30.0))
@@ -2478,8 +2486,8 @@ def build_kickbase_ai_projection(
             (historical_prior_coverage or {}).get("goalkeeperPerformancePrior")
             if pos_group == "TW" else None
         ),
-        "goalkeeperMatchPerformancePrior": (
-            (historical_prior_coverage or {}).get("goalkeeperMatchPerformancePrior")
+        "goalkeeperSeasonPerformancePrior": (
+            (historical_prior_coverage or {}).get("goalkeeperSeasonPerformancePrior")
             if pos_group == "TW" else None
         ),
         "goalkeeperPriorComponents": (
@@ -4613,7 +4621,7 @@ def build_player_intelligence(
             f"PriorBonus={kickbase_ai_projection.get('historicalPriorStrength', {}).get('bonus')} | "
             f"GKPriorStarts={((kickbase_ai_projection.get('goalkeeperPrior') or {}).get('starts'))} | "
             f"GKPerf={kickbase_ai_projection.get('goalkeeperPriorComponents')} | "
-            f"GKSamples={((kickbase_ai_projection.get('goalkeeperMatchPerformancePrior') or {}).get('saveSamples'))} | "
+            f"GKSeasonExplicit={((kickbase_ai_projection.get('goalkeeperSeasonPerformancePrior') or {}).get('explicit'))} | "
             f"GKOfficial={((historical_prior_coverage or {}).get('currentGoalkeeperProfile') or {}).get('metrics')} | "
             f"Confidence={kickbase_ai_projection.get('confidence')}% | "
             f"Evidence={evidence_pct} "
