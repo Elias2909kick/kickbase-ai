@@ -1685,6 +1685,10 @@ def collect_bundesliga_historical_prior(player):
     if explicit_hits == 0:
         match_evidence = collect_historical_match_evidence(player, competition)
 
+    match_evidence_signal = _v27_match_evidence_adjustment(
+        {"matchEvidence": match_evidence}
+    )
+
     available = [key for key, value in values.items() if value is not None]
     missing = [key for key, value in values.items() if value is None]
     coverage = round(
@@ -1720,6 +1724,7 @@ def collect_bundesliga_historical_prior(player):
             for label, comp, _vals, _srcs, _pages, hits in candidates
         ],
         "matchEvidence": match_evidence,
+        "matchEvidenceSignal": match_evidence_signal,
         "note": (
             "Historischer Prior; automatisch zwischen Bundesliga und "
             "2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
@@ -1809,6 +1814,50 @@ def build_kickbase_factor_coverage(performance):
             "Coverage describes public-data observability, not exact "
             "Kickbase scoring completeness."
         ),
+    }
+
+
+
+def _v27_match_evidence_adjustment(prior_meta):
+    """
+    Convert historical lineup evidence into a bounded availability/role signal.
+    It must never manufacture missing event statistics or raw Kickbase points.
+    """
+    evidence = (prior_meta or {}).get("matchEvidence") or {}
+    found = int(evidence.get("matchesFound") or 0)
+    loaded = int(evidence.get("lineupsLoaded") or 0)
+
+    if loaded <= 0:
+        return {
+            "ratio": None,
+            "sample": 0,
+            "roleSignal": "unknown",
+            "projectionMultiplier": 1.0,
+            "confidenceBoost": 0,
+        }
+
+    ratio = max(0.0, min(1.0, found / loaded))
+
+    # Conservative bounded influence: lineup evidence affects expected usage,
+    # not event production. Even 34/34 can only move the projection by +12%.
+    if loaded >= 8 and ratio >= 0.85:
+        signal, mult, boost = "very_strong", 1.12, 10
+    elif loaded >= 8 and ratio >= 0.65:
+        signal, mult, boost = "strong", 1.08, 7
+    elif loaded >= 6 and ratio >= 0.40:
+        signal, mult, boost = "moderate", 1.04, 4
+    elif loaded >= 6 and ratio <= 0.15:
+        signal, mult, boost = "weak", 0.94, 2
+    else:
+        signal, mult, boost = "limited", 1.0, 1
+
+    return {
+        "ratio": round(ratio, 3),
+        "sample": loaded,
+        "matchesFound": found,
+        "roleSignal": signal,
+        "projectionMultiplier": mult,
+        "confidenceBoost": boost,
     }
 
 
@@ -4233,7 +4282,7 @@ def build_player_intelligence(
     if research_player:
         kickbase_ai_projection = None
         print(
-            f"AI-PROJECTION {name}: pausiert in V26 | "
+            f"AI-PROJECTION {name}: V27 Evidence-Layer aktiv | "
             "Data-Coverage-Upgrade wird validiert"
         )
     else:
@@ -4393,7 +4442,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V26-Match-Evidence-Modus: Ranking-Prior + offizieller Match/Lineup-Fallback bei 0 Treffern nur für den aufgelösten "
+        "V27-Evidence-Aware-Modus: Ranking-Prior + Match-Evidenz als begrenztes Einsatzsignal nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
