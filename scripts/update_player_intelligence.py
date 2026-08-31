@@ -2496,11 +2496,14 @@ def build_kickbase_ai_projection(
                     neutral_rate=neutral_gk_saves_rate,
                 )
                 if blended_rate is not None:
-                    # Existing model convention: save rate translated to expected KB-like contribution.
-                    value=float(blended_rate)*7.0
-                    gk_prior_components["saves"]=max(0.0,min(value,30.0))
+                    # V40: aggregate "saves" does not reveal the Kickbase save subtype.
+                    # Different goalkeeper actions carry different point values, so a
+                    # fixed points-per-save multiplier would create false precision.
+                    # Keep the blended save rate as predictive evidence only.
+                    gk_prior_components["blendedSavesPerAppearance"]=round(float(blended_rate),3)
                     gk_prior_components["liveSeasonWeight"]=round(live_weight,3)
                     gk_prior_components["liveSeasonSource"]=current_source
+                    gk_prior_components["saveScoringMode"]="aggregate_rate_evidence_only"
                     gk_prior_components["blendPriorSource"]=blend_prior_source
                     gk_prior_components["neutralGKSavesRate"]=neutral_gk_saves_rate if blend_prior_source == "neutral_gk_baseline" else None
                     gk_prior_components["liveSeasonAppearances"]=current_apps
@@ -2520,7 +2523,7 @@ def build_kickbase_ai_projection(
             numeric_gk_components = [
                 value
                 for key, value in gk_prior_components.items()
-                if key in {"saves", "cleanSheets", "goalsAgainst"}
+                if key in {"cleanSheets", "goalsAgainst"}
                 and isinstance(value, (int, float))
             ]
             if numeric_gk_components:
