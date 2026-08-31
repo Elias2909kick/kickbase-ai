@@ -1804,8 +1804,16 @@ def _v35_current_sample_weight(appearances):
             return y0 + (y1-y0)*(n-x0)/float(x1-x0)
     return 0.0
 
-def _v35_blend_rate(current_total, current_apps, prior_total, prior_apps):
-    """Blend per-appearance rates; missing data never becomes zero."""
+def _v39_blend_rate(current_total, current_apps, prior_total, prior_apps, neutral_rate=None):
+    """
+    Blend per-appearance rates with early-season shrinkage.
+
+    Priority:
+      current sample + player historical prior, when available;
+      otherwise current sample + neutral positional baseline.
+
+    Missing observations never become zero.
+    """
     def rate(total, apps):
         try:
             a = int(apps or 0)
@@ -1814,14 +1822,28 @@ def _v35_blend_rate(current_total, current_apps, prior_total, prior_apps):
             return float(total) / float(a)
         except (TypeError, ValueError, ZeroDivisionError):
             return None
+
     cr = rate(current_total, current_apps)
     pr = rate(prior_total, prior_apps)
+
     if cr is None:
-        return pr, 0.0
-    if pr is None:
-        return cr, 1.0
+        return pr, 0.0, "historical_prior" if pr is not None else None
+
     w = _v35_current_sample_weight(current_apps)
-    return cr*w + pr*(1.0-w), w
+
+    if pr is not None:
+        return cr*w + pr*(1.0-w), w, "historical_prior"
+
+    if neutral_rate is not None:
+        try:
+            nr = float(neutral_rate)
+            return cr*w + nr*(1.0-w), w, "neutral_gk_baseline"
+        except (TypeError, ValueError):
+            pass
+
+    # No defensible comparison prior exists: expose current rate, but keep
+    # the sample weight diagnostic instead of pretending confidence=100%.
+    return cr, w, "current_only"
 
 
 def _v34_official_goalkeeper_season_prior(player, season="2025-2026"):
@@ -2462,11 +2484,16 @@ def build_kickbase_ai_projection(
                 prior_saves=historical_prior.get("saves")
                 prior_ok=(season_meta.get("explicit") is True and prior_apps >= 8)
 
-                blended_rate,live_weight=_v35_blend_rate(
+                # V39 neutral goalkeeper baseline: 3.0 saves/appearance.
+                # It is a model prior, not an observed player statistic, and is
+                # used only when no usable historical player prior exists.
+                neutral_gk_saves_rate = 3.0
+                blended_rate,live_weight,blend_prior_source=_v39_blend_rate(
                     current_saves if current_ok else None,
                     current_apps,
                     prior_saves if prior_ok else None,
                     prior_apps,
+                    neutral_rate=neutral_gk_saves_rate,
                 )
                 if blended_rate is not None:
                     # Existing model convention: save rate translated to expected KB-like contribution.
@@ -2474,6 +2501,8 @@ def build_kickbase_ai_projection(
                     gk_prior_components["saves"]=max(0.0,min(value,30.0))
                     gk_prior_components["liveSeasonWeight"]=round(live_weight,3)
                     gk_prior_components["liveSeasonSource"]=current_source
+                    gk_prior_components["blendPriorSource"]=blend_prior_source
+                    gk_prior_components["neutralGKSavesRate"]=neutral_gk_saves_rate if blend_prior_source == "neutral_gk_baseline" else None
                     gk_prior_components["liveSeasonAppearances"]=current_apps
                     if current_saves is not None:
                         gk_prior_components["liveSeasonSaves"]=current_saves
@@ -4750,6 +4779,7 @@ def build_player_intelligence(
             f"GKPriorExplicit={((kickbase_ai_projection.get('goalkeeperSeasonPerformancePrior') or {}).get('explicit'))} | "
             f"GKLiveWeight={((kickbase_ai_projection.get('goalkeeperPerformancePrior') or {}).get('liveSeasonWeight'))} | "
             f"GKLiveSource={((kickbase_ai_projection.get('goalkeeperPerformancePrior') or {}).get('liveSeasonSource'))} | "
+            f"GKBlendPrior={((kickbase_ai_projection.get('goalkeeperPerformancePrior') or {}).get('blendPriorSource'))} | "
             f"GKOfficial={((historical_prior_coverage or {}).get('currentGoalkeeperProfile') or {}).get('metrics')} | "
             f"Confidence={kickbase_ai_projection.get('confidence')}% | "
             f"Evidence={evidence_pct} "
