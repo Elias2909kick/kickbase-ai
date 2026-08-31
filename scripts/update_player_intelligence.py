@@ -1265,15 +1265,16 @@ def parse_float_after_labels(text, labels):
 
 
 
-def _bundesliga_stat_url(slug, season=None):
+def _bundesliga_stat_url(slug, season=None, competition="bundesliga"):
     season = season or BUNDESLIGA_STATS_SEASON
+    competition = competition if competition in ("bundesliga", "2bundesliga") else "bundesliga"
     return (
-        "https://www.bundesliga.com/de/bundesliga/statistiken/"
+        f"https://www.bundesliga.com/de/{competition}/statistiken/"
         f"spieler/{slug}/{season}"
     )
 
 
-def _get_bundesliga_stat_text(metric_key, season=None, historical=False):
+def _get_bundesliga_stat_text(metric_key, season=None, historical=False, competition="bundesliga"):
     """
     Loads one official Bundesliga ranking page and caches it.
 
@@ -1285,7 +1286,7 @@ def _get_bundesliga_stat_text(metric_key, season=None, historical=False):
         if historical
         else _BUNDESLIGA_STATS_TEXT_CACHE
     )
-    cache_key = (season, metric_key)
+    cache_key = (competition, season, metric_key)
 
     if cache_key in cache:
         return cache[cache_key]
@@ -1300,7 +1301,7 @@ def _get_bundesliga_stat_text(metric_key, season=None, historical=False):
         cache[cache_key] = (None, None)
         return None, None
 
-    url = _bundesliga_stat_url(config["slug"], season=season)
+    url = _bundesliga_stat_url(config["slug"], season=season, competition=competition)
 
     try:
         html = http_get_text(url, timeout=8)
@@ -1434,15 +1435,12 @@ def collect_bundesliga_rankings_for_player(player):
     return values, sources
 
 
-def collect_bundesliga_historical_prior(player):
+def _collect_historical_prior_from_competition(player, competition):
     """
-    V23 historical prior from 2025/26.
-
-    Historical totals are stored separately and are NEVER mixed into current
-    season totals. They are intended for later model calibration only.
+    Collects the 2025/26 prior from one competition.
+    Returns explicit ranking hits only; not listed remains unknown.
     """
     player_name = str(player.get("name") or "").strip()
-
     values = {}
     sources = {}
     pages_available = 0
@@ -1453,6 +1451,7 @@ def collect_bundesliga_historical_prior(player):
             metric_key,
             season=BUNDESLIGA_PRIOR_SEASON,
             historical=True,
+            competition=competition,
         )
 
         if not page_text:
@@ -1471,24 +1470,81 @@ def collect_bundesliga_historical_prior(player):
             explicit_hits += 1
             sources[metric_key] = url
 
+    return values, sources, pages_available, explicit_hits
+
+
+def collect_bundesliga_historical_prior(player):
+    """
+    V24 historical league fallback.
+
+    First checks Bundesliga 2025/26. If the player has no explicit ranking
+    hit there, it automatically checks 2. Bundesliga 2025/26.
+
+    The competition with more explicit hits wins. Historical values remain
+    fully separate from current-season totals.
+    """
+    player_name = str(player.get("name") or "").strip()
+
+    bl_values, bl_sources, bl_pages, bl_hits = (
+        _collect_historical_prior_from_competition(player, "bundesliga")
+    )
+
+    candidates = [
+        ("Bundesliga", "bundesliga", bl_values, bl_sources, bl_pages, bl_hits)
+    ]
+
+    # Only pay for the second-league requests when Bundesliga gives us no
+    # historical evidence. The cache means subsequent promoted players are cheap.
+    if bl_hits == 0:
+        zbl_values, zbl_sources, zbl_pages, zbl_hits = (
+            _collect_historical_prior_from_competition(player, "2bundesliga")
+        )
+        candidates.append(
+            ("2. Bundesliga", "2bundesliga",
+             zbl_values, zbl_sources, zbl_pages, zbl_hits)
+        )
+
+    best = max(candidates, key=lambda item: item[5])
+    league_label, competition, values, sources, pages_available, explicit_hits = best
+
     available = [key for key, value in values.items() if value is not None]
     missing = [key for key, value in values.items() if value is None]
     coverage = round(
         len(available) / max(len(BUNDESLIGA_PRIOR_STAT_CATEGORIES), 1) * 100
     )
 
+    tried = ", ".join(
+        f"{label}:{hits}"
+        for label, _comp, _vals, _srcs, _pages, hits in candidates
+    )
+
     print(
-        f"PRIOR-PLAYER {player_name}: "
-        f"Coverage {coverage}% | vorhanden={len(available)} | "
-        f"fehlend={len(missing)}"
+        f"PRIOR-LEAGUE {player_name}: gewählt={league_label} | "
+        f"Treffer={explicit_hits} | geprüft={tried}"
+    )
+    print(
+        f"PRIOR-PLAYER {player_name}: Coverage {coverage}% | "
+        f"vorhanden={len(available)} | fehlend={len(missing)} | "
+        f"Liga={league_label}"
     )
 
     return values, sources, {
         "season": BUNDESLIGA_PRIOR_SEASON,
+        "competition": competition,
+        "league": league_label,
         "availableMetrics": available,
         "missingMetrics": missing,
         "coveragePercent": coverage,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt.",
+        "explicitRankingHits": explicit_hits,
+        "rankingPagesAvailable": pages_available,
+        "competitionsTried": [
+            {"league": label, "competition": comp, "explicitRankingHits": hits}
+            for label, comp, _vals, _srcs, _pages, hits in candidates
+        ],
+        "note": (
+            "Historischer Prior; automatisch zwischen Bundesliga und "
+            "2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
+        ),
     }
 
 
@@ -3980,6 +4036,8 @@ def build_player_intelligence(
         historical_prior_sources = old_player.get("historicalPriorSources") or {}
         historical_prior_coverage = old_player.get("historicalPriorCoverage") or {
             "season": BUNDESLIGA_PRIOR_SEASON,
+            "competition": None,
+            "league": None,
             "availableMetrics": [],
             "missingMetrics": list(BUNDESLIGA_PRIOR_STAT_CATEGORIES.keys()),
             "coveragePercent": 0,
@@ -3996,7 +4054,7 @@ def build_player_intelligence(
     if research_player:
         kickbase_ai_projection = None
         print(
-            f"AI-PROJECTION {name}: pausiert in V23 | "
+            f"AI-PROJECTION {name}: pausiert in V24 | "
             "Data-Coverage-Upgrade wird validiert"
         )
     else:
@@ -4156,7 +4214,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V23-Data-Coverage-Modus: explizite Rankings + Laufdaten + historischer Prior + Faktor-Mapping nur für den aufgelösten "
+        "V24-League-Fallback-Modus: historischer Prior automatisch aus Bundesliga oder 2. Bundesliga nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
