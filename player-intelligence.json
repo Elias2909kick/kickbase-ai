@@ -11301,21 +11301,21 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 82,
-      "kickbaseAiScore": 82,
+      "footballRating": 53,
+      "kickbaseAiScore": 53,
       "kickbaseAiProjection": {
-        "expectedPoints": 82,
-        "rangeMin": 40,
-        "rangeMax": 124,
+        "expectedPoints": 53,
+        "rangeMin": 12,
+        "rangeMax": 94,
         "confidence": 59,
-        "recommendation": "Starten",
+        "recommendation": "Beobachten",
         "expectedMinutes": 74,
         "minutesIfStart": 77,
         "minutesIfBench": 24,
         "startProbability": 94,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 85.8,
+          "starterPoints": 54.8,
           "benchPoints": 16.5
         },
         "historicalPriorStrength": {
@@ -11345,8 +11345,8 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 35.9,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 6.8,
@@ -18498,12 +18498,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 30,
-      "kickbaseAiScore": 30,
+      "footballRating": 13,
+      "kickbaseAiScore": 13,
       "kickbaseAiProjection": {
-        "expectedPoints": 30,
+        "expectedPoints": 13,
         "rangeMin": 0,
-        "rangeMax": 86,
+        "rangeMax": 63,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -18512,7 +18512,7 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 46.9,
+          "starterPoints": 16.0,
           "benchPoints": 8.6
         },
         "historicalPriorStrength": {
@@ -18535,8 +18535,8 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 35.9,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
         },
@@ -37954,12 +37954,12 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 44,
-      "kickbaseAiScore": 44,
+      "footballRating": 14,
+      "kickbaseAiScore": 14,
       "kickbaseAiProjection": {
-        "expectedPoints": 44,
+        "expectedPoints": 14,
         "rangeMin": 0,
-        "rangeMax": 93,
+        "rangeMax": 63,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 74,
@@ -37968,7 +37968,7 @@
         "startProbability": 94,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 45.6,
+          "starterPoints": 14.7,
           "benchPoints": 10.1
         },
         "historicalPriorStrength": {
@@ -37991,8 +37991,8 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 35.9,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 3.4,
@@ -47033,7 +47033,15 @@
           "start": 0,
           "bench": 0
         },
-        "model": "v29-scenario-prior-public-data"
+        "model": "v42-position-aware-official-actions",
+        "positionScoring": {
+          "goal": 100,
+          "assist": 45,
+          "cleanSheetPer10": 3,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
+        }
       },
       "performance": {
         "appearances": 0,
@@ -49172,12 +49180,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 30,
-      "kickbaseAiScore": 30,
+      "footballRating": 12,
+      "kickbaseAiScore": 12,
       "kickbaseAiProjection": {
-        "expectedPoints": 30,
+        "expectedPoints": 12,
         "rangeMin": 0,
-        "rangeMax": 81,
+        "rangeMax": 57,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 53,
@@ -49186,7 +49194,7 @@
         "startProbability": 56,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 46.2,
+          "starterPoints": 14.8,
           "benchPoints": 9.3
         },
         "historicalPriorStrength": {
@@ -49209,8 +49217,8 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 36.4,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 3.0,
@@ -49916,12 +49924,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 31,
-      "kickbaseAiScore": 31,
+      "footballRating": 11,
+      "kickbaseAiScore": 11,
       "kickbaseAiProjection": {
-        "expectedPoints": 31,
+        "expectedPoints": 11,
         "rangeMin": 0,
-        "rangeMax": 82,
+        "rangeMax": 55,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 53,
@@ -49930,8 +49938,8 @@
         "startProbability": 56,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 47.0,
-          "benchPoints": 9.5
+          "starterPoints": 12.2,
+          "benchPoints": 8.5
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -49953,15 +49961,15 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 36.4,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 9.1,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
-          "fouls": -3.5,
+          "fouls": -6.9,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": -2.0
@@ -70838,22 +70846,22 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 112,
-      "kickbaseAiScore": 112,
+      "footballRating": 241,
+      "kickbaseAiScore": 241,
       "kickbaseAiProjection": {
-        "expectedPoints": 112,
-        "rangeMin": 44,
-        "rangeMax": 180,
+        "expectedPoints": 241,
+        "rangeMin": 156,
+        "rangeMax": 326,
         "confidence": 46,
-        "recommendation": "Starten",
+        "recommendation": "Top-Option",
         "expectedMinutes": 54,
         "minutesIfStart": 77,
         "minutesIfBench": 24,
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 163.7,
-          "benchPoints": 45.0
+          "starterPoints": 342.8,
+          "benchPoints": 110.5
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -70875,16 +70883,16 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 35.9,
-          "startingBonus": 7.0,
-          "goals": 30.0,
-          "assists": 30.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
+          "goals": 140.0,
+          "assists": 140.0,
           "shots": 30.0,
           "duelsWon": 21.5,
           "aerialDuelsWon": 27.6,
           "crosses": 1.7,
           "fouls": -0.0,
-          "yellowCards": -20.0,
+          "yellowCards": -30.0,
           "passAccuracy": -4.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
@@ -72006,21 +72014,21 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 59,
-      "kickbaseAiScore": 59,
+      "footballRating": 12,
+      "kickbaseAiScore": 12,
       "kickbaseAiProjection": {
-        "expectedPoints": 59,
-        "rangeMin": 26,
-        "rangeMax": 92,
+        "expectedPoints": 12,
+        "rangeMin": 0,
+        "rangeMax": 44,
         "confidence": 58,
-        "recommendation": "Gute Option",
+        "recommendation": "Beobachten",
         "expectedMinutes": 86,
         "minutesIfStart": 90,
         "minutesIfBench": 0,
         "startProbability": 96,
         "positionModel": "TW",
         "scenario": {
-          "starterPoints": 61.0,
+          "starterPoints": 13.0,
           "benchPoints": 0.0
         },
         "historicalPriorStrength": {
@@ -72095,13 +72103,12 @@
           "confidenceBoost": 10
         },
         "components": {
-          "minutesBase": 42.0,
-          "startingBonus": 7.0,
+          "minutesBase": 10.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "saves": 14.0,
           "goalsAgainst": -0.0,
           "fouls": -0.0,
           "yellowCards": -0.0,
@@ -79951,12 +79958,12 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 46,
-      "kickbaseAiScore": 46,
+      "footballRating": 14,
+      "kickbaseAiScore": 14,
       "kickbaseAiProjection": {
-        "expectedPoints": 46,
-        "rangeMin": 5,
-        "rangeMax": 87,
+        "expectedPoints": 14,
+        "rangeMin": 0,
+        "rangeMax": 54,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 79,
@@ -79965,7 +79972,7 @@
         "startProbability": 94,
         "positionModel": "ABW",
         "scenario": {
-          "starterPoints": 49.0,
+          "starterPoints": 14.6,
           "benchPoints": 5.8
         },
         "historicalPriorStrength": {
@@ -79988,15 +79995,15 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 38.7,
-          "startingBonus": 7.0,
+          "minutesBase": 8.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 1.3,
-          "fouls": -2.0,
+          "fouls": -3.7,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
@@ -91513,12 +91520,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 29,
-      "kickbaseAiScore": 29,
+      "footballRating": 9,
+      "kickbaseAiScore": 9,
       "kickbaseAiProjection": {
-        "expectedPoints": 29,
+        "expectedPoints": 9,
         "rangeMin": 0,
-        "rangeMax": 77,
+        "rangeMax": 50,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -91527,7 +91534,7 @@
         "startProbability": 56,
         "positionModel": "ABW",
         "scenario": {
-          "starterPoints": 46.7,
+          "starterPoints": 11.5,
           "benchPoints": 5.8
         },
         "historicalPriorStrength": {
@@ -91550,15 +91557,15 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 38.7,
-          "startingBonus": 7.0,
+          "minutesBase": 8.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
-          "fouls": -3.0,
+          "fouls": -5.5,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
@@ -95167,12 +95174,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 29,
-      "kickbaseAiScore": 29,
+      "footballRating": 11,
+      "kickbaseAiScore": 11,
       "kickbaseAiProjection": {
-        "expectedPoints": 29,
+        "expectedPoints": 11,
         "rangeMin": 0,
-        "rangeMax": 85,
+        "rangeMax": 60,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -95181,7 +95188,7 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 45.6,
+          "starterPoints": 12.6,
           "benchPoints": 8.6
         },
         "historicalPriorStrength": {
@@ -95204,15 +95211,15 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 35.9,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
-          "fouls": -1.4,
+          "fouls": -3.4,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
@@ -100693,12 +100700,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 46,
-      "kickbaseAiScore": 46,
+      "footballRating": 31,
+      "kickbaseAiScore": 31,
       "kickbaseAiProjection": {
-        "expectedPoints": 46,
+        "expectedPoints": 31,
         "rangeMin": 0,
-        "rangeMax": 105,
+        "rangeMax": 84,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -100707,8 +100714,8 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 68.6,
-          "benchPoints": 17.3
+          "starterPoints": 40.4,
+          "benchPoints": 18.1
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -100730,15 +100737,15 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 35.9,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
-          "assists": 23.1,
+          "assists": 29.9,
           "shots": 6.8,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.4,
-          "fouls": -2.7,
+          "fouls": -6.8,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": -2.0
@@ -101017,12 +101024,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 26,
-      "kickbaseAiScore": 26,
+      "footballRating": 8,
+      "kickbaseAiScore": 8,
       "kickbaseAiProjection": {
-        "expectedPoints": 26,
+        "expectedPoints": 8,
         "rangeMin": 0,
-        "rangeMax": 81,
+        "rangeMax": 57,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -101031,7 +101038,7 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 40.2,
+          "starterPoints": 8.3,
           "benchPoints": 8.6
         },
         "historicalPriorStrength": {
@@ -101054,15 +101061,15 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 35.9,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
-          "fouls": -0.7,
+          "fouls": -1.7,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": -2.0
@@ -107603,7 +107610,15 @@
           "start": 0,
           "bench": 0
         },
-        "model": "v29-scenario-prior-public-data"
+        "model": "v42-position-aware-official-actions",
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
+        }
       },
       "performance": {
         "appearances": 0,
@@ -108082,12 +108097,12 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 49,
-      "kickbaseAiScore": 49,
+      "footballRating": 20,
+      "kickbaseAiScore": 20,
       "kickbaseAiProjection": {
-        "expectedPoints": 49,
+        "expectedPoints": 20,
         "rangeMin": 0,
-        "rangeMax": 99,
+        "rangeMax": 69,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 74,
@@ -108096,7 +108111,7 @@
         "startProbability": 94,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 51.2,
+          "starterPoints": 20.3,
           "benchPoints": 10.0
         },
         "historicalPriorStrength": {
@@ -108119,8 +108134,8 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 35.9,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 3.4,
@@ -112352,12 +112367,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 29,
-      "kickbaseAiScore": 29,
+      "footballRating": 11,
+      "kickbaseAiScore": 11,
       "kickbaseAiProjection": {
-        "expectedPoints": 29,
+        "expectedPoints": 11,
         "rangeMin": 0,
-        "rangeMax": 80,
+        "rangeMax": 55,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 53,
@@ -112366,7 +112381,7 @@
         "startProbability": 56,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 44.4,
+          "starterPoints": 13.0,
           "benchPoints": 8.8
         },
         "historicalPriorStrength": {
@@ -112389,8 +112404,8 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 36.4,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 3.0,
@@ -119962,12 +119977,12 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 54,
-      "kickbaseAiScore": 54,
+      "footballRating": 23,
+      "kickbaseAiScore": 23,
       "kickbaseAiProjection": {
-        "expectedPoints": 54,
-        "rangeMin": 11,
-        "rangeMax": 97,
+        "expectedPoints": 23,
+        "rangeMin": 0,
+        "rangeMax": 65,
         "confidence": 37,
         "recommendation": "Beobachten",
         "expectedMinutes": 77,
@@ -119976,7 +119991,7 @@
         "startProbability": 98,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 55.2,
+          "starterPoints": 23.8,
           "benchPoints": 10.1
         },
         "historicalPriorStrength": {
@@ -119999,8 +120014,8 @@
           "confidenceBoost": 4
         },
         "components": {
-          "minutesBase": 36.4,
-          "startingBonus": 7.0,
+          "minutesBase": 7.0,
+          "startingBonus": 5.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 6.1,
