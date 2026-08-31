@@ -1390,13 +1390,19 @@ def collect_bundesliga_rankings_for_player(player):
 
 def build_kickbase_ai_projection(player, performance, data_coverage):
     """
-    V21: Positionsabhängiger Public-Data-Prognoseindex.
+    V22: Erwartete-Punkte-Modell auf öffentlicher Datenbasis.
 
+    Ziel:
+    - Ausgabe auf einer "Punkte pro Spiel"-Skala statt abstraktem 0-100-Index
     - keine Kickbase-API
-    - fehlende Statistiken werden nicht als 0 gewertet
-    - Verletzung/Sperre sind harte Ausschlussregeln
-    - Startelfsignal + historische Starts/Minuten -> erwartete Spielzeit
-    - positionsabhängige Gewichtung der vorhandenen Leistungsdaten
+    - fehlende Mikroaktionen werden NICHT erfunden
+    - Verletzung/Sperre = harter Ausschluss
+    - erwartete Spielzeit + positionsabhängige öffentliche Performance
+    - Confidence bleibt getrennt von Spielerqualität
+
+    WICHTIG:
+    Dies ist eine eigene Prognose auf Kickbase-ähnlicher Punktskala,
+    keine behauptete exakte Reproduktion des proprietären Kickbase-Scorings.
     """
     coverage = int(data_coverage.get("coveragePercent") or 0)
 
@@ -1415,49 +1421,68 @@ def build_kickbase_ai_projection(player, performance, data_coverage):
             "recommendation": "Nicht aufstellen",
             "reason": "Verletzung oder Sperre",
             "expectedMinutes": 0,
+            "startProbability": 0,
             "positionModel": position or "unbekannt",
-            "model": "v21-position-minutes-public-data",
+            "components": {},
+            "model": "v22-public-data-expected-points",
         }
 
     appearances = performance.get("appearances")
     starts = performance.get("starts")
     minutes = performance.get("minutes")
 
-    # 1) Startelfsignal -> Basis-Spielzeit
+    # ------------------------------------------------------------
+    # 1) Erwartete Spielzeit
+    # ------------------------------------------------------------
     if "sehr wahrscheinlich" in starting:
-        expected_minutes = 82.0
-        start_probability = 0.93
+        expected_minutes = 84.0
+        start_probability = 0.94
     elif "wahrscheinlich" in starting:
-        expected_minutes = 74.0
-        start_probability = 0.82
+        expected_minutes = 76.0
+        start_probability = 0.83
     elif "eher bank" in starting:
         expected_minutes = 34.0
         start_probability = 0.38
     elif "nicht" in starting and "recherchiert" not in starting:
-        expected_minutes = 20.0
-        start_probability = 0.20
+        expected_minutes = 18.0
+        start_probability = 0.18
     else:
-        expected_minutes = 50.0
-        start_probability = 0.55
+        expected_minutes = 52.0
+        start_probability = 0.56
 
-    # Historische Einsatzdaten stabilisieren die Schätzung, falls vorhanden.
-    hist_minutes = None
     if minutes is not None and appearances:
         try:
-            hist_minutes = float(minutes) / max(float(appearances), 1.0)
-            expected_minutes = 0.72 * expected_minutes + 0.28 * hist_minutes
+            hist_mpa = float(minutes) / max(float(appearances), 1.0)
+            expected_minutes = 0.75 * expected_minutes + 0.25 * hist_mpa
         except (TypeError, ValueError):
             pass
 
     if starts is not None and appearances:
         try:
-            historical_start_share = float(starts) / max(float(appearances), 1.0)
-            start_probability = 0.78 * start_probability + 0.22 * historical_start_share
+            hist_start_share = float(starts) / max(float(appearances), 1.0)
+            start_probability = (
+                0.80 * start_probability
+                + 0.20 * hist_start_share
+            )
         except (TypeError, ValueError):
             pass
 
     expected_minutes = max(0.0, min(expected_minutes, 90.0))
     minute_factor = expected_minutes / 90.0
+
+    # ------------------------------------------------------------
+    # 2) Positionsgruppe
+    # ------------------------------------------------------------
+    if "torwart" in position or position in ("tw", "gk"):
+        pos_group = "TW"
+    elif "abwehr" in position or position in ("ab", "abw", "df"):
+        pos_group = "ABW"
+    elif "mittelfeld" in position or position in ("mf", "mid"):
+        pos_group = "MF"
+    elif "angriff" in position or position in ("ang", "fw", "st"):
+        pos_group = "ANG"
+    else:
+        pos_group = "ALL"
 
     def per90(value):
         if value is None:
@@ -1471,134 +1496,266 @@ def build_kickbase_ai_projection(player, performance, data_coverage):
             return None
         return None
 
-    # 2) Positionsmodell
-    if "torwart" in position or position in ("tw", "gk"):
-        pos_group = "TW"
-    elif "abwehr" in position or position in ("ab", "abw", "df"):
-        pos_group = "ABW"
-    elif "mittelfeld" in position or position in ("mf", "mid"):
-        pos_group = "MF"
-    elif "angriff" in position or position in ("ang", "fw", "st"):
-        pos_group = "ANG"
-    else:
-        pos_group = "ALL"
+    # ------------------------------------------------------------
+    # 3) Erwartete Punkte-Komponenten
+    #    Diese Gewichte sind bewusst approximativ und transparent.
+    # ------------------------------------------------------------
+    components = {}
 
-    # Werte sind bewusst ein transparenter eigener Index und keine behauptete
-    # Reproduktion der proprietären Kickbase-Punkteformel.
-    weights = {
-        "TW": {
-            "goals": 14.0, "assists": 12.0, "shots": 0.5, "shotsOnTarget": 0.8,
-            "duelsWon": 0.7, "aerialDuelsWon": 0.8, "crosses": 0.1,
-            "saves": 5.0, "cleanSheets": 14.0, "goalsAgainst": -4.5,
-            "fouls": -1.0, "yellowCards": -3.0,
-        },
-        "ABW": {
-            "goals": 24.0, "assists": 14.0, "shots": 1.0, "shotsOnTarget": 1.8,
-            "duelsWon": 1.0, "aerialDuelsWon": 1.2, "crosses": 0.45,
-            "saves": 0.0, "cleanSheets": 9.0, "goalsAgainst": -2.2,
-            "fouls": -0.8, "yellowCards": -3.0,
-        },
-        "MF": {
-            "goals": 22.0, "assists": 18.0, "shots": 1.3, "shotsOnTarget": 2.0,
-            "duelsWon": 0.75, "aerialDuelsWon": 0.65, "crosses": 0.65,
-            "saves": 0.0, "cleanSheets": 2.0, "goalsAgainst": -0.5,
-            "fouls": -0.7, "yellowCards": -3.0,
-        },
-        "ANG": {
-            "goals": 26.0, "assists": 17.0, "shots": 1.5, "shotsOnTarget": 2.6,
-            "duelsWon": 0.55, "aerialDuelsWon": 0.7, "crosses": 0.35,
-            "saves": 0.0, "cleanSheets": 0.0, "goalsAgainst": 0.0,
-            "fouls": -0.6, "yellowCards": -3.0,
-        },
-        "ALL": {
-            "goals": 22.0, "assists": 16.0, "shots": 1.2, "shotsOnTarget": 2.0,
-            "duelsWon": 0.7, "aerialDuelsWon": 0.7, "crosses": 0.45,
-            "saves": 2.0, "cleanSheets": 4.0, "goalsAgainst": -1.0,
-            "fouls": -0.7, "yellowCards": -3.0,
-        },
-    }[pos_group]
+    # Spielzeit-Basis: Starter erhalten eine solide Grundbasis.
+    # 90 Minuten entsprechen hier grob 40 Basispunkten.
+    components["minutesBase"] = 40.0 * minute_factor
 
-    # 3) Baseline aus Einsatzwahrscheinlichkeit. Dadurch wird ein sicherer
-    # Starter klar von einem Bankspieler getrennt.
-    score = 8.0 + 28.0 * start_probability + 10.0 * minute_factor
+    # Startelfsignal als separater Bonus.
+    components["startingBonus"] = 7.0 * start_probability
 
-    component_values = {}
-    for key, weight in weights.items():
-        value = per90(performance.get(key))
-        if value is None or weight == 0:
-            continue
-        contribution = value * weight * minute_factor
-        # Einzelne öffentliche Rankings dürfen die Prognose nicht dominieren.
-        contribution = max(-12.0, min(contribution, 22.0))
-        component_values[key] = contribution
+    # Tor-/Assist-Wahrscheinlichkeit aus historischen Raten.
+    goal_rate = per90(performance.get("goals"))
+    assist_rate = per90(performance.get("assists"))
 
-    # Passquote nur als kleiner Effizienzindikator; ohne Passvolumen/-zone
-    # darf sie keinen großen Einfluss bekommen.
+    goal_weights = {
+        "TW": 90.0,
+        "ABW": 80.0,
+        "MF": 70.0,
+        "ANG": 60.0,
+        "ALL": 65.0,
+    }
+    assist_weights = {
+        "TW": 35.0,
+        "ABW": 30.0,
+        "MF": 28.0,
+        "ANG": 25.0,
+        "ALL": 27.0,
+    }
+
+    if goal_rate is not None:
+        components["goals"] = (
+            goal_rate
+            * goal_weights[pos_group]
+            * minute_factor
+        )
+
+    if assist_rate is not None:
+        components["assists"] = (
+            assist_rate
+            * assist_weights[pos_group]
+            * minute_factor
+        )
+
+    shot_rate = per90(performance.get("shots"))
+    if shot_rate is not None:
+        components["shots"] = min(
+            shot_rate * 4.0 * minute_factor,
+            18.0,
+        )
+
+    sot_rate = per90(performance.get("shotsOnTarget"))
+    if sot_rate is not None:
+        components["shotsOnTarget"] = min(
+            sot_rate * 7.0 * minute_factor,
+            22.0,
+        )
+
+    duel_rate = per90(performance.get("duelsWon"))
+    if duel_rate is not None:
+        duel_weight = {
+            "TW": 0.5,
+            "ABW": 1.4,
+            "MF": 1.1,
+            "ANG": 0.8,
+            "ALL": 1.0,
+        }[pos_group]
+        components["duelsWon"] = min(
+            duel_rate * duel_weight * minute_factor,
+            18.0,
+        )
+
+    aerial_rate = per90(performance.get("aerialDuelsWon"))
+    if aerial_rate is not None:
+        aerial_weight = {
+            "TW": 0.8,
+            "ABW": 1.7,
+            "MF": 1.0,
+            "ANG": 1.2,
+            "ALL": 1.1,
+        }[pos_group]
+        components["aerialDuelsWon"] = min(
+            aerial_rate * aerial_weight * minute_factor,
+            14.0,
+        )
+
+    cross_rate = per90(performance.get("crosses"))
+    if cross_rate is not None:
+        cross_weight = {
+            "TW": 0.0,
+            "ABW": 0.8,
+            "MF": 1.2,
+            "ANG": 0.7,
+            "ALL": 0.9,
+        }[pos_group]
+        if cross_weight:
+            components["crosses"] = min(
+                cross_rate * cross_weight * minute_factor,
+                12.0,
+            )
+
+    # Torwartkomponenten
+    save_rate = per90(performance.get("saves"))
+    if save_rate is not None and pos_group == "TW":
+        components["saves"] = min(
+            save_rate * 7.0 * minute_factor,
+            35.0,
+        )
+
+    clean_sheet_rate = per90(performance.get("cleanSheets"))
+    if clean_sheet_rate is not None:
+        cs_weight = {
+            "TW": 35.0,
+            "ABW": 24.0,
+            "MF": 6.0,
+            "ANG": 0.0,
+            "ALL": 10.0,
+        }[pos_group]
+        if cs_weight:
+            components["cleanSheets"] = (
+                clean_sheet_rate
+                * cs_weight
+                * minute_factor
+            )
+
+    goals_against_rate = per90(performance.get("goalsAgainst"))
+    if goals_against_rate is not None:
+        ga_weight = {
+            "TW": -7.0,
+            "ABW": -4.0,
+            "MF": -1.0,
+            "ANG": 0.0,
+            "ALL": -2.0,
+        }[pos_group]
+        if ga_weight:
+            components["goalsAgainst"] = max(
+                goals_against_rate
+                * ga_weight
+                * minute_factor,
+                -25.0,
+            )
+
+    # Negative Aktionen
+    foul_rate = per90(performance.get("fouls"))
+    if foul_rate is not None:
+        components["fouls"] = max(
+            -foul_rate * 1.5 * minute_factor,
+            -10.0,
+        )
+
+    yellow_rate = per90(performance.get("yellowCards"))
+    if yellow_rate is not None:
+        components["yellowCards"] = max(
+            -yellow_rate * 8.0 * minute_factor,
+            -10.0,
+        )
+
+    # Passquote nur kleiner Effizienzbeitrag, weil Passvolumen und Feldzone
+    # weiterhin fehlen.
     pass_accuracy = performance.get("passAccuracy")
     if pass_accuracy is not None:
         try:
             pa = float(pass_accuracy)
-            component_values["passAccuracy"] = max(
-                -3.0, min((pa - 75.0) * 0.10 * minute_factor, 3.0)
+            components["passAccuracy"] = max(
+                -5.0,
+                min((pa - 75.0) * 0.22 * minute_factor, 5.0),
             )
         except (TypeError, ValueError):
             pass
 
-    if component_values:
-        # Summe mit Dämpfung statt Mittelwert: starke Spieler profitieren von
-        # mehreren positiven Kategorien, ohne dass fehlende Kategorien = 0 sind.
-        raw_components = sum(component_values.values())
-        score += raw_components * 0.72
-
+    # Heim/Auswärts nur kleiner Kontextfaktor.
     if "heim" in home_away:
-        score += 2.0
+        components["homeAway"] = 4.0
     elif "auswärts" in home_away:
-        score -= 1.0
+        components["homeAway"] = -2.0
 
-    # Coverage beeinflusst primär die Sicherheit, nicht die Spielerqualität.
-    # Nur bei sehr dünner Datenlage ziehen wir Extremwerte leicht zur Mitte.
-    coverage_factor = max(0.55, min(coverage / 70.0, 1.0))
-    score = 25.0 + (score - 25.0) * coverage_factor
+    raw_expected = sum(components.values())
 
-    expected = int(round(max(0.0, min(score, 120.0))))
-
-    uncertainty = int(round(
-        24.0
-        - min(coverage, 100) * 0.12
-        + (1.0 - start_probability) * 8.0
-    ))
-    uncertainty = max(8, min(28, uncertainty))
-
-    if expected_minutes < 25:
-        recommendation = "Riskant"
-    elif expected_minutes < 50:
-        recommendation = "Eher Bank / Joker"
-    elif expected >= 45 and start_probability >= 0.78:
-        recommendation = "Sehr gute Option"
-    elif start_probability >= 0.75:
-        recommendation = "Starten"
-    elif expected_minutes >= 55:
-        recommendation = "Beobachten"
-    else:
-        recommendation = "Riskant"
-
-    reason = (
-        f"{pos_group}-Modell | erwartete Spielzeit {int(round(expected_minutes))} Min. | "
-        f"{len(component_values)} Performance-Komponenten | Datenabdeckung {coverage}%"
+    # ------------------------------------------------------------
+    # 4) Kalibrierung auf plausible Fußball-Fantasy-Punkteskala
+    # ------------------------------------------------------------
+    # Coverage darf den Spieler nicht "schlecht" machen; sie zieht nur
+    # Extremwerte leicht zur Mitte, wenn viele Daten fehlen.
+    coverage_factor = max(0.72, min(coverage / 80.0, 1.0))
+    neutral_anchor = 55.0
+    expected = (
+        neutral_anchor
+        + (raw_expected - neutral_anchor) * coverage_factor
     )
+
+    expected = int(round(max(0.0, min(expected, 260.0))))
+
+    # ------------------------------------------------------------
+    # 5) Unsicherheit / Range
+    # ------------------------------------------------------------
+    missing_factor = 1.0 - min(coverage / 100.0, 1.0)
+    start_uncertainty = 1.0 - start_probability
+
+    uncertainty = (
+        28.0
+        + missing_factor * 38.0
+        + start_uncertainty * 30.0
+    )
+
+    # Offensivspieler haben höhere natürliche Varianz.
+    if pos_group == "ANG":
+        uncertainty += 10.0
+    elif pos_group == "MF":
+        uncertainty += 5.0
+
+    uncertainty = int(round(max(20.0, min(uncertainty, 90.0))))
+
+    range_min = max(0, expected - uncertainty)
+    range_max = expected + uncertainty
+
+    # ------------------------------------------------------------
+    # 6) Empfehlung
+    # ------------------------------------------------------------
+    if expected_minutes < 25:
+        recommendation = "Nicht starten"
+    elif expected_minutes < 50:
+        recommendation = "Joker / Riskant"
+    elif expected >= 110 and start_probability >= 0.78:
+        recommendation = "Top-Option"
+    elif expected >= 80 and start_probability >= 0.75:
+        recommendation = "Starten"
+    elif expected >= 60:
+        recommendation = "Gute Option"
+    else:
+        recommendation = "Beobachten"
+
+    # Komponenten für JSON lesbar runden.
+    rounded_components = {
+        key: round(value, 1)
+        for key, value in components.items()
+    }
 
     return {
         "expectedPoints": expected,
-        "rangeMin": max(0, expected - uncertainty),
-        "rangeMax": expected + uncertainty,
+        "rangeMin": range_min,
+        "rangeMax": range_max,
         "confidence": coverage,
         "recommendation": recommendation,
-        "reason": reason,
+        "reason": (
+            f"{pos_group}-Expected-Points | "
+            f"{int(round(expected_minutes))} erwartete Minuten | "
+            f"{len(rounded_components)} nutzbare Komponenten | "
+            f"Datenabdeckung {coverage}%"
+        ),
         "expectedMinutes": int(round(expected_minutes)),
         "startProbability": int(round(start_probability * 100)),
         "positionModel": pos_group,
-        "componentsUsed": sorted(component_values.keys()),
-        "model": "v21-position-minutes-public-data",
+        "components": rounded_components,
+        "model": "v22-public-data-expected-points",
+        "disclaimer": (
+            "Eigene Prognose auf Kickbase-ähnlicher Skala; "
+            "keine exakte Kickbase-Punkteberechnung."
+        ),
     }
 
 
@@ -3794,7 +3951,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V21-AI-Prognose-Modus: Position + erwartete Spielzeit + Performance + Status + Unsicherheit nur für den aufgelösten "
+        "V22-Expected-Points-Modus: Spielzeit + Position + Performance-Komponenten + Unsicherheit nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
