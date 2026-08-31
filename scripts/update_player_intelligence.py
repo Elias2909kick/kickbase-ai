@@ -2485,9 +2485,19 @@ def build_kickbase_ai_projection(
                 gk_prior_components["goalsAgainst"] = max(-20.0, min(value, 0.0))
 
         if gk_prior_components:
-            starter_components["historicalGoalkeeperPerformance"] = sum(
-                gk_prior_components.values()
-            )
+            # V38.1: gk_prior_components also contains diagnostic metadata
+            # such as liveSeasonSource="official_profile". Sum only numeric
+            # point-producing fields.
+            numeric_gk_components = [
+                value
+                for key, value in gk_prior_components.items()
+                if key in {"saves", "cleanSheets", "goalsAgainst"}
+                and isinstance(value, (int, float))
+            ]
+            if numeric_gk_components:
+                starter_components["historicalGoalkeeperPerformance"] = sum(
+                    numeric_gk_components
+                )
 
     if "heim" in home_away:
         starter_components["homeAway"] = 4.0
