@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from html.parser import HTMLParser
+from html import unescape
 from urllib.parse import urljoin, urlparse, parse_qs, unquote, urlencode
 from urllib.parse import unquote
 
@@ -1732,6 +1733,134 @@ def collect_bundesliga_historical_prior(player):
     }
 
 
+def _v31_html_cell(row_html, data_stat):
+    match = re.search(
+        rf'data-stat=["\']{re.escape(data_stat)}["\'][^>]*>(.*?)</(?:td|th)>',
+        row_html,
+        flags=re.I | re.S,
+    )
+    if not match:
+        return None
+    raw = re.sub(r"<[^>]+>", " ", match.group(1))
+    raw = unescape(raw).replace(",", "").strip()
+    number = re.search(r"-?\d+(?:\.\d+)?", raw)
+    if not number:
+        return None
+    try:
+        value = float(number.group(0))
+        return int(value) if value.is_integer() else value
+    except ValueError:
+        return None
+
+
+def _v31_fbref_goalkeeper_prior(player, season="2025-2026"):
+    """
+    Secondary PUBLIC fallback for goalkeepers when Bundesliga ranking pages do
+    not expose an explicit row. No Kickbase data is used.
+
+    FBref search resolves the player page; only a season row explicitly matching
+    the requested season and 1./2. Bundesliga is accepted.
+    """
+    if _v29_position_group(player.get("position")) != "TW":
+        return {}, {}, None
+
+    name = str(player.get("name") or "").strip()
+    if not name:
+        return {}, {}, None
+
+    search_url = (
+        "https://fbref.com/en/search/search.fcgi?search="
+        + urlencode({"q": name})[2:]
+    )
+
+    try:
+        html = http_get_text(search_url, timeout=15)
+    except Exception as exc:
+        print(f"V31-GK-STATS {name}: FBref-Suche nicht verfügbar | {type(exc).__name__}")
+        return {}, {}, None
+
+    # Search can either redirect directly or return a result list.
+    player_url = None
+    player_match = re.search(
+        r'href=["\'](/en/players/[A-Za-z0-9]+/[^"\']+)["\']',
+        html,
+        flags=re.I,
+    )
+    if player_match:
+        player_url = urljoin("https://fbref.com", player_match.group(1))
+
+    # If the search endpoint already returned the player page, parse it directly.
+    page_html = html
+    source_url = search_url
+    if player_url:
+        try:
+            page_html = http_get_text(player_url, timeout=15)
+            source_url = player_url
+        except Exception as exc:
+            print(f"V31-GK-STATS {name}: Player-Seite nicht verfügbar | {type(exc).__name__}")
+            return {}, {}, None
+
+    # FBref sometimes wraps tables in HTML comments; regex intentionally sees both.
+    rows = re.findall(r"<tr[^>]*>(.*?)</tr>", page_html, flags=re.I | re.S)
+    accepted = None
+    for row in rows:
+        plain = unescape(re.sub(r"<[^>]+>", " ", row))
+        normalized = " ".join(plain.split()).lower()
+        if season not in normalized:
+            continue
+        if "bundesliga" not in normalized:
+            continue
+        # Keeper rows expose these data-stat fields.
+        if 'data-stat="gk_saves"' not in row and "data-stat='gk_saves'" not in row:
+            continue
+        accepted = row
+        # Prefer 2. Bundesliga for a promoted player's historical season.
+        if "2. bundesliga" in normalized:
+            break
+
+    if not accepted:
+        print(f"V31-GK-STATS {name}: keine passende öffentliche GK-Saisonzeile")
+        return {}, {}, None
+
+    mapping = {
+        "appearances": "gk_games",
+        "starts": "gk_starts",
+        "minutes": "minutes",
+        "goalsAgainst": "gk_goals_against",
+        "shotsOnTargetAgainst": "gk_shots_on_target_against",
+        "saves": "gk_saves",
+        "savePct": "gk_save_pct",
+        "cleanSheets": "gk_clean_sheets",
+        "penaltiesFaced": "gk_pens_att",
+        "penaltiesSaved": "gk_pens_saved",
+    }
+    values = {}
+    sources = {}
+    for key, stat in mapping.items():
+        value = _v31_html_cell(accepted, stat)
+        if value is not None:
+            values[key] = value
+            sources[key] = source_url
+
+    if not values:
+        return {}, {}, None
+
+    print(
+        f"V31-GK-STATS {name}: "
+        f"Spiele={values.get('appearances')} | Starts={values.get('starts')} | "
+        f"Min={values.get('minutes')} | Saves={values.get('saves')} | "
+        f"GA={values.get('goalsAgainst')} | CS={values.get('cleanSheets')} | "
+        f"Quelle=FBref-public"
+    )
+    return values, sources, {
+        "provider": "FBref",
+        "season": season,
+        "sourceUrl": source_url,
+        "metrics": sorted(values.keys()),
+        "note": "Öffentliche historische Torwart-Statistik; kein Kickbase-Datenzugriff.",
+    }
+
+
 def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
     """Use official historical lineup evidence as GK usage prior, never as fake events."""
     if _v29_position_group(player.get("position")) != "TW":
@@ -1744,12 +1873,27 @@ def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
     starts = int(evidence.get("matchesFound") or 0)
     loaded = int(evidence.get("lineupsLoaded") or 0)
 
+    # V31: Ranking pages may only expose a top-N list. For a goalkeeper who is
+    # absent from that list, use a secondary PUBLIC season-stat source rather
+    # than treating the missing row as zero.
+    gk_values, gk_sources, gk_meta = _v31_fbref_goalkeeper_prior(player)
+    for key, value in gk_values.items():
+        if value is not None and values.get(key) is None:
+            values[key] = value
+            sources[key] = gk_sources.get(key)
+    if gk_meta:
+        meta["goalkeeperPerformancePrior"] = gk_meta
+
     if starts > 0:
-        values["appearances"] = starts
-        values["starts"] = starts
-        values["minutes"] = starts * 90
-        for key in ("appearances", "starts", "minutes"):
-            sources[key] = evidence.get("sourceUrl")
+        if values.get("appearances") is None:
+            values["appearances"] = starts
+            sources["appearances"] = evidence.get("sourceUrl")
+        if values.get("starts") is None:
+            values["starts"] = starts
+            sources["starts"] = evidence.get("sourceUrl")
+        if values.get("minutes") is None:
+            values["minutes"] = starts * 90
+            sources["minutes"] = evidence.get("sourceUrl")
         meta["goalkeeperUsagePrior"] = {
             "appearances": starts,
             "starts": starts,
@@ -1763,6 +1907,7 @@ def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
     print(
         f"V30-GK-PRIOR {player.get('name')}: Starts={starts}/{loaded} | "
         f"Minuten={values.get('minutes')} | Saves={values.get('saves')} | "
+        f"GA={values.get('goalsAgainst')} | CS={values.get('cleanSheets')} | "
         f"EventCoverage={meta.get('coveragePercent', 0)}%"
     )
     return values, sources, meta
@@ -2072,6 +2217,21 @@ def build_kickbase_ai_projection(
 
     # Historical lineup evidence only adjusts the role/usage probability.
     start_probability *= evidence_multiplier
+
+    # V31 goalkeeper role prior: a fit, unsuspended keeper with a strong
+    # historical starter sample should not collapse to ~60% merely because
+    # there is no current teamcheck article. Explicit negative current evidence
+    # still wins.
+    usage_prior = (historical_prior_coverage or {}).get("goalkeeperUsagePrior") or {}
+    if pos_group == "TW" and "nicht" not in starting:
+        prior_starts = int(usage_prior.get("starts") or 0)
+        prior_loaded = int(usage_prior.get("lineupsLoaded") or 0)
+        prior_rate = prior_starts / max(prior_loaded, 1)
+        if prior_loaded >= 20 and prior_rate >= 0.95:
+            start_probability = max(start_probability, 0.96)
+        elif prior_loaded >= 8 and prior_rate >= 0.90:
+            start_probability = max(start_probability, 0.92)
+
     start_probability = max(0.02, min(start_probability, 0.99))
 
     # ------------------------------------------------------------
@@ -2200,6 +2360,33 @@ def build_kickbase_ai_projection(
     )
     starter_components["historicalPrior"] = prior_strength["bonus"]
 
+    # V31: for goalkeepers, use explicit PUBLIC historical GK events as a
+    # separate performance prior when current-season event data is missing.
+    # This is not a Kickbase import and does not fabricate micro-actions.
+    gk_prior_components = {}
+    if pos_group == "TW":
+        prior_apps = historical_prior.get("appearances")
+        try:
+            prior_apps = float(prior_apps) if prior_apps else 0.0
+        except (TypeError, ValueError):
+            prior_apps = 0.0
+
+        if prior_apps > 0:
+            if performance.get("saves") is None and historical_prior.get("saves") is not None:
+                value = float(historical_prior["saves"]) / prior_apps * 7.0
+                gk_prior_components["saves"] = max(0.0, min(value, 30.0))
+            if performance.get("cleanSheets") is None and historical_prior.get("cleanSheets") is not None:
+                value = float(historical_prior["cleanSheets"]) / prior_apps * 30.0
+                gk_prior_components["cleanSheets"] = max(0.0, min(value, 30.0))
+            if performance.get("goalsAgainst") is None and historical_prior.get("goalsAgainst") is not None:
+                value = float(historical_prior["goalsAgainst"]) / prior_apps * -6.0
+                gk_prior_components["goalsAgainst"] = max(-20.0, min(value, 0.0))
+
+        if gk_prior_components:
+            starter_components["historicalGoalkeeperPerformance"] = sum(
+                gk_prior_components.values()
+            )
+
     if "heim" in home_away:
         starter_components["homeAway"] = 4.0
     elif "auswärts" in home_away:
@@ -2299,6 +2486,13 @@ def build_kickbase_ai_projection(
         "goalkeeperPrior": (
             (historical_prior_coverage or {}).get("goalkeeperUsagePrior")
             if pos_group == "TW" else None
+        ),
+        "goalkeeperPerformancePrior": (
+            (historical_prior_coverage or {}).get("goalkeeperPerformancePrior")
+            if pos_group == "TW" else None
+        ),
+        "goalkeeperPriorComponents": (
+            gk_prior_components if pos_group == "TW" else {}
         ),
         "evidence": {
             "roleSignal": evidence_adj.get("roleSignal", "unknown"),
@@ -4417,6 +4611,7 @@ def build_player_intelligence(
             f"StarterPts={kickbase_ai_projection.get('scenario', {}).get('starterPoints')} | "
             f"PriorBonus={kickbase_ai_projection.get('historicalPriorStrength', {}).get('bonus')} | "
             f"GKPriorStarts={((kickbase_ai_projection.get('goalkeeperPrior') or {}).get('starts'))} | "
+            f"GKPerf={kickbase_ai_projection.get('goalkeeperPriorComponents')} | "
             f"Confidence={kickbase_ai_projection.get('confidence')}% | "
             f"Evidence={evidence_pct} "
             f"({evidence_adj.get('matchesFound', 0)}/{evidence_adj.get('sample', 0)}) "
@@ -4580,7 +4775,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V30-GK-Prior: Torwart-Nutzungsprior aus historischer Lineup-Evidenz + Szenario-Engine nur für den aufgelösten "
+        "V31-GK-Performance: Torwart-Startprior + öffentliche historische GK-Leistungsdaten + Szenario-Engine nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
