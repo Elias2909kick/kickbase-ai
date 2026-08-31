@@ -11368,7 +11368,21 @@
         },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 91%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 77.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -18558,7 +18572,21 @@
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 77.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 0,
@@ -38030,7 +38058,21 @@
         },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 77.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -47057,7 +47099,21 @@
           "start": 0,
           "bench": 0
         },
-        "model": "v43-open-data-provider-policy"
+        "model": "v44-open-data-calibration-shadow",
+        "openDataCalibration": {
+          "position": "ABW",
+          "minutes": 0.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 0,
@@ -49256,7 +49312,21 @@
         },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "MF",
+          "minutes": 78.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -50008,7 +50078,21 @@
         },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "MF",
+          "minutes": 78.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -70939,7 +71023,21 @@
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 75% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 77.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -72165,7 +72263,21 @@
         },
         "reason": "TW-Szenariomodell | Start 96% | 90 Min bei Start | Current 58% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "TW",
+          "minutes": 90.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -80066,7 +80178,21 @@
         },
         "reason": "ABW-Szenariomodell | Start 94% | 83 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ABW",
+          "minutes": 83.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -91636,7 +91762,21 @@
         },
         "reason": "ABW-Szenariomodell | Start 56% | 83 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ABW",
+          "minutes": 83.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -95298,7 +95438,21 @@
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 77.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -100832,7 +100986,21 @@
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 77.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -101164,7 +101332,21 @@
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 77.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -107698,7 +107880,21 @@
           "start": 0,
           "bench": 0
         },
-        "model": "v43-open-data-provider-policy"
+        "model": "v44-open-data-calibration-shadow",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 0.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 0,
@@ -108237,7 +108433,21 @@
         },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "ANG",
+          "minutes": 77.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -112515,7 +112725,21 @@
         },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "MF",
+          "minutes": 78.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
@@ -120133,7 +120357,21 @@
         },
         "reason": "MF-Szenariomodell | Start 98% | 78 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "openDataCalibration": {
+          "position": "MF",
+          "minutes": 78.0,
+          "estimates": {},
+          "rawEstimatedPoints": 0.0,
+          "cappedEstimatedPoints": 0.0,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
       },
       "performance": {
         "appearances": 1,
