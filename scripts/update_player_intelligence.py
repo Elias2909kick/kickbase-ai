@@ -1984,15 +1984,22 @@ def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
     return values, sources, meta
 
 
-def build_kickbase_factor_coverage(performance):
+def build_kickbase_factor_coverage(performance, position=None):
     """
-    Transparency layer for Kickbase-relevant factors.
+    V41 position-aware Kickbase event coverage matrix.
 
-    This does NOT claim the exact proprietary Kickbase event model.
-    It states what our public-data pipeline can observe, approximate, or
-    currently cannot observe.
+    Categories:
+      exact_public     -> explicit public value available
+      aggregate_public -> public aggregate exists, but not Kickbase event subtype
+      contextual       -> usable context, not a directly scored event
+      unavailable      -> not currently observed by this pipeline
+
+    This is a transparency/readiness layer, not a claim that the proprietary
+    Kickbase event model has been fully reproduced.
     """
-    direct_map = {
+    pos_group = _v29_position_group(position)
+
+    exact_metric_map = {
         "goals": "goals",
         "assists": "assists",
         "shots": "shots",
@@ -2007,38 +2014,42 @@ def build_kickbase_factor_coverage(performance):
         "fouls": "fouls",
         "yellowCards": "yellowCards",
         "redCards": "redCards",
-        "saves": "saves",
         "cleanSheets": "cleanSheets",
         "goalsAgainst": "goalsAgainst",
+    }
+
+    aggregate_metric_map = {
+        # Aggregate saves are useful predictive evidence, but cannot be mapped
+        # exactly to Kickbase keeper subtypes such as caught/parried/long-shot.
+        "aggregateSaves": "saves",
         "distanceKm": "distanceKm",
         "sprints": "sprints",
         "intensiveRuns": "intensiveRuns",
         "topSpeedKmh": "topSpeedKmh",
     }
 
-    direct_available = [
-        factor
-        for factor, metric in direct_map.items()
+    exact_available = [
+        factor for factor, metric in exact_metric_map.items()
         if performance.get(metric) is not None
     ]
-    direct_missing = [
-        factor
-        for factor, metric in direct_map.items()
+    exact_missing = [
+        factor for factor, metric in exact_metric_map.items()
         if performance.get(metric) is None
     ]
+    aggregate_available = [
+        factor for factor, metric in aggregate_metric_map.items()
+        if performance.get(metric) is not None
+    ]
 
-    partial = {
-        "successfulPasses": (
-            "Passquote vorhanden, aber Passvolumen fehlt"
-            if performance.get("passAccuracy") is not None
-            else "Passquote und Passvolumen fehlen"
-        ),
-        "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-        "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-        "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar",
+    contextual = {
+        "expectedMinutes": "Startelf-/Einsatzwahrscheinlichkeit",
+        "homeAway": "Spielkontext",
+        "injurySuspension": "Verfügbarkeit",
     }
 
-    unavailable = [
+    unavailable_common = [
+        "successfulPassesCount",
+        "misplacedPassesCount",
         "passesOpponentHalf",
         "passesFinalThird",
         "keyPasses",
@@ -2053,21 +2064,109 @@ def build_kickbase_factor_coverage(performance):
         "lastManActions",
         "dribbledPast",
         "successfulDribblesDetailed",
-        "keeperHighClaimsDetailed",
-        "goalsPrevented",
     ]
 
-    return {
-        "directlyAvailable": direct_available,
-        "directlyMissing": direct_missing,
-        "partiallyModelled": partial,
-        "currentlyUnavailable": unavailable,
-        "note": (
-            "Coverage describes public-data observability, not exact "
-            "Kickbase scoring completeness."
-        ),
+    unavailable_by_position = {
+        "TW": [
+            "keeperCaughtBall",
+            "keeperParry",
+            "keeperSavedShotBox",
+            "keeperSavedLongShot",
+            "keeperHighClaimsDetailed",
+            "penaltySavesDetailed",
+            "goalsPrevented",
+        ],
+        "ABW": [
+            "clearancesDetailed",
+            "blockedCrossesDetailed",
+        ],
+        "MF": [
+            "progressivePassesDetailed",
+            "chanceCreationDetailed",
+        ],
+        "ANG": [
+            "shotsByLocationDetailed",
+            "chanceConversionDetailed",
+        ],
+        "ALL": [],
     }
 
+    # Position-specific critical factors for model readiness.
+    critical = {
+        "TW": [
+            "aggregateSaves",
+            "cleanSheets",
+            "goalsAgainst",
+            "passAccuracy",
+        ],
+        "ABW": [
+            "duelsWon",
+            "aerialDuelsWon",
+            "passAccuracy",
+            "crosses",
+            "cleanSheets",
+        ],
+        "MF": [
+            "goals",
+            "assists",
+            "shots",
+            "passAccuracy",
+            "duelsWon",
+            "crosses",
+        ],
+        "ANG": [
+            "goals",
+            "assists",
+            "shots",
+            "shotsOnTarget",
+            "duelsWon",
+        ],
+        "ALL": [
+            "goals",
+            "assists",
+            "shots",
+            "passAccuracy",
+            "duelsWon",
+        ],
+    }[pos_group]
+
+    all_observed = set(exact_available + aggregate_available)
+    critical_available = [key for key in critical if key in all_observed]
+    critical_missing = [key for key in critical if key not in all_observed]
+    readiness = round(
+        len(critical_available) / max(len(critical), 1) * 100
+    )
+
+    # Reliability band is intentionally conservative.
+    if readiness >= 80:
+        band = "hoch"
+    elif readiness >= 60:
+        band = "mittel"
+    elif readiness >= 40:
+        band = "niedrig"
+    else:
+        band = "sehr niedrig"
+
+    return {
+        "positionModel": pos_group,
+        "exactPublicAvailable": exact_available,
+        "exactPublicMissing": exact_missing,
+        "aggregatePublicAvailable": aggregate_available,
+        "contextual": contextual,
+        "currentlyUnavailable": (
+            unavailable_common + unavailable_by_position.get(pos_group, [])
+        ),
+        "criticalFactors": critical,
+        "criticalAvailable": critical_available,
+        "criticalMissing": critical_missing,
+        "scoringReadinessPercent": readiness,
+        "reliabilityBand": band,
+        "notes": [
+            "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
+            "Fehlende Events werden nicht als 0 interpretiert.",
+            "Readiness misst Datenabdeckung, nicht Spielerqualität.",
+        ],
+    }
 
 
 def _v27_match_evidence_adjustment(prior_meta):
@@ -4735,7 +4834,7 @@ def build_player_intelligence(
         perf_values,
         old_performance=old_performance,
     )
-    kickbase_factor_coverage = build_kickbase_factor_coverage(performance)
+    kickbase_factor_coverage = build_kickbase_factor_coverage(performance, player.get("position"))
 
     # V28: Expected-Points-Engine aktiv. Ausschließlich öffentlich gefundene
     # Performance-Werte + Status/Startelf + historische Lineup-Evidenz.
@@ -4799,6 +4898,15 @@ def build_player_intelligence(
             f"vorhanden={len(data_coverage['availableMetrics'])} | "
             f"fehlend={len(data_coverage['missingMetrics'])} | "
             f"Prior {historical_prior_coverage.get('coveragePercent', 0)}%"
+        )
+        print(
+            f"EVENT-COVERAGE {name}: "
+            f"Position={kickbase_factor_coverage.get('positionModel')} | "
+            f"Readiness={kickbase_factor_coverage.get('scoringReadinessPercent')}% | "
+            f"Reliability={kickbase_factor_coverage.get('reliabilityBand')} | "
+            f"kritisch vorhanden={len(kickbase_factor_coverage.get('criticalAvailable', []))}/"
+            f"{len(kickbase_factor_coverage.get('criticalFactors', []))} | "
+            f"fehlt={','.join(kickbase_factor_coverage.get('criticalMissing', [])) or '-'}"
         )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
