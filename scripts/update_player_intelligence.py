@@ -1389,114 +1389,203 @@ def collect_bundesliga_rankings_for_player(player):
 
 
 def build_kickbase_ai_projection(player, performance, data_coverage):
-    """Eigener transparenter Public-Data-Prognoseindex; keine Kickbase-API."""
+    """
+    V21: Positionsabhängiger Public-Data-Prognoseindex.
+
+    - keine Kickbase-API
+    - fehlende Statistiken werden nicht als 0 gewertet
+    - Verletzung/Sperre sind harte Ausschlussregeln
+    - Startelfsignal + historische Starts/Minuten -> erwartete Spielzeit
+    - positionsabhängige Gewichtung der vorhandenen Leistungsdaten
+    """
     coverage = int(data_coverage.get("coveragePercent") or 0)
+
     starting = str(player.get("starting") or "").lower()
     injury = str(player.get("injury") or "").lower()
     suspension = str(player.get("suspension") or "").lower()
     home_away = str(player.get("homeAway") or "").lower()
+    position = str(player.get("position") or "").lower()
 
     if "verletzt" in injury or "gesperrt" in suspension:
         return {
-            "expectedPoints": None, "rangeMin": None, "rangeMax": None,
-            "confidence": coverage, "recommendation": "Nicht aufstellen",
+            "expectedPoints": None,
+            "rangeMin": None,
+            "rangeMax": None,
+            "confidence": coverage,
+            "recommendation": "Nicht aufstellen",
             "reason": "Verletzung oder Sperre",
-            "model": "v20-public-data-projection",
+            "expectedMinutes": 0,
+            "positionModel": position or "unbekannt",
+            "model": "v21-position-minutes-public-data",
         }
 
-    start_factor = 0.50
-    if "sehr wahrscheinlich" in starting:
-        start_factor = 0.95
-    elif "wahrscheinlich" in starting:
-        start_factor = 0.82
-    elif "eher bank" in starting:
-        start_factor = 0.38
-
     appearances = performance.get("appearances")
+    starts = performance.get("starts")
+    minutes = performance.get("minutes")
 
-    def per_app(value):
-        if value is None or not appearances:
+    # 1) Startelfsignal -> Basis-Spielzeit
+    if "sehr wahrscheinlich" in starting:
+        expected_minutes = 82.0
+        start_probability = 0.93
+    elif "wahrscheinlich" in starting:
+        expected_minutes = 74.0
+        start_probability = 0.82
+    elif "eher bank" in starting:
+        expected_minutes = 34.0
+        start_probability = 0.38
+    elif "nicht" in starting and "recherchiert" not in starting:
+        expected_minutes = 20.0
+        start_probability = 0.20
+    else:
+        expected_minutes = 50.0
+        start_probability = 0.55
+
+    # Historische Einsatzdaten stabilisieren die Schätzung, falls vorhanden.
+    hist_minutes = None
+    if minutes is not None and appearances:
+        try:
+            hist_minutes = float(minutes) / max(float(appearances), 1.0)
+            expected_minutes = 0.72 * expected_minutes + 0.28 * hist_minutes
+        except (TypeError, ValueError):
+            pass
+
+    if starts is not None and appearances:
+        try:
+            historical_start_share = float(starts) / max(float(appearances), 1.0)
+            start_probability = 0.78 * start_probability + 0.22 * historical_start_share
+        except (TypeError, ValueError):
+            pass
+
+    expected_minutes = max(0.0, min(expected_minutes, 90.0))
+    minute_factor = expected_minutes / 90.0
+
+    def per90(value):
+        if value is None:
             return None
         try:
-            return float(value) / max(float(appearances), 1.0)
+            if minutes:
+                return float(value) * 90.0 / max(float(minutes), 1.0)
+            if appearances:
+                return float(value) / max(float(appearances), 1.0)
         except (TypeError, ValueError):
             return None
+        return None
 
-    score = 22.0 * start_factor
-    components = []
+    # 2) Positionsmodell
+    if "torwart" in position or position in ("tw", "gk"):
+        pos_group = "TW"
+    elif "abwehr" in position or position in ("ab", "abw", "df"):
+        pos_group = "ABW"
+    elif "mittelfeld" in position or position in ("mf", "mid"):
+        pos_group = "MF"
+    elif "angriff" in position or position in ("ang", "fw", "st"):
+        pos_group = "ANG"
+    else:
+        pos_group = "ALL"
 
-    weights = (
-        ("goals", 32.0, 18.0),
-        ("assists", 20.0, 10.0),
-        ("shots", 2.0, 8.0),
-        ("shotsOnTarget", 3.0, 8.0),
-        ("duelsWon", 0.55, 8.0),
-        ("aerialDuelsWon", 0.65, 5.0),
-        ("crosses", 0.45, 5.0),
-        ("saves", 2.0, 12.0),
-        ("cleanSheets", 10.0, 8.0),
-    )
-    for key, weight, cap in weights:
-        value = per_app(performance.get(key))
-        if value is not None:
-            components.append(min(value * weight, cap))
+    # Werte sind bewusst ein transparenter eigener Index und keine behauptete
+    # Reproduktion der proprietären Kickbase-Punkteformel.
+    weights = {
+        "TW": {
+            "goals": 14.0, "assists": 12.0, "shots": 0.5, "shotsOnTarget": 0.8,
+            "duelsWon": 0.7, "aerialDuelsWon": 0.8, "crosses": 0.1,
+            "saves": 5.0, "cleanSheets": 14.0, "goalsAgainst": -4.5,
+            "fouls": -1.0, "yellowCards": -3.0,
+        },
+        "ABW": {
+            "goals": 24.0, "assists": 14.0, "shots": 1.0, "shotsOnTarget": 1.8,
+            "duelsWon": 1.0, "aerialDuelsWon": 1.2, "crosses": 0.45,
+            "saves": 0.0, "cleanSheets": 9.0, "goalsAgainst": -2.2,
+            "fouls": -0.8, "yellowCards": -3.0,
+        },
+        "MF": {
+            "goals": 22.0, "assists": 18.0, "shots": 1.3, "shotsOnTarget": 2.0,
+            "duelsWon": 0.75, "aerialDuelsWon": 0.65, "crosses": 0.65,
+            "saves": 0.0, "cleanSheets": 2.0, "goalsAgainst": -0.5,
+            "fouls": -0.7, "yellowCards": -3.0,
+        },
+        "ANG": {
+            "goals": 26.0, "assists": 17.0, "shots": 1.5, "shotsOnTarget": 2.6,
+            "duelsWon": 0.55, "aerialDuelsWon": 0.7, "crosses": 0.35,
+            "saves": 0.0, "cleanSheets": 0.0, "goalsAgainst": 0.0,
+            "fouls": -0.6, "yellowCards": -3.0,
+        },
+        "ALL": {
+            "goals": 22.0, "assists": 16.0, "shots": 1.2, "shotsOnTarget": 2.0,
+            "duelsWon": 0.7, "aerialDuelsWon": 0.7, "crosses": 0.45,
+            "saves": 2.0, "cleanSheets": 4.0, "goalsAgainst": -1.0,
+            "fouls": -0.7, "yellowCards": -3.0,
+        },
+    }[pos_group]
 
-    for key, weight, cap in (
-        ("goalsAgainst", 2.0, 6.0),
-        ("fouls", 0.8, 4.0),
-        ("yellowCards", 3.0, 4.0),
-    ):
-        value = per_app(performance.get(key))
-        if value is not None:
-            components.append(-min(value * weight, cap))
+    # 3) Baseline aus Einsatzwahrscheinlichkeit. Dadurch wird ein sicherer
+    # Starter klar von einem Bankspieler getrennt.
+    score = 8.0 + 28.0 * start_probability + 10.0 * minute_factor
 
+    component_values = {}
+    for key, weight in weights.items():
+        value = per90(performance.get(key))
+        if value is None or weight == 0:
+            continue
+        contribution = value * weight * minute_factor
+        # Einzelne öffentliche Rankings dürfen die Prognose nicht dominieren.
+        contribution = max(-12.0, min(contribution, 22.0))
+        component_values[key] = contribution
+
+    # Passquote nur als kleiner Effizienzindikator; ohne Passvolumen/-zone
+    # darf sie keinen großen Einfluss bekommen.
     pass_accuracy = performance.get("passAccuracy")
     if pass_accuracy is not None:
         try:
-            components.append(
-                max(-3.0, min((float(pass_accuracy) - 75.0) * 0.12, 3.0))
+            pa = float(pass_accuracy)
+            component_values["passAccuracy"] = max(
+                -3.0, min((pa - 75.0) * 0.10 * minute_factor, 3.0)
             )
         except (TypeError, ValueError):
             pass
 
-    starts = performance.get("starts")
-    if starts is not None and appearances:
-        try:
-            share = float(starts) / max(float(appearances), 1.0)
-            score += max(-4.0, min((share - 0.5) * 8.0, 4.0))
-        except (TypeError, ValueError):
-            pass
-
-    minutes = performance.get("minutes")
-    if minutes is not None and appearances:
-        try:
-            mpa = float(minutes) / max(float(appearances), 1.0)
-            score += max(-3.0, min((mpa - 60.0) / 10.0, 3.0))
-        except (TypeError, ValueError):
-            pass
-
-    evidence_weight = min(1.0, len(components) / 8.0) if components else 0.35
-    if components:
-        score += (sum(components) / len(components)) * 2.2
+    if component_values:
+        # Summe mit Dämpfung statt Mittelwert: starke Spieler profitieren von
+        # mehreren positiven Kategorien, ohne dass fehlende Kategorien = 0 sind.
+        raw_components = sum(component_values.values())
+        score += raw_components * 0.72
 
     if "heim" in home_away:
-        score += 1.5
+        score += 2.0
     elif "auswärts" in home_away:
         score -= 1.0
 
-    confidence_factor = max(0.35, min(coverage / 100.0, 1.0))
-    score = 20.0 + (score - 20.0) * confidence_factor * evidence_weight
-    expected = int(round(max(0.0, min(score, 100.0))))
-    uncertainty = max(8, int(round(24 - coverage * 0.14)))
+    # Coverage beeinflusst primär die Sicherheit, nicht die Spielerqualität.
+    # Nur bei sehr dünner Datenlage ziehen wir Extremwerte leicht zur Mitte.
+    coverage_factor = max(0.55, min(coverage / 70.0, 1.0))
+    score = 25.0 + (score - 25.0) * coverage_factor
 
-    if start_factor >= 0.80 and expected >= 30:
-        recommendation = "Starten"
-    elif start_factor >= 0.75:
-        recommendation = "Gute Option"
-    elif start_factor <= 0.40:
+    expected = int(round(max(0.0, min(score, 120.0))))
+
+    uncertainty = int(round(
+        24.0
+        - min(coverage, 100) * 0.12
+        + (1.0 - start_probability) * 8.0
+    ))
+    uncertainty = max(8, min(28, uncertainty))
+
+    if expected_minutes < 25:
         recommendation = "Riskant"
-    else:
+    elif expected_minutes < 50:
+        recommendation = "Eher Bank / Joker"
+    elif expected >= 45 and start_probability >= 0.78:
+        recommendation = "Sehr gute Option"
+    elif start_probability >= 0.75:
+        recommendation = "Starten"
+    elif expected_minutes >= 55:
         recommendation = "Beobachten"
+    else:
+        recommendation = "Riskant"
+
+    reason = (
+        f"{pos_group}-Modell | erwartete Spielzeit {int(round(expected_minutes))} Min. | "
+        f"{len(component_values)} Performance-Komponenten | Datenabdeckung {coverage}%"
+    )
 
     return {
         "expectedPoints": expected,
@@ -1504,11 +1593,12 @@ def build_kickbase_ai_projection(player, performance, data_coverage):
         "rangeMax": expected + uncertainty,
         "confidence": coverage,
         "recommendation": recommendation,
-        "reason": (
-            f"Startelfsignal + {len(components)} Performance-Komponenten; "
-            f"Datenabdeckung {coverage}%"
-        ),
-        "model": "v20-public-data-projection",
+        "reason": reason,
+        "expectedMinutes": int(round(expected_minutes)),
+        "startProbability": int(round(start_probability * 100)),
+        "positionModel": pos_group,
+        "componentsUsed": sorted(component_values.keys()),
+        "model": "v21-position-minutes-public-data",
     }
 
 
@@ -3704,7 +3794,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V20-AI-Prognose-Modus: öffentliche Performance + Startelf + Status + Unsicherheit nur für den aufgelösten "
+        "V21-AI-Prognose-Modus: Position + erwartete Spielzeit + Performance + Status + Unsicherheit nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
