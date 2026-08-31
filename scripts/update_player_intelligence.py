@@ -2369,15 +2369,7 @@ def build_kickbase_ai_projection(
             "startProbability": 0,
             "positionModel": pos_group,
             "scenario": {"start": 0, "bench": 0},
-            "model": "v42-position-aware-official-actions",
-        "positionScoring": {
-            "goal": {"TW": 120, "ABW": 100, "MF": 90, "ANG": 80}.get(pos_group),
-            "assist": {"TW": 55, "ABW": 45, "MF": 35, "ANG": 35}.get(pos_group),
-            "cleanSheetPer10": {"TW": 5, "ABW": 3, "MF": 2, "ANG": 1}.get(pos_group),
-            "startingXI": 5,
-            "minutePer10": 1,
-            "goalConcededTW": -5 if pos_group == "TW" else None,
-        },
+            "model": "v42.1-position-aware-official-actions",
         }
 
     # ------------------------------------------------------------
@@ -2780,6 +2772,14 @@ def build_kickbase_ai_projection(
         "components": {
             key: round(value, 1)
             for key, value in starter_components.items()
+        },
+        "positionScoring": {
+            "goal": {"TW": 120, "ABW": 100, "MF": 90, "ANG": 80, "ALL": 80}.get(pos_group),
+            "assist": {"TW": 55, "ABW": 45, "MF": 35, "ANG": 35, "ALL": 35}.get(pos_group),
+            "cleanSheetPer10": {"TW": 5, "ABW": 3, "MF": 2, "ANG": 1, "ALL": 1}.get(pos_group),
+            "startingXI": 5,
+            "minutePer10": 1,
+            "goalConcededTW": -5 if pos_group == "TW" else None,
         },
         "reason": (
             f"{pos_group}-Szenariomodell | Start {int(round(start_probability*100))}% | "
@@ -4938,7 +4938,12 @@ def build_player_intelligence(
             f"Goal={((kickbase_ai_projection.get('positionScoring') or {}).get('goal'))} | "
             f"Assist={((kickbase_ai_projection.get('positionScoring') or {}).get('assist'))} | "
             f"CS/10={((kickbase_ai_projection.get('positionScoring') or {}).get('cleanSheetPer10'))} | "
-            f"Startelf=5 | Min/10=1"
+            f"Startelf={((kickbase_ai_projection.get('positionScoring') or {}).get('startingXI'))} | "
+            f"Min/10={((kickbase_ai_projection.get('positionScoring') or {}).get('minutePer10'))}"
+        )
+        print(
+            f"POINT-COMPONENTS {name}: "
+            f"{kickbase_ai_projection.get('components')}"
         )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
