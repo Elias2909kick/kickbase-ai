@@ -11358,6 +11358,14 @@
           "historicalPrior": 38.0,
           "homeAway": -2.0
         },
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
+        },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 91%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
@@ -18539,6 +18547,14 @@
           "startingBonus": 5.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
+        },
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
@@ -38004,6 +38020,14 @@
           "historicalPrior": 0.0,
           "homeAway": -2.0
         },
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
+        },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
@@ -47033,15 +47057,7 @@
           "start": 0,
           "bench": 0
         },
-        "model": "v42-position-aware-official-actions",
-        "positionScoring": {
-          "goal": 100,
-          "assist": 45,
-          "cleanSheetPer10": 3,
-          "startingXI": 5,
-          "minutePer10": 1,
-          "goalConcededTW": null
-        }
+        "model": "v42.1-position-aware-official-actions"
       },
       "performance": {
         "appearances": 0,
@@ -49230,6 +49246,14 @@
           "historicalPrior": 0.0,
           "homeAway": -2.0
         },
+        "positionScoring": {
+          "goal": 90,
+          "assist": 35,
+          "cleanSheetPer10": 2,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
+        },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
@@ -49973,6 +49997,14 @@
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": -2.0
+        },
+        "positionScoring": {
+          "goal": 90,
+          "assist": 35,
+          "cleanSheetPer10": 2,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
         },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
@@ -70897,6 +70929,14 @@
           "historicalPrior": 0.0,
           "homeAway": 4.0
         },
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
+        },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 75% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
@@ -72114,6 +72154,14 @@
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": -2.0
+        },
+        "positionScoring": {
+          "goal": 120,
+          "assist": 55,
+          "cleanSheetPer10": 5,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": -5
         },
         "reason": "TW-Szenariomodell | Start 96% | 90 Min bei Start | Current 58% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
@@ -80007,6 +80055,14 @@
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
+        },
+        "positionScoring": {
+          "goal": 100,
+          "assist": 45,
+          "cleanSheetPer10": 3,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
         },
         "reason": "ABW-Szenariomodell | Start 94% | 83 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
@@ -91570,6 +91626,14 @@
           "historicalPrior": 0.0,
           "homeAway": 4.0
         },
+        "positionScoring": {
+          "goal": 100,
+          "assist": 45,
+          "cleanSheetPer10": 3,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
+        },
         "reason": "ABW-Szenariomodell | Start 56% | 83 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
@@ -95223,6 +95287,14 @@
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
+        },
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
@@ -100750,6 +100822,14 @@
           "historicalPrior": 0.0,
           "homeAway": -2.0
         },
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
+        },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
@@ -101073,6 +101153,14 @@
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": -2.0
+        },
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
@@ -107610,15 +107698,7 @@
           "start": 0,
           "bench": 0
         },
-        "model": "v42-position-aware-official-actions",
-        "positionScoring": {
-          "goal": 80,
-          "assist": 35,
-          "cleanSheetPer10": 1,
-          "startingXI": 5,
-          "minutePer10": 1,
-          "goalConcededTW": null
-        }
+        "model": "v42.1-position-aware-official-actions"
       },
       "performance": {
         "appearances": 0,
@@ -108146,6 +108226,14 @@
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
+        },
+        "positionScoring": {
+          "goal": 80,
+          "assist": 35,
+          "cleanSheetPer10": 1,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
@@ -112416,6 +112504,14 @@
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": -2.0
+        },
+        "positionScoring": {
+          "goal": 90,
+          "assist": 35,
+          "cleanSheetPer10": 2,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
         },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
@@ -120026,6 +120122,14 @@
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
+        },
+        "positionScoring": {
+          "goal": 90,
+          "assist": 35,
+          "cleanSheetPer10": 2,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": null
         },
         "reason": "MF-Szenariomodell | Start 98% | 78 Min bei Start | Current 54% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
