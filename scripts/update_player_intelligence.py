@@ -1387,6 +1387,131 @@ def collect_bundesliga_rankings_for_player(player):
     return values, sources
 
 
+
+def build_kickbase_ai_projection(player, performance, data_coverage):
+    """Eigener transparenter Public-Data-Prognoseindex; keine Kickbase-API."""
+    coverage = int(data_coverage.get("coveragePercent") or 0)
+    starting = str(player.get("starting") or "").lower()
+    injury = str(player.get("injury") or "").lower()
+    suspension = str(player.get("suspension") or "").lower()
+    home_away = str(player.get("homeAway") or "").lower()
+
+    if "verletzt" in injury or "gesperrt" in suspension:
+        return {
+            "expectedPoints": None, "rangeMin": None, "rangeMax": None,
+            "confidence": coverage, "recommendation": "Nicht aufstellen",
+            "reason": "Verletzung oder Sperre",
+            "model": "v20-public-data-projection",
+        }
+
+    start_factor = 0.50
+    if "sehr wahrscheinlich" in starting:
+        start_factor = 0.95
+    elif "wahrscheinlich" in starting:
+        start_factor = 0.82
+    elif "eher bank" in starting:
+        start_factor = 0.38
+
+    appearances = performance.get("appearances")
+
+    def per_app(value):
+        if value is None or not appearances:
+            return None
+        try:
+            return float(value) / max(float(appearances), 1.0)
+        except (TypeError, ValueError):
+            return None
+
+    score = 22.0 * start_factor
+    components = []
+
+    weights = (
+        ("goals", 32.0, 18.0),
+        ("assists", 20.0, 10.0),
+        ("shots", 2.0, 8.0),
+        ("shotsOnTarget", 3.0, 8.0),
+        ("duelsWon", 0.55, 8.0),
+        ("aerialDuelsWon", 0.65, 5.0),
+        ("crosses", 0.45, 5.0),
+        ("saves", 2.0, 12.0),
+        ("cleanSheets", 10.0, 8.0),
+    )
+    for key, weight, cap in weights:
+        value = per_app(performance.get(key))
+        if value is not None:
+            components.append(min(value * weight, cap))
+
+    for key, weight, cap in (
+        ("goalsAgainst", 2.0, 6.0),
+        ("fouls", 0.8, 4.0),
+        ("yellowCards", 3.0, 4.0),
+    ):
+        value = per_app(performance.get(key))
+        if value is not None:
+            components.append(-min(value * weight, cap))
+
+    pass_accuracy = performance.get("passAccuracy")
+    if pass_accuracy is not None:
+        try:
+            components.append(
+                max(-3.0, min((float(pass_accuracy) - 75.0) * 0.12, 3.0))
+            )
+        except (TypeError, ValueError):
+            pass
+
+    starts = performance.get("starts")
+    if starts is not None and appearances:
+        try:
+            share = float(starts) / max(float(appearances), 1.0)
+            score += max(-4.0, min((share - 0.5) * 8.0, 4.0))
+        except (TypeError, ValueError):
+            pass
+
+    minutes = performance.get("minutes")
+    if minutes is not None and appearances:
+        try:
+            mpa = float(minutes) / max(float(appearances), 1.0)
+            score += max(-3.0, min((mpa - 60.0) / 10.0, 3.0))
+        except (TypeError, ValueError):
+            pass
+
+    evidence_weight = min(1.0, len(components) / 8.0) if components else 0.35
+    if components:
+        score += (sum(components) / len(components)) * 2.2
+
+    if "heim" in home_away:
+        score += 1.5
+    elif "auswärts" in home_away:
+        score -= 1.0
+
+    confidence_factor = max(0.35, min(coverage / 100.0, 1.0))
+    score = 20.0 + (score - 20.0) * confidence_factor * evidence_weight
+    expected = int(round(max(0.0, min(score, 100.0))))
+    uncertainty = max(8, int(round(24 - coverage * 0.14)))
+
+    if start_factor >= 0.80 and expected >= 30:
+        recommendation = "Starten"
+    elif start_factor >= 0.75:
+        recommendation = "Gute Option"
+    elif start_factor <= 0.40:
+        recommendation = "Riskant"
+    else:
+        recommendation = "Beobachten"
+
+    return {
+        "expectedPoints": expected,
+        "rangeMin": max(0, expected - uncertainty),
+        "rangeMax": expected + uncertainty,
+        "confidence": coverage,
+        "recommendation": recommendation,
+        "reason": (
+            f"Startelfsignal + {len(components)} Performance-Komponenten; "
+            f"Datenabdeckung {coverage}%"
+        ),
+        "model": "v20-public-data-projection",
+    }
+
+
 def build_performance_layer(values, old_performance=None):
     """
     V18: Transparente Statistikschicht für den späteren Kickbase-AI Score.
@@ -3409,6 +3534,28 @@ def build_player_intelligence(
     )
 
     if research_player:
+        projection_context = dict(old_player)
+        projection_context.update({
+            "starting": starting,
+            "injury": injury,
+            "suspension": suspension,
+            "homeAway": home_away,
+        })
+        kickbase_ai_projection = build_kickbase_ai_projection(
+            projection_context, performance, data_coverage
+        )
+        print(
+            f"AI-PROJECTION {name}: "
+            f"{kickbase_ai_projection.get('expectedPoints')} "
+            f"[{kickbase_ai_projection.get('rangeMin')}-"
+            f"{kickbase_ai_projection.get('rangeMax')}] | "
+            f"{kickbase_ai_projection.get('recommendation')} | "
+            f"Confidence {kickbase_ai_projection.get('confidence')}%"
+        )
+    else:
+        kickbase_ai_projection = old_player.get("kickbaseAiProjection")
+
+    if research_player:
         print(
             f"PERFORMANCE {name}: Coverage {data_coverage['coveragePercent']}% | "
             f"vorhanden={len(data_coverage['availableMetrics'])} | "
@@ -3434,8 +3581,17 @@ def build_player_intelligence(
         "average": average,
         "starting": starting,
         "form": form,
-        "footballRating": old_player.get("footballRating"),
-        "kickbaseAiScore": None,
+        "footballRating": (
+            kickbase_ai_projection.get("expectedPoints")
+            if kickbase_ai_projection
+            else old_player.get("footballRating")
+        ),
+        "kickbaseAiScore": (
+            kickbase_ai_projection.get("expectedPoints")
+            if kickbase_ai_projection
+            else None
+        ),
+        "kickbaseAiProjection": kickbase_ai_projection,
         "performance": performance,
         "performanceSources": performance_sources,
         "dataCoverage": data_coverage,
@@ -3548,7 +3704,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V19-Stats-Cache-Modus: ligaweite Bundesliga-Rankings + Performance-Coverage nur für den aufgelösten "
+        "V20-AI-Prognose-Modus: öffentliche Performance + Startelf + Status + Unsicherheit nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
