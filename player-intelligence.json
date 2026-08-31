@@ -10856,12 +10856,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 2,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -10984,6 +10984,13 @@
           }
         ],
         "matchEvidence": null,
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -11038,14 +11045,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Freitag 28. August Bayern FC Bayern München FCB 5 VFB 1 Stuttgart VfB Stuttgart Liveticker",
+      "lastMatch": "Samstag 22. August Dortmund Borussia Dortmund BVB 1 FCB 2 Bayern FC Bayern München",
       "opponent": "FC Schalke 04",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -17432,6 +17439,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -17493,7 +17507,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Freitag 28. August Bayern FC Bayern München FCB 5 VFB 1 Stuttgart VfB Stuttgart Liveticker",
+      "lastMatch": "Freitag 21. August Rostock F.C. Hansa Rostock 0 4 Stuttgart VfB Stuttgart Liveticker",
       "opponent": "1. FC Köln",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -34845,12 +34859,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 1,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -34858,7 +34872,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 3,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -34972,6 +34986,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -35026,14 +35047,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Mainz 1. FSV Mainz 05 M05 0 SCP 0 Paderborn SC Paderborn 07 Liveticker",
+      "lastMatch": "Sonntag 23. August Krieschow VfB 1921 Krieschow 0 9 Mainz 1. FSV Mainz 05 Liveticker",
       "opponent": "Hamburger SV",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -43112,6 +43133,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -43173,7 +43201,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Leipzig RB Leipzig RBL 3 BMG 0 M'gladbach Borussia Mönchengladbach Liveticker",
+      "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Auswärts",
       "injury": "Verletzt · Blessur · Ausfallzeit nicht öffentlich verfügbar",
@@ -44921,12 +44949,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 1,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -44934,7 +44962,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -45048,6 +45076,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -45102,14 +45137,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Union Berlin 1. FC Union Berlin FCU 3 SGE 3 Frankfurt Eintracht Frankfurt Liveticker",
+      "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -45541,12 +45576,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 3,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -45555,7 +45590,7 @@
         "duelsWon": 0,
         "aerialDuelsWon": 0,
         "crosses": 0,
-        "fouls": 4,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -45668,6 +45703,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -45722,14 +45764,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Union Berlin 1. FC Union Berlin FCU 3 SGE 3 Frankfurt Eintracht Frankfurt Liveticker",
+      "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -64529,6 +64571,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -64590,7 +64639,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Karlsruhe Karlsruher SC KSC 2 WOB 5 Wolfsburg VfL Wolfsburg Liveticker",
+      "lastMatch": "Samstag 22. August Aue FC Erzgebirge Aue 0 4 Hoffenheim TSG Hoffenheim Liveticker",
       "opponent": "Borussia Dortmund",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -65398,12 +65447,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 2,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -65533,6 +65582,14 @@
           ],
           "note": "Offizielle historische Match-/Aufstellungs-Evidenz. Wird nicht als fehlende Eventstatistik ausgegeben."
         },
+        "matchEvidenceSignal": {
+          "ratio": 1.0,
+          "sample": 34,
+          "matchesFound": 34,
+          "roleSignal": "very_strong",
+          "projectionMultiplier": 1.12,
+          "confidenceBoost": 10
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -65587,14 +65644,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": null,
       "goalsAgainst": 0,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Elversberg SV Elversberg ELV 3 B04 2 Leverkusen Bayer 04 Leverkusen Liveticker",
+      "lastMatch": "Samstag 22. August Duisburg MSV Duisburg 1 3 Elversberg SV Elversberg Liveticker",
       "opponent": "Borussia Mönchengladbach",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -72418,7 +72475,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
@@ -72431,8 +72488,8 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
-        "fouls": 2,
+        "crosses": 0,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -72545,6 +72602,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -72599,14 +72663,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Elversberg SV Elversberg ELV 3 B04 2 Leverkusen Bayer 04 Leverkusen Liveticker",
+      "lastMatch": "Samstag 22. August Wiesbaden SV Wehen Wiesbaden 0 4 Leverkusen Bayer 04 Leverkusen Liveticker",
       "opponent": "1. FC Union Berlin",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -82814,7 +82878,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
@@ -82828,7 +82892,7 @@
         "duelsWon": 0,
         "aerialDuelsWon": 0,
         "crosses": 0,
-        "fouls": 3,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -82941,6 +83005,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/hamburger-sv"
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -82995,14 +83066,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Dortmund Borussia Dortmund BVB 2 HSV 0 Hamburg Hamburger SV Liveticker",
+      "lastMatch": "Montag 24. August Verl SC Verl 0 3 Hamburg Hamburger SV Liveticker",
       "opponent": "1. FSV Mainz 05",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -86066,7 +86137,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
@@ -86080,7 +86151,7 @@
         "duelsWon": 0,
         "aerialDuelsWon": 0,
         "crosses": 0,
-        "fouls": 2,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -86193,6 +86264,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/hamburger-sv"
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -86247,14 +86325,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Dortmund Borussia Dortmund BVB 2 HSV 0 Hamburg Hamburger SV Liveticker",
+      "lastMatch": "Montag 24. August Verl SC Verl 0 3 Hamburg Hamburger SV Liveticker",
       "opponent": "1. FSV Mainz 05",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -91010,12 +91088,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
-        "assists": 1,
-        "shots": 2,
+        "assists": 0,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -91023,8 +91101,8 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 1,
-        "fouls": 4,
+        "crosses": 0,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -91137,6 +91215,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -91191,14 +91276,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
-      "assists": 1,
+      "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Freiburg Sport-Club Freiburg SCF 4 SVW 1 Bremen SV Werder Bremen Liveticker",
+      "lastMatch": "Sonntag 23. August Düsseldorf Fortuna Düsseldorf 1 5 Freiburg Sport-Club Freiburg Liveticker",
       "opponent": "SC Paderborn 07",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -91254,7 +91339,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
@@ -91268,7 +91353,7 @@
         "duelsWon": 0,
         "aerialDuelsWon": 0,
         "crosses": 0,
-        "fouls": 1,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -91381,6 +91466,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -91435,14 +91527,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Freiburg Sport-Club Freiburg SCF 4 SVW 1 Bremen SV Werder Bremen Liveticker",
+      "lastMatch": "Sonntag 23. August Düsseldorf Fortuna Düsseldorf 1 5 Freiburg Sport-Club Freiburg Liveticker",
       "opponent": "SC Paderborn 07",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -97265,6 +97357,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -97326,7 +97425,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Freiburg Sport-Club Freiburg SCF 4 SVW 1 Bremen SV Werder Bremen Liveticker",
+      "lastMatch": "Samstag 22. August Lüneburg Lüneburger SK Hansa 0 3 Bremen SV Werder Bremen Liveticker",
       "opponent": "RB Leipzig",
       "homeAway": "Heim",
       "injury": "Verletzt · Kreuzbandriss · Ausfallzeit nicht öffentlich verfügbar",
@@ -97570,12 +97669,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 1,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -97583,7 +97682,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -97697,6 +97796,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -97751,14 +97857,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Freiburg Sport-Club Freiburg SCF 4 SVW 1 Bremen SV Werder Bremen Liveticker",
+      "lastMatch": "Samstag 22. August Lüneburg Lüneburger SK Hansa 0 3 Bremen SV Werder Bremen Liveticker",
       "opponent": "RB Leipzig",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -101386,12 +101492,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 1,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -101513,6 +101619,13 @@
           "matchesDiscovered": 0,
           "sourceUrl": null
         },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -101567,14 +101680,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Augsburg FC Augsburg FCA 3 S04 0 Schalke FC Schalke 04 Liveticker",
+      "lastMatch": "Samstag 22. August FC Energie FC Energie Cottbus 0 2 Augsburg FC Augsburg Liveticker",
       "opponent": "Eintracht Frankfurt",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -108210,12 +108323,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 2,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -108223,7 +108336,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -108345,6 +108458,14 @@
           ],
           "note": "Offizielle historische Match-/Aufstellungs-Evidenz. Wird nicht als fehlende Eventstatistik ausgegeben."
         },
+        "matchEvidenceSignal": {
+          "ratio": 0.412,
+          "sample": 34,
+          "matchesFound": 14,
+          "roleSignal": "moderate",
+          "projectionMultiplier": 1.04,
+          "confidenceBoost": 4
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -108399,14 +108520,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Augsburg FC Augsburg FCA 3 S04 0 Schalke FC Schalke 04 Liveticker",
+      "lastMatch": "Montag 24. August Halle Hallescher FC 2 2 5 2 Schalke FC Schalke 04 Liveticker",
       "opponent": "FC Bayern München",
       "homeAway": "Heim",
       "injury": "Fit",
