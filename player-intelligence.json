@@ -1768,16 +1768,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/ransford-yeboah-konigsdorffer"
         },
         {
-          "id": "william-boving",
-          "name": "William Bøving",
-          "age": null,
-          "number": 14,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/william-boving"
-        },
-        {
           "id": "benedict-hollerbach",
           "name": "Benedict Hollerbach",
           "age": null,
@@ -1818,7 +1808,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/alynho-haidara"
         }
       ],
-      "playerCount": 31,
+      "playerCount": 30,
       "nextMatch": {
         "opponent": "Hamburger SV",
         "homeAway": "Auswärts",
@@ -2066,16 +2056,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/luka-duric"
         },
         {
-          "id": "nick-batzner",
-          "name": "Nick Bätzner",
-          "age": null,
-          "number": 9,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/nick-batzner"
-        },
-        {
           "id": "mattes-hansen",
           "name": "Mattes Hansen",
           "age": null,
@@ -2226,7 +2206,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/deniz-zeitler"
         }
       ],
-      "playerCount": 34,
+      "playerCount": 33,
       "nextMatch": {
         "opponent": "SC Freiburg",
         "homeAway": "Heim",
@@ -2702,16 +2682,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/noah-atubolu"
         },
         {
-          "id": "michael-zetterer",
-          "name": "Michael Zetterer",
-          "age": null,
-          "number": 23,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/michael-zetterer"
-        },
-        {
           "id": "jens-grahl",
           "name": "Jens Grahl",
           "age": null,
@@ -2750,16 +2720,6 @@
           "photo": null,
           "injury": null,
           "sourceUrl": "https://www.bundesliga.com/de/spieler/elias-baum"
-        },
-        {
-          "id": "arthur-theate",
-          "name": "Arthur Theate",
-          "age": null,
-          "number": 3,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/arthur-theate"
         },
         {
           "id": "robin-koch",
@@ -3002,7 +2962,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/jessic-ngankam"
         }
       ],
-      "playerCount": 31,
+      "playerCount": 29,
       "nextMatch": {
         "opponent": "FC Augsburg",
         "homeAway": "Heim",
@@ -4274,16 +4234,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/tim-oermann"
         },
         {
-          "id": "axel-tape",
-          "name": "Axel Tape",
-          "age": null,
-          "number": 16,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/axel-tape"
-        },
-        {
           "id": "lucas-vazquez",
           "name": "Lucas Vázquez",
           "age": null,
@@ -4454,7 +4404,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/eliesse-ben-seghir"
         }
       ],
-      "playerCount": 28,
+      "playerCount": 27,
       "nextMatch": {
         "opponent": "1. FC Union Berlin",
         "homeAway": "Heim",
@@ -10902,18 +10852,36 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 51,
-      "kickbaseAiScore": 51,
+      "footballRating": 82,
+      "kickbaseAiScore": 82,
       "kickbaseAiProjection": {
-        "expectedPoints": 51,
-        "rangeMin": 0,
-        "rangeMax": 108,
-        "confidence": 54,
-        "recommendation": "Beobachten",
-        "reason": "ANG-Expected-Points | 84 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 84,
+        "expectedPoints": 82,
+        "rangeMin": 40,
+        "rangeMax": 124,
+        "confidence": 59,
+        "recommendation": "Starten",
+        "expectedMinutes": 74,
+        "minutesIfStart": 77,
+        "minutesIfBench": 24,
         "startProbability": 94,
         "positionModel": "ANG",
+        "scenario": {
+          "starterPoints": 85.8,
+          "benchPoints": 16.5
+        },
+        "historicalPriorStrength": {
+          "bonus": 38.0,
+          "coverage": 91,
+          "source": "Bundesliga",
+          "components": {
+            "goals": 22,
+            "assists": 10,
+            "shots": 6.3,
+            "duelsWon": 1.2,
+            "aerialDuelsWon": 1.8,
+            "passAccuracy": -2.0
+          }
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -10923,20 +10891,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 37.3,
-          "startingBonus": 6.6,
+          "minutesBase": 35.9,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 7.5,
+          "shots": 6.8,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
           "fouls": -0.0,
           "yellowCards": -0.0,
+          "historicalPrior": 38.0,
           "homeAway": -2.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 91%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -17391,18 +17361,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 38,
-      "kickbaseAiScore": 38,
+      "footballRating": 30,
+      "kickbaseAiScore": 30,
       "kickbaseAiProjection": {
-        "expectedPoints": 38,
+        "expectedPoints": 30,
         "rangeMin": 0,
-        "rangeMax": 107,
-        "confidence": 54,
+        "rangeMax": 86,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "ANG-Expected-Points | 52 erwartete Minuten | 3 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 52,
+        "expectedMinutes": 54,
+        "minutesIfStart": 77,
+        "minutesIfBench": 24,
         "startProbability": 56,
         "positionModel": "ANG",
+        "scenario": {
+          "starterPoints": 46.9,
+          "benchPoints": 8.6
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -17412,12 +17393,14 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
+          "minutesBase": 35.9,
+          "startingBonus": 7.0,
+          "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 0,
@@ -34765,196 +34748,6 @@
         "researchMode": "bestehende_daten_beibehalten"
       }
     },
-    "william-boving": {
-      "id": "william-boving",
-      "name": "William Bøving",
-      "club": "1. FSV Mainz 05",
-      "position": "Angriff",
-      "number": 14,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/william-boving",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "competition": null,
-        "league": null,
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "Hamburger SV",
-      "homeAway": "Auswärts",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/william-boving"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
     "benedict-hollerbach": {
       "id": "benedict-hollerbach",
       "name": "Benedict Hollerbach",
@@ -35153,18 +34946,29 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 50,
-      "kickbaseAiScore": 50,
+      "footballRating": 44,
+      "kickbaseAiScore": 44,
       "kickbaseAiProjection": {
-        "expectedPoints": 50,
+        "expectedPoints": 44,
         "rangeMin": 0,
-        "rangeMax": 107,
-        "confidence": 54,
+        "rangeMax": 93,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "ANG-Expected-Points | 84 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 84,
+        "expectedMinutes": 74,
+        "minutesIfStart": 77,
+        "minutesIfBench": 24,
         "startProbability": 94,
         "positionModel": "ANG",
+        "scenario": {
+          "starterPoints": 45.6,
+          "benchPoints": 10.1
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -35174,20 +34978,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 37.3,
-          "startingBonus": 6.6,
+          "minutesBase": 35.9,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 3.7,
+          "shots": 3.4,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 2.0,
+          "crosses": 1.3,
           "fouls": -0.0,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -39173,196 +38979,6 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/luka-duric"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
-    "nick-batzner": {
-      "id": "nick-batzner",
-      "name": "Nick Bätzner",
-      "club": "SC Paderborn 07",
-      "position": "Mittelfeld",
-      "number": 9,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/nick-batzner",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "competition": null,
-        "league": null,
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "SC Freiburg",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/nick-batzner"
         },
         {
           "name": "OpenLigaDB",
@@ -43533,10 +43149,15 @@
         "recommendation": "Nicht aufstellen",
         "reason": "Verletzung oder Sperre",
         "expectedMinutes": 0,
+        "minutesIfStart": 0,
+        "minutesIfBench": 0,
         "startProbability": 0,
-        "positionModel": "verteidigung",
-        "components": {},
-        "model": "v28-public-data-expected-points"
+        "positionModel": "ALL",
+        "scenario": {
+          "start": 0,
+          "bench": 0
+        },
+        "model": "v29-scenario-prior-public-data"
       },
       "performance": {
         "appearances": 0,
@@ -43734,7 +43355,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Leipzig RB Leipzig RBL 3 BMG 0 M'gladbach Borussia Mönchengladbach Liveticker",
+      "lastMatch": "Samstag 29. August Union Berlin 1. FC Union Berlin FCU 3 SGE 3 Frankfurt Eintracht Frankfurt Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Auswärts",
       "injury": "Verletzt · Blessur · Ausfallzeit nicht öffentlich verfügbar",
@@ -45478,18 +45099,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 36,
-      "kickbaseAiScore": 36,
+      "footballRating": 30,
+      "kickbaseAiScore": 30,
       "kickbaseAiProjection": {
-        "expectedPoints": 36,
+        "expectedPoints": 30,
         "rangeMin": 0,
-        "rangeMax": 100,
-        "confidence": 54,
+        "rangeMax": 81,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "MF-Expected-Points | 52 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 52,
+        "expectedMinutes": 53,
+        "minutesIfStart": 78,
+        "minutesIfBench": 22,
         "startProbability": 56,
         "positionModel": "MF",
+        "scenario": {
+          "starterPoints": 46.2,
+          "benchPoints": 9.3
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -45499,20 +45131,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
+          "minutesBase": 36.4,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 2.3,
+          "shots": 3.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 1.4,
+          "crosses": 1.7,
           "fouls": -0.0,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -46138,18 +45772,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 36,
-      "kickbaseAiScore": 36,
+      "footballRating": 31,
+      "kickbaseAiScore": 31,
       "kickbaseAiProjection": {
-        "expectedPoints": 36,
+        "expectedPoints": 31,
         "rangeMin": 0,
-        "rangeMax": 100,
-        "confidence": 54,
+        "rangeMax": 82,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "MF-Expected-Points | 52 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 52,
+        "expectedMinutes": 53,
+        "minutesIfStart": 78,
+        "minutesIfBench": 22,
         "startProbability": 56,
         "positionModel": "MF",
+        "scenario": {
+          "starterPoints": 47.0,
+          "benchPoints": 9.5
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -46159,20 +45804,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
+          "minutesBase": 36.4,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 6.9,
+          "shots": 9.1,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
           "fouls": -3.5,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -48856,196 +48503,6 @@
         "researchMode": "bestehende_daten_beibehalten"
       }
     },
-    "michael-zetterer": {
-      "id": "michael-zetterer",
-      "name": "Michael Zetterer",
-      "club": "Eintracht Frankfurt",
-      "position": "Torhüter",
-      "number": 23,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/michael-zetterer",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "competition": null,
-        "league": null,
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "FC Augsburg",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/michael-zetterer"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
     "jens-grahl": {
       "id": "jens-grahl",
       "name": "Jens Grahl",
@@ -49784,196 +49241,6 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/elias-baum"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
-    "arthur-theate": {
-      "id": "arthur-theate",
-      "name": "Arthur Theate",
-      "club": "Eintracht Frankfurt",
-      "position": "Verteidigung",
-      "number": 3,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/arthur-theate",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "competition": null,
-        "league": null,
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "FC Augsburg",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/arthur-theate"
         },
         {
           "name": "OpenLigaDB",
@@ -65414,18 +64681,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 28,
-      "kickbaseAiScore": 28,
+      "footballRating": 112,
+      "kickbaseAiScore": 112,
       "kickbaseAiProjection": {
-        "expectedPoints": 28,
-        "rangeMin": 0,
-        "rangeMax": 89,
-        "confidence": 75,
-        "recommendation": "Beobachten",
-        "reason": "ANG-Expected-Points | 52 erwartete Minuten | 4 nutzbare Komponenten | Datenabdeckung 75%",
-        "expectedMinutes": 52,
+        "expectedPoints": 112,
+        "rangeMin": 44,
+        "rangeMax": 180,
+        "confidence": 46,
+        "recommendation": "Starten",
+        "expectedMinutes": 54,
+        "minutesIfStart": 77,
+        "minutesIfBench": 24,
         "startProbability": 56,
         "positionModel": "ANG",
+        "scenario": {
+          "starterPoints": 163.7,
+          "benchPoints": 45.0
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -65435,16 +64713,26 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
-          "passAccuracy": -5.0,
+          "minutesBase": 35.9,
+          "startingBonus": 7.0,
+          "goals": 30.0,
+          "assists": 30.0,
+          "shots": 30.0,
+          "duelsWon": 21.5,
+          "aerialDuelsWon": 27.6,
+          "crosses": 1.7,
+          "fouls": -0.0,
+          "yellowCards": -20.0,
+          "passAccuracy": -4.0,
+          "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 75% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
-        "appearances": 0,
+        "appearances": 1,
         "starts": null,
         "minutes": null,
         "goals": 35.86,
@@ -65457,7 +64745,7 @@
         "passAccuracy": 35.86,
         "duelsWon": 35.86,
         "aerialDuelsWon": 35.86,
-        "crosses": 0,
+        "crosses": 4,
         "fouls": 0,
         "yellowCards": 35.86,
         "redCards": null,
@@ -65637,14 +64925,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 0,
+      "appearances": 1,
       "starts": null,
       "minutes": null,
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Karlsruhe Karlsruher SC KSC 2 WOB 5 Wolfsburg VfL Wolfsburg Liveticker",
+      "lastMatch": "Samstag 29. August Köln 1. FC Köln KOE 3 TSG 2 Hoffenheim TSG Hoffenheim Liveticker",
       "opponent": "Borussia Dortmund",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -66448,18 +65736,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 39,
-      "kickbaseAiScore": 39,
+      "footballRating": 33,
+      "kickbaseAiScore": 33,
       "kickbaseAiProjection": {
-        "expectedPoints": 39,
+        "expectedPoints": 33,
         "rangeMin": 0,
-        "rangeMax": 94,
-        "confidence": 68,
+        "rangeMax": 75,
+        "confidence": 46,
         "recommendation": "Beobachten",
-        "reason": "ALL-Expected-Points | 58 erwartete Minuten | 12 nutzbare Komponenten | Datenabdeckung 58%",
         "expectedMinutes": 58,
+        "minutesIfStart": 80,
+        "minutesIfBench": 20,
         "startProbability": 63,
         "positionModel": "ALL",
+        "scenario": {
+          "starterPoints": 47.7,
+          "benchPoints": 8.5
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "very_strong",
           "lineupRatio": 1.0,
@@ -66469,21 +65768,24 @@
           "confidenceBoost": 10
         },
         "components": {
-          "minutesBase": 25.9,
-          "startingBonus": 4.4,
+          "minutesBase": 37.3,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 5.2,
+          "shots": 5.3,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
+          "saves": 0.0,
           "goalsAgainst": -0.0,
           "fouls": -0.0,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ALL-Szenariomodell | Start 63% | 80 Min bei Start | Current 58% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -73500,196 +72802,6 @@
         "researchMode": "bestehende_daten_beibehalten"
       }
     },
-    "axel-tape": {
-      "id": "axel-tape",
-      "name": "Axel Tape",
-      "club": "Bayer 04 Leverkusen",
-      "position": "Verteidigung",
-      "number": 16,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/axel-tape",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "competition": null,
-        "league": null,
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "1. FC Union Berlin",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/axel-tape"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
     "lucas-vazquez": {
       "id": "lucas-vazquez",
       "name": "Lucas Vázquez",
@@ -73700,18 +72812,29 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 49,
-      "kickbaseAiScore": 49,
+      "footballRating": 46,
+      "kickbaseAiScore": 46,
       "kickbaseAiProjection": {
-        "expectedPoints": 49,
-        "rangeMin": 2,
-        "rangeMax": 96,
-        "confidence": 54,
+        "expectedPoints": 46,
+        "rangeMin": 5,
+        "rangeMax": 87,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "ALL-Expected-Points | 84 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 84,
+        "expectedMinutes": 76,
+        "minutesIfStart": 80,
+        "minutesIfBench": 20,
         "startProbability": 94,
         "positionModel": "ALL",
+        "scenario": {
+          "starterPoints": 48.0,
+          "benchPoints": 7.2
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -73722,19 +72845,22 @@
         },
         "components": {
           "minutesBase": 37.3,
-          "startingBonus": 6.6,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 1.7,
-          "fouls": -2.8,
+          "crosses": 1.2,
+          "saves": 0.0,
+          "fouls": -1.6,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ALL-Szenariomodell | Start 94% | 80 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -84136,18 +83262,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 36,
-      "kickbaseAiScore": 36,
+      "footballRating": 29,
+      "kickbaseAiScore": 29,
       "kickbaseAiProjection": {
-        "expectedPoints": 36,
+        "expectedPoints": 29,
         "rangeMin": 0,
-        "rangeMax": 95,
-        "confidence": 54,
+        "rangeMax": 76,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "ALL-Expected-Points | 52 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 52,
+        "expectedMinutes": 54,
+        "minutesIfStart": 80,
+        "minutesIfBench": 20,
         "startProbability": 56,
         "positionModel": "ALL",
+        "scenario": {
+          "starterPoints": 45.9,
+          "benchPoints": 7.2
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -84157,20 +83294,23 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
+          "minutesBase": 37.3,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
-          "fouls": -2.6,
+          "saves": 0.0,
+          "fouls": -2.4,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ALL-Szenariomodell | Start 56% | 80 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -87428,18 +86568,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 36,
-      "kickbaseAiScore": 36,
+      "footballRating": 29,
+      "kickbaseAiScore": 29,
       "kickbaseAiProjection": {
-        "expectedPoints": 36,
+        "expectedPoints": 29,
         "rangeMin": 0,
-        "rangeMax": 105,
-        "confidence": 54,
+        "rangeMax": 85,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "ANG-Expected-Points | 52 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 52,
+        "expectedMinutes": 54,
+        "minutesIfStart": 77,
+        "minutesIfBench": 24,
         "startProbability": 56,
         "positionModel": "ANG",
+        "scenario": {
+          "starterPoints": 45.6,
+          "benchPoints": 8.6
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -87449,20 +86600,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
+          "minutesBase": 35.9,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
-          "fouls": -1.7,
+          "fouls": -1.4,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -92412,18 +91565,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 45,
-      "kickbaseAiScore": 45,
+      "footballRating": 46,
+      "kickbaseAiScore": 46,
       "kickbaseAiProjection": {
-        "expectedPoints": 45,
+        "expectedPoints": 46,
         "rangeMin": 0,
-        "rangeMax": 114,
-        "confidence": 54,
+        "rangeMax": 105,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "ANG-Expected-Points | 52 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 52,
+        "expectedMinutes": 54,
+        "minutesIfStart": 77,
+        "minutesIfBench": 24,
         "startProbability": 56,
         "positionModel": "ANG",
+        "scenario": {
+          "starterPoints": 68.6,
+          "benchPoints": 17.3
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -92433,20 +91597,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
+          "minutesBase": 35.9,
+          "startingBonus": 7.0,
           "goals": 0.0,
-          "assists": 14.4,
-          "shots": 4.6,
+          "assists": 23.1,
+          "shots": 6.8,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.4,
-          "fouls": -3.5,
+          "fouls": -2.7,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -92696,18 +91862,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 33,
-      "kickbaseAiScore": 33,
+      "footballRating": 26,
+      "kickbaseAiScore": 26,
       "kickbaseAiProjection": {
-        "expectedPoints": 33,
+        "expectedPoints": 26,
         "rangeMin": 0,
-        "rangeMax": 102,
-        "confidence": 54,
+        "rangeMax": 81,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "ANG-Expected-Points | 52 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 52,
+        "expectedMinutes": 54,
+        "minutesIfStart": 77,
+        "minutesIfBench": 24,
         "startProbability": 56,
         "positionModel": "ANG",
+        "scenario": {
+          "starterPoints": 40.2,
+          "benchPoints": 8.6
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -92717,20 +91894,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
+          "minutesBase": 35.9,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
           "shots": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
-          "fouls": -0.9,
+          "fouls": -0.7,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -98630,10 +97809,15 @@
         "recommendation": "Nicht aufstellen",
         "reason": "Verletzung oder Sperre",
         "expectedMinutes": 0,
+        "minutesIfStart": 0,
+        "minutesIfBench": 0,
         "startProbability": 0,
-        "positionModel": "angriff",
-        "components": {},
-        "model": "v28-public-data-expected-points"
+        "positionModel": "ANG",
+        "scenario": {
+          "start": 0,
+          "bench": 0
+        },
+        "model": "v29-scenario-prior-public-data"
       },
       "performance": {
         "appearances": 0,
@@ -99071,18 +98255,29 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 54,
-      "kickbaseAiScore": 54,
+      "footballRating": 49,
+      "kickbaseAiScore": 49,
       "kickbaseAiProjection": {
-        "expectedPoints": 54,
+        "expectedPoints": 49,
         "rangeMin": 0,
-        "rangeMax": 111,
-        "confidence": 54,
+        "rangeMax": 99,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "ANG-Expected-Points | 84 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 84,
+        "expectedMinutes": 74,
+        "minutesIfStart": 77,
+        "minutesIfBench": 24,
         "startProbability": 94,
         "positionModel": "ANG",
+        "scenario": {
+          "starterPoints": 51.2,
+          "benchPoints": 10.0
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -99092,20 +98287,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 37.3,
-          "startingBonus": 6.6,
+          "minutesBase": 35.9,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 3.7,
+          "shots": 3.4,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 1.3,
+          "crosses": 0.9,
           "fouls": -0.0,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -102927,18 +102124,29 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 35,
-      "kickbaseAiScore": 35,
+      "footballRating": 29,
+      "kickbaseAiScore": 29,
       "kickbaseAiProjection": {
-        "expectedPoints": 35,
+        "expectedPoints": 29,
         "rangeMin": 0,
-        "rangeMax": 99,
-        "confidence": 54,
+        "rangeMax": 80,
+        "confidence": 33,
         "recommendation": "Beobachten",
-        "reason": "MF-Expected-Points | 52 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 52,
+        "expectedMinutes": 53,
+        "minutesIfStart": 78,
+        "minutesIfBench": 22,
         "startProbability": 56,
         "positionModel": "MF",
+        "scenario": {
+          "starterPoints": 44.4,
+          "benchPoints": 8.8
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "unknown",
           "lineupRatio": null,
@@ -102948,20 +102156,22 @@
           "confidenceBoost": 0
         },
         "components": {
-          "minutesBase": 23.1,
-          "startingBonus": 3.9,
+          "minutesBase": 36.4,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 2.3,
+          "shots": 3.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
           "crosses": 0.0,
           "fouls": -0.0,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -109791,18 +109001,29 @@
       "average": null,
       "starting": "Sehr wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 58,
-      "kickbaseAiScore": 58,
+      "footballRating": 54,
+      "kickbaseAiScore": 54,
       "kickbaseAiProjection": {
-        "expectedPoints": 58,
-        "rangeMin": 7,
-        "rangeMax": 109,
-        "confidence": 58,
+        "expectedPoints": 54,
+        "rangeMin": 11,
+        "rangeMax": 97,
+        "confidence": 37,
         "recommendation": "Beobachten",
-        "reason": "MF-Expected-Points | 87 erwartete Minuten | 11 nutzbare Komponenten | Datenabdeckung 54%",
-        "expectedMinutes": 87,
+        "expectedMinutes": 77,
+        "minutesIfStart": 78,
+        "minutesIfBench": 22,
         "startProbability": 98,
         "positionModel": "MF",
+        "scenario": {
+          "starterPoints": 55.2,
+          "benchPoints": 10.1
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
         "evidence": {
           "roleSignal": "moderate",
           "lineupRatio": 0.412,
@@ -109812,20 +109033,22 @@
           "confidenceBoost": 4
         },
         "components": {
-          "minutesBase": 38.8,
-          "startingBonus": 6.8,
+          "minutesBase": 36.4,
+          "startingBonus": 7.0,
           "goals": 0.0,
           "assists": 0.0,
-          "shots": 7.8,
+          "shots": 6.1,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 2.3,
+          "crosses": 1.7,
           "fouls": -0.0,
           "yellowCards": -0.0,
+          "historicalPrior": 0.0,
           "homeAway": 4.0
         },
-        "model": "v28-public-data-expected-points",
-        "disclaimer": "Eigene Prognose auf Kickbase-ähnlicher Skala; keine exakte Kickbase-Punkteberechnung."
+        "reason": "MF-Szenariomodell | Start 98% | 78 Min bei Start | Current 54% | Prior 0%",
+        "model": "v29-scenario-prior-public-data",
+        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
       "performance": {
         "appearances": 1,
@@ -112335,7 +111558,7 @@
   "season": "2026/27",
   "league": "1. Bundesliga",
   "teamCount": 18,
-  "playerCount": 553,
+  "playerCount": 548,
   "architecture": {
     "kickbaseSource": "nicht verwendet",
     "teamsAndPlayers": "Bundesliga.com",
