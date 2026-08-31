@@ -10884,6 +10884,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -17390,6 +17391,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -34979,6 +34981,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -45136,6 +45139,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -45813,6 +45817,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -64701,12 +64706,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 93,
-      "kickbaseAiScore": 93,
+      "footballRating": 112,
+      "kickbaseAiScore": 112,
       "kickbaseAiProjection": {
-        "expectedPoints": 93,
-        "rangeMin": 29,
-        "rangeMax": 157,
+        "expectedPoints": 112,
+        "rangeMin": 44,
+        "rangeMax": 180,
         "confidence": 46,
         "recommendation": "Starten",
         "expectedMinutes": 54,
@@ -64715,8 +64720,8 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 137.2,
-          "benchPoints": 36.8
+          "starterPoints": 163.7,
+          "benchPoints": 45.0
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -64726,6 +64731,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -64741,7 +64747,7 @@
           "startingBonus": 7.0,
           "goals": 30.0,
           "assists": 30.0,
-          "shots": 3.4,
+          "shots": 30.0,
           "duelsWon": 21.5,
           "aerialDuelsWon": 27.6,
           "crosses": 1.7,
@@ -64761,7 +64767,7 @@
         "minutes": null,
         "goals": 35.86,
         "assists": 35.86,
-        "shots": 1,
+        "shots": 35.86,
         "shotsOnTarget": null,
         "woodwork": 35.86,
         "penalties": 35.86,
@@ -65792,6 +65798,25 @@
           "method": "official historical lineup evidence; 90-minute GK start scenario"
         },
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": {
+          "provider": "Bundesliga.com",
+          "season": "2026-2027",
+          "explicit": false,
+          "metrics": [],
+          "checked": [
+            {
+              "league": "2bundesliga",
+              "url": "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+              "loaded": true
+            },
+            {
+              "league": "bundesliga",
+              "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+              "loaded": true
+            }
+          ],
+          "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
+        },
         "goalkeeperSeasonPerformancePrior": {
           "provider": "Bundesliga.com",
           "season": "2025-2026",
@@ -65990,6 +66015,25 @@
           "confidenceBoost": 10
         },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt.",
+        "goalkeeperCurrentSeasonPerformance": {
+          "provider": "Bundesliga.com",
+          "season": "2026-2027",
+          "explicit": false,
+          "metrics": [],
+          "checked": [
+            {
+              "league": "2bundesliga",
+              "url": "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+              "loaded": true
+            },
+            {
+              "league": "bundesliga",
+              "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+              "loaded": true
+            }
+          ],
+          "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
+        },
         "goalkeeperSeasonPerformancePrior": {
           "provider": "Bundesliga.com",
           "season": "2025-2026",
@@ -66009,6 +66053,8 @@
           ],
           "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
         },
+        "goalkeeperCurrentSeasonValues": {},
+        "goalkeeperCurrentSeasonSources": {},
         "goalkeeperUsagePrior": {
           "appearances": 34,
           "starts": 34,
@@ -72933,6 +72979,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -83386,6 +83433,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -86695,6 +86743,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -91696,6 +91745,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -91997,6 +92047,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -98394,6 +98445,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -102267,6 +102319,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -109148,6 +109201,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": null,
         "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
