@@ -1753,112 +1753,29 @@ def _v31_html_cell(row_html, data_stat):
         return None
 
 
-def _v31_fbref_goalkeeper_prior(player, season="2025-2026"):
-    """
-    Secondary PUBLIC fallback for goalkeepers when Bundesliga ranking pages do
-    not expose an explicit row. No Kickbase data is used.
-
-    FBref search resolves the player page; only a season row explicitly matching
-    the requested season and 1./2. Bundesliga is accepted.
-    """
-    if _v29_position_group(player.get("position")) != "TW":
-        return {}, {}, None
-
-    name = str(player.get("name") or "").strip()
-    if not name:
-        return {}, {}, None
-
-    search_url = (
-        "https://fbref.com/en/search/search.fcgi?search="
-        + urlencode({"q": name})[2:]
-    )
-
-    try:
-        html = http_get_text(search_url, timeout=15)
-    except Exception as exc:
-        print(f"V31-GK-STATS {name}: FBref-Suche nicht verfügbar | {type(exc).__name__}")
-        return {}, {}, None
-
-    # Search can either redirect directly or return a result list.
-    player_url = None
-    player_match = re.search(
-        r'href=["\'](/en/players/[A-Za-z0-9]+/[^"\']+)["\']',
-        html,
-        flags=re.I,
-    )
-    if player_match:
-        player_url = urljoin("https://fbref.com", player_match.group(1))
-
-    # If the search endpoint already returned the player page, parse it directly.
-    page_html = html
-    source_url = search_url
-    if player_url:
+def _v32_official_goalkeeper_current_profile(player):
+    if _v29_position_group(player.get("position")) != "TW": return {}, {}, None
+    name=str(player.get("name") or "").strip()
+    if not name: return {}, {}, None
+    slug=normalize_name(name).replace(" ", "-")
+    for url in (f"https://www.bundesliga.com/de/spieler/{slug}", f"https://www.bundesliga.com/en/player/{slug}"):
         try:
-            page_html = http_get_text(player_url, timeout=15)
-            source_url = player_url
+            page=_html_to_visible_text(http_get_text(url, timeout=10))
         except Exception as exc:
-            print(f"V31-GK-STATS {name}: Player-Seite nicht verfügbar | {type(exc).__name__}")
-            return {}, {}, None
-
-    # FBref sometimes wraps tables in HTML comments; regex intentionally sees both.
-    rows = re.findall(r"<tr[^>]*>(.*?)</tr>", page_html, flags=re.I | re.S)
-    accepted = None
-    for row in rows:
-        plain = unescape(re.sub(r"<[^>]+>", " ", row))
-        normalized = " ".join(plain.split()).lower()
-        if season not in normalized:
-            continue
-        if "bundesliga" not in normalized:
-            continue
-        # Keeper rows expose these data-stat fields.
-        if 'data-stat="gk_saves"' not in row and "data-stat='gk_saves'" not in row:
-            continue
-        accepted = row
-        # Prefer 2. Bundesliga for a promoted player's historical season.
-        if "2. bundesliga" in normalized:
-            break
-
-    if not accepted:
-        print(f"V31-GK-STATS {name}: keine passende öffentliche GK-Saisonzeile")
-        return {}, {}, None
-
-    mapping = {
-        "appearances": "gk_games",
-        "starts": "gk_starts",
-        "minutes": "minutes",
-        "goalsAgainst": "gk_goals_against",
-        "shotsOnTargetAgainst": "gk_shots_on_target_against",
-        "saves": "gk_saves",
-        "savePct": "gk_save_pct",
-        "cleanSheets": "gk_clean_sheets",
-        "penaltiesFaced": "gk_pens_att",
-        "penaltiesSaved": "gk_pens_saved",
-    }
-    values = {}
-    sources = {}
-    for key, stat in mapping.items():
-        value = _v31_html_cell(accepted, stat)
-        if value is not None:
-            values[key] = value
-            sources[key] = source_url
-
-    if not values:
-        return {}, {}, None
-
-    print(
-        f"V31-GK-STATS {name}: "
-        f"Spiele={values.get('appearances')} | Starts={values.get('starts')} | "
-        f"Min={values.get('minutes')} | Saves={values.get('saves')} | "
-        f"GA={values.get('goalsAgainst')} | CS={values.get('cleanSheets')} | "
-        f"Quelle=FBref-public"
-    )
-    return values, sources, {
-        "provider": "FBref",
-        "season": season,
-        "sourceUrl": source_url,
-        "metrics": sorted(values.keys()),
-        "note": "Öffentliche historische Torwart-Statistik; kein Kickbase-Datenzugriff.",
-    }
+            print(f"V32-GK-OFFICIAL {name}: Profil nicht verfügbar | {type(exc).__name__}"); continue
+        if _normalize_player_lookup_name(name) not in _normalize_player_lookup_name(page): continue
+        def grab(labels):
+            for label in labels:
+                m=re.search(rf"{re.escape(label)}\s+(\d+(?:[.,]\d+)?)", page, flags=re.I)
+                if m:
+                    v=float(m.group(1).replace(",", ".")); return int(v) if v.is_integer() else v
+            return None
+        vals={"saves":grab(("abgewehrte Schüsse","Gehaltene Torschüsse","Shots saved")),"appearances":grab(("Einsätze","Appearances")),"yellowCards":grab(("Gelbe Karten","Yellow cards"))}
+        vals={k:v for k,v in vals.items() if v is not None}
+        if vals:
+            print(f"V32-GK-OFFICIAL {name}: CurrentProfile={vals} | {url}")
+            return vals,{k:url for k in vals},{"provider":"Bundesliga.com","scope":"current-season-profile","sourceUrl":url,"metrics":sorted(vals)}
+    return {}, {}, None
 
 
 def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
@@ -1873,16 +1790,7 @@ def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
     starts = int(evidence.get("matchesFound") or 0)
     loaded = int(evidence.get("lineupsLoaded") or 0)
 
-    # V31: Ranking pages may only expose a top-N list. For a goalkeeper who is
-    # absent from that list, use a secondary PUBLIC season-stat source rather
-    # than treating the missing row as zero.
-    gk_values, gk_sources, gk_meta = _v31_fbref_goalkeeper_prior(player)
-    for key, value in gk_values.items():
-        if value is not None and values.get(key) is None:
-            values[key] = value
-            sources[key] = gk_sources.get(key)
-    if gk_meta:
-        meta["goalkeeperPerformancePrior"] = gk_meta
+    # V32: historical prior remains official Bundesliga-only.
 
     if starts > 0:
         if values.get("appearances") is None:
@@ -2223,7 +2131,8 @@ def build_kickbase_ai_projection(
     # there is no current teamcheck article. Explicit negative current evidence
     # still wins.
     usage_prior = (historical_prior_coverage or {}).get("goalkeeperUsagePrior") or {}
-    if pos_group == "TW" and "nicht" not in starting:
+    explicit_negative_start = (("nicht" in starting and "recherchiert" not in starting) or "eher bank" in starting or starting.strip() == "bank")
+    if pos_group == "TW" and not explicit_negative_start:
         prior_starts = int(usage_prior.get("starts") or 0)
         prior_loaded = int(usage_prior.get("lineupsLoaded") or 0)
         prior_rate = prior_starts / max(prior_loaded, 1)
@@ -4547,6 +4456,16 @@ def build_player_intelligence(
             "topSpeedKmh": public_player.get("topSpeedKmh"),
         }
 
+        # V32 official Bundesliga player-profile fallback for current GK facts.
+        if _v29_position_group(research_input.get("position")) == "TW":
+            gk_current, gk_sources, gk_meta = _v32_official_goalkeeper_current_profile(research_input)
+            for metric_key, value in gk_current.items():
+                if perf_values.get(metric_key) is None:
+                    perf_values[metric_key] = value
+                    performance_sources[metric_key] = gk_sources.get(metric_key)
+            if gk_meta:
+                historical_prior_coverage["currentGoalkeeperProfile"] = gk_meta
+
         # Ranking-Werte ergänzen/überschreiben nur, wenn sie tatsächlich
         # verfügbar sind. So bleiben Profilwerte für nicht abgedeckte Felder.
         for metric_key, value in ranking_values.items():
@@ -4612,6 +4531,7 @@ def build_player_intelligence(
             f"PriorBonus={kickbase_ai_projection.get('historicalPriorStrength', {}).get('bonus')} | "
             f"GKPriorStarts={((kickbase_ai_projection.get('goalkeeperPrior') or {}).get('starts'))} | "
             f"GKPerf={kickbase_ai_projection.get('goalkeeperPriorComponents')} | "
+            f"GKOfficial={((historical_prior_coverage or {}).get('currentGoalkeeperProfile') or {}).get('metrics')} | "
             f"Confidence={kickbase_ai_projection.get('confidence')}% | "
             f"Evidence={evidence_pct} "
             f"({evidence_adj.get('matchesFound', 0)}/{evidence_adj.get('sample', 0)}) "
@@ -4775,7 +4695,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V31-GK-Performance: Torwart-Startprior + öffentliche historische GK-Leistungsdaten + Szenario-Engine nur für den aufgelösten "
+        "V32-Official-GK: robuster Stammkeeper-Startfloor + offizielles Bundesliga-GK-Profil ohne externen Provider + Szenario-Engine nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
