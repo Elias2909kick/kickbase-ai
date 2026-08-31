@@ -163,8 +163,10 @@ _TEAMCHECK_CACHE = {}
 # V19: Ligaweite Bundesliga-Statistikseiten werden pro Kategorie nur EINMAL
 # geladen und anschließend für alle aktiven Kaderspieler wiederverwendet.
 _BUNDESLIGA_STATS_TEXT_CACHE = {}
+_BUNDESLIGA_HISTORICAL_STATS_TEXT_CACHE = {}
 
 BUNDESLIGA_STATS_SEASON = "2026-2027"
+BUNDESLIGA_PRIOR_SEASON = "2025-2026"
 
 BUNDESLIGA_PLAYER_STAT_CATEGORIES = {
     "goals": {
@@ -237,7 +239,46 @@ BUNDESLIGA_PLAYER_STAT_CATEGORIES = {
         "heading": "Gehaltene Torschüsse",
         "kind": "count",
     },
+    "distanceKm": {
+        "slug": "laufdistanz",
+        "heading": "Laufdistanz (km)",
+        "kind": "rate",
+    },
+    "sprints": {
+        "slug": "sprints",
+        "heading": "Sprints",
+        "kind": "count",
+    },
+    "intensiveRuns": {
+        "slug": "intensive-laeufe",
+        "heading": "Intensive Läufe",
+        "kind": "count",
+    },
+    "topSpeedKmh": {
+        "slug": "top-speed",
+        "heading": "Top-Speed (km/h)",
+        "kind": "rate",
+    },
 }
+
+# Historical prior: intentionally smaller core set to keep the workflow fast.
+BUNDESLIGA_PRIOR_STAT_CATEGORIES = {
+    key: BUNDESLIGA_PLAYER_STAT_CATEGORIES[key]
+    for key in (
+        "goals",
+        "assists",
+        "shots",
+        "passAccuracy",
+        "duelsWon",
+        "aerialDuelsWon",
+        "fouls",
+        "saves",
+        "distanceKm",
+        "sprints",
+        "intensiveRuns",
+    )
+}
+
 
 BUNDESLIGA_CLUB_NEWS_SLUGS = {
     "FC Bayern München": "fc-bayern-muenchen",
@@ -1224,41 +1265,57 @@ def parse_float_after_labels(text, labels):
 
 
 
-def _bundesliga_stat_url(slug):
+def _bundesliga_stat_url(slug, season=None):
+    season = season or BUNDESLIGA_STATS_SEASON
     return (
         "https://www.bundesliga.com/de/bundesliga/statistiken/"
-        f"spieler/{slug}/{BUNDESLIGA_STATS_SEASON}"
+        f"spieler/{slug}/{season}"
     )
 
 
-def _get_bundesliga_stat_text(metric_key):
+def _get_bundesliga_stat_text(metric_key, season=None, historical=False):
     """
-    Lädt eine Bundesliga-Rankingseite einmal und cached den geglätteten Text.
-    Bei nicht erreichbarer Seite wird None gecached, damit nicht wiederholt
-    angefragt wird.
-    """
-    if metric_key in _BUNDESLIGA_STATS_TEXT_CACHE:
-        return _BUNDESLIGA_STATS_TEXT_CACHE[metric_key]
+    Loads one official Bundesliga ranking page and caches it.
 
-    config = BUNDESLIGA_PLAYER_STAT_CATEGORIES.get(metric_key)
+    Current and historical seasons use separate caches.
+    """
+    season = season or BUNDESLIGA_STATS_SEASON
+    cache = (
+        _BUNDESLIGA_HISTORICAL_STATS_TEXT_CACHE
+        if historical
+        else _BUNDESLIGA_STATS_TEXT_CACHE
+    )
+    cache_key = (season, metric_key)
+
+    if cache_key in cache:
+        return cache[cache_key]
+
+    config_map = (
+        BUNDESLIGA_PRIOR_STAT_CATEGORIES
+        if historical
+        else BUNDESLIGA_PLAYER_STAT_CATEGORIES
+    )
+    config = config_map.get(metric_key)
     if not config:
-        _BUNDESLIGA_STATS_TEXT_CACHE[metric_key] = (None, None)
+        cache[cache_key] = (None, None)
         return None, None
 
-    url = _bundesliga_stat_url(config["slug"])
+    url = _bundesliga_stat_url(config["slug"], season=season)
 
     try:
         html = http_get_text(url, timeout=8)
         page_text = _html_to_visible_text(html)
-        _BUNDESLIGA_STATS_TEXT_CACHE[metric_key] = (page_text, url)
+        cache[cache_key] = (page_text, url)
+        prefix = "PRIOR-CACHE" if historical else "STATS-CACHE"
         print(
-            f"STATS-CACHE {metric_key}: geladen "
+            f"{prefix} {metric_key}: geladen "
             f"({len(page_text)} Zeichen) | {url}"
         )
         return page_text, url
     except Exception as exc:
-        print(f"STATS-CACHE FEHLER {metric_key}: {exc}")
-        _BUNDESLIGA_STATS_TEXT_CACHE[metric_key] = (None, url)
+        prefix = "PRIOR-CACHE FEHLER" if historical else "STATS-CACHE FEHLER"
+        print(f"{prefix} {metric_key}: {exc}")
+        cache[cache_key] = (None, url)
         return None, url
 
 
@@ -1332,22 +1389,19 @@ def _extract_metric_from_ranking_text(page_text, heading, player_name):
 
 def collect_bundesliga_rankings_for_player(player):
     """
-    V19: Alle ligaweiten Kategorien für EINEN Spieler aus bereits gecachten
-    Statistikseiten auslesen.
+    V23 current-season collector.
 
-    Zählstatistiken:
-      Wenn die Seite erfolgreich geladen wurde und der Spieler nicht in der
-      Nicht-Null-Rangliste erscheint, wird 0 verwendet.
-
-    Quoten:
-      Fehlender Eintrag bleibt None; eine Quote darf niemals als 0 erfunden
-      werden.
+    IMPORTANT:
+    A player missing from the visible Bundesliga ranking is UNKNOWN, not 0.
+    Ranking pages can show only the leading entries. Earlier versions treated
+    "not listed" as zero; V23 removes that unsafe assumption.
     """
     player_name = str(player.get("name") or "").strip()
 
     values = {}
     sources = {}
     pages_available = 0
+    explicit_hits = 0
 
     for metric_key, config in BUNDESLIGA_PLAYER_STAT_CATEGORIES.items():
         page_text, url = _get_bundesliga_stat_text(metric_key)
@@ -1363,29 +1417,164 @@ def collect_bundesliga_rankings_for_player(player):
             player_name,
         )
 
-        if value is None and config["kind"] == "count":
-            # Bundesliga-Rankings führen nur Spieler mit >0 in der sichtbaren
-            # Wertung. Ist die Seite erreichbar, ist "nicht gelistet" für eine
-            # reine Zählstatistik ein belastbares 0.
-            value = 0
-
         values[metric_key] = value
         if value is not None:
+            explicit_hits += 1
             sources[metric_key] = url
 
-    # "cards" ist Gesamtzahl Karten, aber redCards lässt sich daraus nicht
-    # sauber ableiten, weil Gelb-Rot separat enthalten sein kann. Deshalb
-    # redCards bewusst NICHT schätzen.
     values["redCards"] = None
 
     print(
         f"STATS-PLAYER {player_name}: "
-        f"{sum(v is not None for v in values.values())} Werte | "
-        f"{pages_available} Rankingseiten verfügbar"
+        f"{explicit_hits} explizite Rankingwerte | "
+        f"{pages_available} Rankingseiten verfügbar | "
+        "nicht gelistet = unbekannt"
     )
 
     return values, sources
 
+
+def collect_bundesliga_historical_prior(player):
+    """
+    V23 historical prior from 2025/26.
+
+    Historical totals are stored separately and are NEVER mixed into current
+    season totals. They are intended for later model calibration only.
+    """
+    player_name = str(player.get("name") or "").strip()
+
+    values = {}
+    sources = {}
+    pages_available = 0
+    explicit_hits = 0
+
+    for metric_key, config in BUNDESLIGA_PRIOR_STAT_CATEGORIES.items():
+        page_text, url = _get_bundesliga_stat_text(
+            metric_key,
+            season=BUNDESLIGA_PRIOR_SEASON,
+            historical=True,
+        )
+
+        if not page_text:
+            values[metric_key] = None
+            continue
+
+        pages_available += 1
+        value = _extract_metric_from_ranking_text(
+            page_text,
+            config["heading"],
+            player_name,
+        )
+        values[metric_key] = value
+
+        if value is not None:
+            explicit_hits += 1
+            sources[metric_key] = url
+
+    available = [key for key, value in values.items() if value is not None]
+    missing = [key for key, value in values.items() if value is None]
+    coverage = round(
+        len(available) / max(len(BUNDESLIGA_PRIOR_STAT_CATEGORIES), 1) * 100
+    )
+
+    print(
+        f"PRIOR-PLAYER {player_name}: "
+        f"Coverage {coverage}% | vorhanden={len(available)} | "
+        f"fehlend={len(missing)}"
+    )
+
+    return values, sources, {
+        "season": BUNDESLIGA_PRIOR_SEASON,
+        "availableMetrics": available,
+        "missingMetrics": missing,
+        "coveragePercent": coverage,
+        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt.",
+    }
+
+
+def build_kickbase_factor_coverage(performance):
+    """
+    Transparency layer for Kickbase-relevant factors.
+
+    This does NOT claim the exact proprietary Kickbase event model.
+    It states what our public-data pipeline can observe, approximate, or
+    currently cannot observe.
+    """
+    direct_map = {
+        "goals": "goals",
+        "assists": "assists",
+        "shots": "shots",
+        "shotsOnTarget": "shotsOnTarget",
+        "woodwork": "woodwork",
+        "penalties": "penalties",
+        "penaltiesScored": "penaltiesScored",
+        "passAccuracy": "passAccuracy",
+        "duelsWon": "duelsWon",
+        "aerialDuelsWon": "aerialDuelsWon",
+        "crosses": "crosses",
+        "fouls": "fouls",
+        "yellowCards": "yellowCards",
+        "redCards": "redCards",
+        "saves": "saves",
+        "cleanSheets": "cleanSheets",
+        "goalsAgainst": "goalsAgainst",
+        "distanceKm": "distanceKm",
+        "sprints": "sprints",
+        "intensiveRuns": "intensiveRuns",
+        "topSpeedKmh": "topSpeedKmh",
+    }
+
+    direct_available = [
+        factor
+        for factor, metric in direct_map.items()
+        if performance.get(metric) is not None
+    ]
+    direct_missing = [
+        factor
+        for factor, metric in direct_map.items()
+        if performance.get(metric) is None
+    ]
+
+    partial = {
+        "successfulPasses": (
+            "Passquote vorhanden, aber Passvolumen fehlt"
+            if performance.get("passAccuracy") is not None
+            else "Passquote und Passvolumen fehlen"
+        ),
+        "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
+        "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
+        "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar",
+    }
+
+    unavailable = [
+        "passesOpponentHalf",
+        "passesFinalThird",
+        "keyPasses",
+        "bigChancesCreated",
+        "bigChancesMissed",
+        "ballRecoveries",
+        "interceptions",
+        "tacklesWonDetailed",
+        "blockedShotsDetailed",
+        "errorsLeadingShot",
+        "errorsLeadingGoal",
+        "lastManActions",
+        "dribbledPast",
+        "successfulDribblesDetailed",
+        "keeperHighClaimsDetailed",
+        "goalsPrevented",
+    ]
+
+    return {
+        "directlyAvailable": direct_available,
+        "directlyMissing": direct_missing,
+        "partiallyModelled": partial,
+        "currentlyUnavailable": unavailable,
+        "note": (
+            "Coverage describes public-data observability, not exact "
+            "Kickbase scoring completeness."
+        ),
+    }
 
 
 def build_kickbase_ai_projection(player, performance, data_coverage):
@@ -1788,6 +1977,10 @@ def build_performance_layer(values, old_performance=None):
         "saves",
         "cleanSheets",
         "goalsAgainst",
+        "distanceKm",
+        "sprints",
+        "intensiveRuns",
+        "topSpeedKmh",
     )
 
     performance = {}
@@ -1807,10 +2000,10 @@ def build_performance_layer(values, old_performance=None):
         "availableMetrics": available,
         "missingMetrics": missing,
         "coveragePercent": coverage,
-        "scoreReady": coverage >= 70,
+        "scoreReady": False,  # V23 pauses scoring until coverage is validated
         "note": (
-            "Nur öffentlich gefundene Werte; keine Kickbase-Daten und keine "
-            "geschätzten Einzelaktionen."
+            "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT "
+            "mehr als 0 interpretiert."
         ),
     }
 
@@ -3740,6 +3933,11 @@ def build_player_intelligence(
         ranking_values, ranking_sources = collect_bundesliga_rankings_for_player(
             research_input
         )
+        (
+            historical_prior,
+            historical_prior_sources,
+            historical_prior_coverage,
+        ) = collect_bundesliga_historical_prior(research_input)
 
         perf_values = {
             "appearances": public_player.get("appearances"),
@@ -3762,6 +3960,10 @@ def build_player_intelligence(
             "saves": public_player.get("saves"),
             "cleanSheets": public_player.get("cleanSheets"),
             "goalsAgainst": public_player.get("goalsAgainst"),
+            "distanceKm": public_player.get("distanceKm"),
+            "sprints": public_player.get("sprints"),
+            "intensiveRuns": public_player.get("intensiveRuns"),
+            "topSpeedKmh": public_player.get("topSpeedKmh"),
         }
 
         # Ranking-Werte ergänzen/überschreiben nur, wenn sie tatsächlich
@@ -3774,39 +3976,38 @@ def build_player_intelligence(
 
     else:
         perf_values = dict(old_performance)
+        historical_prior = old_player.get("historicalPrior") or {}
+        historical_prior_sources = old_player.get("historicalPriorSources") or {}
+        historical_prior_coverage = old_player.get("historicalPriorCoverage") or {
+            "season": BUNDESLIGA_PRIOR_SEASON,
+            "availableMetrics": [],
+            "missingMetrics": list(BUNDESLIGA_PRIOR_STAT_CATEGORIES.keys()),
+            "coveragePercent": 0,
+        }
 
     performance, data_coverage = build_performance_layer(
         perf_values,
         old_performance=old_performance,
     )
+    kickbase_factor_coverage = build_kickbase_factor_coverage(performance)
 
+    # V23 intentionally pauses the points projection while the data layer
+    # is being validated. Do not publish a new score from incomplete coverage.
     if research_player:
-        projection_context = dict(old_player)
-        projection_context.update({
-            "starting": starting,
-            "injury": injury,
-            "suspension": suspension,
-            "homeAway": home_away,
-        })
-        kickbase_ai_projection = build_kickbase_ai_projection(
-            projection_context, performance, data_coverage
-        )
+        kickbase_ai_projection = None
         print(
-            f"AI-PROJECTION {name}: "
-            f"{kickbase_ai_projection.get('expectedPoints')} "
-            f"[{kickbase_ai_projection.get('rangeMin')}-"
-            f"{kickbase_ai_projection.get('rangeMax')}] | "
-            f"{kickbase_ai_projection.get('recommendation')} | "
-            f"Confidence {kickbase_ai_projection.get('confidence')}%"
+            f"AI-PROJECTION {name}: pausiert in V23 | "
+            "Data-Coverage-Upgrade wird validiert"
         )
     else:
         kickbase_ai_projection = old_player.get("kickbaseAiProjection")
 
     if research_player:
         print(
-            f"PERFORMANCE {name}: Coverage {data_coverage['coveragePercent']}% | "
+            f"PERFORMANCE {name}: Current {data_coverage['coveragePercent']}% | "
             f"vorhanden={len(data_coverage['availableMetrics'])} | "
-            f"fehlend={len(data_coverage['missingMetrics'])}"
+            f"fehlend={len(data_coverage['missingMetrics'])} | "
+            f"Prior {historical_prior_coverage.get('coveragePercent', 0)}%"
         )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
@@ -3842,6 +4043,10 @@ def build_player_intelligence(
         "performance": performance,
         "performanceSources": performance_sources,
         "dataCoverage": data_coverage,
+        "historicalPrior": historical_prior,
+        "historicalPriorSources": historical_prior_sources,
+        "historicalPriorCoverage": historical_prior_coverage,
+        "kickbaseFactorCoverage": kickbase_factor_coverage,
         "appearances": appearances,
         "starts": old_player.get("starts"),
         "minutes": old_player.get("minutes"),
@@ -3951,7 +4156,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V22-Expected-Points-Modus: Spielzeit + Position + Performance-Komponenten + Unsicherheit nur für den aufgelösten "
+        "V23-Data-Coverage-Modus: explizite Rankings + Laufdaten + historischer Prior + Faktor-Mapping nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
