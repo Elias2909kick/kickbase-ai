@@ -1768,16 +1768,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/ransford-yeboah-konigsdorffer"
         },
         {
-          "id": "william-boving",
-          "name": "William Bøving",
-          "age": null,
-          "number": 14,
-          "position": "Angriff",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/william-boving"
-        },
-        {
           "id": "benedict-hollerbach",
           "name": "Benedict Hollerbach",
           "age": null,
@@ -1818,7 +1808,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/alynho-haidara"
         }
       ],
-      "playerCount": 31,
+      "playerCount": 30,
       "nextMatch": {
         "opponent": "Hamburger SV",
         "homeAway": "Auswärts",
@@ -2066,16 +2056,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/luka-duric"
         },
         {
-          "id": "nick-batzner",
-          "name": "Nick Bätzner",
-          "age": null,
-          "number": 9,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/nick-batzner"
-        },
-        {
           "id": "mattes-hansen",
           "name": "Mattes Hansen",
           "age": null,
@@ -2226,7 +2206,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/deniz-zeitler"
         }
       ],
-      "playerCount": 34,
+      "playerCount": 33,
       "nextMatch": {
         "opponent": "SC Freiburg",
         "homeAway": "Heim",
@@ -2702,16 +2682,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/noah-atubolu"
         },
         {
-          "id": "michael-zetterer",
-          "name": "Michael Zetterer",
-          "age": null,
-          "number": 23,
-          "position": "Torhüter",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/michael-zetterer"
-        },
-        {
           "id": "jens-grahl",
           "name": "Jens Grahl",
           "age": null,
@@ -2750,16 +2720,6 @@
           "photo": null,
           "injury": null,
           "sourceUrl": "https://www.bundesliga.com/de/spieler/elias-baum"
-        },
-        {
-          "id": "arthur-theate",
-          "name": "Arthur Theate",
-          "age": null,
-          "number": 3,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/arthur-theate"
         },
         {
           "id": "robin-koch",
@@ -3002,7 +2962,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/jessic-ngankam"
         }
       ],
-      "playerCount": 31,
+      "playerCount": 29,
       "nextMatch": {
         "opponent": "FC Augsburg",
         "homeAway": "Heim",
@@ -4274,16 +4234,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/tim-oermann"
         },
         {
-          "id": "axel-tape",
-          "name": "Axel Tape",
-          "age": null,
-          "number": 16,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/axel-tape"
-        },
-        {
           "id": "lucas-vazquez",
           "name": "Lucas Vázquez",
           "age": null,
@@ -4454,7 +4404,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/eliesse-ben-seghir"
         }
       ],
-      "playerCount": 28,
+      "playerCount": 27,
       "nextMatch": {
         "opponent": "1. FC Union Berlin",
         "homeAway": "Heim",
@@ -10906,12 +10856,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 2,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -11006,6 +10956,8 @@
       },
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [
           "goals",
           "assists",
@@ -11022,7 +10974,16 @@
           "fouls"
         ],
         "coveragePercent": 91,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 10,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 10
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -11076,14 +11037,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Freitag 28. August Bayern FC Bayern München FCB 5 VFB 1 Stuttgart VfB Stuttgart Liveticker",
+      "lastMatch": "Samstag 22. August Dortmund Borussia Dortmund BVB 1 FCB 2 Bayern FC Bayern München",
       "opponent": "FC Schalke 04",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -17432,6 +17393,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -17447,7 +17410,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -17508,7 +17485,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Freitag 28. August Bayern FC Bayern München FCB 5 VFB 1 Stuttgart VfB Stuttgart Liveticker",
+      "lastMatch": "Freitag 21. August Rostock F.C. Hansa Rostock 0 4 Stuttgart VfB Stuttgart Liveticker",
       "opponent": "1. FC Köln",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -34658,194 +34635,6 @@
         "researchMode": "bestehende_daten_beibehalten"
       }
     },
-    "william-boving": {
-      "id": "william-boving",
-      "name": "William Bøving",
-      "club": "1. FSV Mainz 05",
-      "position": "Angriff",
-      "number": 14,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/william-boving",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "Hamburger SV",
-      "homeAway": "Auswärts",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/william-boving"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
     "benedict-hollerbach": {
       "id": "benedict-hollerbach",
       "name": "Benedict Hollerbach",
@@ -35048,12 +34837,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 1,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -35061,7 +34850,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 3,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -35137,6 +34926,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -35152,7 +34943,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -35206,14 +35011,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Mainz 1. FSV Mainz 05 M05 0 SCP 0 Paderborn SC Paderborn 07 Liveticker",
+      "lastMatch": "Sonntag 23. August Krieschow VfB 1921 Krieschow 0 9 Mainz 1. FSV Mainz 05 Liveticker",
       "opponent": "Hamburger SV",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -39001,194 +38806,6 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/luka-duric"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
-    "nick-batzner": {
-      "id": "nick-batzner",
-      "name": "Nick Bätzner",
-      "club": "SC Paderborn 07",
-      "position": "Mittelfeld",
-      "number": 9,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/nick-batzner",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "SC Freiburg",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/nick-batzner"
         },
         {
           "name": "OpenLigaDB",
@@ -43442,6 +43059,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -43457,7 +43076,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -43518,7 +43151,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Leipzig RB Leipzig RBL 3 BMG 0 M'gladbach Borussia Mönchengladbach Liveticker",
+      "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Auswärts",
       "injury": "Verletzt · Blessur · Ausfallzeit nicht öffentlich verfügbar",
@@ -45266,12 +44899,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 1,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -45279,7 +44912,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -45355,6 +44988,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -45370,7 +45005,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -45424,14 +45073,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Union Berlin 1. FC Union Berlin FCU 3 SGE 3 Frankfurt Eintracht Frankfurt Liveticker",
+      "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -45863,12 +45512,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 3,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -45877,7 +45526,7 @@
         "duelsWon": 0,
         "aerialDuelsWon": 0,
         "crosses": 0,
-        "fouls": 4,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -45952,6 +45601,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -45967,7 +45618,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -46021,14 +45686,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Union Berlin 1. FC Union Berlin FCU 3 SGE 3 Frankfurt Eintracht Frankfurt Liveticker",
+      "lastMatch": "Sonntag 23. August Braunschweig Eintracht Braunschweig 2 4 Union Berlin 1. FC Union Berlin Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -48514,194 +48179,6 @@
         "researchMode": "bestehende_daten_beibehalten"
       }
     },
-    "michael-zetterer": {
-      "id": "michael-zetterer",
-      "name": "Michael Zetterer",
-      "club": "Eintracht Frankfurt",
-      "position": "Torhüter",
-      "number": 23,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/michael-zetterer",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "FC Augsburg",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/michael-zetterer"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
     "jens-grahl": {
       "id": "jens-grahl",
       "name": "Jens Grahl",
@@ -49440,194 +48917,6 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/elias-baum"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
-    "arthur-theate": {
-      "id": "arthur-theate",
-      "name": "Arthur Theate",
-      "club": "Eintracht Frankfurt",
-      "position": "Verteidigung",
-      "number": 3,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/arthur-theate",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "FC Augsburg",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/arthur-theate"
         },
         {
           "name": "OpenLigaDB",
@@ -65166,6 +64455,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -65181,7 +64472,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -65242,7 +64547,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Karlsruhe Karlsruher SC KSC 2 WOB 5 Wolfsburg VfL Wolfsburg Liveticker",
+      "lastMatch": "Samstag 22. August Aue FC Erzgebirge Aue 0 4 Hoffenheim TSG Hoffenheim Liveticker",
       "opponent": "Borussia Dortmund",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -66044,18 +65349,18 @@
       "number": 20,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/nicolas-kristof",
       "average": null,
-      "starting": "Noch nicht recherchiert",
+      "starting": "Wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
       "footballRating": 29,
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 2,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -66139,6 +65444,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -66154,7 +65461,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -66208,14 +65529,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": null,
       "goalsAgainst": 0,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Elversberg SV Elversberg ELV 3 B04 2 Leverkusen Bayer 04 Leverkusen Liveticker",
+      "lastMatch": "Samstag 22. August Duisburg MSV Duisburg 1 3 Elversberg SV Elversberg Liveticker",
       "opponent": "Borussia Mönchengladbach",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -73025,194 +72346,6 @@
         "researchMode": "bestehende_daten_beibehalten"
       }
     },
-    "axel-tape": {
-      "id": "axel-tape",
-      "name": "Axel Tape",
-      "club": "Bayer 04 Leverkusen",
-      "position": "Verteidigung",
-      "number": 16,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/axel-tape",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "directlyAvailable": [],
-        "directlyMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "partiallyModelled": {
-          "successfulPasses": "Passquote und Passvolumen fehlen",
-          "misplacedPasses": "Ohne Passvolumen nicht belastbar ableitbar",
-          "expectedMinutes": "Aus Startelfsignal und öffentlichen Einsatzdaten ableitbar",
-          "cleanSheetContext": "Team-/Spielstatus teilweise ableitbar"
-        },
-        "currentlyUnavailable": [
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "keeperHighClaimsDetailed",
-          "goalsPrevented"
-        ],
-        "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "1. FC Union Berlin",
-      "homeAway": "Heim",
-      "injury": "Noch nicht recherchiert",
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-08-31",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/axel-tape"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
     "lucas-vazquez": {
       "id": "lucas-vazquez",
       "name": "Lucas Vázquez",
@@ -73227,7 +72360,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
@@ -73240,8 +72373,8 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
-        "fouls": 2,
+        "crosses": 0,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -73316,6 +72449,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -73331,7 +72466,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -73385,14 +72534,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Elversberg SV Elversberg ELV 3 B04 2 Leverkusen Bayer 04 Leverkusen Liveticker",
+      "lastMatch": "Samstag 22. August Wiesbaden SV Wehen Wiesbaden 0 4 Leverkusen Bayer 04 Leverkusen Liveticker",
       "opponent": "1. FC Union Berlin",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -83600,7 +82749,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
@@ -83614,7 +82763,7 @@
         "duelsWon": 0,
         "aerialDuelsWon": 0,
         "crosses": 0,
-        "fouls": 3,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -83689,6 +82838,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -83704,7 +82855,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -83758,14 +82923,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Dortmund Borussia Dortmund BVB 2 HSV 0 Hamburg Hamburger SV Liveticker",
+      "lastMatch": "Montag 24. August Verl SC Verl 0 3 Hamburg Hamburger SV Liveticker",
       "opponent": "1. FSV Mainz 05",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -86829,7 +85994,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
@@ -86843,7 +86008,7 @@
         "duelsWon": 0,
         "aerialDuelsWon": 0,
         "crosses": 0,
-        "fouls": 2,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -86918,6 +86083,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -86933,7 +86100,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -86987,14 +86168,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Dortmund Borussia Dortmund BVB 2 HSV 0 Hamburg Hamburger SV Liveticker",
+      "lastMatch": "Montag 24. August Verl SC Verl 0 3 Hamburg Hamburger SV Liveticker",
       "opponent": "1. FSV Mainz 05",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -91750,12 +90931,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
-        "assists": 1,
-        "shots": 2,
+        "assists": 0,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -91763,8 +90944,8 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 1,
-        "fouls": 4,
+        "crosses": 0,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -91839,6 +91020,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -91854,7 +91037,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -91908,14 +91105,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
-      "assists": 1,
+      "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Freiburg Sport-Club Freiburg SCF 4 SVW 1 Bremen SV Werder Bremen Liveticker",
+      "lastMatch": "Sonntag 23. August Düsseldorf Fortuna Düsseldorf 1 5 Freiburg Sport-Club Freiburg Liveticker",
       "opponent": "SC Paderborn 07",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -91971,7 +91168,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
@@ -91985,7 +91182,7 @@
         "duelsWon": 0,
         "aerialDuelsWon": 0,
         "crosses": 0,
-        "fouls": 1,
+        "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -92060,6 +91257,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -92075,7 +91274,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -92129,14 +91342,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Freiburg Sport-Club Freiburg SCF 4 SVW 1 Bremen SV Werder Bremen Liveticker",
+      "lastMatch": "Sonntag 23. August Düsseldorf Fortuna Düsseldorf 1 5 Freiburg Sport-Club Freiburg Liveticker",
       "opponent": "SC Paderborn 07",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -97921,6 +97134,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -97936,7 +97151,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -97997,7 +97226,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Freiburg Sport-Club Freiburg SCF 4 SVW 1 Bremen SV Werder Bremen Liveticker",
+      "lastMatch": "Samstag 22. August Lüneburg Lüneburger SK Hansa 0 3 Bremen SV Werder Bremen Liveticker",
       "opponent": "RB Leipzig",
       "homeAway": "Heim",
       "injury": "Verletzt · Kreuzbandriss · Ausfallzeit nicht öffentlich verfügbar",
@@ -98241,12 +97470,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 1,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -98254,7 +97483,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -98330,6 +97559,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -98345,7 +97576,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -98399,14 +97644,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Freiburg Sport-Club Freiburg SCF 4 SVW 1 Bremen SV Werder Bremen Liveticker",
+      "lastMatch": "Samstag 22. August Lüneburg Lüneburger SK Hansa 0 3 Bremen SV Werder Bremen Liveticker",
       "opponent": "RB Leipzig",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -102028,18 +101273,18 @@
       "number": 10,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/mert-komur",
       "average": null,
-      "starting": "Noch nicht recherchiert",
+      "starting": "Wahrscheinlich",
       "form": "Noch keine belastbare Formbasis",
       "footballRating": 31,
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 1,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -102123,6 +101368,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -102138,7 +101385,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -102192,14 +101453,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Augsburg FC Augsburg FCA 3 S04 0 Schalke FC Schalke 04 Liveticker",
+      "lastMatch": "Samstag 22. August FC Energie FC Energie Cottbus 0 2 Augsburg FC Augsburg Liveticker",
       "opponent": "Eintracht Frankfurt",
       "homeAway": "Auswärts",
       "injury": "Fit",
@@ -108835,12 +108096,12 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 2,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -108848,7 +108109,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -108924,6 +108185,8 @@
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "bundesliga",
+        "league": "Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -108939,7 +108202,21 @@
           "intensiveRuns"
         ],
         "coveragePercent": 0,
-        "note": "Historischer Prior; nicht mit aktuellen Saisonwerten vermischt."
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
@@ -108993,14 +108270,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Sonntag 30. August Augsburg FC Augsburg FCA 3 S04 0 Schalke FC Schalke 04 Liveticker",
+      "lastMatch": "Montag 24. August Halle Hallescher FC 2 2 5 2 Schalke FC Schalke 04 Liveticker",
       "opponent": "FC Bayern München",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -111303,7 +110580,7 @@
   "season": "2026/27",
   "league": "1. Bundesliga",
   "teamCount": 18,
-  "playerCount": 553,
+  "playerCount": 548,
   "architecture": {
     "kickbaseSource": "nicht verwendet",
     "teamsAndPlayers": "Bundesliga.com",
