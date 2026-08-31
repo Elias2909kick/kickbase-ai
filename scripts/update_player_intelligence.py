@@ -4281,9 +4281,19 @@ def build_player_intelligence(
     # is being validated. Do not publish a new score from incomplete coverage.
     if research_player:
         kickbase_ai_projection = None
+        evidence_adj = _v27_match_evidence_adjustment(prior_meta)
+        evidence_ratio = evidence_adj.get("ratio")
+        evidence_pct = (
+            f"{round(evidence_ratio * 100)}%"
+            if evidence_ratio is not None else "n/a"
+        )
         print(
-            f"AI-PROJECTION {name}: V27 Evidence-Layer aktiv | "
-            "Data-Coverage-Upgrade wird validiert"
+            f"AI-PROJECTION {name}: V27.1 Evidence-Layer aktiv | "
+            f"historische Lineup-Evidenz={evidence_pct} "
+            f"({evidence_adj.get('matchesFound', 0)}/{evidence_adj.get('sample', 0)}) | "
+            f"Role={evidence_adj.get('roleSignal')} | "
+            f"Usage-Faktor={evidence_adj.get('projectionMultiplier'):.2f} | "
+            f"Confidence+={evidence_adj.get('confidenceBoost')}pp"
         )
     else:
         kickbase_ai_projection = old_player.get("kickbaseAiProjection")
@@ -4442,7 +4452,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V27-Evidence-Aware-Modus: Ranking-Prior + Match-Evidenz als begrenztes Einsatzsignal nur für den aufgelösten "
+        "V27.1-Evidence-Wiring-Fix: Match-Evidenz nachweisbar in Projection verdrahtet nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
