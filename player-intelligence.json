@@ -10983,6 +10983,7 @@
             "explicitRankingHits": 10
           }
         ],
+        "matchEvidence": null,
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -17424,6 +17425,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -34957,6 +34965,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -43090,6 +43105,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -43151,7 +43173,7 @@
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Union Berlin 1. FC Union Berlin FCU 3 SGE 3 Frankfurt Eintracht Frankfurt Liveticker",
+      "lastMatch": "Samstag 29. August Leipzig RB Leipzig RBL 3 BMG 0 M'gladbach Borussia Mönchengladbach Liveticker",
       "opponent": "Bayer 04 Leverkusen",
       "homeAway": "Auswärts",
       "injury": "Verletzt · Blessur · Ausfallzeit nicht öffentlich verfügbar",
@@ -45019,6 +45041,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -45632,6 +45661,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -64361,7 +64397,7 @@
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 35.86,
@@ -64374,7 +64410,7 @@
         "passAccuracy": 35.86,
         "duelsWon": 35.86,
         "aerialDuelsWon": 35.86,
-        "crosses": 4,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 35.86,
         "redCards": null,
@@ -64486,6 +64522,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -64540,14 +64583,14 @@
         ],
         "note": "Coverage describes public-data observability, not exact Kickbase scoring completeness."
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
-      "goals": 1,
+      "goals": 0,
       "assists": 0,
       "goalsAgainst": null,
       "yellowCards": 0,
-      "lastMatch": "Samstag 29. August Köln 1. FC Köln KOE 3 TSG 2 Hoffenheim TSG Hoffenheim Liveticker",
+      "lastMatch": "Samstag 29. August Karlsruhe Karlsruher SC KSC 2 WOB 5 Wolfsburg VfL Wolfsburg Liveticker",
       "opponent": "Borussia Dortmund",
       "homeAway": "Heim",
       "injury": "Fit",
@@ -65475,6 +65518,21 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": true,
+          "matchesFound": 34,
+          "lineupsLoaded": 34,
+          "matchesDiscovered": 34,
+          "sourceUrl": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/sv-elversberg",
+          "sampleMatchUrls": [
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/1/sv-elversberg-vs-1-fc-nuernberg",
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/2/vfl-bochum-1848-vs-sv-elversberg",
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/3/sv-elversberg-vs-1-fc-kaiserslautern",
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/4/hertha-bsc-vs-sv-elversberg",
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/5/sv-elversberg-vs-sg-dynamo-dresden"
+          ],
+          "note": "Offizielle historische Match-/Aufstellungs-Evidenz. Wird nicht als fehlende Eventstatistik ausgegeben."
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -72480,6 +72538,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -82869,6 +82934,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/hamburger-sv"
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -86114,6 +86186,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/hamburger-sv"
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -91051,6 +91130,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -91288,6 +91374,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -97165,6 +97258,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -97590,6 +97690,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -101399,6 +101506,13 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
@@ -108216,6 +108330,21 @@
             "explicitRankingHits": 0
           }
         ],
+        "matchEvidence": {
+          "available": true,
+          "matchesFound": 14,
+          "lineupsLoaded": 34,
+          "matchesDiscovered": 34,
+          "sourceUrl": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/fc-schalke-04",
+          "sampleMatchUrls": [
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/21/fc-schalke-04-vs-sg-dynamo-dresden",
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/22/holstein-kiel-vs-fc-schalke-04",
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/23/fc-schalke-04-vs-1-fc-magdeburg",
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/24/spvgg-greuther-fuerth-vs-fc-schalke-04",
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/25/fc-schalke-04-vs-dsc-arminia-bielefeld"
+          ],
+          "note": "Offizielle historische Match-/Aufstellungs-Evidenz. Wird nicht als fehlende Eventstatistik ausgegeben."
+        },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt."
       },
       "kickbaseFactorCoverage": {
