@@ -10884,6 +10884,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -17389,6 +17390,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -34977,6 +34979,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -45133,6 +45136,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -45809,6 +45813,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -64721,6 +64726,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -65786,6 +65792,19 @@
           "method": "official historical lineup evidence; 90-minute GK start scenario"
         },
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": {
+          "provider": "Bundesliga.com",
+          "competition": "2bundesliga",
+          "matchesWithLineup": 34,
+          "pagesLoaded": 26,
+          "saveSamples": 1,
+          "note": "Fehlende Matchwerte bleiben unbekannt und werden nicht als 0 interpretiert.",
+          "totalSavesInSamples": 6,
+          "averageSavesPerSample": 6.0,
+          "sampleUrls": [
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/17/sc-preusen-muenster-vs-sv-elversberg"
+          ]
+        },
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "very_strong",
@@ -65895,7 +65914,7 @@
         "duelsWon": null,
         "aerialDuelsWon": null,
         "fouls": null,
-        "saves": null,
+        "saves": 6,
         "distanceKm": null,
         "sprints": null,
         "intensiveRuns": null,
@@ -65904,6 +65923,7 @@
         "minutes": 3060
       },
       "historicalPriorSources": {
+        "saves": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/17/sc-preusen-muenster-vs-sv-elversberg",
         "appearances": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/sv-elversberg",
         "starts": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/sv-elversberg",
         "minutes": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/sv-elversberg"
@@ -65965,6 +65985,19 @@
           "confidenceBoost": 10
         },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt.",
+        "goalkeeperMatchPerformancePrior": {
+          "provider": "Bundesliga.com",
+          "competition": "2bundesliga",
+          "matchesWithLineup": 34,
+          "pagesLoaded": 26,
+          "saveSamples": 1,
+          "note": "Fehlende Matchwerte bleiben unbekannt und werden nicht als 0 interpretiert.",
+          "totalSavesInSamples": 6,
+          "averageSavesPerSample": 6.0,
+          "sampleUrls": [
+            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/17/sc-preusen-muenster-vs-sv-elversberg"
+          ]
+        },
         "goalkeeperUsagePrior": {
           "appearances": 34,
           "starts": 34,
@@ -72889,6 +72922,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -83341,6 +83375,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -86649,6 +86684,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -91649,6 +91685,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -91949,6 +91986,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -98345,6 +98383,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -102217,6 +102256,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -109097,6 +109137,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
+        "goalkeeperMatchPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "moderate",
