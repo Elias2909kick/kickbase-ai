@@ -2428,7 +2428,9 @@ def build_kickbase_ai_projection(
             prior_apps = 0.0
 
         if prior_apps > 0 or (official_gk_profile or {}).get("appearances"):
-            if performance.get("saves") is None:
+            # V38: do not gate live-season blending on performance['saves'].
+            # V32 may already have copied the same official profile value there.
+            if True:
                 season_meta=(historical_prior_coverage or {}).get("goalkeeperSeasonPerformancePrior") or {}
                 current_meta=(historical_prior_coverage or {}).get("goalkeeperCurrentSeasonPerformance") or {}
                 current_values=(historical_prior_coverage or {}).get("goalkeeperCurrentSeasonValues") or {}
