@@ -16,6 +16,122 @@ from urllib.parse import unquote
 # KONFIGURATION
 # ============================================================
 
+
+# ============================================================
+# V43 OPEN-DATA PROVIDER POLICY
+# ============================================================
+# Production rule:
+#   - no freemium quota that requires payment for continued/intended use
+#   - no trial-only access
+#   - no paywall / private-token / access-control bypass
+#   - public/open access and an acceptable licence/terms basis
+#   - every imported value must retain source/provenance metadata
+#
+# "allowed" below means allowed by OUR engineering policy, not a legal opinion.
+V43_PROVIDER_REGISTRY = {
+    "bundesliga_public": {
+        "role": "primary_current_player_stats",
+        "allowed": True,
+        "costModel": "public_free",
+        "productionInput": True,
+        "reason": "existing public source already used by pipeline",
+    },
+    "openligadb": {
+        "role": "fixtures_results_context",
+        "allowed": True,
+        "costModel": "community_free_no_auth",
+        "license": "ODbL",
+        "productionInput": False,  # enable only when a concrete field adds value
+        "reason": "free community API; useful mainly for fixtures/results, not micro-events",
+    },
+    "pappalardo_wyscout_open": {
+        "role": "historical_event_model_calibration",
+        "allowed": True,
+        "costModel": "open_dataset",
+        "license": "CC BY 4.0",
+        "productionInput": False,
+        "reason": "Bundesliga 2017/18 event data; calibration only, not current-season truth",
+    },
+    "statsbomb_open_data": {
+        "role": "event_schema_and_model_calibration",
+        "allowed": True,
+        "costModel": "open_dataset",
+        "license": "custom_attribution_terms",
+        "productionInput": False,
+        "reason": "open event data for listed competitions; use only where competition/season is actually present",
+    },
+    "sportmonks": {
+        "role": "none",
+        "allowed": False,
+        "costModel": "freemium_paid_bundesliga",
+        "productionInput": False,
+        "reason": "Bundesliga access is paid; violates V43 zero-paid-tier dependency rule",
+    },
+}
+
+def v43_provider_allowed(provider_name, production=False):
+    meta = V43_PROVIDER_REGISTRY.get(provider_name) or {}
+    if not meta.get("allowed"):
+        return False
+    if production and not meta.get("productionInput"):
+        return False
+    return True
+
+def v43_provenance(value, provider, field, scope, season=None, confidence="unknown",
+                   source_url=None, observed=True):
+    """Wrap a sourced value without silently losing where it came from."""
+    return {
+        "value": value,
+        "provider": provider,
+        "field": field,
+        "scope": scope,
+        "season": season,
+        "confidence": confidence,
+        "sourceUrl": source_url,
+        "observed": bool(observed),
+    }
+
+def v43_resolve_sourced_value(candidates):
+    """
+    Conservative conflict resolver.
+    Never averages disagreeing observed providers.
+    Returns the highest-confidence candidate only when values agree or there is
+    a single observed candidate; otherwise returns an explicit conflict.
+    """
+    valid = [c for c in (candidates or []) if isinstance(c, dict) and c.get("observed")
+             and c.get("value") is not None]
+    if not valid:
+        return {"status": "unknown", "value": None, "sources": []}
+
+    values = {str(c.get("value")) for c in valid}
+    if len(values) > 1:
+        return {
+            "status": "conflict",
+            "value": None,
+            "sources": valid,
+        }
+
+    rank = {"high": 3, "medium": 2, "low": 1, "unknown": 0}
+    chosen = max(valid, key=lambda c: rank.get(c.get("confidence"), 0))
+    return {
+        "status": "verified" if len(valid) > 1 else "single_source",
+        "value": chosen.get("value"),
+        "chosen": chosen,
+        "sources": valid,
+    }
+
+def v43_provider_policy_summary():
+    allowed = [k for k, v in V43_PROVIDER_REGISTRY.items() if v.get("allowed")]
+    blocked = [k for k, v in V43_PROVIDER_REGISTRY.items() if not v.get("allowed")]
+    production = [k for k, v in V43_PROVIDER_REGISTRY.items()
+                  if v.get("allowed") and v.get("productionInput")]
+    return {
+        "allowed": allowed,
+        "blocked": blocked,
+        "productionEnabled": production,
+        "rule": "no_freemium_paid_dependency",
+    }
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 INTELLIGENCE_FILE = BASE_DIR / "player-intelligence.json"
 # Optional: IDs des aktuellen Kickbase-Kaders für intensive Web-Recherche.
@@ -2369,7 +2485,7 @@ def build_kickbase_ai_projection(
             "startProbability": 0,
             "positionModel": pos_group,
             "scenario": {"start": 0, "bench": 0},
-            "model": "v42.1-position-aware-official-actions",
+            "model": "v43-open-data-provider-policy",
         }
 
     # ------------------------------------------------------------
@@ -5459,4 +5575,12 @@ def main():
 
 
 if __name__ == "__main__":
+    _v43_policy = v43_provider_policy_summary()
+    print(
+        "V43-PROVIDER-POLICY "
+        f"allowed={','.join(_v43_policy['allowed'])} | "
+        f"blocked={','.join(_v43_policy['blocked'])} | "
+        f"production={','.join(_v43_policy['productionEnabled'])} | "
+        f"rule={_v43_policy['rule']}"
+    )
     main()
