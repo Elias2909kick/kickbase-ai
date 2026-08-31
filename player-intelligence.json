@@ -65754,21 +65754,21 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 29,
-      "kickbaseAiScore": 29,
+      "footballRating": 59,
+      "kickbaseAiScore": 59,
       "kickbaseAiProjection": {
-        "expectedPoints": 29,
-        "rangeMin": 0,
-        "rangeMax": 68,
+        "expectedPoints": 59,
+        "rangeMin": 26,
+        "rangeMax": 92,
         "confidence": 58,
-        "recommendation": "Beobachten",
-        "expectedMinutes": 56,
+        "recommendation": "Gute Option",
+        "expectedMinutes": 86,
         "minutesIfStart": 90,
         "minutesIfBench": 0,
-        "startProbability": 63,
+        "startProbability": 96,
         "positionModel": "TW",
         "scenario": {
-          "starterPoints": 47.0,
+          "starterPoints": 61.0,
           "benchPoints": 0.0
         },
         "historicalPriorStrength": {
@@ -65802,14 +65802,14 @@
           "assists": 0.0,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "saves": 0.0,
+          "saves": 14.0,
           "goalsAgainst": -0.0,
           "fouls": -0.0,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": -2.0
         },
-        "reason": "TW-Szenariomodell | Start 63% | 90 Min bei Start | Current 58% | Prior 0%",
+        "reason": "TW-Szenariomodell | Start 96% | 90 Min bei Start | Current 58% | Prior 0%",
         "model": "v29-scenario-prior-public-data",
         "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API."
       },
@@ -65831,7 +65831,7 @@
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
-        "saves": 0,
+        "saves": 2,
         "cleanSheets": null,
         "goalsAgainst": 0,
         "distanceKm": null,
@@ -65852,7 +65852,7 @@
         "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
         "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
         "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
-        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
+        "saves": "https://www.bundesliga.com/de/spieler/nicolas-kristof"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -65973,7 +65973,17 @@
           "sourceUrl": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/sv-elversberg",
           "method": "official historical lineup evidence; 90-minute GK start scenario"
         },
-        "goalkeeperEventCoveragePercent": 0
+        "goalkeeperEventCoveragePercent": 0,
+        "currentGoalkeeperProfile": {
+          "provider": "Bundesliga.com",
+          "scope": "current-season-profile",
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/nicolas-kristof",
+          "metrics": [
+            "appearances",
+            "saves",
+            "yellowCards"
+          ]
+        }
       },
       "kickbaseFactorCoverage": {
         "directlyAvailable": [
