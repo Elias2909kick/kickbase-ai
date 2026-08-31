@@ -1732,6 +1732,42 @@ def collect_bundesliga_historical_prior(player):
     }
 
 
+def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
+    """Use official historical lineup evidence as GK usage prior, never as fake events."""
+    if _v29_position_group(player.get("position")) != "TW":
+        return values, sources, meta
+
+    values = dict(values or {})
+    sources = dict(sources or {})
+    meta = dict(meta or {})
+    evidence = meta.get("matchEvidence") or {}
+    starts = int(evidence.get("matchesFound") or 0)
+    loaded = int(evidence.get("lineupsLoaded") or 0)
+
+    if starts > 0:
+        values["appearances"] = starts
+        values["starts"] = starts
+        values["minutes"] = starts * 90
+        for key in ("appearances", "starts", "minutes"):
+            sources[key] = evidence.get("sourceUrl")
+        meta["goalkeeperUsagePrior"] = {
+            "appearances": starts,
+            "starts": starts,
+            "minutes": starts * 90,
+            "lineupsLoaded": loaded,
+            "sourceUrl": evidence.get("sourceUrl"),
+            "method": "official historical lineup evidence; 90-minute GK start scenario",
+        }
+
+    meta["goalkeeperEventCoveragePercent"] = meta.get("coveragePercent", 0)
+    print(
+        f"V30-GK-PRIOR {player.get('name')}: Starts={starts}/{loaded} | "
+        f"Minuten={values.get('minutes')} | Saves={values.get('saves')} | "
+        f"EventCoverage={meta.get('coveragePercent', 0)}%"
+    )
+    return values, sources, meta
+
+
 def build_kickbase_factor_coverage(performance):
     """
     Transparency layer for Kickbase-relevant factors.
@@ -2199,10 +2235,19 @@ def build_kickbase_ai_projection(
     # 5) Confidence: current coverage + prior + lineup evidence are separate
     # ------------------------------------------------------------
     prior_cov = int((historical_prior_coverage or {}).get("coveragePercent") or 0)
+    usage_prior = (historical_prior_coverage or {}).get("goalkeeperUsagePrior") or {}
+    usage_confidence = 0
+    if pos_group == "TW" and usage_prior.get("starts"):
+        usage_sample = int(usage_prior.get("lineupsLoaded") or 0)
+        usage_starts = int(usage_prior.get("starts") or 0)
+        if usage_sample >= 8:
+            usage_confidence = min(12, round(12 * usage_starts / usage_sample))
+
     confidence = (
         current_coverage * 0.62
         + prior_cov * 0.28
         + evidence_confidence_boost
+        + usage_confidence
     )
     confidence = int(round(max(0.0, min(confidence, 100.0))))
 
@@ -2251,6 +2296,10 @@ def build_kickbase_ai_projection(
             "benchPoints": round(bench_points, 1),
         },
         "historicalPriorStrength": prior_strength,
+        "goalkeeperPrior": (
+            (historical_prior_coverage or {}).get("goalkeeperUsagePrior")
+            if pos_group == "TW" else None
+        ),
         "evidence": {
             "roleSignal": evidence_adj.get("roleSignal", "unknown"),
             "lineupRatio": evidence_adj.get("ratio"),
@@ -4266,6 +4315,16 @@ def build_player_intelligence(
             historical_prior_sources,
             historical_prior_coverage,
         ) = collect_bundesliga_historical_prior(research_input)
+        (
+            historical_prior,
+            historical_prior_sources,
+            historical_prior_coverage,
+        ) = _v30_goalkeeper_historical_fallback(
+            research_input,
+            historical_prior,
+            historical_prior_sources,
+            historical_prior_coverage,
+        )
 
         perf_values = {
             "appearances": public_player.get("appearances"),
@@ -4357,6 +4416,7 @@ def build_player_intelligence(
             f"ØMin={kickbase_ai_projection.get('expectedMinutes')} | "
             f"StarterPts={kickbase_ai_projection.get('scenario', {}).get('starterPoints')} | "
             f"PriorBonus={kickbase_ai_projection.get('historicalPriorStrength', {}).get('bonus')} | "
+            f"GKPriorStarts={((kickbase_ai_projection.get('goalkeeperPrior') or {}).get('starts'))} | "
             f"Confidence={kickbase_ai_projection.get('confidence')}% | "
             f"Evidence={evidence_pct} "
             f"({evidence_adj.get('matchesFound', 0)}/{evidence_adj.get('sample', 0)}) "
@@ -4520,7 +4580,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V29.1-Position-Fix: Bundesliga-Positionen korrekt erkannt + Szenario-Prior-Engine nur für den aufgelösten "
+        "V30-GK-Prior: Torwart-Nutzungsprior aus historischer Lineup-Evidenz + Szenario-Engine nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
