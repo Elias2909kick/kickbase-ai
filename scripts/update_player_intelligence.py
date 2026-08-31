@@ -2369,7 +2369,15 @@ def build_kickbase_ai_projection(
             "startProbability": 0,
             "positionModel": pos_group,
             "scenario": {"start": 0, "bench": 0},
-            "model": "v29-scenario-prior-public-data",
+            "model": "v42-position-aware-official-actions",
+        "positionScoring": {
+            "goal": {"TW": 120, "ABW": 100, "MF": 90, "ANG": 80}.get(pos_group),
+            "assist": {"TW": 55, "ABW": 45, "MF": 35, "ANG": 35}.get(pos_group),
+            "cleanSheetPer10": {"TW": 5, "ABW": 3, "MF": 2, "ANG": 1}.get(pos_group),
+            "startingXI": 5,
+            "minutePer10": 1,
+            "goalConcededTW": -5 if pos_group == "TW" else None,
+        },
         }
 
     # ------------------------------------------------------------
@@ -2458,35 +2466,36 @@ def build_kickbase_ai_projection(
 
     starter_components = {}
 
-    # Match participation base.
-    starter_components["minutesBase"] = 42.0 * (minutes_if_start / 90.0)
-    starter_components["startingBonus"] = 7.0
+    # V42: official Kickbase participation actions.
+    # Minutenbonus: +1 per completed 10 minutes, plus +1 for a full match.
+    # Startelf: +5.
+    completed_tens = int(minutes_if_start // 10)
+    starter_components["minutesBase"] = float(completed_tens)
+    if minutes_if_start >= 89.5:
+        starter_components["minutesBase"] += 1.0
+    starter_components["startingBonus"] = 5.0
 
     # Current season rates; only when explicitly available.
     rate_weights = {
         "TW": {
-            "goals": 80, "assists": 30, "shots": 0.0, "duelsWon": 0.5,
-            "aerialDuelsWon": 0.8, "crosses": 0.0, "saves": 7.0,
-            "cleanSheets": 30.0, "goalsAgainst": -6.0, "fouls": -1.0,
-            "yellowCards": -7.0,
+            "goals": 120, "assists": 55, "shots": 0.0, "duelsWon": 0.5,
+            "aerialDuelsWon": 0.8, "crosses": 0.0, "saves": 0.0,
+            "goalsAgainst": -5.0, "fouls": -2.0, "yellowCards": -10.0,
         },
         "ABW": {
-            "goals": 75, "assists": 28, "shots": 3.0, "duelsWon": 1.3,
+            "goals": 100, "assists": 45, "shots": 3.0, "duelsWon": 1.3,
             "aerialDuelsWon": 1.5, "crosses": 0.7, "saves": 0.0,
-            "cleanSheets": 20.0, "goalsAgainst": -3.0, "fouls": -1.1,
-            "yellowCards": -7.0,
+            "goalsAgainst": 0.0, "fouls": -2.0, "yellowCards": -10.0,
         },
         "MF": {
-            "goals": 68, "assists": 30, "shots": 3.5, "duelsWon": 1.0,
+            "goals": 90, "assists": 35, "shots": 3.5, "duelsWon": 1.0,
             "aerialDuelsWon": 0.8, "crosses": 1.0, "saves": 0.0,
-            "cleanSheets": 5.0, "goalsAgainst": -0.5, "fouls": -1.0,
-            "yellowCards": -7.0,
+            "goalsAgainst": 0.0, "fouls": -2.0, "yellowCards": -10.0,
         },
         "ANG": {
-            "goals": 62, "assists": 27, "shots": 4.0, "duelsWon": 0.7,
+            "goals": 80, "assists": 35, "shots": 4.0, "duelsWon": 0.7,
             "aerialDuelsWon": 0.9, "crosses": 0.5, "saves": 0.0,
-            "cleanSheets": 0.0, "goalsAgainst": 0.0, "fouls": -0.8,
-            "yellowCards": -7.0,
+            "goalsAgainst": 0.0, "fouls": -2.0, "yellowCards": -10.0,
         },
         "ALL": {
             "goals": 65, "assists": 28, "shots": 3.0, "duelsWon": 0.9,
@@ -2503,13 +2512,28 @@ def build_kickbase_ai_projection(
         if rate is None:
             continue
         contribution = rate * weight * (minutes_if_start / 90.0)
-        starter_components[metric] = max(-20.0, min(contribution, 30.0))
+        # Headline actions such as goals/assists may legitimately exceed 30.
+        cap = 140.0 if metric in {"goals", "assists"} else 30.0
+        starter_components[metric] = max(-30.0, min(contribution, cap))
 
-    # Shots on target get a separate positive action value if available.
+    # V42: official position-dependent clean-sheet action.
+    # Per completed 10 minutes: TW +5, ABW +3, MF +2, ANG +1.
+    # A full 90-minute appearance receives one additional unit.
+    cs_rate = per_appearance(performance.get("cleanSheets"))
+    if cs_rate is not None:
+        cs_unit = {"TW": 5.0, "ABW": 3.0, "MF": 2.0, "ANG": 1.0, "ALL": 1.0}[pos_group]
+        cs_units = int(minutes_if_start // 10)
+        if minutes_if_start >= 89.5:
+            cs_units += 1
+        starter_components["cleanSheets"] = max(
+            0.0, min(cs_rate * cs_unit * cs_units, 50.0)
+        )
+
+    # Shots on target get the official +12 action value when available.
     sot = per_appearance(performance.get("shotsOnTarget"))
     if sot is not None:
         starter_components["shotsOnTarget"] = min(
-            sot * 8.0 * (minutes_if_start / 90.0), 24.0
+            sot * 12.0 * (minutes_if_start / 90.0), 24.0
         )
 
     pa = performance.get("passAccuracy")
@@ -2609,10 +2633,10 @@ def build_kickbase_ai_projection(
                     if current_saves is not None:
                         gk_prior_components["liveSeasonSaves"]=current_saves
             if performance.get("cleanSheets") is None and historical_prior.get("cleanSheets") is not None:
-                value = float(historical_prior["cleanSheets"]) / prior_apps * 30.0
-                gk_prior_components["cleanSheets"] = max(0.0, min(value, 30.0))
+                value = float(historical_prior["cleanSheets"]) / prior_apps * 50.0
+                gk_prior_components["cleanSheets"] = max(0.0, min(value, 50.0))
             if performance.get("goalsAgainst") is None and historical_prior.get("goalsAgainst") is not None:
-                value = float(historical_prior["goalsAgainst"]) / prior_apps * -6.0
+                value = float(historical_prior["goalsAgainst"]) / prior_apps * -5.0
                 gk_prior_components["goalsAgainst"] = max(-20.0, min(value, 0.0))
 
         if gk_prior_components:
@@ -4907,6 +4931,14 @@ def build_player_intelligence(
             f"kritisch vorhanden={len(kickbase_factor_coverage.get('criticalAvailable', []))}/"
             f"{len(kickbase_factor_coverage.get('criticalFactors', []))} | "
             f"fehlt={','.join(kickbase_factor_coverage.get('criticalMissing', [])) or '-'}"
+        )
+        print(
+            f"POSITION-SCORING {name}: "
+            f"Position={kickbase_ai_projection.get('positionModel')} | "
+            f"Goal={((kickbase_ai_projection.get('positionScoring') or {}).get('goal'))} | "
+            f"Assist={((kickbase_ai_projection.get('positionScoring') or {}).get('assist'))} | "
+            f"CS/10={((kickbase_ai_projection.get('positionScoring') or {}).get('cleanSheetPer10'))} | "
+            f"Startelf=5 | Min/10=1"
         )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
