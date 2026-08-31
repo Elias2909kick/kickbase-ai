@@ -2612,7 +2612,7 @@ def build_kickbase_ai_projection(
             "startProbability": 0,
             "positionModel": pos_group,
             "scenario": {"start": 0, "bench": 0},
-            "model": "v44-open-data-calibration-shadow",
+            "model": "v44.1-open-data-calibration-wiring-fix",
         }
 
     # ------------------------------------------------------------
@@ -5177,12 +5177,14 @@ def build_player_intelligence(
         )
         # V44: build a transparent historical-open-data prior for critical
         # metrics that are missing from the current observed data.
-        _v44_missing = []
-        try:
-            _v44_missing = list(event_coverage.get("missingCritical") or [])
-        except Exception:
-            _v44_missing = []
-        _v44_pos = kickbase_ai_projection.get("positionModel")
+        # V44.1 wiring fix: use the exact same source that EVENT-COVERAGE
+        # prints above. This prevents the calibration layer from silently
+        # seeing Missing=none while EVENT-COVERAGE reports criticalMissing.
+        _v44_missing = list(kickbase_factor_coverage.get("criticalMissing", []) or [])
+        _v44_pos = (
+            kickbase_factor_coverage.get("positionModel")
+            or kickbase_ai_projection.get("positionModel")
+        )
         v44_apply_missing_event_calibration(
             kickbase_ai_projection, _v44_pos, _v44_missing
         )
