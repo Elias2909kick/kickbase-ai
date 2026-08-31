@@ -2210,6 +2210,7 @@ def build_kickbase_ai_projection(
     evidence_adj=None,
     historical_prior=None,
     historical_prior_coverage=None,
+    official_gk_profile=None,
 ):
     """
     V29 scenario-based expected-points engine.
@@ -2415,13 +2416,18 @@ def build_kickbase_ai_projection(
     # This is not a Kickbase import and does not fabricate micro-actions.
     gk_prior_components = {}
     if pos_group == "TW":
+        official_gk_profile = (
+            official_gk_profile
+            or (historical_prior_coverage or {}).get("currentGoalkeeperProfileValues")
+            or {}
+        )
         prior_apps = historical_prior.get("appearances")
         try:
             prior_apps = float(prior_apps) if prior_apps else 0.0
         except (TypeError, ValueError):
             prior_apps = 0.0
 
-        if prior_apps > 0:
+        if prior_apps > 0 or (official_gk_profile or {}).get("appearances"):
             if performance.get("saves") is None:
                 season_meta=(historical_prior_coverage or {}).get("goalkeeperSeasonPerformancePrior") or {}
                 current_meta=(historical_prior_coverage or {}).get("goalkeeperCurrentSeasonPerformance") or {}
@@ -4658,6 +4664,7 @@ def build_player_intelligence(
                     performance_sources[metric_key] = gk_sources.get(metric_key)
             if gk_meta:
                 historical_prior_coverage["currentGoalkeeperProfile"] = gk_meta
+            historical_prior_coverage["currentGoalkeeperProfileValues"] = dict(gk_current)
 
         # Ranking-Werte ergänzen/überschreiben nur, wenn sie tatsächlich
         # verfügbar sind. So bleiben Profilwerte für nicht abgedeckte Felder.
@@ -4704,6 +4711,9 @@ def build_player_intelligence(
             evidence_adj=evidence_adj,
             historical_prior=historical_prior,
             historical_prior_coverage=historical_prior_coverage,
+            official_gk_profile=(
+                (historical_prior_coverage or {}).get("currentGoalkeeperProfileValues") or {}
+            ),
         )
         evidence_ratio = evidence_adj.get("ratio")
         evidence_pct = (
