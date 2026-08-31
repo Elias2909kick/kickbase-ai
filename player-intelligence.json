@@ -10884,7 +10884,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -17390,7 +17390,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -34979,7 +34979,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -45136,7 +45136,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -45813,7 +45813,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -64701,12 +64701,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 112,
-      "kickbaseAiScore": 112,
+      "footballRating": 93,
+      "kickbaseAiScore": 93,
       "kickbaseAiProjection": {
-        "expectedPoints": 112,
-        "rangeMin": 44,
-        "rangeMax": 180,
+        "expectedPoints": 93,
+        "rangeMin": 29,
+        "rangeMax": 157,
         "confidence": 46,
         "recommendation": "Starten",
         "expectedMinutes": 54,
@@ -64715,8 +64715,8 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 163.7,
-          "benchPoints": 45.0
+          "starterPoints": 137.2,
+          "benchPoints": 36.8
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -64726,7 +64726,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -64741,7 +64741,7 @@
           "startingBonus": 7.0,
           "goals": 30.0,
           "assists": 30.0,
-          "shots": 30.0,
+          "shots": 3.4,
           "duelsWon": 21.5,
           "aerialDuelsWon": 27.6,
           "crosses": 1.7,
@@ -64761,7 +64761,7 @@
         "minutes": null,
         "goals": 35.86,
         "assists": 35.86,
-        "shots": 35.86,
+        "shots": 1,
         "shotsOnTarget": null,
         "woodwork": 35.86,
         "penalties": 35.86,
@@ -65792,18 +65792,24 @@
           "method": "official historical lineup evidence; 90-minute GK start scenario"
         },
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": {
+        "goalkeeperSeasonPerformancePrior": {
           "provider": "Bundesliga.com",
-          "competition": "2bundesliga",
-          "matchesWithLineup": 34,
-          "pagesLoaded": 26,
-          "saveSamples": 1,
-          "note": "Fehlende Matchwerte bleiben unbekannt und werden nicht als 0 interpretiert.",
-          "totalSavesInSamples": 6,
-          "averageSavesPerSample": 6.0,
-          "sampleUrls": [
-            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/17/sc-preusen-muenster-vs-sv-elversberg"
-          ]
+          "season": "2025-2026",
+          "explicit": false,
+          "metrics": [],
+          "checked": [
+            {
+              "league": "2bundesliga",
+              "url": "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
+              "loaded": true
+            },
+            {
+              "league": "bundesliga",
+              "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
+              "loaded": true
+            }
+          ],
+          "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
         },
         "goalkeeperPriorComponents": {},
         "evidence": {
@@ -65914,7 +65920,7 @@
         "duelsWon": null,
         "aerialDuelsWon": null,
         "fouls": null,
-        "saves": 6,
+        "saves": null,
         "distanceKm": null,
         "sprints": null,
         "intensiveRuns": null,
@@ -65923,7 +65929,6 @@
         "minutes": 3060
       },
       "historicalPriorSources": {
-        "saves": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/17/sc-preusen-muenster-vs-sv-elversberg",
         "appearances": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/sv-elversberg",
         "starts": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/sv-elversberg",
         "minutes": "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/sv-elversberg"
@@ -65985,18 +65990,24 @@
           "confidenceBoost": 10
         },
         "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt.",
-        "goalkeeperMatchPerformancePrior": {
+        "goalkeeperSeasonPerformancePrior": {
           "provider": "Bundesliga.com",
-          "competition": "2bundesliga",
-          "matchesWithLineup": 34,
-          "pagesLoaded": 26,
-          "saveSamples": 1,
-          "note": "Fehlende Matchwerte bleiben unbekannt und werden nicht als 0 interpretiert.",
-          "totalSavesInSamples": 6,
-          "averageSavesPerSample": 6.0,
-          "sampleUrls": [
-            "https://www.bundesliga.com/de/2bundesliga/spieltag/2025-2026/17/sc-preusen-muenster-vs-sv-elversberg"
-          ]
+          "season": "2025-2026",
+          "explicit": false,
+          "metrics": [],
+          "checked": [
+            {
+              "league": "2bundesliga",
+              "url": "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
+              "loaded": true
+            },
+            {
+              "league": "bundesliga",
+              "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
+              "loaded": true
+            }
+          ],
+          "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
         },
         "goalkeeperUsagePrior": {
           "appearances": 34,
@@ -72922,7 +72933,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -83375,7 +83386,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -86684,7 +86695,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -91685,7 +91696,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -91986,7 +91997,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -98383,7 +98394,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -102256,7 +102267,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "unknown",
@@ -109137,7 +109148,7 @@
         },
         "goalkeeperPrior": null,
         "goalkeeperPerformancePrior": null,
-        "goalkeeperMatchPerformancePrior": null,
+        "goalkeeperSeasonPerformancePrior": null,
         "goalkeeperPriorComponents": {},
         "evidence": {
           "roleSignal": "moderate",
