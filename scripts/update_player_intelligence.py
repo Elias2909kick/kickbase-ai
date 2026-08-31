@@ -1861,7 +1861,7 @@ def _v27_match_evidence_adjustment(prior_meta):
     }
 
 
-def build_kickbase_ai_projection(player, performance, data_coverage):
+def build_kickbase_ai_projection(player, performance, data_coverage, evidence_adj=None):
     """
     V22: Erwartete-Punkte-Modell auf öffentlicher Datenbasis.
 
@@ -1878,6 +1878,9 @@ def build_kickbase_ai_projection(player, performance, data_coverage):
     keine behauptete exakte Reproduktion des proprietären Kickbase-Scorings.
     """
     coverage = int(data_coverage.get("coveragePercent") or 0)
+    evidence_adj = evidence_adj or {}
+    evidence_multiplier = float(evidence_adj.get("projectionMultiplier") or 1.0)
+    evidence_confidence_boost = int(evidence_adj.get("confidenceBoost") or 0)
 
     starting = str(player.get("starting") or "").lower()
     injury = str(player.get("injury") or "").lower()
@@ -1897,7 +1900,7 @@ def build_kickbase_ai_projection(player, performance, data_coverage):
             "startProbability": 0,
             "positionModel": position or "unbekannt",
             "components": {},
-            "model": "v22-public-data-expected-points",
+            "model": "v28-public-data-expected-points",
         }
 
     appearances = performance.get("appearances")
@@ -1940,7 +1943,13 @@ def build_kickbase_ai_projection(player, performance, data_coverage):
         except (TypeError, ValueError):
             pass
 
+    # V28: historische Lineup-Evidenz beeinflusst ausschließlich die erwartete
+    # Nutzung/Spielzeit. Sie erfindet keine fehlenden Event-Statistiken.
+    expected_minutes *= evidence_multiplier
+    start_probability *= evidence_multiplier
+
     expected_minutes = max(0.0, min(expected_minutes, 90.0))
+    start_probability = max(0.0, min(start_probability, 0.99))
     minute_factor = expected_minutes / 90.0
 
     # ------------------------------------------------------------
@@ -2212,7 +2221,7 @@ def build_kickbase_ai_projection(player, performance, data_coverage):
         "expectedPoints": expected,
         "rangeMin": range_min,
         "rangeMax": range_max,
-        "confidence": coverage,
+        "confidence": min(100, coverage + evidence_confidence_boost),
         "recommendation": recommendation,
         "reason": (
             f"{pos_group}-Expected-Points | "
@@ -2223,8 +2232,16 @@ def build_kickbase_ai_projection(player, performance, data_coverage):
         "expectedMinutes": int(round(expected_minutes)),
         "startProbability": int(round(start_probability * 100)),
         "positionModel": pos_group,
+        "evidence": {
+            "roleSignal": evidence_adj.get("roleSignal", "unknown"),
+            "lineupRatio": evidence_adj.get("ratio"),
+            "matchesFound": evidence_adj.get("matchesFound", 0),
+            "sample": evidence_adj.get("sample", 0),
+            "usageMultiplier": round(evidence_multiplier, 2),
+            "confidenceBoost": evidence_confidence_boost,
+        },
         "components": rounded_components,
-        "model": "v22-public-data-expected-points",
+        "model": "v28-public-data-expected-points",
         "disclaimer": (
             "Eigene Prognose auf Kickbase-ähnlicher Skala; "
             "keine exakte Kickbase-Punkteberechnung."
@@ -4277,23 +4294,40 @@ def build_player_intelligence(
     )
     kickbase_factor_coverage = build_kickbase_factor_coverage(performance)
 
-    # V23 intentionally pauses the points projection while the data layer
-    # is being validated. Do not publish a new score from incomplete coverage.
+    # V28: Expected-Points-Engine aktiv. Ausschließlich öffentlich gefundene
+    # Performance-Werte + Status/Startelf + historische Lineup-Evidenz.
     if research_player:
-        kickbase_ai_projection = None
         evidence_adj = _v27_match_evidence_adjustment(historical_prior_coverage)
+        projection_player = dict(player)
+        projection_player.update({
+            "starting": starting,
+            "injury": injury,
+            "suspension": suspension,
+            "homeAway": home_away,
+        })
+        kickbase_ai_projection = build_kickbase_ai_projection(
+            projection_player,
+            performance,
+            data_coverage,
+            evidence_adj=evidence_adj,
+        )
         evidence_ratio = evidence_adj.get("ratio")
         evidence_pct = (
             f"{round(evidence_ratio * 100)}%"
             if evidence_ratio is not None else "n/a"
         )
         print(
-            f"AI-PROJECTION {name}: V27.2 Evidence-Layer aktiv | "
-            f"historische Lineup-Evidenz={evidence_pct} "
-            f"({evidence_adj.get('matchesFound', 0)}/{evidence_adj.get('sample', 0)}) | "
-            f"Role={evidence_adj.get('roleSignal')} | "
-            f"Usage-Faktor={evidence_adj.get('projectionMultiplier'):.2f} | "
-            f"Confidence+={evidence_adj.get('confidenceBoost')}pp"
+            f"AI-PROJECTION {name}: V28 Expected Points="
+            f"{kickbase_ai_projection.get('expectedPoints')} "
+            f"[{kickbase_ai_projection.get('rangeMin')}-"
+            f"{kickbase_ai_projection.get('rangeMax')}] | "
+            f"Minuten={kickbase_ai_projection.get('expectedMinutes')} | "
+            f"Start={kickbase_ai_projection.get('startProbability')}% | "
+            f"Confidence={kickbase_ai_projection.get('confidence')}% | "
+            f"Evidence={evidence_pct} "
+            f"({evidence_adj.get('matchesFound', 0)}/{evidence_adj.get('sample', 0)}) "
+            f"{evidence_adj.get('roleSignal')} x"
+            f"{evidence_adj.get('projectionMultiplier'):.2f}"
         )
     else:
         kickbase_ai_projection = old_player.get("kickbaseAiProjection")
@@ -4452,7 +4486,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V27.2-Evidence-Wiring-Fix: historische Prior-Metadaten korrekt an Evidence-Layer übergeben nur für den aufgelösten "
+        "V28-Expected-Points-Engine: öffentliche Performance + Einsatzwahrscheinlichkeit + Evidence-Layer nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
