@@ -1863,15 +1863,30 @@ def _v27_match_evidence_adjustment(prior_meta):
 
 
 def _v29_position_group(position):
-    position = str(position or "").lower()
-    if "torwart" in position or position in ("tw", "gk"):
+    raw = str(position or "").strip().lower()
+    normalized = normalize_name(position)
+
+    if (
+        "torwart" in raw
+        or "torhüter" in raw
+        or "torhueter" in raw
+        or normalized in {"torhuter", "torhueter", "torwart", "tw", "gk", "goalkeeper"}
+    ):
         return "TW"
-    if "abwehr" in position or position in ("ab", "abw", "df"):
+
+    if (
+        "abwehr" in raw
+        or "verteidigung" in raw
+        or normalized in {"abwehr", "verteidigung", "ab", "abw", "df"}
+    ):
         return "ABW"
-    if "mittelfeld" in position or position in ("mf", "mid"):
+
+    if "mittelfeld" in raw or normalized in {"mittelfeld", "mf", "mid"}:
         return "MF"
-    if "angriff" in position or position in ("ang", "fw", "st"):
+
+    if "angriff" in raw or normalized in {"angriff", "ang", "fw", "st"}:
         return "ANG"
+
     return "ALL"
 
 
@@ -4335,6 +4350,7 @@ def build_player_intelligence(
             f"{kickbase_ai_projection.get('expectedPoints')} "
             f"[{kickbase_ai_projection.get('rangeMin')}-"
             f"{kickbase_ai_projection.get('rangeMax')}] | "
+            f"Position={kickbase_ai_projection.get('positionModel')} | "
             f"Start={kickbase_ai_projection.get('startProbability')}% | "
             f"MinStart={kickbase_ai_projection.get('minutesIfStart')} | "
             f"MinBank={kickbase_ai_projection.get('minutesIfBench')} | "
@@ -4504,7 +4520,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V29-Szenario-Prior-Engine: Start/Bank getrennt + historischer Prior + Evidence-Layer nur für den aufgelösten "
+        "V29.1-Position-Fix: Bundesliga-Positionen korrekt erkannt + Szenario-Prior-Engine nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
