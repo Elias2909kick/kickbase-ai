@@ -2427,16 +2427,32 @@ def build_kickbase_ai_projection(
                 current_meta=(historical_prior_coverage or {}).get("goalkeeperCurrentSeasonPerformance") or {}
                 current_values=(historical_prior_coverage or {}).get("goalkeeperCurrentSeasonValues") or {}
 
-                # Current appearances: prefer explicit official profile appearances.
+                # V36 source hierarchy for the live season:
+                # 1) explicit official player profile
+                # 2) explicit official season ranking
+                # Missing remains unknown; never coerce absence to zero.
                 try:
                     current_apps=int((official_gk_profile or {}).get("appearances") or 0)
                 except (TypeError,ValueError):
                     current_apps=0
 
+                profile_saves=(official_gk_profile or {}).get("saves")
+                ranking_saves=current_values.get("saves")
+                if profile_saves is not None and current_apps > 0:
+                    current_saves=profile_saves
+                    current_ok=True
+                    current_source="official_profile"
+                elif current_meta.get("explicit") is True and ranking_saves is not None and current_apps > 0:
+                    current_saves=ranking_saves
+                    current_ok=True
+                    current_source="season_ranking"
+                else:
+                    current_saves=None
+                    current_ok=False
+                    current_source=None
+
                 prior_saves=historical_prior.get("saves")
-                current_saves=current_values.get("saves")
                 prior_ok=(season_meta.get("explicit") is True and prior_apps >= 8)
-                current_ok=(current_meta.get("explicit") is True and current_apps > 0)
 
                 blended_rate,live_weight=_v35_blend_rate(
                     current_saves if current_ok else None,
@@ -2449,6 +2465,10 @@ def build_kickbase_ai_projection(
                     value=float(blended_rate)*7.0
                     gk_prior_components["saves"]=max(0.0,min(value,30.0))
                     gk_prior_components["liveSeasonWeight"]=round(live_weight,3)
+                    gk_prior_components["liveSeasonSource"]=current_source
+                    gk_prior_components["liveSeasonAppearances"]=current_apps
+                    if current_saves is not None:
+                        gk_prior_components["liveSeasonSaves"]=current_saves
             if performance.get("cleanSheets") is None and historical_prior.get("cleanSheets") is not None:
                 value = float(historical_prior["cleanSheets"]) / prior_apps * 30.0
                 gk_prior_components["cleanSheets"] = max(0.0, min(value, 30.0))
@@ -4707,6 +4727,7 @@ def build_player_intelligence(
             f"GKCurrentExplicit={((kickbase_ai_projection.get('goalkeeperCurrentSeasonPerformance') or {}).get('explicit'))} | "
             f"GKPriorExplicit={((kickbase_ai_projection.get('goalkeeperSeasonPerformancePrior') or {}).get('explicit'))} | "
             f"GKLiveWeight={((kickbase_ai_projection.get('goalkeeperPerformancePrior') or {}).get('liveSeasonWeight'))} | "
+            f"GKLiveSource={((kickbase_ai_projection.get('goalkeeperPerformancePrior') or {}).get('liveSeasonSource'))} | "
             f"GKOfficial={((historical_prior_coverage or {}).get('currentGoalkeeperProfile') or {}).get('metrics')} | "
             f"Confidence={kickbase_ai_projection.get('confidence')}% | "
             f"Evidence={evidence_pct} "
