@@ -1778,9 +1778,55 @@ def _v32_official_goalkeeper_current_profile(player):
     return {}, {}, None
 
 
+def _v35_season_label(start_year):
+    return f"{int(start_year)}-{int(start_year)+1}"
+
+def _v35_current_and_prior_seasons():
+    # The workflow is for the live 2026/27 season. Keeping this explicit makes
+    # reruns deterministic; future versions can derive it from competition metadata.
+    return "2026-2027", "2025-2026"
+
+def _v35_current_sample_weight(appearances):
+    """
+    Smoothly shifts authority from historical prior to the live season.
+    0 apps=0%, 1=10%, 3=25%, 5=45%, 8=70%, 10=82%, 12+=90%.
+    We deliberately retain a small prior contribution to reduce early-season noise.
+    """
+    try:
+        n = max(0, int(appearances or 0))
+    except (TypeError, ValueError):
+        n = 0
+    knots = [(0,0.0),(1,0.10),(3,0.25),(5,0.45),(8,0.70),(10,0.82),(12,0.90)]
+    if n >= knots[-1][0]:
+        return knots[-1][1]
+    for (x0,y0),(x1,y1) in zip(knots, knots[1:]):
+        if x0 <= n <= x1:
+            return y0 + (y1-y0)*(n-x0)/float(x1-x0)
+    return 0.0
+
+def _v35_blend_rate(current_total, current_apps, prior_total, prior_apps):
+    """Blend per-appearance rates; missing data never becomes zero."""
+    def rate(total, apps):
+        try:
+            a = int(apps or 0)
+            if total is None or a <= 0:
+                return None
+            return float(total) / float(a)
+        except (TypeError, ValueError, ZeroDivisionError):
+            return None
+    cr = rate(current_total, current_apps)
+    pr = rate(prior_total, prior_apps)
+    if cr is None:
+        return pr, 0.0
+    if pr is None:
+        return cr, 1.0
+    w = _v35_current_sample_weight(current_apps)
+    return cr*w + pr*(1.0-w), w
+
+
 def _v34_official_goalkeeper_season_prior(player, season="2025-2026"):
     """
-    Official Bundesliga season-ranking collector for goalkeeper saves.
+    Official Bundesliga/2. Bundesliga season-ranking collector for goalkeeper saves.
     It deliberately distinguishes:
       - explicit player row -> usable value
       - player absent from loaded ranking -> unknown, never zero
@@ -1864,16 +1910,28 @@ def _v30_goalkeeper_historical_fallback(player, values, sources, meta):
     starts = int(evidence.get("matchesFound") or 0)
     loaded = int(evidence.get("lineupsLoaded") or 0)
 
-    # V34: use the official season ranking directly. No 34-page match scrape.
-    gk_season_values,gk_season_sources,gk_season_meta=_v34_official_goalkeeper_season_prior(
-        player, "2025-2026"
+    # V35: collect both live season and previous-season prior.
+    current_season,prior_season=_v35_current_and_prior_seasons()
+    gk_current_values,gk_current_sources,gk_current_meta=_v34_official_goalkeeper_season_prior(
+        player,current_season
     )
-    if gk_season_meta:
-        meta["goalkeeperSeasonPerformancePrior"]=gk_season_meta
-    for key,value in gk_season_values.items():
+    gk_prior_values,gk_prior_sources,gk_prior_meta=_v34_official_goalkeeper_season_prior(
+        player,prior_season
+    )
+    if gk_current_meta:
+        meta["goalkeeperCurrentSeasonPerformance"]=gk_current_meta
+    if gk_prior_meta:
+        meta["goalkeeperSeasonPerformancePrior"]=gk_prior_meta
+
+    # Preserve the historical prior in values for downstream compatibility.
+    for key,value in gk_prior_values.items():
         if value is not None and values.get(key) is None:
             values[key]=value
-            sources[key]=gk_season_sources.get(key)
+            sources[key]=gk_prior_sources.get(key)
+
+    # Keep live values separate: downstream V35 blends rates rather than totals.
+    meta["goalkeeperCurrentSeasonValues"]=gk_current_values
+    meta["goalkeeperCurrentSeasonSources"]=gk_current_sources
 
     if starts > 0:
         if values.get("appearances") is None:
@@ -2364,12 +2422,33 @@ def build_kickbase_ai_projection(
             prior_apps = 0.0
 
         if prior_apps > 0:
-            if performance.get("saves") is None and historical_prior.get("saves") is not None:
+            if performance.get("saves") is None:
                 season_meta=(historical_prior_coverage or {}).get("goalkeeperSeasonPerformancePrior") or {}
-                # Hard coverage gate: only an explicit official season value is allowed.
-                if season_meta.get("explicit") is True and prior_apps >= 8:
-                    value=float(historical_prior["saves"])/max(float(prior_apps),1.0)*7.0
+                current_meta=(historical_prior_coverage or {}).get("goalkeeperCurrentSeasonPerformance") or {}
+                current_values=(historical_prior_coverage or {}).get("goalkeeperCurrentSeasonValues") or {}
+
+                # Current appearances: prefer explicit official profile appearances.
+                try:
+                    current_apps=int((official_gk_profile or {}).get("appearances") or 0)
+                except (TypeError,ValueError):
+                    current_apps=0
+
+                prior_saves=historical_prior.get("saves")
+                current_saves=current_values.get("saves")
+                prior_ok=(season_meta.get("explicit") is True and prior_apps >= 8)
+                current_ok=(current_meta.get("explicit") is True and current_apps > 0)
+
+                blended_rate,live_weight=_v35_blend_rate(
+                    current_saves if current_ok else None,
+                    current_apps,
+                    prior_saves if prior_ok else None,
+                    prior_apps,
+                )
+                if blended_rate is not None:
+                    # Existing model convention: save rate translated to expected KB-like contribution.
+                    value=float(blended_rate)*7.0
                     gk_prior_components["saves"]=max(0.0,min(value,30.0))
+                    gk_prior_components["liveSeasonWeight"]=round(live_weight,3)
             if performance.get("cleanSheets") is None and historical_prior.get("cleanSheets") is not None:
                 value = float(historical_prior["cleanSheets"]) / prior_apps * 30.0
                 gk_prior_components["cleanSheets"] = max(0.0, min(value, 30.0))
@@ -2484,6 +2563,10 @@ def build_kickbase_ai_projection(
         ),
         "goalkeeperPerformancePrior": (
             (historical_prior_coverage or {}).get("goalkeeperPerformancePrior")
+            if pos_group == "TW" else None
+        ),
+        "goalkeeperCurrentSeasonPerformance": (
+            (historical_prior_coverage or {}).get("goalkeeperCurrentSeasonPerformance")
             if pos_group == "TW" else None
         ),
         "goalkeeperSeasonPerformancePrior": (
@@ -4621,7 +4704,9 @@ def build_player_intelligence(
             f"PriorBonus={kickbase_ai_projection.get('historicalPriorStrength', {}).get('bonus')} | "
             f"GKPriorStarts={((kickbase_ai_projection.get('goalkeeperPrior') or {}).get('starts'))} | "
             f"GKPerf={kickbase_ai_projection.get('goalkeeperPriorComponents')} | "
-            f"GKSeasonExplicit={((kickbase_ai_projection.get('goalkeeperSeasonPerformancePrior') or {}).get('explicit'))} | "
+            f"GKCurrentExplicit={((kickbase_ai_projection.get('goalkeeperCurrentSeasonPerformance') or {}).get('explicit'))} | "
+            f"GKPriorExplicit={((kickbase_ai_projection.get('goalkeeperSeasonPerformancePrior') or {}).get('explicit'))} | "
+            f"GKLiveWeight={((kickbase_ai_projection.get('goalkeeperPerformancePrior') or {}).get('liveSeasonWeight'))} | "
             f"GKOfficial={((historical_prior_coverage or {}).get('currentGoalkeeperProfile') or {}).get('metrics')} | "
             f"Confidence={kickbase_ai_projection.get('confidence')}% | "
             f"Evidence={evidence_pct} "
