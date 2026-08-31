@@ -69,6 +69,133 @@ V43_PROVIDER_REGISTRY = {
     },
 }
 
+
+# ============================================================
+# V44 OPEN-DATA CALIBRATION LAYER
+# ============================================================
+# Important separation:
+# - observed/current data may contribute directly to a projection.
+# - historical open datasets may calibrate priors only.
+# - calibration data NEVER masquerades as a current-season observed event.
+#
+# The initial priors are deliberately conservative. They are fallback expectations
+# for missing event families, not replacements for observed Bundesliga data.
+V44_CALIBRATION_PROVIDERS = {
+    "pappalardo_wyscout_open": {
+        "scope": "historical_event_calibration",
+        "season": "2017/18",
+        "competition": "Bundesliga",
+        "license": "CC BY 4.0",
+        "currentTruth": False,
+        "weight": 1.0,
+    },
+    "statsbomb_open_data": {
+        "scope": "event_schema_calibration",
+        "season": None,
+        "competition": "selected_open_competitions",
+        "license": "attribution_required",
+        "currentTruth": False,
+        "weight": 0.35,
+    },
+}
+
+# Neutral per-90 fallback rates. These are intentionally modest and are only
+# activated for a metric that is absent from the current player's observed data.
+# They can later be regenerated from downloaded open datasets without changing
+# the projection interface.
+V44_POSITION_EVENT_PRIORS_PER90 = {
+    "TW": {
+        "passAccuracy": 0.78,
+        "cleanSheets": 0.27,
+    },
+    "ABW": {
+        "passAccuracy": 0.82,
+        "cleanSheets": 0.27,
+        "duelsWon": 3.2,
+        "aerialDuelsWon": 1.8,
+    },
+    "MF": {
+        "passAccuracy": 0.83,
+        "duelsWon": 3.0,
+        "aerialDuelsWon": 0.9,
+    },
+    "ANG": {
+        "passAccuracy": 0.78,
+        "shotsOnTarget": 1.15,
+        "duelsWon": 2.0,
+        "aerialDuelsWon": 0.7,
+    },
+}
+
+V44_ESTIMATE_POINT_WEIGHTS = {
+    # Only event families already represented by the model are assigned a
+    # conservative points conversion. passAccuracy remains informational until
+    # we have the exact underlying pass volume / success counts.
+    "cleanSheets": {"TW": 50.0, "ABW": 30.0, "MF": 20.0, "ANG": 10.0},
+    "shotsOnTarget": {"TW": 0.0, "ABW": 12.0, "MF": 12.0, "ANG": 12.0},
+    "duelsWon": {"TW": 0.5, "ABW": 1.3, "MF": 1.0, "ANG": 0.7},
+    "aerialDuelsWon": {"TW": 0.8, "ABW": 1.5, "MF": 0.8, "ANG": 0.9},
+}
+
+def v44_missing_event_prior(position, missing_metrics, minutes=90.0):
+    """
+    Return transparent, conservative priors for genuinely missing event metrics.
+    No value is labelled observed. The points estimate is separately capped.
+    """
+    pos = position if position in V44_POSITION_EVENT_PRIORS_PER90 else "ANG"
+    priors = V44_POSITION_EVENT_PRIORS_PER90.get(pos, {})
+    scale = max(0.0, min(float(minutes or 0.0) / 90.0, 1.0))
+    estimates = {}
+    raw_points = 0.0
+
+    for metric in sorted(set(missing_metrics or [])):
+        if metric not in priors:
+            continue
+        rate90 = float(priors[metric])
+        expected = rate90 * scale
+        estimates[metric] = {
+            "expected": round(expected, 4),
+            "per90": rate90,
+            "observed": False,
+            "sourceType": "historical_open_data_prior",
+            "confidence": "low",
+        }
+        weight = (V44_ESTIMATE_POINT_WEIGHTS.get(metric) or {}).get(pos)
+        if weight is not None:
+            raw_points += expected * float(weight)
+
+    # Missing-event priors must remain a secondary correction, never dominate
+    # the observed-event model.
+    points = max(0.0, min(raw_points, 18.0))
+    return {
+        "position": pos,
+        "minutes": round(float(minutes or 0.0), 1),
+        "estimates": estimates,
+        "rawEstimatedPoints": round(raw_points, 1),
+        "cappedEstimatedPoints": round(points, 1),
+        "cap": 18.0,
+        "observed": False,
+        "providers": list(V44_CALIBRATION_PROVIDERS),
+    }
+
+def v44_apply_missing_event_calibration(projection, position, missing_metrics):
+    """
+    Adds a clearly separated calibration object to a projection.
+    For safety V44 does NOT silently mutate expectedPoints yet.
+    First we validate the priors in logs across TW/ABW/MF/ANG.
+    """
+    if not isinstance(projection, dict):
+        return projection
+    minutes = projection.get("minutesIfStart")
+    if minutes is None:
+        minutes = projection.get("minStart")
+    if minutes is None:
+        minutes = 90.0
+    calibration = v44_missing_event_prior(position, missing_metrics, minutes)
+    projection["openDataCalibration"] = calibration
+    projection["openDataCalibrationAppliedToExpectedPoints"] = False
+    return projection
+
 def v43_provider_allowed(provider_name, production=False):
     meta = V43_PROVIDER_REGISTRY.get(provider_name) or {}
     if not meta.get("allowed"):
@@ -2485,7 +2612,7 @@ def build_kickbase_ai_projection(
             "startProbability": 0,
             "positionModel": pos_group,
             "scenario": {"start": 0, "bench": 0},
-            "model": "v43-open-data-provider-policy",
+            "model": "v44-open-data-calibration-shadow",
         }
 
     # ------------------------------------------------------------
@@ -5047,6 +5174,27 @@ def build_player_intelligence(
             f"kritisch vorhanden={len(kickbase_factor_coverage.get('criticalAvailable', []))}/"
             f"{len(kickbase_factor_coverage.get('criticalFactors', []))} | "
             f"fehlt={','.join(kickbase_factor_coverage.get('criticalMissing', [])) or '-'}"
+        )
+        # V44: build a transparent historical-open-data prior for critical
+        # metrics that are missing from the current observed data.
+        _v44_missing = []
+        try:
+            _v44_missing = list(event_coverage.get("missingCritical") or [])
+        except Exception:
+            _v44_missing = []
+        _v44_pos = kickbase_ai_projection.get("positionModel")
+        v44_apply_missing_event_calibration(
+            kickbase_ai_projection, _v44_pos, _v44_missing
+        )
+        _v44_cal = kickbase_ai_projection.get("openDataCalibration") or {}
+        print(
+            f"V44-CALIBRATION {name}: "
+            f"Position={_v44_cal.get('position')} | "
+            f"Missing={','.join(_v44_missing) if _v44_missing else 'none'} | "
+            f"Estimated={_v44_cal.get('estimates')} | "
+            f"RawPts={_v44_cal.get('rawEstimatedPoints')} | "
+            f"CappedPts={_v44_cal.get('cappedEstimatedPoints')} | "
+            f"Applied=False"
         )
         print(
             f"POSITION-SCORING {name}: "
