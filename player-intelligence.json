@@ -65766,12 +65766,12 @@
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 59,
-      "kickbaseAiScore": 59,
+      "footballRating": 72,
+      "kickbaseAiScore": 72,
       "kickbaseAiProjection": {
-        "expectedPoints": 59,
-        "rangeMin": 26,
-        "rangeMax": 92,
+        "expectedPoints": 72,
+        "rangeMin": 39,
+        "rangeMax": 105,
         "confidence": 58,
         "recommendation": "Gute Option",
         "expectedMinutes": 86,
@@ -65780,7 +65780,7 @@
         "startProbability": 96,
         "positionModel": "TW",
         "scenario": {
-          "starterPoints": 61.0,
+          "starterPoints": 75.0,
           "benchPoints": 0.0
         },
         "historicalPriorStrength": {
@@ -65836,7 +65836,13 @@
           ],
           "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
         },
-        "goalkeeperPriorComponents": {},
+        "goalkeeperPriorComponents": {
+          "saves": 14.0,
+          "liveSeasonWeight": 1.0,
+          "liveSeasonSource": "official_profile",
+          "liveSeasonAppearances": 1,
+          "liveSeasonSaves": 2
+        },
         "evidence": {
           "roleSignal": "very_strong",
           "lineupRatio": 1.0,
@@ -65857,6 +65863,7 @@
           "fouls": -0.0,
           "yellowCards": -0.0,
           "historicalPrior": 0.0,
+          "historicalGoalkeeperPerformance": 14.0,
           "homeAway": -2.0
         },
         "reason": "TW-Szenariomodell | Start 96% | 90 Min bei Start | Current 58% | Prior 0%",
