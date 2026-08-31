@@ -4586,7 +4586,7 @@ def extract_player_profile_intelligence(player):
             "cleanSheets": clean_sheets,
             "goalsAgainst": goals_against,
             "form": form,
-            "starting": starting,
+            "starting": display_starting,
             "injury": injury,
             "injuryDiagnosis": injury_diagnosis,
             "injuryExpectedAbsence": injury_expected_absence,
@@ -5211,6 +5211,12 @@ def build_player_intelligence(
             f"POINT-COMPONENTS {name}: "
             f"{kickbase_ai_projection.get('components')}"
         )
+        print(
+            f"UI-BRIDGE {name}: "
+            f"Points={kickbase_ai_projection.get('expectedPoints')} | "
+            f"Start={kickbase_ai_projection.get('startProbability')}% | "
+            f"Recommendation={kickbase_ai_projection.get('recommendation')}"
+        )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
     old_recommendation = old_player.get("recommendation")
@@ -5221,6 +5227,57 @@ def build_player_intelligence(
     else:
         recommendation = "Noch nicht ausreichend Daten"
 
+    # V44.2 UI bridge:
+    # The current frontend still reads legacy fields such as `average`,
+    # `starting` and `recommendation`. The projection already exists under
+    # kickbaseAiProjection, so expose conservative fallbacks there until the
+    # frontend is migrated to the richer object.
+    display_expected_points = (
+        kickbase_ai_projection.get("expectedPoints")
+        if isinstance(kickbase_ai_projection, dict)
+        else None
+    )
+    display_start_probability = (
+        kickbase_ai_projection.get("startProbability")
+        if isinstance(kickbase_ai_projection, dict)
+        else None
+    )
+
+    display_average = average
+    if display_average is None and display_expected_points is not None:
+        display_average = display_expected_points
+
+    display_starting = starting
+    if (
+        isinstance(display_start_probability, (int, float))
+        and (
+            not display_starting
+            or str(display_starting).strip().lower()
+            in {"noch nicht recherchiert", "öffentlich nicht verfügbar"}
+        )
+    ):
+        if display_start_probability >= 90:
+            display_starting = "Sehr wahrscheinlich"
+        elif display_start_probability >= 75:
+            display_starting = "Wahrscheinlich"
+        elif display_start_probability >= 50:
+            display_starting = "Offen / leicht positiv"
+        elif display_start_probability >= 30:
+            display_starting = "Eher Bank / offen"
+        else:
+            display_starting = "Eher nicht"
+
+    projection_recommendation = (
+        kickbase_ai_projection.get("recommendation")
+        if isinstance(kickbase_ai_projection, dict)
+        else None
+    )
+    display_recommendation = (
+        projection_recommendation
+        if projection_recommendation
+        else recommendation
+    )
+
     return {
         "id": player_id,
         "name": name,
@@ -5228,7 +5285,7 @@ def build_player_intelligence(
         "position": player.get("position"),
         "number": player.get("number"),
         "sourceUrl": player.get("sourceUrl"),
-        "average": average,
+        "average": display_average,
         "starting": starting,
         "form": form,
         "footballRating": (
@@ -5242,6 +5299,36 @@ def build_player_intelligence(
             else None
         ),
         "kickbaseAiProjection": kickbase_ai_projection,
+        "displayIntelligence": {
+            "projectedPoints": display_expected_points,
+            "rangeMin": (
+                kickbase_ai_projection.get("rangeMin")
+                if isinstance(kickbase_ai_projection, dict) else None
+            ),
+            "rangeMax": (
+                kickbase_ai_projection.get("rangeMax")
+                if isinstance(kickbase_ai_projection, dict) else None
+            ),
+            "confidence": (
+                kickbase_ai_projection.get("confidence")
+                if isinstance(kickbase_ai_projection, dict) else None
+            ),
+            "startProbability": display_start_probability,
+            "expectedMinutes": (
+                kickbase_ai_projection.get("expectedMinutes")
+                if isinstance(kickbase_ai_projection, dict) else None
+            ),
+            "recommendation": display_recommendation,
+            "scoringReadinessPercent": (
+                kickbase_factor_coverage.get("scoringReadinessPercent")
+                if isinstance(kickbase_factor_coverage, dict) else None
+            ),
+            "reliabilityBand": (
+                kickbase_factor_coverage.get("reliabilityBand")
+                if isinstance(kickbase_factor_coverage, dict) else None
+            ),
+            "source": "kickbaseAiProjection",
+        },
         "performance": performance,
         "performanceSources": performance_sources,
         "dataCoverage": data_coverage,
@@ -5266,7 +5353,7 @@ def build_player_intelligence(
         "injuryEvidence": injury_evidence,
         "suspension": suspension,
         "suspensionEvidence": suspension_evidence,
-        "recommendation": recommendation,
+        "recommendation": display_recommendation,
         "lastUpdated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "sources": [
             {"name": "Bundesliga.com", "url": BUNDESLIGA_PLAYERS_URL},
