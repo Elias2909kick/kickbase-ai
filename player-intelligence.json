@@ -11372,9 +11372,17 @@
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.9839,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 11.8,
+          "cappedEstimatedPoints": 11.8,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -18576,9 +18584,17 @@
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.9839,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 11.8,
+          "cappedEstimatedPoints": 11.8,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -38062,9 +38078,17 @@
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.9839,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 11.8,
+          "cappedEstimatedPoints": 11.8,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -47099,11 +47123,26 @@
           "start": 0,
           "bench": 0
         },
-        "model": "v44-open-data-calibration-shadow",
+        "model": "v44.1-open-data-calibration-wiring-fix",
         "openDataCalibration": {
           "position": "ABW",
           "minutes": 0.0,
-          "estimates": {},
+          "estimates": {
+            "cleanSheets": {
+              "expected": 0.0,
+              "per90": 0.27,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            },
+            "passAccuracy": {
+              "expected": 0.0,
+              "per90": 0.82,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
           "rawEstimatedPoints": 0.0,
           "cappedEstimatedPoints": 0.0,
           "cap": 18.0,
@@ -49316,7 +49355,15 @@
         "openDataCalibration": {
           "position": "MF",
           "minutes": 78.0,
-          "estimates": {},
+          "estimates": {
+            "passAccuracy": {
+              "expected": 0.7193,
+              "per90": 0.83,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
           "rawEstimatedPoints": 0.0,
           "cappedEstimatedPoints": 0.0,
           "cap": 18.0,
@@ -50082,7 +50129,15 @@
         "openDataCalibration": {
           "position": "MF",
           "minutes": 78.0,
-          "estimates": {},
+          "estimates": {
+            "passAccuracy": {
+              "expected": 0.7193,
+              "per90": 0.83,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
           "rawEstimatedPoints": 0.0,
           "cappedEstimatedPoints": 0.0,
           "cap": 18.0,
@@ -71027,9 +71082,17 @@
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.9839,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 11.8,
+          "cappedEstimatedPoints": 11.8,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -72267,9 +72330,24 @@
         "openDataCalibration": {
           "position": "TW",
           "minutes": 90.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "cleanSheets": {
+              "expected": 0.27,
+              "per90": 0.27,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            },
+            "passAccuracy": {
+              "expected": 0.78,
+              "per90": 0.78,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 13.5,
+          "cappedEstimatedPoints": 13.5,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -80182,9 +80260,24 @@
         "openDataCalibration": {
           "position": "ABW",
           "minutes": 83.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "cleanSheets": {
+              "expected": 0.249,
+              "per90": 0.27,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            },
+            "passAccuracy": {
+              "expected": 0.7562,
+              "per90": 0.82,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 7.5,
+          "cappedEstimatedPoints": 7.5,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -91766,9 +91859,24 @@
         "openDataCalibration": {
           "position": "ABW",
           "minutes": 83.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "cleanSheets": {
+              "expected": 0.249,
+              "per90": 0.27,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            },
+            "passAccuracy": {
+              "expected": 0.7562,
+              "per90": 0.82,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 7.5,
+          "cappedEstimatedPoints": 7.5,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -95442,9 +95550,17 @@
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.9839,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 11.8,
+          "cappedEstimatedPoints": 11.8,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -100990,9 +101106,17 @@
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.9839,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 11.8,
+          "cappedEstimatedPoints": 11.8,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -101336,9 +101460,17 @@
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.9839,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 11.8,
+          "cappedEstimatedPoints": 11.8,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -107880,11 +108012,19 @@
           "start": 0,
           "bench": 0
         },
-        "model": "v44-open-data-calibration-shadow",
+        "model": "v44.1-open-data-calibration-wiring-fix",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 0.0,
-          "estimates": {},
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.0,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
           "rawEstimatedPoints": 0.0,
           "cappedEstimatedPoints": 0.0,
           "cap": 18.0,
@@ -108437,9 +108577,17 @@
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
-          "estimates": {},
-          "rawEstimatedPoints": 0.0,
-          "cappedEstimatedPoints": 0.0,
+          "estimates": {
+            "shotsOnTarget": {
+              "expected": 0.9839,
+              "per90": 1.15,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 11.8,
+          "cappedEstimatedPoints": 11.8,
           "cap": 18.0,
           "observed": false,
           "providers": [
@@ -112729,7 +112877,15 @@
         "openDataCalibration": {
           "position": "MF",
           "minutes": 78.0,
-          "estimates": {},
+          "estimates": {
+            "passAccuracy": {
+              "expected": 0.7193,
+              "per90": 0.83,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
           "rawEstimatedPoints": 0.0,
           "cappedEstimatedPoints": 0.0,
           "cap": 18.0,
@@ -120361,7 +120517,15 @@
         "openDataCalibration": {
           "position": "MF",
           "minutes": 78.0,
-          "estimates": {},
+          "estimates": {
+            "passAccuracy": {
+              "expected": 0.7193,
+              "per90": 0.83,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
           "rawEstimatedPoints": 0.0,
           "cappedEstimatedPoints": 0.0,
           "cap": 18.0,
