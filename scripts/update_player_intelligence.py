@@ -1350,12 +1350,17 @@ def _extract_metric_from_ranking_text(page_text, heading, player_name):
         return None
 
     start = heading_match.start()
-    segment = page_text[start:start + 7000]
+
+    # V25: Do not cut the ranking after 7k chars. On historical/2BL pages the
+    # requested player can occur much later in the server-rendered document.
+    # We still start at the requested heading to avoid unrelated page chrome.
+    segment = page_text[start:]
 
     # Exakten Namen bevorzugen.
+    full_name_parts = [re.escape(p) for p in str(player_name).strip().split() if p]
     name_patterns = [
-        re.escape(str(player_name).strip()),
-    ]
+        r"\\s+".join(full_name_parts),
+    ] if full_name_parts else []
 
     # Unicode-/Akzent-robuster Fallback über Nachnamen.
     parts = str(player_name).strip().split()
@@ -1466,6 +1471,12 @@ def _collect_historical_prior_from_competition(player, competition):
         )
         values[metric_key] = value
 
+        if value is None and _normalize_player_lookup_name(player_name) in _normalize_player_lookup_name(page_text):
+            print(
+                f"PRIOR-MATCH {player_name}: Name auf {competition}/{metric_key} "
+                "gefunden, aber kein direkt parsebarer Wert"
+            )
+
         if value is not None:
             explicit_hits += 1
             sources[metric_key] = url
@@ -1505,6 +1516,13 @@ def collect_bundesliga_historical_prior(player):
         )
 
     best = max(candidates, key=lambda item: item[5])
+
+    # V25 tie handling: max() previously silently selected Bundesliga on 0:0.
+    # If we actually had to check 2. Bundesliga and both have zero explicit hits,
+    # retain 2. Bundesliga as the contextual prior league. Values stay None.
+    if len(candidates) > 1 and all(item[5] == 0 for item in candidates):
+        best = candidates[-1]
+
     league_label, competition, values, sources, pages_available, explicit_hits = best
 
     available = [key for key, value in values.items() if value is not None]
@@ -4054,7 +4072,7 @@ def build_player_intelligence(
     if research_player:
         kickbase_ai_projection = None
         print(
-            f"AI-PROJECTION {name}: pausiert in V24 | "
+            f"AI-PROJECTION {name}: pausiert in V25 | "
             "Data-Coverage-Upgrade wird validiert"
         )
     else:
@@ -4214,7 +4232,7 @@ def main():
         active_roster_ids,
     )
     print(
-        "V24-League-Fallback-Modus: historischer Prior automatisch aus Bundesliga oder 2. Bundesliga nur für den aufgelösten "
+        "V25-Prior-Matching-Modus: vollständige Rankingseite + robustes Namensmatching + ehrliche Liga-Ties nur für den aufgelösten "
         f"aktiven Kader ({len(active_player_ids)} Spieler); "
         "alle übrigen Spieler behalten ihre vorhandenen Werte."
     )
