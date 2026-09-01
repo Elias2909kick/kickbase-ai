@@ -1994,6 +1994,15 @@ function findIntelForPlayer(player){
 
 let ACTIVE_PLAYER_ID = null;
 
+function formatActualCount(value){
+  if(value === null || value === undefined || value === "") return "Noch nicht recherchiert";
+  const n = Number(value);
+  if(!Number.isFinite(n) || n < 0 || !Number.isInteger(n)){
+    return "Noch nicht recherchiert";
+  }
+  return String(n);
+}
+
 function openPlayerModal(id){
   ACTIVE_PLAYER_ID = String(id);
   const data = getPlayerData(id);
@@ -2019,20 +2028,20 @@ function openPlayerModal(id){
   */
   if(normalizeText(data.position) === "tw"){
     intelFormLabel.textContent = "🥅 Gegentore";
-    intelForm.textContent = intel.goalsAgainst ?? "Noch nicht recherchiert";
+    intelForm.textContent = formatActualCount(intel.goalsAgainst);
     intelGoalsRow.style.display = "none";
   }else{
     intelFormLabel.textContent = "📈 Form";
     intelForm.textContent = intel.form ?? "Noch nicht recherchiert";
     intelGoalsRow.style.display = "";
-    intelGoals.textContent = intel.goals ?? "Noch nicht recherchiert";
+    intelGoals.textContent = formatActualCount(intel.goals);
   }
 
   intelOpponent.textContent = intel.opponent ?? "Noch nicht recherchiert";
   intelHomeAway.textContent = intel.homeAway ?? "Noch nicht recherchiert";
   intelInjury.textContent = intel.injury ?? "Noch nicht recherchiert";
   intelSuspension.textContent = intel.suspension ?? "Noch nicht recherchiert";
-  intelYellowCards.textContent = intel.yellowCards ?? "Noch nicht recherchiert";
+  intelYellowCards.textContent = formatActualCount(intel.yellowCards);
   intelRecommendation.textContent = intel.recommendation ?? "Noch nicht recherchiert";
 
   modalBadges.innerHTML = "";
