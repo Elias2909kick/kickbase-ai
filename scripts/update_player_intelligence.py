@@ -4584,7 +4584,7 @@ def extract_player_profile_intelligence(player):
             "redCards": red_cards,
             "saves": saves,
             "cleanSheets": clean_sheets,
-            "goalsAgainst": goals_against,
+            "goalsAgainst": display_goals_against,
             "form": form,
             "starting": starting,
             "injury": injury,
@@ -5275,7 +5275,33 @@ def build_player_intelligence(
         f"V45.2-SCOPE {name}: "
         f"ProfileStarting={starting} | DisplayStarting={display_starting} | "
         f"StartProbability={display_start_probability} | "
+        f"StartDisplay={display_starting} | "
+        f"Goals={display_goals} | GA={display_goals_against} | "
         f"Injury={injury} | Suspension={suspension}"
+    )
+
+    # V45.3 UI semantics
+    # Startelf: show the actual probability instead of a qualitative label.
+    if isinstance(display_start_probability, (int, float)):
+        display_starting = f"{int(round(display_start_probability))}%"
+
+    # Gegentore: unknown must remain unknown; never coerce missing data to 0.
+    performance_goals_against = (
+        performance.get("goalsAgainst")
+        if isinstance(performance, dict)
+        else None
+    )
+    display_goals_against = (
+        performance_goals_against
+        if performance_goals_against is not None
+        else None
+    )
+
+    # Field players: expose current observed goals in the UI payload.
+    display_goals = (
+        performance.get("goals")
+        if isinstance(performance, dict)
+        else None
     )
 
     projection_recommendation = (
@@ -5328,7 +5354,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 45.2,
+        "schemaVersion": 45.3,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5339,7 +5365,11 @@ def build_player_intelligence(
         },
         "availability": {
             "startProbability": display_start_probability,
-            "startProbabilityLabel": _start_label,
+            "startProbabilityLabel": (
+                f"{int(round(display_start_probability))}%"
+                if isinstance(display_start_probability, (int, float))
+                else "Noch nicht recherchiert"
+            ),
             "startingAssessment": display_starting,
             "expectedMinutes": _expected_minutes,
             "expectedMinutesLabel": _minutes_label,
@@ -5358,6 +5388,10 @@ def build_player_intelligence(
             "opponent": opponent,
             "homeAway": home_away,
             "positionModel": _proj.get("positionModel"),
+        },
+        "stats": {
+            "goals": display_goals,
+            "goalsAgainst": display_goals_against,
         },
         "pointDrivers": _components,
         "positionScoring": _position_scoring,
@@ -5388,7 +5422,7 @@ def build_player_intelligence(
         "kickbaseAiProjection": kickbase_ai_projection,
         "playerIntelligenceV45": v45_player_intelligence,
         "displayIntelligence": {
-            "schemaVersion": 45.2,
+            "schemaVersion": 45.3,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
@@ -5396,6 +5430,8 @@ def build_player_intelligence(
             "expectedMinutesLabel": _minutes_label,
             "confidenceLabel": _confidence_label,
             "startingAssessment": display_starting,
+            "goals": display_goals,
+            "goalsAgainst": display_goals_against,
             "injury": injury,
             "suspension": suspension,
             "opponent": opponent,
@@ -5441,7 +5477,7 @@ def build_player_intelligence(
         "appearances": appearances,
         "starts": old_player.get("starts"),
         "minutes": old_player.get("minutes"),
-        "goals": goals,
+        "goals": display_goals,
         "assists": assists,
         "goalsAgainst": goals_against,
         "yellowCards": yellow_cards,
