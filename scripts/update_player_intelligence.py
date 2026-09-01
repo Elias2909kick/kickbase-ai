@@ -5217,6 +5217,10 @@ def build_player_intelligence(
             f"Start={kickbase_ai_projection.get('startProbability')}% | "
             f"Recommendation={kickbase_ai_projection.get('recommendation')}"
         )
+        print(
+            f"V45-AI-DISPLAY {name}: canonical UI payload wird erzeugt | "
+            f"legacy bridge bleibt kompatibel"
+        )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
     old_recommendation = old_player.get("recommendation")
@@ -5278,6 +5282,82 @@ def build_player_intelligence(
         else recommendation
     )
 
+    # V45: canonical UI payload. The frontend should render this object instead
+    # of interpreting legacy fields such as `average`. Legacy fields remain for
+    # backwards compatibility, but all AI semantics live here explicitly.
+    _proj = kickbase_ai_projection if isinstance(kickbase_ai_projection, dict) else {}
+    _range_min = _proj.get("rangeMin")
+    _range_max = _proj.get("rangeMax")
+    _expected_minutes = _proj.get("expectedMinutes")
+    _confidence = _proj.get("confidence")
+    _readiness = (kickbase_factor_coverage or {}).get("scoringReadinessPercent")
+    _reliability = (kickbase_factor_coverage or {}).get("reliabilityBand")
+    _components = dict(_proj.get("components") or {})
+    _position_scoring = dict(_proj.get("positionScoring") or {})
+
+    if isinstance(display_start_probability, (int, float)):
+        _start_label = f"{int(round(display_start_probability))}%"
+    else:
+        _start_label = "Noch nicht recherchiert"
+
+    if isinstance(display_expected_points, (int, float)):
+        _points_label = f"{int(round(display_expected_points))} Punkte"
+    else:
+        _points_label = "Noch nicht recherchiert"
+
+    if isinstance(_range_min, (int, float)) and isinstance(_range_max, (int, float)):
+        _range_label = f"{int(round(_range_min))}–{int(round(_range_max))} Punkte"
+    else:
+        _range_label = "Noch nicht recherchiert"
+
+    if isinstance(_expected_minutes, (int, float)):
+        _minutes_label = f"{int(round(_expected_minutes))} Min."
+    else:
+        _minutes_label = "Noch nicht recherchiert"
+
+    if isinstance(_confidence, (int, float)):
+        _confidence_label = f"{int(round(_confidence))}%"
+    else:
+        _confidence_label = "Noch nicht recherchiert"
+
+    v45_player_intelligence = {
+        "schemaVersion": 45,
+        "headline": {
+            "projectedPoints": display_expected_points,
+            "projectedPointsLabel": _points_label,
+            "rangeMin": _range_min,
+            "rangeMax": _range_max,
+            "rangeLabel": _range_label,
+            "recommendation": display_recommendation,
+        },
+        "availability": {
+            "startProbability": display_start_probability,
+            "startProbabilityLabel": _start_label,
+            "startingAssessment": display_starting,
+            "expectedMinutes": _expected_minutes,
+            "expectedMinutesLabel": _minutes_label,
+            "injury": injury,
+            "suspension": suspension,
+        },
+        "quality": {
+            "confidence": _confidence,
+            "confidenceLabel": _confidence_label,
+            "scoringReadinessPercent": _readiness,
+            "reliabilityBand": _reliability,
+            "currentDataCoveragePercent": (data_coverage or {}).get("coveragePercent"),
+            "historicalPriorCoveragePercent": (historical_prior_coverage or {}).get("coveragePercent"),
+        },
+        "context": {
+            "opponent": opponent,
+            "homeAway": home_away,
+            "positionModel": _proj.get("positionModel"),
+        },
+        "pointDrivers": _components,
+        "positionScoring": _position_scoring,
+        "scenario": dict(_proj.get("scenario") or {}),
+        "source": "kickbaseAiProjection",
+    }
+
     return {
         "id": player_id,
         "name": name,
@@ -5286,7 +5366,7 @@ def build_player_intelligence(
         "number": player.get("number"),
         "sourceUrl": player.get("sourceUrl"),
         "average": display_average,
-        "starting": starting,
+        "starting": display_starting,
         "form": form,
         "footballRating": (
             kickbase_ai_projection.get("expectedPoints")
@@ -5299,7 +5379,22 @@ def build_player_intelligence(
             else None
         ),
         "kickbaseAiProjection": kickbase_ai_projection,
+        "playerIntelligenceV45": v45_player_intelligence,
         "displayIntelligence": {
+            "schemaVersion": 45,
+            "projectedPoints": display_expected_points,
+            "projectedPointsLabel": _points_label,
+            "rangeLabel": _range_label,
+            "startProbabilityLabel": _start_label,
+            "expectedMinutesLabel": _minutes_label,
+            "confidenceLabel": _confidence_label,
+            "startingAssessment": display_starting,
+            "injury": injury,
+            "suspension": suspension,
+            "opponent": opponent,
+            "homeAway": home_away,
+            "pointDrivers": _components,
+            "positionScoring": _position_scoring,
             "projectedPoints": display_expected_points,
             "rangeMin": (
                 kickbase_ai_projection.get("rangeMin")
