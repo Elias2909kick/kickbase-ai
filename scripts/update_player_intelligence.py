@@ -5312,6 +5312,16 @@ def build_player_intelligence(
         else yellow_cards
     )
 
+
+    print(
+        f"V45.6-UI-FACTS {name}: "
+        f"Start={display_starting} | "
+        f"Goals={display_goals} | "
+        f"GA={display_goals_against} | "
+        f"Injury={display_injury} | "
+        f"YellowCards={display_yellow_cards}"
+    )
+
     print(
         f"V45.4-UI-STATS {name}: "
         f"StartDisplay={display_starting} | "
@@ -5369,7 +5379,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 45.5,
+        "schemaVersion": 45.6,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5450,7 +5460,7 @@ def build_player_intelligence(
             "recommendation": display_recommendation,
         },
         "displayIntelligence": {
-            "schemaVersion": 45.5,
+            "schemaVersion": 45.6,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
