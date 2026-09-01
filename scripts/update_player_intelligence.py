@@ -5110,7 +5110,7 @@ def build_player_intelligence(
         projection_player = dict(player)
         projection_player.update({
             "starting": starting,
-            "injury": injury,
+            "injury": display_injury,
             "suspension": suspension,
             "homeAway": home_away,
         })
@@ -5303,6 +5303,15 @@ def build_player_intelligence(
         else None
     )
 
+
+    # V45.5: canonical UI facts should use the strongest player-level value.
+    display_injury = injury if injury not in (None, "", "Noch nicht recherchiert") else None
+    display_yellow_cards = (
+        performance.get("yellowCards")
+        if isinstance(performance, dict) and performance.get("yellowCards") is not None
+        else yellow_cards
+    )
+
     print(
         f"V45.4-UI-STATS {name}: "
         f"StartDisplay={display_starting} | "
@@ -5360,7 +5369,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 45.4,
+        "schemaVersion": 45.5,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5398,6 +5407,7 @@ def build_player_intelligence(
         "stats": {
             "goals": display_goals,
             "goalsAgainst": display_goals_against,
+            "yellowCards": display_yellow_cards,
         },
         "pointDrivers": _components,
         "positionScoring": _position_scoring,
@@ -5427,8 +5437,20 @@ def build_player_intelligence(
         ),
         "kickbaseAiProjection": kickbase_ai_projection,
         "playerIntelligenceV45": v45_player_intelligence,
+        "playerIntelligenceUiRows": {
+            "projectedPoints": display_expected_points,
+            "startProbability": display_start_probability,
+            "goals": display_goals,
+            "goalsAgainst": display_goals_against,
+            "opponent": opponent,
+            "homeAway": home_away,
+            "injury": display_injury,
+            "suspension": suspension,
+            "yellowCards": display_yellow_cards,
+            "recommendation": display_recommendation,
+        },
         "displayIntelligence": {
-            "schemaVersion": 45.4,
+            "schemaVersion": 45.5,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
@@ -5438,7 +5460,8 @@ def build_player_intelligence(
             "startingAssessment": display_starting,
             "goals": display_goals,
             "goalsAgainst": display_goals_against,
-            "injury": injury,
+            "yellowCards": display_yellow_cards,
+            "injury": display_injury,
             "suspension": suspension,
             "opponent": opponent,
             "homeAway": home_away,
@@ -5486,11 +5509,11 @@ def build_player_intelligence(
         "goals": display_goals,
         "assists": assists,
         "goalsAgainst": goals_against,
-        "yellowCards": yellow_cards,
+        "yellowCards": display_yellow_cards,
         "lastMatch": last_match,
         "opponent": opponent,
         "homeAway": home_away,
-        "injury": injury,
+        "injury": display_injury,
         "injuryDiagnosis": injury_diagnosis,
         "injuryExpectedAbsence": injury_expected_absence,
         "injurySourceUrl": injury_source_url,
