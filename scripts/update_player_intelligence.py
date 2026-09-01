@@ -1266,6 +1266,123 @@ def parse_match_datetime(match):
         return None
 
 
+
+def _openligadb_final_score(match):
+    """Return confirmed final score (team1, team2), otherwise None."""
+    if not isinstance(match, dict):
+        return None
+
+    results = match.get("matchResults") or []
+    valid = []
+    for result in results:
+        if not isinstance(result, dict):
+            continue
+        p1 = result.get("pointsTeam1")
+        p2 = result.get("pointsTeam2")
+        if p1 is None or p2 is None:
+            continue
+        result_type = result.get("resultTypeID")
+        result_name = normalize_name(result.get("resultName") or "")
+        is_final = (
+            result_type == 2
+            or "endergebnis" in result_name
+            or "endstand" in result_name
+            or "final" in result_name
+        )
+        valid.append((is_final, p1, p2))
+
+    for is_final, p1, p2 in valid:
+        if is_final:
+            try:
+                return int(p1), int(p2)
+            except (TypeError, ValueError):
+                return None
+
+    if match.get("matchIsFinished") and len(valid) == 1:
+        try:
+            return int(valid[0][1]), int(valid[0][2])
+        except (TypeError, ValueError):
+            return None
+
+    return None
+
+
+def v48_resolve_goalkeeper_goals_against(player, club_name, matches, public_player):
+    """
+    Exact-count resolver:
+    only sum team goals conceded when the official player profile proves
+    complete goalkeeper coverage for every completed league match so far.
+    """
+    if not _is_goalkeeper(player):
+        return {
+            "value": None,
+            "status": "not_applicable",
+            "source": None,
+            "evidence": "not_goalkeeper",
+        }
+
+    completed = []
+    for match in matches or []:
+        if not isinstance(match, dict) or not match.get("matchIsFinished"):
+            continue
+        team1 = (match.get("team1") or {}).get("teamName", "")
+        team2 = (match.get("team2") or {}).get("teamName", "")
+        if not (names_match(club_name, team1) or names_match(club_name, team2)):
+            continue
+
+        score = _openligadb_final_score(match)
+        if score is None:
+            continue
+
+        g1, g2 = score
+        conceded = g2 if names_match(club_name, team1) else g1
+        completed.append(conceded)
+
+    if not completed:
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": None,
+            "evidence": "no_completed_team_matches",
+        }
+
+    def _num(value):
+        try:
+            return float(value) if value is not None else None
+        except (TypeError, ValueError):
+            return None
+
+    appearances = _num(public_player.get("appearances"))
+    starts = _num(public_player.get("starts"))
+    minutes = _num(public_player.get("minutes"))
+    team_matches = len(completed)
+
+    appeared_all = appearances is not None and int(appearances) == team_matches
+    started_all = starts is not None and int(starts) == team_matches
+    full_minutes = minutes is not None and minutes >= (89.0 * team_matches)
+
+    if not (appeared_all and (started_all or full_minutes)):
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": None,
+            "evidence": (
+                f"coverage_not_proven:teamMatches={team_matches},"
+                f"appearances={appearances},starts={starts},minutes={minutes}"
+            ),
+        }
+
+    return {
+        "value": int(sum(completed)),
+        "status": "observed",
+        "source": "OpenLigaDB",
+        "evidence": (
+            f"complete_keeper_coverage:{team_matches}_matches;"
+            f"appearances={appearances};starts={starts};minutes={minutes}"
+        ),
+    }
+
+
 def get_next_match_for_team(
     team_name,
     matches,
@@ -4453,59 +4570,12 @@ def extract_player_profile_intelligence(player):
             text_only, ("Weiße Weste", "Zu null", "Clean Sheets")
         )
 
+        # V48: Gegentore NICHT aus dem generischen Spielerprofil übernehmen.
+        # Ein generischer Profilwert hatte für Keeper fälschlich 0 geliefert.
+        # Gegentore werden nur aus abgeschlossenen Teamspielen rekonstruiert,
+        # wenn die komplette Keeper-Abdeckung für alle bisherigen Spiele
+        # zweifelsfrei belegt ist.
         goals_against = None
-        if _is_goalkeeper(player):
-            goals_against = parse_number_after_labels(
-                text_only,
-                (
-                    "Gegentore",
-                    "Goals conceded",
-                    "Goals against",
-                    "Gols contra",
-                    "Goles encajados",
-                    "Buts encaisses",
-                ),
-            )
-
-            # Die deutsche Profilseite zeigt diese Torwartstatistik
-            # nicht immer als "Gegentore". Wir bleiben bei Bundesliga.com
-            # und probieren dafür offizielle Sprachvarianten derselben Seite.
-            if goals_against is None:
-                for localized_url in _localized_profile_urls(source_url):
-                    try:
-                        localized_html = http_get_text(
-                            localized_url,
-                            timeout=20,
-                        )
-                        localized_text = re.sub(
-                            r"<script\b[^>]*>.*?</script>",
-                            " ",
-                            localized_html,
-                            flags=re.IGNORECASE | re.DOTALL,
-                        )
-                        localized_text = re.sub(
-                            r"<style\b[^>]*>.*?</style>",
-                            " ",
-                            localized_text,
-                            flags=re.IGNORECASE | re.DOTALL,
-                        )
-                        localized_text = re.sub(r"<[^>]+>", " ", localized_text)
-                        localized_text = re.sub(r"\s+", " ", localized_text).strip()
-                        goals_against = parse_number_after_labels(
-                            localized_text,
-                            (
-                                "Gegentore",
-                                "Goals conceded",
-                                "Goals against",
-                                "Gols contra",
-                                "Goles encajados",
-                                "Buts encaisses",
-                            ),
-                        )
-                        if goals_against is not None:
-                            break
-                    except Exception:
-                        continue
 
         # Letztes Spiel nur als Kontext; keine Startelf daraus ableiten.
         last_match = None
@@ -4649,8 +4719,7 @@ def extract_player_profile_intelligence(player):
             "redCards": red_cards,
             "saves": saves,
             "cleanSheets": clean_sheets,
-            # V47: raw observed profile fact; UI formatting happens later.
-            "goalsAgainst": goals_against,
+            "goalsAgainst": display_goals_against,
             "form": form,
             "starting": starting,
             "injury": injury,
@@ -4929,6 +4998,7 @@ def build_player_intelligence(
     old_player=None,
     public_source=None,
     research_player=False,
+    matches=None,
 ):
     """
     Baut einen Spieler-Eintrag aus vorhandenen Daten und optionaler
@@ -4962,6 +5032,24 @@ def build_player_intelligence(
         )
         research_input["_matchday"] = _matchday_from_next_match(next_match)
         public_player = extract_player_profile_intelligence(research_input)
+
+        if _is_goalkeeper(research_input):
+            _v48_ga = v48_resolve_goalkeeper_goals_against(
+                research_input,
+                club_name,
+                matches,
+                public_player,
+            )
+            public_player["goalsAgainst"] = _v48_ga.get("value")
+            public_player["goalsAgainstSource"] = _v48_ga.get("source")
+            public_player["goalsAgainstEvidence"] = _v48_ga.get("evidence")
+            print(
+                f"V48-GK-GA {name}: "
+                f"value={_v48_ga.get('value')} | "
+                f"status={_v48_ga.get('status')} | "
+                f"source={_v48_ga.get('source')} | "
+                f"evidence={_v48_ga.get('evidence')}"
+            )
 
         print(
             f"PLAYER-STATUS {name} [{player_id}]: "
@@ -5357,11 +5445,38 @@ def build_player_intelligence(
         "yellowCards": yellow_cards,
         "sourceUrl": profile_url if profile_available else None,
     }
+    if _is_goalkeeper(player):
+        # V48: generic profile URL is not valid provenance for keeper GA.
+        _profile_facts["goalsAgainst"] = None
     actual_facts = v46_build_actual_facts(
         performance,
         performance_sources,
         _profile_facts,
     )
+
+    if _is_goalkeeper(player) and research_player:
+        _v48_fact = v48_resolve_goalkeeper_goals_against(
+            player,
+            club_name,
+            matches,
+            public_player,
+        )
+        if _v48_fact.get("status") == "observed":
+            actual_facts["goalsAgainst"] = {
+                "value": _v48_fact.get("value"),
+                "status": "observed",
+                "source": _v48_fact.get("source"),
+                "origin": "openligadb_completed_matches",
+                "evidence": _v48_fact.get("evidence"),
+            }
+        else:
+            actual_facts["goalsAgainst"] = {
+                "value": None,
+                "status": "unknown",
+                "source": None,
+                "origin": None,
+                "evidence": _v48_fact.get("evidence"),
+            }
 
     display_goals = actual_facts["goals"]["value"]
     display_goals_against = actual_facts["goalsAgainst"]["value"]
@@ -5434,7 +5549,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 47,
+        "schemaVersion": 48,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5519,7 +5634,7 @@ def build_player_intelligence(
             "recommendation": display_recommendation,
         },
         "displayIntelligence": {
-            "schemaVersion": 47,
+            "schemaVersion": 48,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
@@ -5819,6 +5934,7 @@ def main():
                     old_player=old_player,
                     public_source=public_source,
                     research_player=(player_id in active_player_ids),
+                    matches=matches,
                 )
             )
 
