@@ -819,7 +819,7 @@ button{
       <h3>Player Intelligence</h3>
       <div class="player-intelligence" id="playerIntelligence">
   <div class="intel-row">
-    <span>📊 Ø-Punkte</span>
+    <span>📊 Prognose Punkte</span>
     <strong id="intelAverage">–</strong>
   </div>
 
@@ -831,6 +831,11 @@ button{
   <div class="intel-row">
     <span id="intelFormLabel">📈 Form</span>
     <strong id="intelForm">–</strong>
+  </div>
+
+  <div class="intel-row" id="intelGoalsRow">
+    <span>⚽ Tore</span>
+    <strong id="intelGoals">–</strong>
   </div>
 
   <div class="intel-row">
@@ -1689,6 +1694,8 @@ const modalClose = document.getElementById("modalClose");
 const intelAverage = document.getElementById("intelAverage");
 const intelStarting = document.getElementById("intelStarting");
 const intelFormLabel = document.getElementById("intelFormLabel");
+const intelGoalsRow = document.getElementById("intelGoalsRow");
+const intelGoals = document.getElementById("intelGoals");
 const intelForm = document.getElementById("intelForm");
 const intelOpponent = document.getElementById("intelOpponent");
 const intelHomeAway = document.getElementById("intelHomeAway");
@@ -1929,6 +1936,7 @@ function findIntelForPlayer(player){
       "average",
       "starting",
       "form",
+      "goals",
       "goalsAgainst",
       "opponent",
       "homeAway",
@@ -1944,6 +1952,33 @@ function findIntelForPlayer(player){
     for(const field of fields){
       if(directPlayer[field] !== undefined && directPlayer[field] !== null){
         merged[field] = directPlayer[field];
+      }
+    }
+
+    const canonical =
+      directPlayer.playerIntelligenceUiRows ||
+      directPlayer.displayIntelligence ||
+      {};
+
+    const canonicalMap = {
+      average: canonical.projectedPoints,
+      starting: (
+        canonical.startProbability !== undefined &&
+        canonical.startProbability !== null
+      ) ? `${Math.round(canonical.startProbability)}%` : null,
+      goals: canonical.goals,
+      goalsAgainst: canonical.goalsAgainst,
+      opponent: canonical.opponent,
+      homeAway: canonical.homeAway,
+      injury: canonical.injury,
+      suspension: canonical.suspension,
+      yellowCards: canonical.yellowCards,
+      recommendation: canonical.recommendation
+    };
+
+    for(const [field, value] of Object.entries(canonicalMap)){
+      if(value !== undefined && value !== null && value !== ""){
+        merged[field] = value;
       }
     }
 
@@ -1985,9 +2020,12 @@ function openPlayerModal(id){
   if(normalizeText(data.position) === "tw"){
     intelFormLabel.textContent = "🥅 Gegentore";
     intelForm.textContent = intel.goalsAgainst ?? "Noch nicht recherchiert";
+    intelGoalsRow.style.display = "none";
   }else{
     intelFormLabel.textContent = "📈 Form";
     intelForm.textContent = intel.form ?? "Noch nicht recherchiert";
+    intelGoalsRow.style.display = "";
+    intelGoals.textContent = intel.goals ?? "Noch nicht recherchiert";
   }
 
   intelOpponent.textContent = intel.opponent ?? "Noch nicht recherchiert";
