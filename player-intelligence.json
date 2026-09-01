@@ -13621,22 +13621,33 @@
       "average": 38,
       "starting": "94%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 53,
-      "kickbaseAiScore": 53,
+      "footballRating": 97,
+      "kickbaseAiScore": 97,
       "kickbaseAiProjection": {
-        "expectedPoints": 53,
-        "rangeMin": 12,
-        "rangeMax": 94,
+        "expectedPoints": 97,
+        "rangeMin": 56,
+        "rangeMax": 138,
         "confidence": 59,
-        "recommendation": "Beobachten",
+        "recommendation": "Starten",
         "expectedMinutes": 74,
         "minutesIfStart": 77,
         "minutesIfBench": 24,
         "startProbability": 94,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 54.8,
-          "benchPoints": 16.5
+          "starterPoints": 101.4,
+          "benchPoints": 22.2,
+          "publicRawStarterPoints": 54.8,
+          "publicRawBenchPoints": 16.5
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 96.0,
+          "publicRawExpected": 52.5,
+          "calibratedStarter": 101.4
         },
         "historicalPriorStrength": {
           "bonus": 38.0,
@@ -13687,8 +13698,8 @@
           "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 91%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
@@ -13715,12 +13726,12 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 53,
-          "projectedPointsLabel": "53 Punkte",
-          "rangeMin": 12,
-          "rangeMax": 94,
-          "rangeLabel": "12–94 Punkte",
-          "recommendation": "Beobachten"
+          "projectedPoints": 97,
+          "projectedPointsLabel": "97 Punkte",
+          "rangeMin": 56,
+          "rangeMax": 138,
+          "rangeLabel": "56–138 Punkte",
+          "recommendation": "Starten"
         },
         "availability": {
           "startProbability": 94,
@@ -13775,8 +13786,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 54.8,
-          "benchPoints": 16.5
+          "starterPoints": 101.4,
+          "benchPoints": 22.2,
+          "publicRawStarterPoints": 54.8,
+          "publicRawBenchPoints": 16.5
         },
         "source": "kickbaseAiProjection"
       },
@@ -13801,7 +13814,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 53,
+        "projectedPoints": 97,
         "startProbability": 94,
         "goals": 0,
         "goalsAgainst": null,
@@ -13810,13 +13823,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Beobachten"
+        "recommendation": "Starten"
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 53,
-        "projectedPointsLabel": "53 Punkte",
-        "rangeLabel": "12–94 Punkte",
+        "projectedPoints": 97,
+        "projectedPointsLabel": "97 Punkte",
+        "rangeLabel": "56–138 Punkte",
         "startProbabilityLabel": "94%",
         "expectedMinutesLabel": "74 Min.",
         "confidenceLabel": "59%",
@@ -13850,12 +13863,12 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 12,
-        "rangeMax": 94,
+        "rangeMin": 56,
+        "rangeMax": 138,
         "confidence": 59,
         "startProbability": 94,
         "expectedMinutes": 74,
-        "recommendation": "Beobachten",
+        "recommendation": "Starten",
         "scoringReadinessPercent": 80,
         "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
@@ -14089,7 +14102,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Beobachten",
+      "recommendation": "Starten",
       "lastUpdated": "2026-09-01",
       "sources": [
         {
@@ -24461,12 +24474,12 @@
       "average": 13,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 13,
-      "kickbaseAiScore": 13,
+      "footballRating": 48,
+      "kickbaseAiScore": 48,
       "kickbaseAiProjection": {
-        "expectedPoints": 13,
+        "expectedPoints": 48,
         "rangeMin": 0,
-        "rangeMax": 63,
+        "rangeMax": 98,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -24475,8 +24488,19 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 16.0,
-          "benchPoints": 8.6
+          "starterPoints": 72.8,
+          "benchPoints": 15.9,
+          "publicRawStarterPoints": 16.0,
+          "publicRawBenchPoints": 8.6
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 96.0,
+          "publicRawExpected": 12.8,
+          "calibratedStarter": 72.8
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -24512,8 +24536,8 @@
           "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
@@ -24540,11 +24564,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 13,
-          "projectedPointsLabel": "13 Punkte",
+          "projectedPoints": 48,
+          "projectedPointsLabel": "48 Punkte",
           "rangeMin": 0,
-          "rangeMax": 63,
-          "rangeLabel": "0–63 Punkte",
+          "rangeMax": 98,
+          "rangeLabel": "0–98 Punkte",
           "recommendation": "Beobachten"
         },
         "availability": {
@@ -24592,8 +24616,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 16.0,
-          "benchPoints": 8.6
+          "starterPoints": 72.8,
+          "benchPoints": 15.9,
+          "publicRawStarterPoints": 16.0,
+          "publicRawBenchPoints": 8.6
         },
         "source": "kickbaseAiProjection"
       },
@@ -24618,7 +24644,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 13,
+        "projectedPoints": 48,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -24631,9 +24657,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 13,
-        "projectedPointsLabel": "13 Punkte",
-        "rangeLabel": "0–63 Punkte",
+        "projectedPoints": 48,
+        "projectedPointsLabel": "48 Punkte",
+        "rangeLabel": "0–98 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "54 Min.",
         "confidenceLabel": "33%",
@@ -24660,7 +24686,7 @@
           "goalConcededTW": null
         },
         "rangeMin": 0,
-        "rangeMax": 63,
+        "rangeMax": 98,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 54,
@@ -53741,22 +53767,33 @@
       "average": 13,
       "starting": "94%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 14,
-      "kickbaseAiScore": 14,
+      "footballRating": 71,
+      "kickbaseAiScore": 71,
       "kickbaseAiProjection": {
-        "expectedPoints": 14,
-        "rangeMin": 0,
-        "rangeMax": 63,
+        "expectedPoints": 71,
+        "rangeMin": 22,
+        "rangeMax": 120,
         "confidence": 33,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "expectedMinutes": 74,
         "minutesIfStart": 77,
         "minutesIfBench": 24,
         "startProbability": 94,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 14.7,
-          "benchPoints": 10.1
+          "starterPoints": 74.0,
+          "benchPoints": 16.2,
+          "publicRawStarterPoints": 14.7,
+          "publicRawBenchPoints": 10.1
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 96.0,
+          "publicRawExpected": 14.4,
+          "calibratedStarter": 74.0
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -53800,8 +53837,8 @@
           "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
@@ -53828,12 +53865,12 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 14,
-          "projectedPointsLabel": "14 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 63,
-          "rangeLabel": "0–63 Punkte",
-          "recommendation": "Beobachten"
+          "projectedPoints": 71,
+          "projectedPointsLabel": "71 Punkte",
+          "rangeMin": 22,
+          "rangeMax": 120,
+          "rangeLabel": "22–120 Punkte",
+          "recommendation": "Gute Option"
         },
         "availability": {
           "startProbability": 94,
@@ -53888,8 +53925,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 14.7,
-          "benchPoints": 10.1
+          "starterPoints": 74.0,
+          "benchPoints": 16.2,
+          "publicRawStarterPoints": 14.7,
+          "publicRawBenchPoints": 10.1
         },
         "source": "kickbaseAiProjection"
       },
@@ -53914,7 +53953,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 14,
+        "projectedPoints": 71,
         "startProbability": 94,
         "goals": 0,
         "goalsAgainst": null,
@@ -53923,13 +53962,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Beobachten"
+        "recommendation": "Gute Option"
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 14,
-        "projectedPointsLabel": "14 Punkte",
-        "rangeLabel": "0–63 Punkte",
+        "projectedPoints": 71,
+        "projectedPointsLabel": "71 Punkte",
+        "rangeLabel": "22–120 Punkte",
         "startProbabilityLabel": "94%",
         "expectedMinutesLabel": "74 Min.",
         "confidenceLabel": "33%",
@@ -53963,12 +54002,12 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 63,
+        "rangeMin": 22,
+        "rangeMax": 120,
         "confidence": 33,
         "startProbability": 94,
         "expectedMinutes": 74,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "scoringReadinessPercent": 80,
         "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
@@ -54201,7 +54240,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Beobachten",
+      "recommendation": "Gute Option",
       "lastUpdated": "2026-09-01",
       "sources": [
         {
@@ -70629,12 +70668,12 @@
       "average": 12,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 12,
-      "kickbaseAiScore": 12,
+      "footballRating": 46,
+      "kickbaseAiScore": 46,
       "kickbaseAiProjection": {
-        "expectedPoints": 12,
-        "rangeMin": 0,
-        "rangeMax": 57,
+        "expectedPoints": 46,
+        "rangeMin": 1,
+        "rangeMax": 91,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 53,
@@ -70643,8 +70682,19 @@
         "startProbability": 56,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 14.8,
-          "benchPoints": 9.3
+          "starterPoints": 70.6,
+          "benchPoints": 14.2,
+          "publicRawStarterPoints": 14.8,
+          "publicRawBenchPoints": 9.3
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 92.0,
+          "publicRawExpected": 12.3,
+          "calibratedStarter": 70.6
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -70688,8 +70738,8 @@
           "goalConcededTW": null
         },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "MF",
           "minutes": 78.0,
@@ -70716,11 +70766,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 12,
-          "projectedPointsLabel": "12 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 57,
-          "rangeLabel": "0–57 Punkte",
+          "projectedPoints": 46,
+          "projectedPointsLabel": "46 Punkte",
+          "rangeMin": 1,
+          "rangeMax": 91,
+          "rangeLabel": "1–91 Punkte",
           "recommendation": "Beobachten"
         },
         "availability": {
@@ -70776,8 +70826,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 14.8,
-          "benchPoints": 9.3
+          "starterPoints": 70.6,
+          "benchPoints": 14.2,
+          "publicRawStarterPoints": 14.8,
+          "publicRawBenchPoints": 9.3
         },
         "source": "kickbaseAiProjection"
       },
@@ -70802,7 +70854,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 12,
+        "projectedPoints": 46,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -70815,9 +70867,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 12,
-        "projectedPointsLabel": "12 Punkte",
-        "rangeLabel": "0–57 Punkte",
+        "projectedPoints": 46,
+        "projectedPointsLabel": "46 Punkte",
+        "rangeLabel": "1–91 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "53 Min.",
         "confidenceLabel": "33%",
@@ -70851,8 +70903,8 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 57,
+        "rangeMin": 1,
+        "rangeMax": 91,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 53,
@@ -71761,12 +71813,12 @@
       "average": 11,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 11,
-      "kickbaseAiScore": 11,
+      "footballRating": 45,
+      "kickbaseAiScore": 45,
       "kickbaseAiProjection": {
-        "expectedPoints": 11,
-        "rangeMin": 0,
-        "rangeMax": 55,
+        "expectedPoints": 45,
+        "rangeMin": 1,
+        "rangeMax": 89,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 53,
@@ -71775,8 +71827,19 @@
         "startProbability": 56,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 12.2,
-          "benchPoints": 8.5
+          "starterPoints": 69.4,
+          "benchPoints": 13.9,
+          "publicRawStarterPoints": 12.2,
+          "publicRawBenchPoints": 8.5
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 92.0,
+          "publicRawExpected": 10.6,
+          "calibratedStarter": 69.4
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -71820,8 +71883,8 @@
           "goalConcededTW": null
         },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "MF",
           "minutes": 78.0,
@@ -71848,11 +71911,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 11,
-          "projectedPointsLabel": "11 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 55,
-          "rangeLabel": "0–55 Punkte",
+          "projectedPoints": 45,
+          "projectedPointsLabel": "45 Punkte",
+          "rangeMin": 1,
+          "rangeMax": 89,
+          "rangeLabel": "1–89 Punkte",
           "recommendation": "Beobachten"
         },
         "availability": {
@@ -71908,8 +71971,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 12.2,
-          "benchPoints": 8.5
+          "starterPoints": 69.4,
+          "benchPoints": 13.9,
+          "publicRawStarterPoints": 12.2,
+          "publicRawBenchPoints": 8.5
         },
         "source": "kickbaseAiProjection"
       },
@@ -71934,7 +71999,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 11,
+        "projectedPoints": 45,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -71947,9 +72012,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 11,
-        "projectedPointsLabel": "11 Punkte",
-        "rangeLabel": "0–55 Punkte",
+        "projectedPoints": 45,
+        "projectedPointsLabel": "45 Punkte",
+        "rangeLabel": "1–89 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "53 Min.",
         "confidenceLabel": "33%",
@@ -71983,8 +72048,8 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 55,
+        "rangeMin": 1,
+        "rangeMax": 89,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 53,
@@ -103888,12 +103953,12 @@
       "average": 241,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 241,
-      "kickbaseAiScore": 241,
+      "footballRating": 138,
+      "kickbaseAiScore": 138,
       "kickbaseAiProjection": {
-        "expectedPoints": 241,
-        "rangeMin": 156,
-        "rangeMax": 326,
+        "expectedPoints": 138,
+        "rangeMin": 53,
+        "rangeMax": 223,
         "confidence": 46,
         "recommendation": "Top-Option",
         "expectedMinutes": 54,
@@ -103902,8 +103967,19 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 342.8,
-          "benchPoints": 110.5
+          "starterPoints": 210.0,
+          "benchPoints": 45.9,
+          "publicRawStarterPoints": 342.8,
+          "publicRawBenchPoints": 110.5
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 96.0,
+          "publicRawExpected": 240.6,
+          "calibratedStarter": 210.0
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -103948,8 +104024,8 @@
           "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 75% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
@@ -103976,11 +104052,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 241,
-          "projectedPointsLabel": "241 Punkte",
-          "rangeMin": 156,
-          "rangeMax": 326,
-          "rangeLabel": "156–326 Punkte",
+          "projectedPoints": 138,
+          "projectedPointsLabel": "138 Punkte",
+          "rangeMin": 53,
+          "rangeMax": 223,
+          "rangeLabel": "53–223 Punkte",
           "recommendation": "Top-Option"
         },
         "availability": {
@@ -104037,8 +104113,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 342.8,
-          "benchPoints": 110.5
+          "starterPoints": 210.0,
+          "benchPoints": 45.9,
+          "publicRawStarterPoints": 342.8,
+          "publicRawBenchPoints": 110.5
         },
         "source": "kickbaseAiProjection"
       },
@@ -104063,7 +104141,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 241,
+        "projectedPoints": 138,
         "startProbability": 56,
         "goals": 1,
         "goalsAgainst": null,
@@ -104076,9 +104154,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 241,
-        "projectedPointsLabel": "241 Punkte",
-        "rangeLabel": "156–326 Punkte",
+        "projectedPoints": 138,
+        "projectedPointsLabel": "138 Punkte",
+        "rangeLabel": "53–223 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "54 Min.",
         "confidenceLabel": "46%",
@@ -104113,8 +104191,8 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 156,
-        "rangeMax": 326,
+        "rangeMin": 53,
+        "rangeMax": 223,
         "confidence": 46,
         "startProbability": 56,
         "expectedMinutes": 54,
@@ -105344,22 +105422,33 @@
       "average": 3,
       "starting": "96%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 3,
-      "kickbaseAiScore": 3,
+      "footballRating": 61,
+      "kickbaseAiScore": 61,
       "kickbaseAiProjection": {
-        "expectedPoints": 3,
-        "rangeMin": 0,
-        "rangeMax": 34,
+        "expectedPoints": 61,
+        "rangeMin": 30,
+        "rangeMax": 92,
         "confidence": 58,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "expectedMinutes": 86,
         "minutesIfStart": 90,
         "minutesIfBench": 0,
         "startProbability": 96,
         "positionModel": "TW",
         "scenario": {
-          "starterPoints": 3.0,
-          "benchPoints": 0.0
+          "starterPoints": 63.9,
+          "benchPoints": 0.0,
+          "publicRawStarterPoints": 3.0,
+          "publicRawBenchPoints": 0.0
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 82.0,
+          "publicRawExpected": 2.9,
+          "calibratedStarter": 63.9
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -105454,8 +105543,8 @@
           "goalConcededTW": -5
         },
         "reason": "TW-Szenariomodell | Start 96% | 90 Min bei Start | Current 58% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "TW",
           "minutes": 90.0,
@@ -105489,12 +105578,12 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 3,
-          "projectedPointsLabel": "3 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 34,
-          "rangeLabel": "0–34 Punkte",
-          "recommendation": "Beobachten"
+          "projectedPoints": 61,
+          "projectedPointsLabel": "61 Punkte",
+          "rangeMin": 30,
+          "rangeMax": 92,
+          "rangeLabel": "30–92 Punkte",
+          "recommendation": "Gute Option"
         },
         "availability": {
           "startProbability": 96,
@@ -105548,8 +105637,10 @@
           "goalConcededTW": -5
         },
         "scenario": {
-          "starterPoints": 3.0,
-          "benchPoints": 0.0
+          "starterPoints": 63.9,
+          "benchPoints": 0.0,
+          "publicRawStarterPoints": 3.0,
+          "publicRawBenchPoints": 0.0
         },
         "source": "kickbaseAiProjection"
       },
@@ -105575,7 +105666,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 3,
+        "projectedPoints": 61,
         "startProbability": 96,
         "goals": 0,
         "goalsAgainst": 2,
@@ -105584,13 +105675,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Beobachten"
+        "recommendation": "Gute Option"
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 3,
-        "projectedPointsLabel": "3 Punkte",
-        "rangeLabel": "0–34 Punkte",
+        "projectedPoints": 61,
+        "projectedPointsLabel": "61 Punkte",
+        "rangeLabel": "30–92 Punkte",
         "startProbabilityLabel": "96%",
         "expectedMinutesLabel": "86 Min.",
         "confidenceLabel": "58%",
@@ -105623,12 +105714,12 @@
           "minutePer10": 1,
           "goalConcededTW": -5
         },
-        "rangeMin": 0,
-        "rangeMax": 34,
+        "rangeMin": 30,
+        "rangeMax": 92,
         "confidence": 58,
         "startProbability": 96,
         "expectedMinutes": 86,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "scoringReadinessPercent": 50,
         "reliabilityBand": "niedrig",
         "source": "kickbaseAiProjection"
@@ -105945,7 +106036,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Beobachten",
+      "recommendation": "Gute Option",
       "lastUpdated": "2026-09-01",
       "sources": [
         {
@@ -116939,22 +117030,33 @@
       "average": 11,
       "starting": "94%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 14,
-      "kickbaseAiScore": 14,
+      "footballRating": 67,
+      "kickbaseAiScore": 67,
       "kickbaseAiProjection": {
-        "expectedPoints": 14,
-        "rangeMin": 0,
-        "rangeMax": 54,
+        "expectedPoints": 67,
+        "rangeMin": 27,
+        "rangeMax": 107,
         "confidence": 33,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "expectedMinutes": 79,
         "minutesIfStart": 83,
         "minutesIfBench": 16,
         "startProbability": 94,
         "positionModel": "ABW",
         "scenario": {
-          "starterPoints": 14.6,
-          "benchPoints": 5.8
+          "starterPoints": 70.8,
+          "benchPoints": 10.3,
+          "publicRawStarterPoints": 14.6,
+          "publicRawBenchPoints": 5.8
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 88.0,
+          "publicRawExpected": 14.1,
+          "calibratedStarter": 70.8
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -116998,8 +117100,8 @@
           "goalConcededTW": null
         },
         "reason": "ABW-Szenariomodell | Start 94% | 83 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ABW",
           "minutes": 83.0,
@@ -117033,12 +117135,12 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 14,
-          "projectedPointsLabel": "14 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 54,
-          "rangeLabel": "0–54 Punkte",
-          "recommendation": "Beobachten"
+          "projectedPoints": 67,
+          "projectedPointsLabel": "67 Punkte",
+          "rangeMin": 27,
+          "rangeMax": 107,
+          "rangeLabel": "27–107 Punkte",
+          "recommendation": "Gute Option"
         },
         "availability": {
           "startProbability": 94,
@@ -117093,8 +117195,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 14.6,
-          "benchPoints": 5.8
+          "starterPoints": 70.8,
+          "benchPoints": 10.3,
+          "publicRawStarterPoints": 14.6,
+          "publicRawBenchPoints": 5.8
         },
         "source": "kickbaseAiProjection"
       },
@@ -117119,7 +117223,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 14,
+        "projectedPoints": 67,
         "startProbability": 94,
         "goals": 0,
         "goalsAgainst": null,
@@ -117128,13 +117232,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Beobachten"
+        "recommendation": "Gute Option"
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 14,
-        "projectedPointsLabel": "14 Punkte",
-        "rangeLabel": "0–54 Punkte",
+        "projectedPoints": 67,
+        "projectedPointsLabel": "67 Punkte",
+        "rangeLabel": "27–107 Punkte",
         "startProbabilityLabel": "94%",
         "expectedMinutesLabel": "79 Min.",
         "confidenceLabel": "33%",
@@ -117168,12 +117272,12 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 54,
+        "rangeMin": 27,
+        "rangeMax": 107,
         "confidence": 33,
         "startProbability": 94,
         "expectedMinutes": 79,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "scoringReadinessPercent": 60,
         "reliabilityBand": "mittel",
         "source": "kickbaseAiProjection"
@@ -117406,7 +117510,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Beobachten",
+      "recommendation": "Gute Option",
       "lastUpdated": "2026-09-01",
       "sources": [
         {
@@ -134670,12 +134774,12 @@
       "average": 9,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 9,
-      "kickbaseAiScore": 9,
+      "footballRating": 42,
+      "kickbaseAiScore": 42,
       "kickbaseAiProjection": {
-        "expectedPoints": 9,
-        "rangeMin": 0,
-        "rangeMax": 50,
+        "expectedPoints": 42,
+        "rangeMin": 1,
+        "rangeMax": 83,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -134684,8 +134788,19 @@
         "startProbability": 56,
         "positionModel": "ABW",
         "scenario": {
-          "starterPoints": 11.5,
-          "benchPoints": 5.8
+          "starterPoints": 67.1,
+          "benchPoints": 9.8,
+          "publicRawStarterPoints": 11.5,
+          "publicRawBenchPoints": 5.8
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 88.0,
+          "publicRawExpected": 9.0,
+          "calibratedStarter": 67.1
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -134729,8 +134844,8 @@
           "goalConcededTW": null
         },
         "reason": "ABW-Szenariomodell | Start 56% | 83 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ABW",
           "minutes": 83.0,
@@ -134764,11 +134879,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 9,
-          "projectedPointsLabel": "9 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 50,
-          "rangeLabel": "0–50 Punkte",
+          "projectedPoints": 42,
+          "projectedPointsLabel": "42 Punkte",
+          "rangeMin": 1,
+          "rangeMax": 83,
+          "rangeLabel": "1–83 Punkte",
           "recommendation": "Beobachten"
         },
         "availability": {
@@ -134824,8 +134939,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 11.5,
-          "benchPoints": 5.8
+          "starterPoints": 67.1,
+          "benchPoints": 9.8,
+          "publicRawStarterPoints": 11.5,
+          "publicRawBenchPoints": 5.8
         },
         "source": "kickbaseAiProjection"
       },
@@ -134850,7 +134967,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 9,
+        "projectedPoints": 42,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -134863,9 +134980,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 9,
-        "projectedPointsLabel": "9 Punkte",
-        "rangeLabel": "0–50 Punkte",
+        "projectedPoints": 42,
+        "projectedPointsLabel": "42 Punkte",
+        "rangeLabel": "1–83 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "54 Min.",
         "confidenceLabel": "33%",
@@ -134899,8 +135016,8 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 50,
+        "rangeMin": 1,
+        "rangeMax": 83,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 54,
@@ -140505,12 +140622,12 @@
       "average": 11,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 11,
-      "kickbaseAiScore": 11,
+      "footballRating": 47,
+      "kickbaseAiScore": 47,
       "kickbaseAiProjection": {
-        "expectedPoints": 11,
+        "expectedPoints": 47,
         "rangeMin": 0,
-        "rangeMax": 60,
+        "rangeMax": 96,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -140519,8 +140636,19 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 12.6,
-          "benchPoints": 8.6
+          "starterPoints": 71.4,
+          "benchPoints": 15.6,
+          "publicRawStarterPoints": 12.6,
+          "publicRawBenchPoints": 8.6
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 96.0,
+          "publicRawExpected": 10.8,
+          "calibratedStarter": 71.4
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -140564,8 +140692,8 @@
           "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
@@ -140592,11 +140720,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 11,
-          "projectedPointsLabel": "11 Punkte",
+          "projectedPoints": 47,
+          "projectedPointsLabel": "47 Punkte",
           "rangeMin": 0,
-          "rangeMax": 60,
-          "rangeLabel": "0–60 Punkte",
+          "rangeMax": 96,
+          "rangeLabel": "0–96 Punkte",
           "recommendation": "Beobachten"
         },
         "availability": {
@@ -140652,8 +140780,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 12.6,
-          "benchPoints": 8.6
+          "starterPoints": 71.4,
+          "benchPoints": 15.6,
+          "publicRawStarterPoints": 12.6,
+          "publicRawBenchPoints": 8.6
         },
         "source": "kickbaseAiProjection"
       },
@@ -140678,7 +140808,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 11,
+        "projectedPoints": 47,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -140691,9 +140821,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 11,
-        "projectedPointsLabel": "11 Punkte",
-        "rangeLabel": "0–60 Punkte",
+        "projectedPoints": 47,
+        "projectedPointsLabel": "47 Punkte",
+        "rangeLabel": "0–96 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "54 Min.",
         "confidenceLabel": "33%",
@@ -140728,7 +140858,7 @@
           "goalConcededTW": null
         },
         "rangeMin": 0,
-        "rangeMax": 60,
+        "rangeMax": 96,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 54,
@@ -148834,22 +148964,33 @@
       "average": 31,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 31,
-      "kickbaseAiScore": 31,
+      "footballRating": 56,
+      "kickbaseAiScore": 56,
       "kickbaseAiProjection": {
-        "expectedPoints": 31,
-        "rangeMin": 0,
-        "rangeMax": 84,
+        "expectedPoints": 56,
+        "rangeMin": 3,
+        "rangeMax": 109,
         "confidence": 33,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "expectedMinutes": 54,
         "minutesIfStart": 77,
         "minutesIfBench": 24,
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 40.4,
-          "benchPoints": 18.1
+          "starterPoints": 85.6,
+          "benchPoints": 18.7,
+          "publicRawStarterPoints": 40.4,
+          "publicRawBenchPoints": 18.1
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 96.0,
+          "publicRawExpected": 30.6,
+          "calibratedStarter": 85.6
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -148893,8 +149034,8 @@
           "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
@@ -148921,12 +149062,12 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 31,
-          "projectedPointsLabel": "31 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 84,
-          "rangeLabel": "0–84 Punkte",
-          "recommendation": "Beobachten"
+          "projectedPoints": 56,
+          "projectedPointsLabel": "56 Punkte",
+          "rangeMin": 3,
+          "rangeMax": 109,
+          "rangeLabel": "3–109 Punkte",
+          "recommendation": "Gute Option"
         },
         "availability": {
           "startProbability": 56,
@@ -148981,8 +149122,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 40.4,
-          "benchPoints": 18.1
+          "starterPoints": 85.6,
+          "benchPoints": 18.7,
+          "publicRawStarterPoints": 40.4,
+          "publicRawBenchPoints": 18.1
         },
         "source": "kickbaseAiProjection"
       },
@@ -149007,7 +149150,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 31,
+        "projectedPoints": 56,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -149016,13 +149159,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Beobachten"
+        "recommendation": "Gute Option"
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 31,
-        "projectedPointsLabel": "31 Punkte",
-        "rangeLabel": "0–84 Punkte",
+        "projectedPoints": 56,
+        "projectedPointsLabel": "56 Punkte",
+        "rangeLabel": "3–109 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "54 Min.",
         "confidenceLabel": "33%",
@@ -149056,12 +149199,12 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 84,
+        "rangeMin": 3,
+        "rangeMax": 109,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 54,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "scoringReadinessPercent": 80,
         "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
@@ -149294,7 +149437,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Beobachten",
+      "recommendation": "Gute Option",
       "lastUpdated": "2026-09-01",
       "sources": [
         {
@@ -149336,12 +149479,12 @@
       "average": 8,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 8,
-      "kickbaseAiScore": 8,
+      "footballRating": 46,
+      "kickbaseAiScore": 46,
       "kickbaseAiProjection": {
-        "expectedPoints": 8,
+        "expectedPoints": 46,
         "rangeMin": 0,
-        "rangeMax": 57,
+        "rangeMax": 95,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 54,
@@ -149350,8 +149493,19 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 8.3,
-          "benchPoints": 8.6
+          "starterPoints": 69.7,
+          "benchPoints": 15.2,
+          "publicRawStarterPoints": 8.3,
+          "publicRawBenchPoints": 8.6
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 96.0,
+          "publicRawExpected": 8.4,
+          "calibratedStarter": 69.7
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -149395,8 +149549,8 @@
           "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 56% | 77 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
@@ -149423,11 +149577,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 8,
-          "projectedPointsLabel": "8 Punkte",
+          "projectedPoints": 46,
+          "projectedPointsLabel": "46 Punkte",
           "rangeMin": 0,
-          "rangeMax": 57,
-          "rangeLabel": "0–57 Punkte",
+          "rangeMax": 95,
+          "rangeLabel": "0–95 Punkte",
           "recommendation": "Beobachten"
         },
         "availability": {
@@ -149483,8 +149637,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 8.3,
-          "benchPoints": 8.6
+          "starterPoints": 69.7,
+          "benchPoints": 15.2,
+          "publicRawStarterPoints": 8.3,
+          "publicRawBenchPoints": 8.6
         },
         "source": "kickbaseAiProjection"
       },
@@ -149509,7 +149665,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 8,
+        "projectedPoints": 46,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -149522,9 +149678,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 8,
-        "projectedPointsLabel": "8 Punkte",
-        "rangeLabel": "0–57 Punkte",
+        "projectedPoints": 46,
+        "projectedPointsLabel": "46 Punkte",
+        "rangeLabel": "0–95 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "54 Min.",
         "confidenceLabel": "33%",
@@ -149559,7 +149715,7 @@
           "goalConcededTW": null
         },
         "rangeMin": 0,
-        "rangeMax": 57,
+        "rangeMax": 95,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 54,
@@ -160280,22 +160436,33 @@
       "average": 16,
       "starting": "94%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 20,
-      "kickbaseAiScore": 20,
+      "footballRating": 74,
+      "kickbaseAiScore": 74,
       "kickbaseAiProjection": {
-        "expectedPoints": 20,
-        "rangeMin": 0,
-        "rangeMax": 69,
+        "expectedPoints": 74,
+        "rangeMin": 25,
+        "rangeMax": 123,
         "confidence": 33,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "expectedMinutes": 74,
         "minutesIfStart": 77,
         "minutesIfBench": 24,
         "startProbability": 94,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 20.3,
-          "benchPoints": 10.0
+          "starterPoints": 77.8,
+          "benchPoints": 17.0,
+          "publicRawStarterPoints": 20.3,
+          "publicRawBenchPoints": 10.0
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 96.0,
+          "publicRawExpected": 19.7,
+          "calibratedStarter": 77.8
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -160339,8 +160506,8 @@
           "goalConcededTW": null
         },
         "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "ANG",
           "minutes": 77.0,
@@ -160367,12 +160534,12 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 20,
-          "projectedPointsLabel": "20 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 69,
-          "rangeLabel": "0–69 Punkte",
-          "recommendation": "Beobachten"
+          "projectedPoints": 74,
+          "projectedPointsLabel": "74 Punkte",
+          "rangeMin": 25,
+          "rangeMax": 123,
+          "rangeLabel": "25–123 Punkte",
+          "recommendation": "Gute Option"
         },
         "availability": {
           "startProbability": 94,
@@ -160427,8 +160594,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 20.3,
-          "benchPoints": 10.0
+          "starterPoints": 77.8,
+          "benchPoints": 17.0,
+          "publicRawStarterPoints": 20.3,
+          "publicRawBenchPoints": 10.0
         },
         "source": "kickbaseAiProjection"
       },
@@ -160453,7 +160622,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 20,
+        "projectedPoints": 74,
         "startProbability": 94,
         "goals": 0,
         "goalsAgainst": null,
@@ -160462,13 +160631,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Beobachten"
+        "recommendation": "Gute Option"
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 20,
-        "projectedPointsLabel": "20 Punkte",
-        "rangeLabel": "0–69 Punkte",
+        "projectedPoints": 74,
+        "projectedPointsLabel": "74 Punkte",
+        "rangeLabel": "25–123 Punkte",
         "startProbabilityLabel": "94%",
         "expectedMinutesLabel": "74 Min.",
         "confidenceLabel": "33%",
@@ -160502,12 +160671,12 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 69,
+        "rangeMin": 25,
+        "rangeMax": 123,
         "confidence": 33,
         "startProbability": 94,
         "expectedMinutes": 74,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "scoringReadinessPercent": 80,
         "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
@@ -160740,7 +160909,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Beobachten",
+      "recommendation": "Gute Option",
       "lastUpdated": "2026-09-01",
       "sources": [
         {
@@ -166723,12 +166892,12 @@
       "average": 11,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 11,
-      "kickbaseAiScore": 11,
+      "footballRating": 45,
+      "kickbaseAiScore": 45,
       "kickbaseAiProjection": {
-        "expectedPoints": 11,
-        "rangeMin": 0,
-        "rangeMax": 55,
+        "expectedPoints": 45,
+        "rangeMin": 1,
+        "rangeMax": 89,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 53,
@@ -166737,8 +166906,19 @@
         "startProbability": 56,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 13.0,
-          "benchPoints": 8.8
+          "starterPoints": 69.8,
+          "benchPoints": 14.0,
+          "publicRawStarterPoints": 13.0,
+          "publicRawBenchPoints": 8.8
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 92.0,
+          "publicRawExpected": 11.2,
+          "calibratedStarter": 69.8
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -166782,8 +166962,8 @@
           "goalConcededTW": null
         },
         "reason": "MF-Szenariomodell | Start 56% | 78 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "MF",
           "minutes": 78.0,
@@ -166810,11 +166990,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 11,
-          "projectedPointsLabel": "11 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 55,
-          "rangeLabel": "0–55 Punkte",
+          "projectedPoints": 45,
+          "projectedPointsLabel": "45 Punkte",
+          "rangeMin": 1,
+          "rangeMax": 89,
+          "rangeLabel": "1–89 Punkte",
           "recommendation": "Beobachten"
         },
         "availability": {
@@ -166870,8 +167050,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 13.0,
-          "benchPoints": 8.8
+          "starterPoints": 69.8,
+          "benchPoints": 14.0,
+          "publicRawStarterPoints": 13.0,
+          "publicRawBenchPoints": 8.8
         },
         "source": "kickbaseAiProjection"
       },
@@ -166896,7 +167078,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 11,
+        "projectedPoints": 45,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -166909,9 +167091,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 11,
-        "projectedPointsLabel": "11 Punkte",
-        "rangeLabel": "0–55 Punkte",
+        "projectedPoints": 45,
+        "projectedPointsLabel": "45 Punkte",
+        "rangeLabel": "1–89 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "53 Min.",
         "confidenceLabel": "33%",
@@ -166945,8 +167127,8 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 55,
+        "rangeMin": 1,
+        "rangeMax": 89,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 53,
@@ -177874,22 +178056,33 @@
       "average": 18,
       "starting": "98%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 23,
-      "kickbaseAiScore": 23,
+      "footballRating": 77,
+      "kickbaseAiScore": 77,
       "kickbaseAiProjection": {
-        "expectedPoints": 23,
-        "rangeMin": 0,
-        "rangeMax": 65,
+        "expectedPoints": 77,
+        "rangeMin": 35,
+        "rangeMax": 119,
         "confidence": 37,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "expectedMinutes": 77,
         "minutesIfStart": 78,
         "minutesIfBench": 22,
         "startProbability": 98,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 23.8,
-          "benchPoints": 10.1
+          "starterPoints": 78.7,
+          "benchPoints": 15.8,
+          "publicRawStarterPoints": 23.8,
+          "publicRawBenchPoints": 10.1
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 92.0,
+          "publicRawExpected": 23.5,
+          "calibratedStarter": 78.7
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -177933,8 +178126,8 @@
           "goalConcededTW": null
         },
         "reason": "MF-Szenariomodell | Start 98% | 78 Min bei Start | Current 54% | Prior 0%",
-        "model": "v29-scenario-prior-public-data",
-        "disclaimer": "Eigene öffentliche Datenprognose; keine exakte Kickbase-Punkteberechnung und keine Kickbase-API.",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
           "position": "MF",
           "minutes": 78.0,
@@ -177961,12 +178154,12 @@
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": 23,
-          "projectedPointsLabel": "23 Punkte",
-          "rangeMin": 0,
-          "rangeMax": 65,
-          "rangeLabel": "0–65 Punkte",
-          "recommendation": "Beobachten"
+          "projectedPoints": 77,
+          "projectedPointsLabel": "77 Punkte",
+          "rangeMin": 35,
+          "rangeMax": 119,
+          "rangeLabel": "35–119 Punkte",
+          "recommendation": "Gute Option"
         },
         "availability": {
           "startProbability": 98,
@@ -178021,8 +178214,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 23.8,
-          "benchPoints": 10.1
+          "starterPoints": 78.7,
+          "benchPoints": 15.8,
+          "publicRawStarterPoints": 23.8,
+          "publicRawBenchPoints": 10.1
         },
         "source": "kickbaseAiProjection"
       },
@@ -178047,7 +178242,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 23,
+        "projectedPoints": 77,
         "startProbability": 98,
         "goals": 0,
         "goalsAgainst": null,
@@ -178056,13 +178251,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Beobachten"
+        "recommendation": "Gute Option"
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": 23,
-        "projectedPointsLabel": "23 Punkte",
-        "rangeLabel": "0–65 Punkte",
+        "projectedPoints": 77,
+        "projectedPointsLabel": "77 Punkte",
+        "rangeLabel": "35–119 Punkte",
         "startProbabilityLabel": "98%",
         "expectedMinutesLabel": "77 Min.",
         "confidenceLabel": "37%",
@@ -178096,12 +178291,12 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 0,
-        "rangeMax": 65,
+        "rangeMin": 35,
+        "rangeMax": 119,
         "confidence": 37,
         "startProbability": 98,
         "expectedMinutes": 77,
-        "recommendation": "Beobachten",
+        "recommendation": "Gute Option",
         "scoringReadinessPercent": 83,
         "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
@@ -178345,7 +178540,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Beobachten",
+      "recommendation": "Gute Option",
       "lastUpdated": "2026-09-01",
       "sources": [
         {
