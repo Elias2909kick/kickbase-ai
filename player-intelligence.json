@@ -122555,124 +122555,302 @@
       "position": "Torhüter",
       "number": 1,
       "sourceUrl": "https://www.bundesliga.com/de/spieler/gregor-kobel",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
+      "average": 38,
+      "starting": "56%",
+      "form": "Noch keine belastbare Formbasis",
+      "footballRating": 38,
+      "kickbaseAiScore": 38,
+      "kickbaseAiProjection": {
+        "expectedPoints": 38,
+        "rangeMin": 0,
+        "rangeMax": 85,
+        "confidence": 18,
+        "recommendation": "Beobachten",
+        "expectedMinutes": 50,
+        "minutesIfStart": 90,
+        "minutesIfBench": 0,
+        "startProbability": 56,
+        "positionModel": "TW",
+        "scenario": {
+          "starterPoints": 67.1,
+          "benchPoints": 0.0,
+          "publicRawStarterPoints": 13.0,
+          "publicRawBenchPoints": 0.0
+        },
+        "kickbaseCalibration": {
+          "source": "position_public_fallback",
+          "historyMatches": 0,
+          "historyMean": null,
+          "historyWeight": 0.0,
+          "positionBaseline": 82.0,
+          "publicRawExpected": 7.3,
+          "calibratedStarter": 67.1
+        },
+        "historicalPriorStrength": {
+          "bonus": 0.0,
+          "coverage": 0,
+          "source": "none",
+          "components": {}
+        },
+        "goalkeeperPrior": null,
+        "goalkeeperPerformancePrior": null,
+        "goalkeeperCurrentSeasonPerformance": {
+          "provider": "Bundesliga.com",
+          "season": "2026-2027",
+          "explicit": false,
+          "metrics": [],
+          "checked": [
+            {
+              "league": "2bundesliga",
+              "url": "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+              "loaded": true
+            },
+            {
+              "league": "bundesliga",
+              "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+              "loaded": true
+            }
+          ],
+          "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
+        },
+        "goalkeeperSeasonPerformancePrior": {
+          "provider": "Bundesliga.com",
+          "season": "2025-2026",
+          "explicit": false,
+          "metrics": [],
+          "checked": [
+            {
+              "league": "2bundesliga",
+              "url": "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
+              "loaded": true
+            },
+            {
+              "league": "bundesliga",
+              "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
+              "loaded": true
+            }
+          ],
+          "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
+        },
+        "goalkeeperPriorComponents": {
+          "blendedSavesPerAppearance": 3.0,
+          "liveSeasonWeight": 0.1,
+          "liveSeasonSource": "official_profile",
+          "saveScoringMode": "aggregate_rate_evidence_only",
+          "blendPriorSource": "neutral_gk_baseline",
+          "neutralGKSavesRate": 3.0,
+          "liveSeasonAppearances": 1,
+          "liveSeasonSaves": 3
+        },
+        "evidence": {
+          "roleSignal": "unknown",
+          "lineupRatio": null,
+          "matchesFound": 0,
+          "sample": 0,
+          "usageMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
+        "components": {
+          "minutesBase": 10.0,
+          "startingBonus": 5.0,
+          "goals": 0.0,
+          "goalsAgainst": -0.0,
+          "fouls": -0.0,
+          "yellowCards": -0.0,
+          "historicalPrior": 0.0,
+          "homeAway": -2.0
+        },
+        "positionScoring": {
+          "goal": 120,
+          "assist": 55,
+          "cleanSheetPer10": 5,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": -5
+        },
+        "reason": "TW-Szenariomodell | Start 56% | 90 Min bei Start | Current 29% | Prior 0%",
+        "model": "v50-kickbase-calibrated-scenario",
+        "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
+        "openDataCalibration": {
+          "position": "TW",
+          "minutes": 90.0,
+          "estimates": {
+            "cleanSheets": {
+              "expected": 0.27,
+              "per90": 0.27,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            },
+            "passAccuracy": {
+              "expected": 0.78,
+              "per90": 0.78,
+              "observed": false,
+              "sourceType": "historical_open_data_prior",
+              "confidence": "low"
+            }
+          },
+          "rawEstimatedPoints": 13.5,
+          "cappedEstimatedPoints": 13.5,
+          "cap": 18.0,
+          "observed": false,
+          "providers": [
+            "pappalardo_wyscout_open",
+            "statsbomb_open_data"
+          ]
+        },
+        "openDataCalibrationAppliedToExpectedPoints": false
+      },
       "playerIntelligenceV45": {
         "schemaVersion": 49,
         "headline": {
-          "projectedPoints": null,
-          "projectedPointsLabel": "Noch nicht recherchiert",
-          "rangeMin": null,
-          "rangeMax": null,
-          "rangeLabel": "Noch nicht recherchiert",
-          "recommendation": "Nächstes Spiel vorhanden"
+          "projectedPoints": 38,
+          "projectedPointsLabel": "38 Punkte",
+          "rangeMin": 0,
+          "rangeMax": 85,
+          "rangeLabel": "0–85 Punkte",
+          "recommendation": "Beobachten"
         },
         "availability": {
-          "startProbability": null,
-          "startProbabilityLabel": "Noch nicht recherchiert",
-          "startingAssessment": "Noch nicht recherchiert",
-          "expectedMinutes": null,
-          "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": null,
-          "suspension": "Noch nicht recherchiert"
+          "startProbability": 56,
+          "startProbabilityLabel": "56%",
+          "startingAssessment": "56%",
+          "expectedMinutes": 50,
+          "expectedMinutesLabel": "50 Min.",
+          "injury": "Fit",
+          "suspension": "Keine Sperre"
         },
         "quality": {
-          "confidence": null,
-          "confidenceLabel": "Noch nicht recherchiert",
-          "scoringReadinessPercent": 0,
-          "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "confidence": 18,
+          "confidenceLabel": "18%",
+          "scoringReadinessPercent": 50,
+          "reliabilityBand": "niedrig",
+          "currentDataCoveragePercent": 29,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
           "opponent": "TSG Hoffenheim",
           "homeAway": "Auswärts",
-          "positionModel": null
+          "positionModel": "TW"
         },
         "stats": {
-          "goals": null,
-          "goalsStatus": "unknown",
-          "goalsAgainst": null,
-          "goalsAgainstStatus": "unknown",
-          "yellowCards": null,
-          "yellowCardsStatus": "unknown"
+          "goals": 0,
+          "goalsStatus": "observed",
+          "goalsAgainst": 0,
+          "goalsAgainstStatus": "observed",
+          "yellowCards": 0,
+          "yellowCardsStatus": "observed"
         },
-        "pointDrivers": {},
-        "positionScoring": {},
-        "scenario": {},
+        "pointDrivers": {
+          "minutesBase": 10.0,
+          "startingBonus": 5.0,
+          "goals": 0.0,
+          "goalsAgainst": -0.0,
+          "fouls": -0.0,
+          "yellowCards": -0.0,
+          "historicalPrior": 0.0,
+          "homeAway": -2.0
+        },
+        "positionScoring": {
+          "goal": 120,
+          "assist": 55,
+          "cleanSheetPer10": 5,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": -5
+        },
+        "scenario": {
+          "starterPoints": 67.1,
+          "benchPoints": 0.0,
+          "publicRawStarterPoints": 13.0,
+          "publicRawBenchPoints": 0.0
+        },
         "source": "kickbaseAiProjection"
       },
       "actualFacts": {
         "goals": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
+          "value": 0,
+          "status": "observed",
+          "source": "https://www.bundesliga.com/de/spieler/gregor-kobel",
+          "origin": "official_profile"
         },
         "goalsAgainst": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
+          "value": 0,
+          "status": "observed",
+          "source": "OpenLigaDB + Bundesliga.com Lineups",
+          "origin": "openligadb_completed_matches",
+          "evidence": "complete_keeper_coverage:1_matches;appearances=1.0;starts=None;minutes=None;officialLineups=2/1"
         },
         "yellowCards": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
+          "value": 0,
+          "status": "observed",
+          "source": "https://www.bundesliga.com/de/spieler/gregor-kobel",
+          "origin": "official_profile"
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": null,
-        "startProbability": null,
-        "goals": null,
-        "goalsAgainst": null,
+        "projectedPoints": 38,
+        "startProbability": 56,
+        "goals": 0,
+        "goalsAgainst": 0,
         "opponent": "TSG Hoffenheim",
         "homeAway": "Auswärts",
-        "injury": null,
-        "suspension": "Noch nicht recherchiert",
-        "yellowCards": null,
-        "recommendation": "Nächstes Spiel vorhanden"
+        "injury": "Fit",
+        "suspension": "Keine Sperre",
+        "yellowCards": 0,
+        "recommendation": "Beobachten"
       },
       "displayIntelligence": {
         "schemaVersion": 49,
-        "projectedPoints": null,
-        "projectedPointsLabel": "Noch nicht recherchiert",
-        "rangeLabel": "Noch nicht recherchiert",
-        "startProbabilityLabel": "Noch nicht recherchiert",
-        "expectedMinutesLabel": "Noch nicht recherchiert",
-        "confidenceLabel": "Noch nicht recherchiert",
-        "startingAssessment": "Noch nicht recherchiert",
-        "goals": null,
-        "goalsAgainst": null,
-        "yellowCards": null,
-        "injury": null,
-        "suspension": "Noch nicht recherchiert",
+        "projectedPoints": 38,
+        "projectedPointsLabel": "38 Punkte",
+        "rangeLabel": "0–85 Punkte",
+        "startProbabilityLabel": "56%",
+        "expectedMinutesLabel": "50 Min.",
+        "confidenceLabel": "18%",
+        "startingAssessment": "56%",
+        "goals": 0,
+        "goalsAgainst": 0,
+        "yellowCards": 0,
+        "injury": "Fit",
+        "suspension": "Keine Sperre",
         "opponent": "TSG Hoffenheim",
         "homeAway": "Auswärts",
-        "pointDrivers": {},
-        "positionScoring": {},
-        "rangeMin": null,
-        "rangeMax": null,
-        "confidence": null,
-        "startProbability": null,
-        "expectedMinutes": null,
-        "recommendation": "Nächstes Spiel vorhanden",
-        "scoringReadinessPercent": 0,
-        "reliabilityBand": "sehr niedrig",
+        "pointDrivers": {
+          "minutesBase": 10.0,
+          "startingBonus": 5.0,
+          "goals": 0.0,
+          "goalsAgainst": -0.0,
+          "fouls": -0.0,
+          "yellowCards": -0.0,
+          "historicalPrior": 0.0,
+          "homeAway": -2.0
+        },
+        "positionScoring": {
+          "goal": 120,
+          "assist": 55,
+          "cleanSheetPer10": 5,
+          "startingXI": 5,
+          "minutePer10": 1,
+          "goalConcededTW": -5
+        },
+        "rangeMin": 0,
+        "rangeMax": 85,
+        "confidence": 18,
+        "startProbability": 56,
+        "expectedMinutes": 50,
+        "recommendation": "Beobachten",
+        "scoringReadinessPercent": 50,
+        "reliabilityBand": "niedrig",
         "source": "kickbaseAiProjection"
       },
       "performance": {
-        "appearances": null,
+        "appearances": 1,
         "starts": null,
         "minutes": null,
-        "goals": null,
+        "goals": 0,
         "assists": null,
-        "shots": null,
+        "shots": 3,
         "shotsOnTarget": null,
         "woodwork": null,
         "penalties": null,
@@ -122681,27 +122859,34 @@
         "duelsWon": null,
         "aerialDuelsWon": null,
         "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
+        "fouls": 0,
+        "yellowCards": 0,
         "redCards": null,
-        "saves": null,
+        "saves": 3,
         "cleanSheets": null,
-        "goalsAgainst": null,
+        "goalsAgainst": 0,
         "distanceKm": null,
         "sprints": null,
         "intensiveRuns": null,
         "topSpeedKmh": null
       },
-      "performanceSources": {},
+      "performanceSources": {
+        "saves": "https://www.bundesliga.com/de/spieler/gregor-kobel"
+      },
       "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
+        "availableMetrics": [
           "appearances",
+          "goals",
+          "shots",
+          "fouls",
+          "yellowCards",
+          "saves",
+          "goalsAgainst"
+        ],
+        "missingMetrics": [
           "starts",
           "minutes",
-          "goals",
           "assists",
-          "shots",
           "shotsOnTarget",
           "woodwork",
           "penalties",
@@ -122710,25 +122895,35 @@
           "duelsWon",
           "aerialDuelsWon",
           "crosses",
-          "fouls",
-          "yellowCards",
           "redCards",
-          "saves",
           "cleanSheets",
-          "goalsAgainst",
           "distanceKm",
           "sprints",
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 29,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
-      "historicalPrior": {},
+      "historicalPrior": {
+        "goals": null,
+        "assists": null,
+        "shots": null,
+        "passAccuracy": null,
+        "duelsWon": null,
+        "aerialDuelsWon": null,
+        "fouls": null,
+        "saves": null,
+        "distanceKm": null,
+        "sprints": null,
+        "intensiveRuns": null
+      },
       "historicalPriorSources": {},
       "historicalPriorCoverage": {
         "season": "2025-2026",
+        "competition": "2bundesliga",
+        "league": "2. Bundesliga",
         "availableMetrics": [],
         "missingMetrics": [
           "goals",
@@ -122743,15 +122938,104 @@
           "sprints",
           "intensiveRuns"
         ],
-        "coveragePercent": 0
+        "coveragePercent": 0,
+        "explicitRankingHits": 0,
+        "rankingPagesAvailable": 11,
+        "competitionsTried": [
+          {
+            "league": "Bundesliga",
+            "competition": "bundesliga",
+            "explicitRankingHits": 0
+          },
+          {
+            "league": "2. Bundesliga",
+            "competition": "2bundesliga",
+            "explicitRankingHits": 0
+          }
+        ],
+        "matchEvidence": {
+          "available": false,
+          "matchesFound": 0,
+          "lineupsLoaded": 0,
+          "matchesDiscovered": 0,
+          "sourceUrl": null
+        },
+        "matchEvidenceSignal": {
+          "ratio": null,
+          "sample": 0,
+          "roleSignal": "unknown",
+          "projectionMultiplier": 1.0,
+          "confidenceBoost": 0
+        },
+        "note": "Historischer Prior; automatisch zwischen Bundesliga und 2. Bundesliga gewählt; nicht mit aktuellen Saisonwerten vermischt.",
+        "goalkeeperCurrentSeasonPerformance": {
+          "provider": "Bundesliga.com",
+          "season": "2026-2027",
+          "explicit": false,
+          "metrics": [],
+          "checked": [
+            {
+              "league": "2bundesliga",
+              "url": "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+              "loaded": true
+            },
+            {
+              "league": "bundesliga",
+              "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+              "loaded": true
+            }
+          ],
+          "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
+        },
+        "goalkeeperSeasonPerformancePrior": {
+          "provider": "Bundesliga.com",
+          "season": "2025-2026",
+          "explicit": false,
+          "metrics": [],
+          "checked": [
+            {
+              "league": "2bundesliga",
+              "url": "https://www.bundesliga.com/de/2bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
+              "loaded": true
+            },
+            {
+              "league": "bundesliga",
+              "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
+              "loaded": true
+            }
+          ],
+          "note": "Nicht im geladenen Ranking = unbekannt, nicht 0."
+        },
+        "goalkeeperCurrentSeasonValues": {},
+        "goalkeeperCurrentSeasonSources": {},
+        "goalkeeperEventCoveragePercent": 0,
+        "currentGoalkeeperProfile": {
+          "provider": "Bundesliga.com",
+          "scope": "current-season-profile",
+          "sourceUrl": "https://www.bundesliga.com/de/spieler/gregor-kobel",
+          "metrics": [
+            "appearances",
+            "saves",
+            "yellowCards"
+          ]
+        },
+        "currentGoalkeeperProfileValues": {
+          "saves": 3,
+          "appearances": 1,
+          "yellowCards": 0
+        }
       },
       "kickbaseFactorCoverage": {
         "positionModel": "TW",
-        "exactPublicAvailable": [],
-        "exactPublicMissing": [
+        "exactPublicAvailable": [
           "goals",
-          "assists",
           "shots",
+          "fouls",
+          "yellowCards",
+          "goalsAgainst"
+        ],
+        "exactPublicMissing": [
+          "assists",
           "shotsOnTarget",
           "woodwork",
           "penalties",
@@ -122760,13 +123044,12 @@
           "duelsWon",
           "aerialDuelsWon",
           "crosses",
-          "fouls",
-          "yellowCards",
           "redCards",
-          "cleanSheets",
-          "goalsAgainst"
+          "cleanSheets"
         ],
-        "aggregatePublicAvailable": [],
+        "aggregatePublicAvailable": [
+          "aggregateSaves"
+        ],
         "contextual": {
           "expectedMinutes": "Startelf-/Einsatzwahrscheinlichkeit",
           "homeAway": "Spielkontext",
@@ -122803,39 +123086,40 @@
           "goalsAgainst",
           "passAccuracy"
         ],
-        "criticalAvailable": [],
-        "criticalMissing": [
+        "criticalAvailable": [
           "aggregateSaves",
+          "goalsAgainst"
+        ],
+        "criticalMissing": [
           "cleanSheets",
-          "goalsAgainst",
           "passAccuracy"
         ],
-        "scoringReadinessPercent": 0,
-        "reliabilityBand": "sehr niedrig",
+        "scoringReadinessPercent": 50,
+        "reliabilityBand": "niedrig",
         "notes": [
           "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
           "Fehlende Events werden nicht als 0 interpretiert.",
           "Readiness misst Datenabdeckung, nicht Spielerqualität."
         ]
       },
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
       "minutes": null,
-      "goals": null,
+      "goals": 0,
       "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
+      "goalsAgainst": 0,
+      "yellowCards": 0,
+      "lastMatch": "Samstag 29. August Dortmund Borussia Dortmund BVB 2 HSV 0 Hamburg Hamburger SV",
       "opponent": "TSG Hoffenheim",
       "homeAway": "Auswärts",
-      "injury": null,
+      "injury": "Fit",
       "injuryDiagnosis": null,
       "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
+      "injurySourceUrl": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-2-24397",
+      "injuryEvidence": "fit",
+      "suspension": "Keine Sperre",
+      "suspensionEvidence": "checked_no_suspension",
+      "recommendation": "Beobachten",
       "lastUpdated": "2026-09-01",
       "sources": [
         {
@@ -122851,6 +123135,10 @@
           "url": "https://www.bundesliga.com/de/spieler/gregor-kobel"
         },
         {
+          "name": "Offizielle Vereinsmeldung",
+          "url": "https://www.bundesliga.com/de/bundesliga/news/voraussichtliche-aufstellungen-spieltag-verletzungen-sperren-ubersicht-2-24397"
+        },
+        {
           "name": "OpenLigaDB",
           "url": "https://www.openligadb.de/"
         }
@@ -122858,9 +123146,9 @@
       "dataStatus": {
         "kickbaseAverage": "nicht verfügbar",
         "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
+        "playerProfileSource": "erreichbar",
         "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
+        "researchMode": "intensiv"
       }
     },
     "patrick-drewes": {
