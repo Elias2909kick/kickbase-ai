@@ -5284,37 +5284,59 @@ def build_player_intelligence(
     if isinstance(display_start_probability, (int, float)):
         display_starting = f"{int(round(display_start_probability))}%"
 
-    # Gegentore: unknown must remain unknown; never coerce missing data to 0.
-    performance_goals_against = (
-        performance.get("goalsAgainst")
-        if isinstance(performance, dict)
-        else None
-    )
-    display_goals_against = (
-        performance_goals_against
-        if performance_goals_against is not None
-        else None
+    # V45.8: UI occurrence stats must be REAL season counts only.
+    # No rates, priors, percentages or model estimates are allowed here.
+    def _actual_count(metric, fallback=None, require_source=True):
+        value = performance.get(metric) if isinstance(performance, dict) else None
+        source = performance_sources.get(metric) if isinstance(performance_sources, dict) else None
+
+        # For strict player facts, a sourced current value is preferred.
+        if value is not None and (source or not require_source):
+            try:
+                number = float(value)
+                rounded = round(number)
+                # Counts must be integer-like and non-negative.
+                if number >= 0 and abs(number - rounded) < 1e-9:
+                    return int(rounded)
+            except (TypeError, ValueError):
+                pass
+
+        # Optional raw profile fallback, again only integer-like.
+        if fallback is not None:
+            try:
+                number = float(fallback)
+                rounded = round(number)
+                if number >= 0 and abs(number - rounded) < 1e-9:
+                    return int(rounded)
+            except (TypeError, ValueError):
+                pass
+
+        return None
+
+    # Goals: current observed season total.
+    display_goals = _actual_count("goals", fallback=goals, require_source=True)
+
+    # Goals against: NEVER infer 0 from missing data. It is shown only when a
+    # current explicit goalsAgainst source exists.
+    display_goals_against = _actual_count(
+        "goalsAgainst",
+        fallback=None,
+        require_source=True,
     )
 
-    # Field players: expose current observed goals in the UI payload.
-    display_goals = (
-        performance.get("goals")
-        if isinstance(performance, dict)
-        else None
+    # Yellow cards: current observed season total. Profile fallback is allowed
+    # because the profile parser can explicitly return this count.
+    display_yellow_cards = _actual_count(
+        "yellowCards",
+        fallback=yellow_cards,
+        require_source=False,
     )
 
-
-    # V45.5: canonical UI facts should use the strongest player-level value.
     display_injury = injury if injury not in (None, "", "Noch nicht recherchiert") else None
-    display_yellow_cards = (
-        performance.get("yellowCards")
-        if isinstance(performance, dict) and performance.get("yellowCards") is not None
-        else yellow_cards
-    )
 
 
     print(
-        f"V45.6-UI-FACTS {name}: "
+        f"V45.8-ACTUAL-COUNTS {name}: "
         f"Start={display_starting} | "
         f"Goals={display_goals} | "
         f"GA={display_goals_against} | "
@@ -5379,7 +5401,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 45.6,
+        "schemaVersion": 45.8,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5460,7 +5482,7 @@ def build_player_intelligence(
             "recommendation": display_recommendation,
         },
         "displayIntelligence": {
-            "schemaVersion": 45.6,
+            "schemaVersion": 45.8,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
