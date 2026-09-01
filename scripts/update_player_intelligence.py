@@ -326,6 +326,7 @@ def v43_provider_policy_summary():
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 INTELLIGENCE_FILE = BASE_DIR / "player-intelligence.json"
+KICKBASE_MATCH_HISTORY_FILE = BASE_DIR / "kickbase-match-history.json"
 # Optional: IDs des aktuellen Kickbase-Kaders für intensive Web-Recherche.
 # Die Datei ist bewusst optional, weil GitHub Actions keinen Zugriff auf browser-localStorage hat.
 ACTIVE_ROSTER_FILE = BASE_DIR / "kickbase-roster.json"
@@ -2932,6 +2933,122 @@ def _v29_prior_strength(historical_prior, historical_prior_coverage, pos_group):
     }
 
 
+
+_V51_KB_HISTORY_CACHE = None
+
+def v51_load_kickbase_history_store():
+    """
+    Optional local history store:
+      {
+        "players": {
+          "harry-kane": [
+            {"points": 124, "played": true, "source": "manual_verified"}
+          ]
+        }
+      }
+
+    This is deliberately separate from public Bundesliga statistics. A value is
+    only treated as real Kickbase history when it is explicitly stored here (or
+    already persisted as kickbaseMatchHistory on the player).
+    """
+    global _V51_KB_HISTORY_CACHE
+    if _V51_KB_HISTORY_CACHE is not None:
+        return _V51_KB_HISTORY_CACHE
+
+    store = {"players": {}}
+    try:
+        if KICKBASE_MATCH_HISTORY_FILE.exists():
+            loaded = json.loads(
+                KICKBASE_MATCH_HISTORY_FILE.read_text(encoding="utf-8")
+            )
+            if isinstance(loaded, dict):
+                store = loaded
+    except Exception as exc:
+        print(f"V51-KB-HISTORY: Datei konnte nicht geladen werden: {type(exc).__name__}")
+
+    if not isinstance(store.get("players"), dict):
+        store["players"] = {}
+
+    _V51_KB_HISTORY_CACHE = store
+    return store
+
+
+def v51_player_kickbase_history(player_id, old_player=None):
+    """Merge explicit store history with already-persisted player history."""
+    old_player = old_player or {}
+    merged = []
+
+    store = v51_load_kickbase_history_store()
+    external = (store.get("players") or {}).get(player_id) or []
+    persisted = (
+        old_player.get("kickbaseMatchHistory")
+        or old_player.get("kickbasePointsHistory")
+        or []
+    )
+
+    for item in list(persisted) + list(external):
+        normalized = item
+        if isinstance(item, (int, float)):
+            normalized = {"points": item, "source": "legacy_history"}
+        if not isinstance(normalized, dict):
+            continue
+
+        value = normalized.get("kickbasePoints", normalized.get("points"))
+        try:
+            value = float(value)
+        except (TypeError, ValueError):
+            continue
+        if not (-50.0 <= value <= 500.0):
+            continue
+
+        record = dict(normalized)
+        record["points"] = int(round(value))
+        record.setdefault("played", True)
+        merged.append(record)
+
+    # Deduplicate exact records while preserving order.
+    unique = []
+    seen = set()
+    for record in merged:
+        key = (
+            record.get("date"),
+            record.get("opponent"),
+            record.get("points"),
+            record.get("source"),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(record)
+
+    return unique
+
+
+def v51_kickbase_form_label(history):
+    values = []
+    for item in history or []:
+        if isinstance(item, dict) and item.get("played") is False:
+            continue
+        value = item.get("points") if isinstance(item, dict) else item
+        try:
+            values.append(float(value))
+        except (TypeError, ValueError):
+            continue
+
+    if not values:
+        return None
+
+    recent = values[-5:]
+    mean = sum(recent) / len(recent)
+    last = recent[-1]
+    if len(recent) == 1:
+        return f"Letztes KB-Spiel: {int(round(last))} Pkt."
+    return (
+        f"Letzte {len(recent)} KB-Spiele: Ø {int(round(mean))} Pkt. "
+        f"· zuletzt {int(round(last))}"
+    )
+
+
 def build_kickbase_ai_projection(
     player,
     performance,
@@ -3318,23 +3435,30 @@ def build_kickbase_ai_projection(
         kb_history_mean = sum(v * w for v, w in zip(recent, weights)) / sum(weights)
 
     position_baseline = {"TW": 82.0, "ABW": 88.0, "MF": 92.0, "ANG": 96.0, "ALL": 90.0}[pos_group]
-    # Public model is centered around its old low-output regime. Only its delta
-    # changes the KB baseline; this prevents values such as 3/53 while preserving
-    # differences between weak and elite projections.
+
+    # V51: public data is a modifier, never an unrestricted KB baseline.
+    # Current cumulative/partial-season metrics can be noisy early in the year,
+    # therefore the delta is deliberately bounded.
     public_center = {"TW": 28.0, "ABW": 38.0, "MF": 42.0, "ANG": 45.0, "ALL": 40.0}[pos_group]
-    public_delta = (raw_expected - public_center) * 0.72
-    fallback_starter = max(20.0, min(position_baseline + public_delta, 210.0))
+    public_delta_raw = (raw_expected - public_center) * 0.35
+    public_delta = max(-30.0, min(public_delta_raw, 35.0))
+    fallback_starter = max(35.0, min(position_baseline + public_delta, 145.0))
 
     if kb_history_mean is not None:
-        # More real KB matches => more trust in the player's own KB baseline.
+        # A real KB match is much more informative than a generic position
+        # baseline. Weight rises with sample size but one match is not allowed
+        # to completely determine the forecast.
         n_hist = len(history_values[-8:])
-        hist_weight = min(0.78, 0.34 + 0.07 * n_hist)
-        calibrated_starter = hist_weight * kb_history_mean + (1.0 - hist_weight) * fallback_starter
+        hist_weight = min(0.88, 0.48 + 0.07 * n_hist)
+        calibrated_starter = (
+            hist_weight * kb_history_mean
+            + (1.0 - hist_weight) * fallback_starter
+        )
         calibration_source = "kickbase_match_history"
     else:
         hist_weight = 0.0
         calibrated_starter = fallback_starter
-        calibration_source = "position_public_fallback"
+        calibration_source = "position_public_fallback_v51"
 
     # Apply availability only once, after calibrating the full-match KB level.
     # A likely starter keeps most of his calibrated baseline; a bench scenario is
@@ -3416,6 +3540,8 @@ def build_kickbase_ai_projection(
             "historyWeight": round(hist_weight, 2),
             "positionBaseline": position_baseline,
             "publicRawExpected": round(raw_expected, 1),
+            "publicDeltaRaw": round(public_delta_raw, 1),
+            "publicDeltaApplied": round(public_delta, 1),
             "calibratedStarter": round(calibrated_starter, 1),
         },
         "historicalPriorStrength": prior_strength,
@@ -3463,7 +3589,7 @@ def build_kickbase_ai_projection(
             f"{int(round(minutes_if_start))} Min bei Start | "
             f"Current {current_coverage}% | Prior {prior_cov}%"
         ),
-        "model": "v50-kickbase-calibrated-scenario",
+        "model": "v51-kickbase-history-calibrated",
         "disclaimer": (
             "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; "
             "ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis."
@@ -5530,10 +5656,9 @@ def build_player_intelligence(
             official_gk_profile=(
                 (historical_prior_coverage or {}).get("currentGoalkeeperProfileValues") or {}
             ),
-            kickbase_match_history=(
-                old_player.get("kickbaseMatchHistory")
-                or old_player.get("kickbasePointsHistory")
-                or []
+            kickbase_match_history=v51_player_kickbase_history(
+                player_id,
+                old_player,
             ),
         )
         evidence_ratio = evidence_adj.get("ratio")
@@ -5541,8 +5666,16 @@ def build_player_intelligence(
             f"{round(evidence_ratio * 100)}%"
             if evidence_ratio is not None else "n/a"
         )
+        _v51_kb_history = v51_player_kickbase_history(player_id, old_player)
+        _v51_form = v51_kickbase_form_label(_v51_kb_history)
+        if _v51_form:
+            form = _v51_form
         print(
-            f"AI-PROJECTION {name}: V50 Kickbase Expected Points="
+            f"V51-KB-HISTORY {name}: "
+            f"matches={len(_v51_kb_history)} | form={_v51_form or 'none'}"
+        )
+        print(
+            f"AI-PROJECTION {name}: V51 Kickbase Expected Points="
             f"{kickbase_ai_projection.get('expectedPoints')} "
             f"[{kickbase_ai_projection.get('rangeMin')}-"
             f"{kickbase_ai_projection.get('rangeMax')}] | "
@@ -5569,6 +5702,10 @@ def build_player_intelligence(
         )
     else:
         kickbase_ai_projection = old_player.get("kickbaseAiProjection")
+        _v51_kb_history = v51_player_kickbase_history(player_id, old_player)
+        _v51_form = v51_kickbase_form_label(_v51_kb_history)
+        if _v51_form:
+            form = _v51_form
 
     if research_player:
         print(
@@ -5806,7 +5943,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 49,
+        "schemaVersion": 51,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5876,6 +6013,7 @@ def build_player_intelligence(
             else None
         ),
         "kickbaseAiProjection": kickbase_ai_projection,
+        "kickbaseMatchHistory": _v51_kb_history,
         "playerIntelligenceV45": v45_player_intelligence,
         "actualFacts": actual_facts,
         "playerIntelligenceUiRows": {
@@ -5891,7 +6029,7 @@ def build_player_intelligence(
             "recommendation": display_recommendation,
         },
         "displayIntelligence": {
-            "schemaVersion": 49,
+            "schemaVersion": 51,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
