@@ -5221,11 +5221,6 @@ def build_player_intelligence(
             f"V45-AI-DISPLAY {name}: canonical UI payload wird erzeugt | "
             f"legacy bridge bleibt kompatibel"
         )
-        print(
-            f"V45.1-SCOPE {name}: "
-            f"ProfileStarting={starting} | DisplayStarting={display_starting} | "
-            f"Injury={injury} | Suspension={suspension}"
-        )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
     old_recommendation = old_player.get("recommendation")
@@ -5275,6 +5270,13 @@ def build_player_intelligence(
             display_starting = "Eher Bank / offen"
         else:
             display_starting = "Eher nicht"
+
+    print(
+        f"V45.2-SCOPE {name}: "
+        f"ProfileStarting={starting} | DisplayStarting={display_starting} | "
+        f"StartProbability={display_start_probability} | "
+        f"Injury={injury} | Suspension={suspension}"
+    )
 
     projection_recommendation = (
         kickbase_ai_projection.get("recommendation")
@@ -5326,7 +5328,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 45.1,
+        "schemaVersion": 45.2,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5386,7 +5388,7 @@ def build_player_intelligence(
         "kickbaseAiProjection": kickbase_ai_projection,
         "playerIntelligenceV45": v45_player_intelligence,
         "displayIntelligence": {
-            "schemaVersion": 45.1,
+            "schemaVersion": 45.2,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
