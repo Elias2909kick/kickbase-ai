@@ -2940,9 +2940,10 @@ def build_kickbase_ai_projection(
     historical_prior=None,
     historical_prior_coverage=None,
     official_gk_profile=None,
+    kickbase_match_history=None,
 ):
     """
-    V29 scenario-based expected-points engine.
+    V50 Kickbase-calibrated scenario expected-points engine.
 
     Structural changes:
     - Start probability and minutes-if-start are separate.
@@ -3277,13 +3278,70 @@ def build_kickbase_ai_projection(
             + prior_strength["bonus"] * 0.15
         )
 
-    expected = (
+    raw_expected = (
         start_probability * starter_points
         + (1.0 - start_probability) * bench_points
     )
 
-    # Keep the public-data model in a broad but finite fantasy-points range.
-    expected = int(round(max(0.0, min(expected, 280.0))))
+    # ------------------------------------------------------------
+    # V50) Kickbase calibration layer
+    # ------------------------------------------------------------
+    # The public-event engine above is useful for relative player strength, but
+    # it systematically underestimates real Kickbase totals because many
+    # Kickbase micro-actions are not available from the public Bundesliga pages.
+    # Therefore raw_expected is NOT exposed directly as the KB forecast anymore.
+    #
+    # Preferred signal: actual historical Kickbase match points supplied by the
+    # app/old JSON. Supported entries: numbers or dicts with points/kickbasePoints.
+    # Fallback: conservative position baseline + public model delta. No player
+    # specific hardcodes.
+    history_values = []
+    for item in (kickbase_match_history or []):
+        value = item
+        if isinstance(item, dict):
+            value = item.get("kickbasePoints", item.get("points"))
+            # Ignore explicitly marked DNP/non-appearance records.
+            if item.get("played") is False or item.get("minutes") == 0:
+                continue
+        try:
+            value = float(value)
+        except (TypeError, ValueError):
+            continue
+        if -50.0 <= value <= 500.0:
+            history_values.append(value)
+
+    # Recency weighting: newest values should be last in the stored list.
+    kb_history_mean = None
+    if history_values:
+        recent = history_values[-8:]
+        weights = list(range(1, len(recent) + 1))
+        kb_history_mean = sum(v * w for v, w in zip(recent, weights)) / sum(weights)
+
+    position_baseline = {"TW": 82.0, "ABW": 88.0, "MF": 92.0, "ANG": 96.0, "ALL": 90.0}[pos_group]
+    # Public model is centered around its old low-output regime. Only its delta
+    # changes the KB baseline; this prevents values such as 3/53 while preserving
+    # differences between weak and elite projections.
+    public_center = {"TW": 28.0, "ABW": 38.0, "MF": 42.0, "ANG": 45.0, "ALL": 40.0}[pos_group]
+    public_delta = (raw_expected - public_center) * 0.72
+    fallback_starter = max(20.0, min(position_baseline + public_delta, 210.0))
+
+    if kb_history_mean is not None:
+        # More real KB matches => more trust in the player's own KB baseline.
+        n_hist = len(history_values[-8:])
+        hist_weight = min(0.78, 0.34 + 0.07 * n_hist)
+        calibrated_starter = hist_weight * kb_history_mean + (1.0 - hist_weight) * fallback_starter
+        calibration_source = "kickbase_match_history"
+    else:
+        hist_weight = 0.0
+        calibrated_starter = fallback_starter
+        calibration_source = "position_public_fallback"
+
+    # Apply availability only once, after calibrating the full-match KB level.
+    # A likely starter keeps most of his calibrated baseline; a bench scenario is
+    # materially lower but never pretends that missing public micro-actions are 0.
+    calibrated_bench = 0.0 if pos_group == "TW" else max(8.0, calibrated_starter * (minutes_if_bench / 90.0) * 0.82)
+    expected_float = start_probability * calibrated_starter + (1.0 - start_probability) * calibrated_bench
+    expected = int(round(max(0.0, min(expected_float, 300.0))))
 
     # ------------------------------------------------------------
     # 5) Confidence: current coverage + prior + lineup evidence are separate
@@ -3346,8 +3404,19 @@ def build_kickbase_ai_projection(
         "startProbability": int(round(start_probability * 100)),
         "positionModel": pos_group,
         "scenario": {
-            "starterPoints": round(starter_points, 1),
-            "benchPoints": round(bench_points, 1),
+            "starterPoints": round(calibrated_starter, 1),
+            "benchPoints": round(calibrated_bench, 1),
+            "publicRawStarterPoints": round(starter_points, 1),
+            "publicRawBenchPoints": round(bench_points, 1),
+        },
+        "kickbaseCalibration": {
+            "source": calibration_source,
+            "historyMatches": len(history_values),
+            "historyMean": round(kb_history_mean, 1) if kb_history_mean is not None else None,
+            "historyWeight": round(hist_weight, 2),
+            "positionBaseline": position_baseline,
+            "publicRawExpected": round(raw_expected, 1),
+            "calibratedStarter": round(calibrated_starter, 1),
         },
         "historicalPriorStrength": prior_strength,
         "goalkeeperPrior": (
@@ -3394,10 +3463,10 @@ def build_kickbase_ai_projection(
             f"{int(round(minutes_if_start))} Min bei Start | "
             f"Current {current_coverage}% | Prior {prior_cov}%"
         ),
-        "model": "v29-scenario-prior-public-data",
+        "model": "v50-kickbase-calibrated-scenario",
         "disclaimer": (
-            "Eigene öffentliche Datenprognose; keine exakte "
-            "Kickbase-Punkteberechnung und keine Kickbase-API."
+            "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; "
+            "ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis."
         ),
     }
 
@@ -5461,6 +5530,11 @@ def build_player_intelligence(
             official_gk_profile=(
                 (historical_prior_coverage or {}).get("currentGoalkeeperProfileValues") or {}
             ),
+            kickbase_match_history=(
+                old_player.get("kickbaseMatchHistory")
+                or old_player.get("kickbasePointsHistory")
+                or []
+            ),
         )
         evidence_ratio = evidence_adj.get("ratio")
         evidence_pct = (
@@ -5468,7 +5542,7 @@ def build_player_intelligence(
             if evidence_ratio is not None else "n/a"
         )
         print(
-            f"AI-PROJECTION {name}: V29 Expected Points="
+            f"AI-PROJECTION {name}: V50 Kickbase Expected Points="
             f"{kickbase_ai_projection.get('expectedPoints')} "
             f"[{kickbase_ai_projection.get('rangeMin')}-"
             f"{kickbase_ai_projection.get('rangeMax')}] | "
