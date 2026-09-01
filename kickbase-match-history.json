@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "description": "Explizite echte Kickbase-Spielpunkte. Diese Datei ist getrennt von Bundesliga-/OpenLigaDB-Statistiken und darf nur verifizierte KB-Punkte enthalten.",
+  "players": {
+    "nicolas-kristof": [
+      {
+        "points": 83,
+        "played": true,
+        "opponent": "Bayer 04 Leverkusen",
+        "source": "manual_verified",
+        "note": "vom Nutzer als echte Kickbase-Punkte bestätigt"
+      }
+    ],
+    "adam-daghim": [
+      {
+        "points": 163,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer als echte Kickbase-Punkte bestätigt; 1 Tor"
+      }
+    ],
+    "harry-kane": [
+      {
+        "points": 124,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer als echte Kickbase-Punkte bestätigt; ohne Tor"
+      }
+    ]
+  }
+}
