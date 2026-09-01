@@ -5110,7 +5110,7 @@ def build_player_intelligence(
         projection_player = dict(player)
         projection_player.update({
             "starting": starting,
-            "injury": display_injury,
+            "injury": injury,
             "suspension": suspension,
             "homeAway": home_away,
         })
