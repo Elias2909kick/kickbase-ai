@@ -5276,7 +5276,6 @@ def build_player_intelligence(
         f"ProfileStarting={starting} | DisplayStarting={display_starting} | "
         f"StartProbability={display_start_probability} | "
         f"StartDisplay={display_starting} | "
-        f"Goals={display_goals} | GA={display_goals_against} | "
         f"Injury={injury} | Suspension={suspension}"
     )
 
@@ -5302,6 +5301,13 @@ def build_player_intelligence(
         performance.get("goals")
         if isinstance(performance, dict)
         else None
+    )
+
+    print(
+        f"V45.4-UI-STATS {name}: "
+        f"StartDisplay={display_starting} | "
+        f"Goals={display_goals} | "
+        f"GoalsAgainst={display_goals_against}"
     )
 
     projection_recommendation = (
@@ -5354,7 +5360,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 45.3,
+        "schemaVersion": 45.4,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5422,7 +5428,7 @@ def build_player_intelligence(
         "kickbaseAiProjection": kickbase_ai_projection,
         "playerIntelligenceV45": v45_player_intelligence,
         "displayIntelligence": {
-            "schemaVersion": 45.3,
+            "schemaVersion": 45.4,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
