@@ -4649,7 +4649,8 @@ def extract_player_profile_intelligence(player):
             "redCards": red_cards,
             "saves": saves,
             "cleanSheets": clean_sheets,
-            "goalsAgainst": display_goals_against,
+            # V47: raw observed profile fact; UI formatting happens later.
+            "goalsAgainst": goals_against,
             "form": form,
             "starting": starting,
             "injury": injury,
@@ -5433,7 +5434,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 46,
+        "schemaVersion": 47,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5518,7 +5519,7 @@ def build_player_intelligence(
             "recommendation": display_recommendation,
         },
         "displayIntelligence": {
-            "schemaVersion": 46,
+            "schemaVersion": 47,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
