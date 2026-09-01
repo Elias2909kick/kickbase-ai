@@ -4586,7 +4586,7 @@ def extract_player_profile_intelligence(player):
             "cleanSheets": clean_sheets,
             "goalsAgainst": goals_against,
             "form": form,
-            "starting": display_starting,
+            "starting": starting,
             "injury": injury,
             "injuryDiagnosis": injury_diagnosis,
             "injuryExpectedAbsence": injury_expected_absence,
@@ -5221,6 +5221,11 @@ def build_player_intelligence(
             f"V45-AI-DISPLAY {name}: canonical UI payload wird erzeugt | "
             f"legacy bridge bleibt kompatibel"
         )
+        print(
+            f"V45.1-SCOPE {name}: "
+            f"ProfileStarting={starting} | DisplayStarting={display_starting} | "
+            f"Injury={injury} | Suspension={suspension}"
+        )
 
     # Dynamische Spieltagsdaten immer neu berechnen.
     old_recommendation = old_player.get("recommendation")
@@ -5321,7 +5326,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 45,
+        "schemaVersion": 45.1,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5381,7 +5386,7 @@ def build_player_intelligence(
         "kickbaseAiProjection": kickbase_ai_projection,
         "playerIntelligenceV45": v45_player_intelligence,
         "displayIntelligence": {
-            "schemaVersion": 45,
+            "schemaVersion": 45.1,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
