@@ -611,6 +611,7 @@ BUNDESLIGA_CLUB_NEWS_SLUGS = {
 }
 
 HISTORICAL_MATCH_EVIDENCE_CACHE = {}
+V49_CURRENT_LINEUP_CACHE = {}
 BUNDESLIGA_CLUB_SCHEDULE_SLUGS = {
     "SV 07 Elversberg": "sv-elversberg",
     "SV Elversberg": "sv-elversberg",
@@ -1361,25 +1362,57 @@ def v48_resolve_goalkeeper_goals_against(player, club_name, matches, public_play
     started_all = starts is not None and int(starts) == team_matches
     full_minutes = minutes is not None and minutes >= (89.0 * team_matches)
 
-    if not (appeared_all and (started_all or full_minutes)):
+    lineup_evidence = _v49_current_official_gk_start_evidence(
+        player,
+        club_name,
+        team_matches,
+    )
+    official_starts_all = (
+        lineup_evidence.get("status") == "complete"
+        and int(lineup_evidence.get("startsProven") or 0) >= team_matches
+    )
+
+    # Exact current count is allowed when either:
+    # A) profile minutes/starts prove full coverage, or
+    # B) official current Bundesliga lineup pages prove the keeper started
+    #    every completed league match AND the profile appearances count does
+    #    not contradict that evidence.
+    profile_complete = appeared_all and (started_all or full_minutes)
+    lineup_complete = official_starts_all and (
+        appearances is None or int(appearances) == team_matches
+    )
+
+    if not (profile_complete or lineup_complete):
         return {
             "value": None,
             "status": "unknown",
             "source": None,
             "evidence": (
                 f"coverage_not_proven:teamMatches={team_matches},"
-                f"appearances={appearances},starts={starts},minutes={minutes}"
+                f"appearances={appearances},starts={starts},minutes={minutes};"
+                f"lineups={lineup_evidence.get('startsProven')}/"
+                f"{lineup_evidence.get('matchesRequired')};"
+                f"lineupStatus={lineup_evidence.get('status')}"
             ),
+            "lineupEvidence": lineup_evidence,
         }
 
+    source = (
+        "OpenLigaDB + Bundesliga.com Lineups"
+        if lineup_complete and not profile_complete
+        else "OpenLigaDB"
+    )
     return {
         "value": int(sum(completed)),
         "status": "observed",
-        "source": "OpenLigaDB",
+        "source": source,
         "evidence": (
             f"complete_keeper_coverage:{team_matches}_matches;"
-            f"appearances={appearances};starts={starts};minutes={minutes}"
+            f"appearances={appearances};starts={starts};minutes={minutes};"
+            f"officialLineups={lineup_evidence.get('startsProven')}/"
+            f"{lineup_evidence.get('matchesRequired')}"
         ),
+        "lineupEvidence": lineup_evidence,
     }
 
 
@@ -1901,6 +1934,156 @@ def _extract_match_links_from_schedule(html, competition, season):
             seen.add(path)
             links.append("https://www.bundesliga.com" + path)
     return links
+
+
+
+def _v49_current_official_gk_start_evidence(player, club_name, completed_match_count):
+    """
+    Current-season official Bundesliga lineup evidence.
+
+    Strict rule:
+    - the player's name must be present on the official /lineup page
+    - AND the page must contain a starting-XI marker
+    - AND this must be proven for every completed league match so far.
+
+    If anything is missing, return unknown. We never infer a start from an
+    appearance count alone.
+    """
+    name = str(player.get("name") or "").strip()
+    if not name or completed_match_count <= 0:
+        return {
+            "status": "unknown",
+            "startsProven": 0,
+            "matchesRequired": completed_match_count,
+            "evidence": "no_name_or_no_completed_matches",
+            "sourceUrls": [],
+        }
+
+    competition = "bundesliga"
+    slug = (
+        BUNDESLIGA_CLUB_SCHEDULE_SLUGS.get(club_name)
+        or BUNDESLIGA_CLUB_NEWS_SLUGS.get(club_name)
+    )
+    if not slug:
+        return {
+            "status": "unknown",
+            "startsProven": 0,
+            "matchesRequired": completed_match_count,
+            "evidence": "club_slug_missing",
+            "sourceUrls": [],
+        }
+
+    cache_key = (club_name, CURRENT_SEASON, "v49-current-lineup")
+    club_data = V49_CURRENT_LINEUP_CACHE.get(cache_key)
+    if club_data is None:
+        schedule_url = (
+            f"https://www.bundesliga.com/de/{competition}/spieltag/"
+            f"{BUNDESLIGA_STATS_SEASON}/{slug}"
+        )
+        try:
+            schedule_html = http_get_text(schedule_url, timeout=12)
+            links = _extract_match_links_from_schedule(
+                schedule_html,
+                competition,
+                BUNDESLIGA_STATS_SEASON,
+            )
+        except Exception as exc:
+            club_data = {
+                "available": False,
+                "reason": f"schedule_fetch_failed:{type(exc).__name__}",
+                "scheduleUrl": schedule_url,
+                "lineups": {},
+            }
+            V49_CURRENT_LINEUP_CACHE[cache_key] = club_data
+            links = []
+
+        if links:
+            lineups = {}
+            # Early season: fetch only enough pages to cover completed matches,
+            # plus a tiny buffer in case future fixtures appear first.
+            for match_url in links[: max(completed_match_count + 2, 3)]:
+                lineup_url = match_url.rstrip("/") + "/lineup"
+                try:
+                    html = http_get_text(lineup_url, timeout=10)
+                except Exception:
+                    continue
+
+                plain = re.sub(
+                    r"<script\b[^>]*>.*?</script>",
+                    " ",
+                    html,
+                    flags=re.IGNORECASE | re.DOTALL,
+                )
+                plain = re.sub(
+                    r"<style\b[^>]*>.*?</style>",
+                    " ",
+                    plain,
+                    flags=re.IGNORECASE | re.DOTALL,
+                )
+                plain = re.sub(r"<[^>]+>", " ", plain)
+                plain = unescape(re.sub(r"\s+", " ", plain)).strip()
+                lineups[lineup_url] = plain
+
+            club_data = {
+                "available": bool(lineups),
+                "scheduleUrl": schedule_url,
+                "lineups": lineups,
+            }
+            V49_CURRENT_LINEUP_CACHE[cache_key] = club_data
+
+    if not club_data.get("available"):
+        return {
+            "status": "unknown",
+            "startsProven": 0,
+            "matchesRequired": completed_match_count,
+            "evidence": club_data.get("reason") or "no_lineup_pages",
+            "sourceUrls": [],
+        }
+
+    name_norm = _normalize_player_lookup_name(name)
+    club_norm = _normalize_player_lookup_name(club_name)
+    proven_urls = []
+
+    for lineup_url, plain in (club_data.get("lineups") or {}).items():
+        normalized = _normalize_player_lookup_name(plain)
+        if not name_norm or name_norm not in normalized:
+            continue
+
+        # Presence alone can include a bench. Require a start-XI marker.
+        # Bundesliga pages use variants such as "Startelf", "Startaufstellung"
+        # or "Starting XI". The club name/slug must also be present.
+        has_start_marker = any(
+            marker in normalized
+            for marker in (
+                "startelf",
+                "startaufstellung",
+                "starting xi",
+                "starting lineup",
+            )
+        )
+        has_club_context = club_norm in normalized or normalize_name(slug) in normalized
+
+        if has_start_marker and has_club_context:
+            proven_urls.append(lineup_url)
+
+    starts_proven = len(proven_urls)
+    status = (
+        "complete"
+        if starts_proven >= completed_match_count
+        else "partial"
+        if starts_proven > 0
+        else "unknown"
+    )
+    return {
+        "status": status,
+        "startsProven": starts_proven,
+        "matchesRequired": completed_match_count,
+        "evidence": (
+            f"official_current_lineups:{starts_proven}/{completed_match_count}"
+        ),
+        "sourceUrls": proven_urls,
+        "scheduleUrl": club_data.get("scheduleUrl"),
+    }
 
 
 def _historical_match_evidence_for_club(club_name, competition):
@@ -4719,7 +4902,7 @@ def extract_player_profile_intelligence(player):
             "redCards": red_cards,
             "saves": saves,
             "cleanSheets": clean_sheets,
-            "goalsAgainst": display_goals_against,
+            "goalsAgainst": goals_against,
             "form": form,
             "starting": starting,
             "injury": injury,
@@ -5044,7 +5227,7 @@ def build_player_intelligence(
             public_player["goalsAgainstSource"] = _v48_ga.get("source")
             public_player["goalsAgainstEvidence"] = _v48_ga.get("evidence")
             print(
-                f"V48-GK-GA {name}: "
+                f"V49-GK-GA {name}: "
                 f"value={_v48_ga.get('value')} | "
                 f"status={_v48_ga.get('status')} | "
                 f"source={_v48_ga.get('source')} | "
@@ -5549,7 +5732,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 48,
+        "schemaVersion": 49,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5634,7 +5817,7 @@ def build_player_intelligence(
             "recommendation": display_recommendation,
         },
         "displayIntelligence": {
-            "schemaVersion": 48,
+            "schemaVersion": 49,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
