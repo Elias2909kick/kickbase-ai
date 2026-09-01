@@ -137,6 +137,71 @@ V44_ESTIMATE_POINT_WEIGHTS = {
     "aerialDuelsWon": {"TW": 0.8, "ABW": 1.5, "MF": 0.8, "ANG": 0.9},
 }
 
+
+# ============================================================
+# V46 CANONICAL ACTUAL-FACT LAYER
+# ============================================================
+# Goal: every occurrence stat shown in the UI follows ONE rule:
+#   observed current-season count + explicit source => show integer
+#   otherwise => unknown
+# No model estimate / prior / rate may leak into these fields.
+
+V46_ACTUAL_COUNT_FIELDS = ("goals", "goalsAgainst", "yellowCards")
+
+def v46_actual_count_fact(metric, performance, performance_sources, profile_values=None):
+    performance = performance or {}
+    performance_sources = performance_sources or {}
+    profile_values = profile_values or {}
+
+    # 1) Explicit current-season performance source.
+    value = performance.get(metric)
+    source = performance_sources.get(metric)
+    if value is not None and source:
+        try:
+            number = float(value)
+            rounded = round(number)
+            if number >= 0 and abs(number - rounded) < 1e-9:
+                return {
+                    "value": int(rounded),
+                    "status": "observed",
+                    "source": source,
+                    "origin": "current_performance",
+                }
+        except (TypeError, ValueError):
+            pass
+
+    # 2) Explicit official player-profile value.
+    profile_value = profile_values.get(metric)
+    profile_source = profile_values.get("sourceUrl")
+    if profile_value is not None and profile_source:
+        try:
+            number = float(profile_value)
+            rounded = round(number)
+            if number >= 0 and abs(number - rounded) < 1e-9:
+                return {
+                    "value": int(rounded),
+                    "status": "observed",
+                    "source": profile_source,
+                    "origin": "official_profile",
+                }
+        except (TypeError, ValueError):
+            pass
+
+    return {
+        "value": None,
+        "status": "unknown",
+        "source": None,
+        "origin": None,
+    }
+
+def v46_build_actual_facts(performance, performance_sources, profile_values=None):
+    return {
+        metric: v46_actual_count_fact(
+            metric, performance, performance_sources, profile_values
+        )
+        for metric in V46_ACTUAL_COUNT_FIELDS
+    }
+
 def v44_missing_event_prior(position, missing_metrics, minutes=90.0):
     """
     Return transparent, conservative priors for genuinely missing event metrics.
@@ -5284,64 +5349,31 @@ def build_player_intelligence(
     if isinstance(display_start_probability, (int, float)):
         display_starting = f"{int(round(display_start_probability))}%"
 
-    # V45.8: UI occurrence stats must be REAL season counts only.
-    # No rates, priors, percentages or model estimates are allowed here.
-    def _actual_count(metric, fallback=None, require_source=True):
-        value = performance.get(metric) if isinstance(performance, dict) else None
-        source = performance_sources.get(metric) if isinstance(performance_sources, dict) else None
-
-        # For strict player facts, a sourced current value is preferred.
-        if value is not None and (source or not require_source):
-            try:
-                number = float(value)
-                rounded = round(number)
-                # Counts must be integer-like and non-negative.
-                if number >= 0 and abs(number - rounded) < 1e-9:
-                    return int(rounded)
-            except (TypeError, ValueError):
-                pass
-
-        # Optional raw profile fallback, again only integer-like.
-        if fallback is not None:
-            try:
-                number = float(fallback)
-                rounded = round(number)
-                if number >= 0 and abs(number - rounded) < 1e-9:
-                    return int(rounded)
-            except (TypeError, ValueError):
-                pass
-
-        return None
-
-    # Goals: current observed season total.
-    display_goals = _actual_count("goals", fallback=goals, require_source=True)
-
-    # Goals against: NEVER infer 0 from missing data. It is shown only when a
-    # current explicit goalsAgainst source exists.
-    display_goals_against = _actual_count(
-        "goalsAgainst",
-        fallback=None,
-        require_source=True,
+    # V46: canonical observed facts. One resolver for every player/position.
+    _profile_facts = {
+        "goals": goals,
+        "goalsAgainst": goals_against,
+        "yellowCards": yellow_cards,
+        "sourceUrl": profile_url if profile_available else None,
+    }
+    actual_facts = v46_build_actual_facts(
+        performance,
+        performance_sources,
+        _profile_facts,
     )
 
-    # Yellow cards: current observed season total. Profile fallback is allowed
-    # because the profile parser can explicitly return this count.
-    display_yellow_cards = _actual_count(
-        "yellowCards",
-        fallback=yellow_cards,
-        require_source=False,
-    )
+    display_goals = actual_facts["goals"]["value"]
+    display_goals_against = actual_facts["goalsAgainst"]["value"]
+    display_yellow_cards = actual_facts["yellowCards"]["value"]
 
     display_injury = injury if injury not in (None, "", "Noch nicht recherchiert") else None
 
 
     print(
-        f"V45.8-ACTUAL-COUNTS {name}: "
-        f"Start={display_starting} | "
-        f"Goals={display_goals} | "
-        f"GA={display_goals_against} | "
-        f"Injury={display_injury} | "
-        f"YellowCards={display_yellow_cards}"
+        f"V46-ACTUAL-FACTS {name}: "
+        f"Goals={actual_facts['goals']} | "
+        f"GA={actual_facts['goalsAgainst']} | "
+        f"YC={actual_facts['yellowCards']}"
     )
 
     print(
@@ -5401,7 +5433,7 @@ def build_player_intelligence(
         _confidence_label = "Noch nicht recherchiert"
 
     v45_player_intelligence = {
-        "schemaVersion": 45.8,
+        "schemaVersion": 46,
         "headline": {
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
@@ -5438,8 +5470,11 @@ def build_player_intelligence(
         },
         "stats": {
             "goals": display_goals,
+            "goalsStatus": actual_facts["goals"]["status"],
             "goalsAgainst": display_goals_against,
+            "goalsAgainstStatus": actual_facts["goalsAgainst"]["status"],
             "yellowCards": display_yellow_cards,
+            "yellowCardsStatus": actual_facts["yellowCards"]["status"],
         },
         "pointDrivers": _components,
         "positionScoring": _position_scoring,
@@ -5469,6 +5504,7 @@ def build_player_intelligence(
         ),
         "kickbaseAiProjection": kickbase_ai_projection,
         "playerIntelligenceV45": v45_player_intelligence,
+        "actualFacts": actual_facts,
         "playerIntelligenceUiRows": {
             "projectedPoints": display_expected_points,
             "startProbability": display_start_probability,
@@ -5482,7 +5518,7 @@ def build_player_intelligence(
             "recommendation": display_recommendation,
         },
         "displayIntelligence": {
-            "schemaVersion": 45.8,
+            "schemaVersion": 46,
             "projectedPoints": display_expected_points,
             "projectedPointsLabel": _points_label,
             "rangeLabel": _range_label,
