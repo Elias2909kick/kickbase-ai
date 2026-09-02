@@ -1898,83 +1898,133 @@ def _get_bundesliga_stat_text(metric_key, season=None, historical=False, competi
 
 
 # ============================================================
-# V54 CURRENT-SEASON GOALS RESOLVER
+# V56 CURRENT-SEASON GOALS RESOLVER
 # ============================================================
 # UI/current-performance goals are read ONLY from the current-season
 # Bundesliga goals ranking. Historical pages remain projection priors only.
 
-def _v55_profile_current_season_metric(player, labels):
+def _v56_current_season_labels():
+    """Return official season spellings currently used by Bundesliga.com."""
+    labels = {str(CURRENT_SEASON or "").strip()}
+    raw = str(BUNDESLIGA_STATS_SEASON or "").strip()
+    if raw:
+        labels.add(raw)
+        parts = re.split(r"[-/]", raw)
+        if len(parts) == 2 and all(part.isdigit() for part in parts):
+            labels.add(f"{parts[0]}/{parts[1]}")
+            if len(parts[1]) == 4:
+                labels.add(f"{parts[0]}/{parts[1][-2:]}")
+    return tuple(label for label in labels if label)
+
+
+def _v56_profile_current_season_block(player):
     """
-    Read a metric only from the explicit current-season statistics block on the
-    official Bundesliga player profile. This avoids matching historical/news
-    text elsewhere on the same profile page.
+    Load and isolate the explicit current-season statistics block from the
+    official Bundesliga player profile.
+
+    Bundesliga.com currently renders season headings e.g. ``2026/2027`` while
+    the pipeline historically also used ``2026/27`` and ``2026-2027``.  V56
+    accepts all equivalent spellings but still requires an explicit
+    ``Statistik Saison`` heading, so historical/news text cannot leak in.
     """
     source_url = (player or {}).get("sourceUrl")
     if not source_url:
-        return {"value": None, "status": "unknown", "source": None,
-                "evidence": "profile_url_missing"}
+        return None, None, "profile_url_missing"
 
     try:
         html = http_get_text(source_url, timeout=12)
         text = _html_to_visible_text(html)
     except Exception as exc:
-        return {"value": None, "status": "unknown", "source": source_url,
-                "evidence": f"profile_unavailable:{type(exc).__name__}"}
+        return None, source_url, f"profile_unavailable:{type(exc).__name__}"
 
-    season_variants = (CURRENT_SEASON, BUNDESLIGA_STATS_SEASON.replace("-", "/"))
-    start = None
-    for season_label in season_variants:
-        match = re.search(
-            rf"Statistik\s+Saison\s+{re.escape(season_label)}",
-            text or "",
-            flags=re.IGNORECASE,
-        )
-        if match:
-            start = match.end()
-            break
+    season_pattern = "(?:" + "|".join(
+        re.escape(label) for label in _v56_current_season_labels()
+    ) + ")"
+    matches = list(re.finditer(
+        rf"Statistik\s+Saison\s+{season_pattern}",
+        text or "",
+        flags=re.IGNORECASE,
+    ))
+    if not matches:
+        return None, source_url, "explicit_current_season_profile_block_missing"
 
-    if start is None:
-        return {"value": None, "status": "unknown", "source": source_url,
-                "evidence": "explicit_current_season_profile_block_missing"}
-
-    tail = text[start:]
+    # Prefer the last occurrence. Bundesliga.com may render a navigation/tab
+    # label first and the actual detailed statistics heading later.
+    start = matches[-1].end()
+    tail = (text or "")[start:]
     end_match = re.search(
-        r"\b(?:Letztes Spiel|News|Videos|Mitspieler|Kompletter Kader)\b",
+        r"\b(?:News|Videos|Mitspieler|Kompletter\s+Kader|Empfohlener\s+redaktioneller\s+Inhalt)\b",
         tail,
         flags=re.IGNORECASE,
     )
-    block = tail[:end_match.start()] if end_match else tail[:2500]
+    block = tail[:end_match.start()] if end_match else tail[:5000]
+    return block.strip(), source_url, "explicit_current_season_profile_block"
 
+
+def _v56_metric_from_profile_block(block, labels):
+    """Parse an explicit non-negative integer metric from a V56 profile block."""
     for label in labels:
         match = re.search(
-            rf"(?<![\w-]){re.escape(label)}(?![\w-])\s+(-?\d+(?:[.,]\d+)?)\b",
-            block,
+            rf"(?<![\w-]){re.escape(label)}(?![\w-])\s*[:\-]?\s*(-?\d+(?:[.,]\d+)?)\b",
+            block or "",
             flags=re.IGNORECASE,
         )
         if not match:
             continue
-        raw = match.group(1).replace(",", ".")
         try:
-            number = float(raw)
+            number = float(match.group(1).replace(",", "."))
             rounded = round(number)
-            if number < 0 or abs(number - rounded) > 1e-9:
-                continue
+            if number >= 0 and abs(number - rounded) < 1e-9:
+                return int(rounded)
+        except (TypeError, ValueError):
+            pass
+    return None
+
+
+def _v55_profile_current_season_metric(player, labels):
+    """V56-compatible wrapper retained under the V55 function name."""
+    block, source_url, block_evidence = _v56_profile_current_season_block(player)
+    if not block:
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": block_evidence,
+        }
+
+    value = _v56_metric_from_profile_block(block, labels)
+    if value is not None:
+        return {
+            "value": value,
+            "status": "observed",
+            "source": source_url,
+            "evidence": "explicit_current_season_official_player_profile_v56",
+        }
+
+    # A player with an explicitly observed 0 current-season appearances cannot
+    # have scored a current-season league goal. This is a deterministic fact,
+    # not an estimate and not an inference from ranking absence.
+    normalized_labels = {normalize_name(label) for label in labels}
+    if "tore" in normalized_labels or "goals" in normalized_labels:
+        appearances = _v56_metric_from_profile_block(block, ("Einsätze", "Einsaetze"))
+        if appearances == 0:
             return {
-                "value": int(rounded),
+                "value": 0,
                 "status": "observed",
                 "source": source_url,
-                "evidence": "explicit_current_season_official_player_profile",
+                "evidence": "explicit_current_season_profile_appearances_zero_implies_goals_zero_v56",
             }
-        except (TypeError, ValueError):
-            continue
 
-    return {"value": None, "status": "unknown", "source": source_url,
-            "evidence": "metric_missing_in_current_season_profile_block"}
-
+    return {
+        "value": None,
+        "status": "unknown",
+        "source": source_url,
+        "evidence": "metric_missing_in_current_season_profile_block_v56",
+    }
 
 def v55_current_season_goals(player, club_name, matches):
     """
-    V55 resolver order:
+    V56 resolver order:
       1) explicit 2026/27 official player-profile statistics block;
       2) explicit current-season Bundesliga goals ranking;
       3) unknown.
@@ -5967,7 +6017,7 @@ def build_player_intelligence(
             f"[{v52_current_fact_evidence.get('appearances')}]"
         )
 
-    # V55: if V52 rejected/missed current goals, resolve them from the explicit
+    # V56: if V52 rejected/missed current goals, resolve them from the explicit
     # current-season block of the official player profile first, then use the
     # strict current-season goals ranking as fallback. Never infer zero.
     v54_goals_fact = {
@@ -5997,7 +6047,7 @@ def build_player_intelligence(
 
     if research_player:
         print(
-            f"V55-CURRENT-GOALS {name}: "
+            f"V56-CURRENT-GOALS {name}: "
             f"value={v54_goals_fact.get('value')} | "
             f"status={v54_goals_fact.get('status')} | "
             f"evidence={v54_goals_fact.get('evidence')} | "
