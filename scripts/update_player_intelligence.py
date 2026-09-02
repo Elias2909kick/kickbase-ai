@@ -1898,12 +1898,12 @@ def _get_bundesliga_stat_text(metric_key, season=None, historical=False, competi
 
 
 # ============================================================
-# V53 CURRENT-SEASON GOALS RESOLVER
+# V54 CURRENT-SEASON GOALS RESOLVER
 # ============================================================
 # UI/current-performance goals are read ONLY from the current-season
 # Bundesliga goals ranking. Historical pages remain projection priors only.
 
-def v53_current_season_goals(player_name):
+def v54_current_season_goals(player_name):
     page_text, source_url = _get_bundesliga_stat_text(
         "goals",
         season=BUNDESLIGA_STATS_SEASON,
@@ -1957,70 +1957,99 @@ def _normalize_player_lookup_name(value):
     return re.sub(r"\s+", " ", value).strip()
 
 
-def _extract_metric_from_ranking_text(page_text, heading, player_name):
+def _v54_primary_ranking_segment(page_text, heading):
     """
-    Extrahiert den Wert eines Spielers aus dem sichtbaren Rankingtext.
+    Isolate ONLY the requested ranking block.
 
-    Die Bundesliga-Seiten rendern serverseitig Einträge in der Form:
-      Rang Spielername Wert
-
-    Der Ausschnitt wird auf den Bereich der gewählten Kategorie begrenzt,
-    um Seitenspalten mit anderen Rankings nicht versehentlich zu verwenden.
+    Bundesliga statistic pages contain many teaser rankings below the primary
+    ranking. Older parsing searched from the requested heading to EOF, so a
+    player absent from the primary "Tore" block could accidentally match later
+    in "Torschüsse", "Sprints", etc.
     """
-    if not page_text or not player_name:
+    if not page_text or not heading:
         return None
 
-    # Hauptkategorie ab ihrer Überschrift bis zum nächsten typischen Ranking-
-    # oder Navigationsmarker eingrenzen. Ein großzügiger Ausschnitt reicht,
-    # weil die aktuelle Saison zu Beginn nur wenige Nicht-Null-Werte enthält.
     heading_match = re.search(
-        re.escape(heading),
+        re.escape(str(heading)),
         page_text,
         flags=re.IGNORECASE,
     )
     if not heading_match:
         return None
 
-    start = heading_match.start()
+    tail = page_text[heading_match.start():]
 
-    # V25: Do not cut the ranking after 7k chars. On historical/2BL pages the
-    # requested player can occur much later in the server-rendered document.
-    # We still start at the requested heading to avoid unrelated page chrome.
-    segment = page_text[start:]
+    cut_positions = []
+    for pattern in (
+        r"\bWeniger anzeigen\b",
+        r"\bMehr laden\b",
+        r"\bVollständige Liste anzeigen\b",
+        r"\bVollstaendige Liste anzeigen\b",
+    ):
+        marker = re.search(pattern, tail, flags=re.IGNORECASE)
+        if marker and marker.start() > len(str(heading)):
+            cut_positions.append(marker.start())
 
-    # Exakten Namen bevorzugen.
-    full_name_parts = [re.escape(p) for p in str(player_name).strip().split() if p]
-    name_patterns = [
-        r"\\s+".join(full_name_parts),
-    ] if full_name_parts else []
-
-    # Unicode-/Akzent-robuster Fallback über Nachnamen.
-    parts = str(player_name).strip().split()
-    if parts:
-        surname = parts[-1]
-        if surname and surname != player_name:
-            name_patterns.append(re.escape(surname))
-
-    for name_pattern in name_patterns:
-        for match in re.finditer(
-            rf"\b{name_pattern}\b",
-            segment,
+    for config in BUNDESLIGA_PLAYER_STAT_CATEGORIES.values():
+        other = str((config or {}).get("heading") or "").strip()
+        if not other or normalize_name(other) == normalize_name(heading):
+            continue
+        marker = re.search(
+            re.escape(other),
+            tail[len(str(heading)):],
             flags=re.IGNORECASE,
-        ):
-            tail = segment[match.end():match.end() + 60]
+        )
+        if marker:
+            absolute = len(str(heading)) + marker.start()
+            if absolute > len(str(heading)):
+                cut_positions.append(absolute)
 
-            # Wert direkt nach dem Namen. Dezimalzahlen und Komma zulassen.
-            value_match = re.search(
-                r"^\s*(\d+(?:[.,]\d+)?)\b",
-                tail,
-            )
-            if value_match:
-                raw = value_match.group(1).replace(",", ".")
-                try:
-                    value = float(raw)
-                    return int(value) if value.is_integer() else value
-                except ValueError:
-                    continue
+    end = min(cut_positions) if cut_positions else len(tail)
+    return tail[:end]
+
+
+def _extract_metric_from_ranking_text(page_text, heading, player_name):
+    """
+    V54 strict ranking parser.
+
+    A value is accepted only if the player occurs inside the PRIMARY block of
+    the requested metric and the numeric value follows that exact full name.
+    No cross-category search and no surname-only fallback.
+    """
+    if not page_text or not player_name:
+        return None
+
+    segment = _v54_primary_ranking_segment(page_text, heading)
+    if not segment:
+        return None
+
+    parts = [re.escape(p) for p in str(player_name).strip().split() if p]
+    if not parts:
+        return None
+
+    name_pattern = r"\s+".join(parts)
+
+    for match in re.finditer(
+        rf"(?<![\w-]){name_pattern}(?![\w-])",
+        segment,
+        flags=re.IGNORECASE,
+    ):
+        tail = segment[match.end():match.end() + 40]
+
+        value_match = re.match(
+            r"\s+(-?\d+(?:[.,]\d+)?)\b",
+            tail,
+        )
+        if not value_match:
+            continue
+
+        raw = value_match.group(1).replace(",", ".")
+        try:
+            value = float(raw)
+        except ValueError:
+            continue
+
+        return int(value) if value.is_integer() else value
 
     return None
 
@@ -5818,7 +5847,7 @@ def build_player_intelligence(
 
     # V53: if V52 rejected a stale current-goals value, make one explicit
     # attempt against the 2026/27 Bundesliga goals ranking.
-    v53_goals_fact = {
+    v54_goals_fact = {
         "value": performance.get("goals"),
         "status": "observed" if performance.get("goals") is not None else "unknown",
         "source": performance_sources.get("goals"),
@@ -5829,18 +5858,18 @@ def build_player_intelligence(
         ),
     }
     if performance.get("goals") is None:
-        v53_goals_fact = v53_current_season_goals(name)
-        if v53_goals_fact.get("status") == "observed":
-            performance["goals"] = v53_goals_fact.get("value")
-            performance_sources["goals"] = v53_goals_fact.get("source")
+        v54_goals_fact = v54_current_season_goals(name)
+        if v54_goals_fact.get("status") == "observed":
+            performance["goals"] = v54_goals_fact.get("value")
+            performance_sources["goals"] = v54_goals_fact.get("source")
 
     if research_player:
         print(
-            f"V53-CURRENT-GOALS {name}: "
-            f"value={v53_goals_fact.get('value')} | "
-            f"status={v53_goals_fact.get('status')} | "
-            f"evidence={v53_goals_fact.get('evidence')} | "
-            f"source={v53_goals_fact.get('source')}"
+            f"V54-CURRENT-GOALS {name}: "
+            f"value={v54_goals_fact.get('value')} | "
+            f"status={v54_goals_fact.get('status')} | "
+            f"evidence={v54_goals_fact.get('evidence')} | "
+            f"source={v54_goals_fact.get('source')}"
         )
 
     kickbase_factor_coverage = build_kickbase_factor_coverage(performance, player.get("position"))
@@ -6293,7 +6322,7 @@ def build_player_intelligence(
         "performance": performance,
         "performanceSources": performance_sources,
         "currentSeasonFactGuard": v52_current_fact_evidence,
-        "currentSeasonGoalsFact": v53_goals_fact,
+        "currentSeasonGoalsFact": v54_goals_fact,
         "dataCoverage": data_coverage,
         "historicalPrior": historical_prior,
         "historicalPriorSources": historical_prior_sources,
