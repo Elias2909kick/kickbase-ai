@@ -13305,24 +13305,24 @@
       "average": 38,
       "starting": "94%",
       "form": "Letztes KB-Spiel: 124 Pkt.",
-      "footballRating": 107,
-      "kickbaseAiScore": 107,
+      "footballRating": 120,
+      "kickbaseAiScore": 120,
       "kickbaseAiProjection": {
-        "expectedPoints": 107,
-        "rangeMin": 66,
-        "rangeMax": 148,
+        "expectedPoints": 120,
+        "rangeMin": 77,
+        "rangeMax": 163,
         "confidence": 59,
-        "recommendation": "Starten",
+        "recommendation": "Top-Option",
         "expectedMinutes": 74,
         "minutesIfStart": 77,
         "minutesIfBench": 24,
         "startProbability": 94,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 112.6,
-          "benchPoints": 24.6,
-          "publicRawStarterPoints": 54.8,
-          "publicRawBenchPoints": 16.5
+          "starterPoints": 126.0,
+          "benchPoints": 27.6,
+          "publicRawStarterPoints": 143.7,
+          "publicRawBenchPoints": 44.2
         },
         "kickbaseCalibration": {
           "source": "kickbase_match_history",
@@ -13330,10 +13330,10 @@
           "historyMean": 124.0,
           "historyWeight": 0.55,
           "positionBaseline": 96.0,
-          "publicRawExpected": 52.5,
-          "publicDeltaRaw": 2.6,
-          "publicDeltaApplied": 2.6,
-          "calibratedStarter": 112.6
+          "publicRawExpected": 137.7,
+          "publicDeltaRaw": 32.4,
+          "publicDeltaApplied": 32.4,
+          "calibratedStarter": 126.0
         },
         "historicalPriorStrength": {
           "bonus": 38.0,
@@ -13364,13 +13364,13 @@
         "components": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "goals": 0.0,
-          "assists": 0.0,
-          "shots": 6.8,
+          "goals": 79.5,
+          "assists": 4.8,
+          "shots": 12.5,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 0.0,
-          "fouls": -0.0,
+          "crosses": 0.1,
+          "fouls": -1.2,
           "yellowCards": -0.0,
           "historicalPrior": 38.0,
           "homeAway": -2.0
@@ -13420,12 +13420,12 @@
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
-          "projectedPoints": 107,
-          "projectedPointsLabel": "107 Punkte",
-          "rangeMin": 66,
-          "rangeMax": 148,
-          "rangeLabel": "66–148 Punkte",
-          "recommendation": "Starten"
+          "projectedPoints": 120,
+          "projectedPointsLabel": "120 Punkte",
+          "rangeMin": 77,
+          "rangeMax": 163,
+          "rangeLabel": "77–163 Punkte",
+          "recommendation": "Top-Option"
         },
         "availability": {
           "startProbability": 94,
@@ -13450,7 +13450,7 @@
           "positionModel": "ANG"
         },
         "stats": {
-          "goals": 0,
+          "goals": 36,
           "goalsStatus": "observed",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
@@ -13460,13 +13460,13 @@
         "pointDrivers": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "goals": 0.0,
-          "assists": 0.0,
-          "shots": 6.8,
+          "goals": 79.5,
+          "assists": 4.8,
+          "shots": 12.5,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 0.0,
-          "fouls": -0.0,
+          "crosses": 0.1,
+          "fouls": -1.2,
           "yellowCards": -0.0,
           "historicalPrior": 38.0,
           "homeAway": -2.0
@@ -13480,16 +13480,16 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 112.6,
-          "benchPoints": 24.6,
-          "publicRawStarterPoints": 54.8,
-          "publicRawBenchPoints": 16.5
+          "starterPoints": 126.0,
+          "benchPoints": 27.6,
+          "publicRawStarterPoints": 143.7,
+          "publicRawBenchPoints": 44.2
         },
         "source": "kickbaseAiProjection"
       },
       "actualFacts": {
         "goals": {
-          "value": 0,
+          "value": 36,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
           "origin": "current_performance"
@@ -13508,27 +13508,27 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 107,
+        "projectedPoints": 120,
         "startProbability": 94,
-        "goals": 0,
+        "goals": 36,
         "goalsAgainst": null,
         "opponent": "FC Schalke 04",
         "homeAway": "Auswärts",
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Starten"
+        "recommendation": "Top-Option"
       },
       "displayIntelligence": {
         "schemaVersion": 51,
-        "projectedPoints": 107,
-        "projectedPointsLabel": "107 Punkte",
-        "rangeLabel": "66–148 Punkte",
+        "projectedPoints": 120,
+        "projectedPointsLabel": "120 Punkte",
+        "rangeLabel": "77–163 Punkte",
         "startProbabilityLabel": "94%",
         "expectedMinutesLabel": "74 Min.",
         "confidenceLabel": "59%",
         "startingAssessment": "94%",
-        "goals": 0,
+        "goals": 36,
         "goalsAgainst": null,
         "yellowCards": 0,
         "injury": "Fit",
@@ -13538,13 +13538,13 @@
         "pointDrivers": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "goals": 0.0,
-          "assists": 0.0,
-          "shots": 6.8,
+          "goals": 79.5,
+          "assists": 4.8,
+          "shots": 12.5,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
-          "crosses": 0.0,
-          "fouls": -0.0,
+          "crosses": 0.1,
+          "fouls": -1.2,
           "yellowCards": -0.0,
           "historicalPrior": 38.0,
           "homeAway": -2.0
@@ -13557,32 +13557,32 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 66,
-        "rangeMax": 148,
+        "rangeMin": 77,
+        "rangeMax": 163,
         "confidence": 59,
         "startProbability": 94,
         "expectedMinutes": 74,
-        "recommendation": "Starten",
+        "recommendation": "Top-Option",
         "scoringReadinessPercent": 80,
         "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
       },
       "performance": {
-        "appearances": 1,
+        "appearances": 31,
         "starts": null,
         "minutes": null,
-        "goals": 0,
-        "assists": 0,
-        "shots": 2,
+        "goals": 36,
+        "assists": 5,
+        "shots": 113,
         "shotsOnTarget": null,
         "woodwork": 0,
-        "penalties": 0,
+        "penalties": 11,
         "penaltiesScored": 0,
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 0,
-        "fouls": 0,
+        "crosses": 8,
+        "fouls": 22,
         "yellowCards": 0,
         "redCards": null,
         "saves": 0,
@@ -13779,11 +13779,11 @@
           "Readiness misst Datenabdeckung, nicht Spielerqualität."
         ]
       },
-      "appearances": 1,
+      "appearances": 31,
       "starts": null,
       "minutes": null,
-      "goals": 0,
-      "assists": 0,
+      "goals": 36,
+      "assists": 5,
       "goalsAgainst": null,
       "yellowCards": 0,
       "lastMatch": "Freitag 28. August Bayern FC Bayern München FCB 5 VFB 1 Stuttgart VfB Stuttgart",
@@ -13796,7 +13796,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Starten",
+      "recommendation": "Top-Option",
       "lastUpdated": "2026-09-02",
       "sources": [
         {
@@ -177709,12 +177709,12 @@
       "average": 18,
       "starting": "98%",
       "form": "Letztes KB-Spiel: 43 Pkt.",
-      "footballRating": 61,
-      "kickbaseAiScore": 61,
+      "footballRating": 60,
+      "kickbaseAiScore": 60,
       "kickbaseAiProjection": {
-        "expectedPoints": 61,
-        "rangeMin": 19,
-        "rangeMax": 103,
+        "expectedPoints": 60,
+        "rangeMin": 18,
+        "rangeMax": 102,
         "confidence": 37,
         "recommendation": "Gute Option",
         "expectedMinutes": 77,
@@ -177723,10 +177723,10 @@
         "startProbability": 98,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 62.1,
-          "benchPoints": 12.5,
-          "publicRawStarterPoints": 23.8,
-          "publicRawBenchPoints": 10.1
+          "starterPoints": 60.9,
+          "benchPoints": 12.2,
+          "publicRawStarterPoints": 16.0,
+          "publicRawBenchPoints": 7.9
         },
         "kickbaseCalibration": {
           "source": "kickbase_match_history",
@@ -177734,10 +177734,10 @@
           "historyMean": 43.0,
           "historyWeight": 0.55,
           "positionBaseline": 92.0,
-          "publicRawExpected": 23.5,
-          "publicDeltaRaw": -6.5,
-          "publicDeltaApplied": -6.5,
-          "calibratedStarter": 62.1
+          "publicRawExpected": 15.8,
+          "publicDeltaRaw": -9.2,
+          "publicDeltaApplied": -9.2,
+          "calibratedStarter": 60.9
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -177761,14 +177761,6 @@
         "components": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "goals": 0.0,
-          "assists": 0.0,
-          "shots": 6.1,
-          "duelsWon": 0.0,
-          "aerialDuelsWon": 0.0,
-          "crosses": 1.7,
-          "fouls": -0.0,
-          "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
         },
@@ -177817,11 +177809,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
-          "projectedPoints": 61,
-          "projectedPointsLabel": "61 Punkte",
-          "rangeMin": 19,
-          "rangeMax": 103,
-          "rangeLabel": "19–103 Punkte",
+          "projectedPoints": 60,
+          "projectedPointsLabel": "60 Punkte",
+          "rangeMin": 18,
+          "rangeMax": 102,
+          "rangeLabel": "18–102 Punkte",
           "recommendation": "Gute Option"
         },
         "availability": {
@@ -177857,14 +177849,6 @@
         "pointDrivers": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "goals": 0.0,
-          "assists": 0.0,
-          "shots": 6.1,
-          "duelsWon": 0.0,
-          "aerialDuelsWon": 0.0,
-          "crosses": 1.7,
-          "fouls": -0.0,
-          "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
         },
@@ -177877,10 +177861,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 62.1,
-          "benchPoints": 12.5,
-          "publicRawStarterPoints": 23.8,
-          "publicRawBenchPoints": 10.1
+          "starterPoints": 60.9,
+          "benchPoints": 12.2,
+          "publicRawStarterPoints": 16.0,
+          "publicRawBenchPoints": 7.9
         },
         "source": "kickbaseAiProjection"
       },
@@ -177905,7 +177889,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 61,
+        "projectedPoints": 60,
         "startProbability": 98,
         "goals": 0,
         "goalsAgainst": null,
@@ -177918,9 +177902,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 51,
-        "projectedPoints": 61,
-        "projectedPointsLabel": "61 Punkte",
-        "rangeLabel": "19–103 Punkte",
+        "projectedPoints": 60,
+        "projectedPointsLabel": "60 Punkte",
+        "rangeLabel": "18–102 Punkte",
         "startProbabilityLabel": "98%",
         "expectedMinutesLabel": "77 Min.",
         "confidenceLabel": "37%",
@@ -177935,14 +177919,6 @@
         "pointDrivers": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "goals": 0.0,
-          "assists": 0.0,
-          "shots": 6.1,
-          "duelsWon": 0.0,
-          "aerialDuelsWon": 0.0,
-          "crosses": 1.7,
-          "fouls": -0.0,
-          "yellowCards": -0.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
         },
@@ -177954,8 +177930,8 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 19,
-        "rangeMax": 103,
+        "rangeMin": 18,
+        "rangeMax": 102,
         "confidence": 37,
         "startProbability": 98,
         "expectedMinutes": 77,
@@ -177965,12 +177941,12 @@
         "source": "kickbaseAiProjection"
       },
       "performance": {
-        "appearances": 1,
+        "appearances": 0,
         "starts": null,
         "minutes": null,
         "goals": 0,
         "assists": 0,
-        "shots": 2,
+        "shots": 0,
         "shotsOnTarget": null,
         "woodwork": 0,
         "penalties": 0,
@@ -177978,7 +177954,7 @@
         "passAccuracy": null,
         "duelsWon": 0,
         "aerialDuelsWon": 0,
-        "crosses": 2,
+        "crosses": 0,
         "fouls": 0,
         "yellowCards": 0,
         "redCards": null,
@@ -178186,7 +178162,7 @@
           "Readiness misst Datenabdeckung, nicht Spielerqualität."
         ]
       },
-      "appearances": 1,
+      "appearances": 0,
       "starts": null,
       "minutes": null,
       "goals": 0,
