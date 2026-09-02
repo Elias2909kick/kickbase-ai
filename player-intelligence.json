@@ -13783,7 +13783,7 @@
         "value": null,
         "status": "unknown",
         "source": "https://www.bundesliga.com/de/spieler/harry-kane",
-        "evidence": "profile=explicit_current_season_profile_block_missing;ranking=player_not_explicitly_listed_on_current_goals_ranking"
+        "evidence": "profile=explicit_current_season_profile_block_missing_v58_debug;ranking=player_not_explicitly_listed_on_current_goals_ranking"
       },
       "dataCoverage": {
         "availableMetrics": [
