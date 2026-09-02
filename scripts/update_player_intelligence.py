@@ -1951,7 +1951,78 @@ def _v56_profile_current_season_block(player):
         flags=re.IGNORECASE,
     ))
     if not matches:
-        return None, source_url, "explicit_current_season_profile_block_missing"
+        # V58 DEBUG: Bundesliga.com may render the season statistics in a
+        # different visible-text structure or only inside embedded JSON.
+        # Emit compact diagnostic windows instead of guessing another parser.
+        def _v58_windows(haystack, needles, radius=220, max_windows=8):
+            haystack = str(haystack or "")
+            found = []
+            seen = set()
+            lower = haystack.lower()
+            for needle in needles:
+                needle = str(needle or "")
+                if not needle:
+                    continue
+                start_at = 0
+                while len(found) < max_windows:
+                    idx = lower.find(needle.lower(), start_at)
+                    if idx < 0:
+                        break
+                    left = max(0, idx - radius)
+                    right = min(len(haystack), idx + len(needle) + radius)
+                    snippet = re.sub(r"\\s+", " ", haystack[left:right]).strip()
+                    key = snippet[:180]
+                    if key not in seen:
+                        seen.add(key)
+                        found.append((needle, idx, snippet))
+                    start_at = idx + max(1, len(needle))
+            return found
+
+        season_needles = list(_v56_current_season_labels()) + [
+            "Statistik", "Saison", "Einsätze", "Einsaetze", "Tore",
+            "appearances", "goals", "statistics", "__NEXT_DATA__"
+        ]
+
+        print(
+            "V58-PROFILE-DEBUG "
+            f"{(player or {}).get('name')}: "
+            f"url={source_url} | htmlChars={len(html or '')} | "
+            f"visibleChars={len(text or '')} | "
+            f"seasonLabels={_v56_current_season_labels()}"
+        )
+
+        visible_windows = _v58_windows(text, season_needles)
+        if visible_windows:
+            for i, (needle, idx, snippet) in enumerate(visible_windows, 1):
+                print(
+                    f"V58-PROFILE-VISIBLE[{i}] "
+                    f"needle={needle!r} idx={idx} | {snippet}"
+                )
+        else:
+            print("V58-PROFILE-VISIBLE: no relevant marker found")
+
+        # Raw HTML diagnostics are intentionally compact. This lets us detect
+        # whether the current-season data lives in embedded JSON instead of
+        # rendered visible text.
+        raw_windows = _v58_windows(
+            html,
+            list(_v56_current_season_labels()) + [
+                '"appearances"', '"goals"', 'appearances', 'goals',
+                '__NEXT_DATA__', 'application/ld+json'
+            ],
+            radius=260,
+            max_windows=8,
+        )
+        if raw_windows:
+            for i, (needle, idx, snippet) in enumerate(raw_windows, 1):
+                print(
+                    f"V58-PROFILE-RAW[{i}] "
+                    f"needle={needle!r} idx={idx} | {snippet}"
+                )
+        else:
+            print("V58-PROFILE-RAW: no relevant marker found")
+
+        return None, source_url, "explicit_current_season_profile_block_missing_v58_debug"
 
     # Prefer the last occurrence. Bundesliga.com may render a navigation/tab
     # label first and the actual detailed statistics heading later.
@@ -6052,7 +6123,7 @@ def build_player_intelligence(
 
     if research_player:
         print(
-            f"V56-CURRENT-GOALS {name}: "
+            f"V58-CURRENT-GOALS {name}: "
             f"value={v54_goals_fact.get('value')} | "
             f"status={v54_goals_fact.get('status')} | "
             f"evidence={v54_goals_fact.get('evidence')} | "
