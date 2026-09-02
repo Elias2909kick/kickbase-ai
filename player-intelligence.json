@@ -9940,7 +9940,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 17,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -10051,7 +10051,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -10059,15 +10059,16 @@
         "value": 2,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -10089,7 +10090,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -13500,13 +13501,13 @@
       "average": 38,
       "starting": "94%",
       "form": "Letztes KB-Spiel: 124 Pkt.",
-      "footballRating": 106,
-      "kickbaseAiScore": 106,
+      "footballRating": 102,
+      "kickbaseAiScore": 102,
       "kickbaseAiProjection": {
-        "expectedPoints": 106,
-        "rangeMin": 65,
-        "rangeMax": 147,
-        "confidence": 59,
+        "expectedPoints": 102,
+        "rangeMin": 54,
+        "rangeMax": 150,
+        "confidence": 36,
         "recommendation": "Starten",
         "expectedMinutes": 74,
         "minutesIfStart": 77,
@@ -13514,10 +13515,10 @@
         "startProbability": 94,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 111.6,
-          "benchPoints": 24.4,
-          "publicRawStarterPoints": 48.0,
-          "publicRawBenchPoints": 14.3
+          "starterPoints": 107.0,
+          "benchPoints": 23.4,
+          "publicRawStarterPoints": 17.7,
+          "publicRawBenchPoints": 9.8
         },
         "kickbaseCalibration": {
           "source": "kickbase_match_history",
@@ -13525,22 +13526,17 @@
           "historyMean": 124.0,
           "historyWeight": 0.55,
           "positionBaseline": 96.0,
-          "publicRawExpected": 46.0,
-          "publicDeltaRaw": 0.3,
-          "publicDeltaApplied": 0.3,
-          "calibratedStarter": 111.6
+          "publicRawExpected": 17.2,
+          "publicDeltaRaw": -9.7,
+          "publicDeltaApplied": -9.7,
+          "calibratedStarter": 107.0
         },
         "historicalPriorStrength": {
-          "bonus": 38.0,
-          "coverage": 91,
+          "bonus": 7.7,
+          "coverage": 9,
           "source": "Bundesliga",
           "components": {
-            "goals": 22,
-            "assists": 10,
-            "shots": 6.3,
-            "duelsWon": 1.2,
-            "aerialDuelsWon": 1.8,
-            "passAccuracy": -2.0
+            "goals": 22
           }
         },
         "goalkeeperPrior": null,
@@ -13559,7 +13555,7 @@
         "components": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "historicalPrior": 38.0,
+          "historicalPrior": 7.7,
           "homeAway": -2.0
         },
         "positionScoring": {
@@ -13570,7 +13566,7 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 91%",
+        "reason": "ANG-Szenariomodell | Start 94% | 77 Min bei Start | Current 54% | Prior 9%",
         "model": "v51-kickbase-history-calibrated",
         "disclaimer": "Kickbase-kalibrierte Prognose. Reale Kickbase-Historie wird bevorzugt; ohne Historie dient ein positionsbasierter Public-Data-Fallback als Basis.",
         "openDataCalibration": {
@@ -13607,11 +13603,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
-          "projectedPoints": 106,
-          "projectedPointsLabel": "106 Punkte",
-          "rangeMin": 65,
-          "rangeMax": 147,
-          "rangeLabel": "65–147 Punkte",
+          "projectedPoints": 102,
+          "projectedPointsLabel": "102 Punkte",
+          "rangeMin": 54,
+          "rangeMax": 150,
+          "rangeLabel": "54–150 Punkte",
           "recommendation": "Starten"
         },
         "availability": {
@@ -13624,12 +13620,12 @@
           "suspension": "Keine Sperre"
         },
         "quality": {
-          "confidence": 59,
-          "confidenceLabel": "59%",
+          "confidence": 36,
+          "confidenceLabel": "36%",
           "scoringReadinessPercent": 60,
           "reliabilityBand": "mittel",
           "currentDataCoveragePercent": 54,
-          "historicalPriorCoveragePercent": 91
+          "historicalPriorCoveragePercent": 9
         },
         "context": {
           "opponent": "FC Schalke 04",
@@ -13647,7 +13643,7 @@
         "pointDrivers": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "historicalPrior": 38.0,
+          "historicalPrior": 7.7,
           "homeAway": -2.0
         },
         "positionScoring": {
@@ -13659,10 +13655,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 111.6,
-          "benchPoints": 24.4,
-          "publicRawStarterPoints": 48.0,
-          "publicRawBenchPoints": 14.3
+          "starterPoints": 107.0,
+          "benchPoints": 23.4,
+          "publicRawStarterPoints": 17.7,
+          "publicRawBenchPoints": 9.8
         },
         "source": "kickbaseAiProjection"
       },
@@ -13687,7 +13683,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 106,
+        "projectedPoints": 102,
         "startProbability": 94,
         "goals": null,
         "goalsAgainst": null,
@@ -13700,12 +13696,12 @@
       },
       "displayIntelligence": {
         "schemaVersion": 51,
-        "projectedPoints": 106,
-        "projectedPointsLabel": "106 Punkte",
-        "rangeLabel": "65–147 Punkte",
+        "projectedPoints": 102,
+        "projectedPointsLabel": "102 Punkte",
+        "rangeLabel": "54–150 Punkte",
         "startProbabilityLabel": "94%",
         "expectedMinutesLabel": "74 Min.",
-        "confidenceLabel": "59%",
+        "confidenceLabel": "36%",
         "startingAssessment": "94%",
         "goals": null,
         "goalsAgainst": null,
@@ -13717,7 +13713,7 @@
         "pointDrivers": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "historicalPrior": 38.0,
+          "historicalPrior": 7.7,
           "homeAway": -2.0
         },
         "positionScoring": {
@@ -13728,9 +13724,9 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 65,
-        "rangeMax": 147,
-        "confidence": 59,
+        "rangeMin": 54,
+        "rangeMax": 150,
+        "confidence": 36,
         "startProbability": 94,
         "expectedMinutes": 74,
         "recommendation": "Starten",
@@ -13824,56 +13820,47 @@
       },
       "historicalPrior": {
         "goals": 36,
-        "assists": 36,
-        "shots": 36,
-        "passAccuracy": 36,
-        "duelsWon": 36,
-        "aerialDuelsWon": 36,
+        "assists": null,
+        "shots": null,
+        "passAccuracy": null,
+        "duelsWon": null,
+        "aerialDuelsWon": null,
         "fouls": null,
-        "saves": 36,
-        "distanceKm": 36,
-        "sprints": 36,
-        "intensiveRuns": 36
+        "saves": null,
+        "distanceKm": null,
+        "sprints": null,
+        "intensiveRuns": null
       },
       "historicalPriorSources": {
-        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2025-2026",
-        "assists": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2025-2026",
-        "shots": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/torschuesse/2025-2026",
-        "passAccuracy": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/passquote/2025-2026",
-        "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2025-2026",
-        "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2025-2026",
-        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2025-2026",
-        "distanceKm": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/laufdistanz/2025-2026",
-        "sprints": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/sprints/2025-2026",
-        "intensiveRuns": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/intensive-laeufe/2025-2026"
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2025-2026"
       },
       "historicalPriorCoverage": {
         "season": "2025-2026",
         "competition": "bundesliga",
         "league": "Bundesliga",
         "availableMetrics": [
-          "goals",
+          "goals"
+        ],
+        "missingMetrics": [
           "assists",
           "shots",
           "passAccuracy",
           "duelsWon",
           "aerialDuelsWon",
+          "fouls",
           "saves",
           "distanceKm",
           "sprints",
           "intensiveRuns"
         ],
-        "missingMetrics": [
-          "fouls"
-        ],
-        "coveragePercent": 91,
-        "explicitRankingHits": 10,
+        "coveragePercent": 9,
+        "explicitRankingHits": 1,
         "rankingPagesAvailable": 11,
         "competitionsTried": [
           {
             "league": "Bundesliga",
             "competition": "bundesliga",
-            "explicitRankingHits": 10
+            "explicitRankingHits": 1
           }
         ],
         "matchEvidence": null,
@@ -14047,7 +14034,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 20,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -14158,7 +14145,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -14166,15 +14153,16 @@
         "value": 6,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -14196,7 +14184,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -14373,9 +14361,9 @@
         "quality": {
           "confidence": null,
           "confidenceLabel": "Noch nicht recherchiert",
-          "scoringReadinessPercent": 20,
+          "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -14384,8 +14372,8 @@
           "positionModel": null
         },
         "stats": {
-          "goals": 33,
-          "goalsStatus": "observed",
+          "goals": null,
+          "goalsStatus": "unknown",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
           "yellowCards": null,
@@ -14398,10 +14386,10 @@
       },
       "actualFacts": {
         "goals": {
-          "value": 33,
-          "status": "observed",
-          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-          "origin": "current_performance"
+          "value": null,
+          "status": "unknown",
+          "source": null,
+          "origin": null
         },
         "goalsAgainst": {
           "value": null,
@@ -14419,7 +14407,7 @@
       "playerIntelligenceUiRows": {
         "projectedPoints": null,
         "startProbability": null,
-        "goals": 33,
+        "goals": null,
         "goalsAgainst": null,
         "opponent": "FC Schalke 04",
         "homeAway": "Auswärts",
@@ -14437,7 +14425,7 @@
         "expectedMinutesLabel": "Noch nicht recherchiert",
         "confidenceLabel": "Noch nicht recherchiert",
         "startingAssessment": "Noch nicht recherchiert",
-        "goals": 33,
+        "goals": null,
         "goalsAgainst": null,
         "yellowCards": null,
         "injury": null,
@@ -14452,7 +14440,7 @@
         "startProbability": null,
         "expectedMinutes": null,
         "recommendation": "Nächstes Spiel vorhanden",
-        "scoringReadinessPercent": 20,
+        "scoringReadinessPercent": 0,
         "reliabilityBand": "sehr niedrig",
         "source": "kickbaseAiProjection"
       },
@@ -14460,7 +14448,7 @@
         "appearances": null,
         "starts": null,
         "minutes": null,
-        "goals": 33,
+        "goals": null,
         "assists": null,
         "shots": null,
         "shotsOnTarget": null,
@@ -14482,27 +14470,26 @@
         "intensiveRuns": null,
         "topSpeedKmh": null
       },
-      "performanceSources": {
-        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
-      },
+      "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "rejected_stale_or_implausible:33>6;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
       "currentSeasonGoalsFact": {
-        "value": 33,
-        "status": "observed",
+        "value": null,
+        "status": "unknown",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "player_not_explicitly_listed_on_current_goals_ranking"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -14524,7 +14511,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -14550,10 +14537,9 @@
       },
       "kickbaseFactorCoverage": {
         "positionModel": "ANG",
-        "exactPublicAvailable": [
-          "goals"
-        ],
+        "exactPublicAvailable": [],
         "exactPublicMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -14603,16 +14589,15 @@
           "shotsOnTarget",
           "duelsWon"
         ],
-        "criticalAvailable": [
-          "goals"
-        ],
+        "criticalAvailable": [],
         "criticalMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
           "duelsWon"
         ],
-        "scoringReadinessPercent": 20,
+        "scoringReadinessPercent": 0,
         "reliabilityBand": "sehr niedrig",
         "notes": [
           "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
@@ -14623,7 +14608,7 @@
       "appearances": null,
       "starts": null,
       "minutes": null,
-      "goals": 33,
+      "goals": null,
       "assists": null,
       "goalsAgainst": null,
       "yellowCards": null,
@@ -16659,7 +16644,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -16770,7 +16755,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -16778,15 +16763,16 @@
         "value": 1,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -16808,7 +16794,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -20565,7 +20551,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 17,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -20676,7 +20662,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -20684,15 +20670,16 @@
         "value": 1,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -20714,7 +20701,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -21873,7 +21860,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 20,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -21984,7 +21971,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -21992,15 +21979,16 @@
         "value": 1,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -22022,7 +22010,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -28869,9 +28857,9 @@
         "quality": {
           "confidence": null,
           "confidenceLabel": "Noch nicht recherchiert",
-          "scoringReadinessPercent": 17,
+          "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -28880,8 +28868,8 @@
           "positionModel": null
         },
         "stats": {
-          "goals": 100,
-          "goalsStatus": "observed",
+          "goals": null,
+          "goalsStatus": "unknown",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
           "yellowCards": null,
@@ -28894,10 +28882,10 @@
       },
       "actualFacts": {
         "goals": {
-          "value": 100,
-          "status": "observed",
-          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-          "origin": "current_performance"
+          "value": null,
+          "status": "unknown",
+          "source": null,
+          "origin": null
         },
         "goalsAgainst": {
           "value": null,
@@ -28915,7 +28903,7 @@
       "playerIntelligenceUiRows": {
         "projectedPoints": null,
         "startProbability": null,
-        "goals": 100,
+        "goals": null,
         "goalsAgainst": null,
         "opponent": "SV Werder Bremen",
         "homeAway": "Auswärts",
@@ -28933,7 +28921,7 @@
         "expectedMinutesLabel": "Noch nicht recherchiert",
         "confidenceLabel": "Noch nicht recherchiert",
         "startingAssessment": "Noch nicht recherchiert",
-        "goals": 100,
+        "goals": null,
         "goalsAgainst": null,
         "yellowCards": null,
         "injury": null,
@@ -28948,7 +28936,7 @@
         "startProbability": null,
         "expectedMinutes": null,
         "recommendation": "Nächstes Spiel vorhanden",
-        "scoringReadinessPercent": 17,
+        "scoringReadinessPercent": 0,
         "reliabilityBand": "sehr niedrig",
         "source": "kickbaseAiProjection"
       },
@@ -28956,7 +28944,7 @@
         "appearances": null,
         "starts": null,
         "minutes": null,
-        "goals": 100,
+        "goals": null,
         "assists": null,
         "shots": null,
         "shotsOnTarget": null,
@@ -28978,27 +28966,26 @@
         "intensiveRuns": null,
         "topSpeedKmh": null
       },
-      "performanceSources": {
-        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
-      },
+      "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "rejected_stale_or_implausible:100>6;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
       "currentSeasonGoalsFact": {
-        "value": 100,
-        "status": "observed",
+        "value": null,
+        "status": "unknown",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "player_not_explicitly_listed_on_current_goals_ranking"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -29020,7 +29007,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -29046,10 +29033,9 @@
       },
       "kickbaseFactorCoverage": {
         "positionModel": "MF",
-        "exactPublicAvailable": [
-          "goals"
-        ],
+        "exactPublicAvailable": [],
         "exactPublicMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -29100,17 +29086,16 @@
           "duelsWon",
           "crosses"
         ],
-        "criticalAvailable": [
-          "goals"
-        ],
+        "criticalAvailable": [],
         "criticalMissing": [
+          "goals",
           "assists",
           "shots",
           "passAccuracy",
           "duelsWon",
           "crosses"
         ],
-        "scoringReadinessPercent": 17,
+        "scoringReadinessPercent": 0,
         "reliabilityBand": "sehr niedrig",
         "notes": [
           "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
@@ -29121,7 +29106,7 @@
       "appearances": null,
       "starts": null,
       "minutes": null,
-      "goals": 100,
+      "goals": null,
       "assists": null,
       "goalsAgainst": null,
       "yellowCards": null,
@@ -57055,7 +57040,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -57064,8 +57049,8 @@
           "positionModel": null
         },
         "stats": {
-          "goals": 19,
-          "goalsStatus": "observed",
+          "goals": null,
+          "goalsStatus": "unknown",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
           "yellowCards": null,
@@ -57078,10 +57063,10 @@
       },
       "actualFacts": {
         "goals": {
-          "value": 19,
-          "status": "observed",
-          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-          "origin": "current_performance"
+          "value": null,
+          "status": "unknown",
+          "source": null,
+          "origin": null
         },
         "goalsAgainst": {
           "value": null,
@@ -57099,7 +57084,7 @@
       "playerIntelligenceUiRows": {
         "projectedPoints": null,
         "startProbability": null,
-        "goals": 19,
+        "goals": null,
         "goalsAgainst": null,
         "opponent": "SC Freiburg",
         "homeAway": "Heim",
@@ -57117,7 +57102,7 @@
         "expectedMinutesLabel": "Noch nicht recherchiert",
         "confidenceLabel": "Noch nicht recherchiert",
         "startingAssessment": "Noch nicht recherchiert",
-        "goals": 19,
+        "goals": null,
         "goalsAgainst": null,
         "yellowCards": null,
         "injury": null,
@@ -57140,7 +57125,7 @@
         "appearances": null,
         "starts": null,
         "minutes": null,
-        "goals": 19,
+        "goals": null,
         "assists": null,
         "shots": null,
         "shotsOnTarget": null,
@@ -57162,27 +57147,26 @@
         "intensiveRuns": null,
         "topSpeedKmh": null
       },
-      "performanceSources": {
-        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
-      },
+      "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "rejected_stale_or_implausible:19>6;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
       "currentSeasonGoalsFact": {
-        "value": 19,
-        "status": "observed",
+        "value": null,
+        "status": "unknown",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "player_not_explicitly_listed_on_current_goals_ranking"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -57204,7 +57188,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -57230,10 +57214,9 @@
       },
       "kickbaseFactorCoverage": {
         "positionModel": "ABW",
-        "exactPublicAvailable": [
-          "goals"
-        ],
+        "exactPublicAvailable": [],
         "exactPublicMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -57302,7 +57285,7 @@
       "appearances": null,
       "starts": null,
       "minutes": null,
-      "goals": 19,
+      "goals": null,
       "assists": null,
       "goalsAgainst": null,
       "yellowCards": null,
@@ -68871,7 +68854,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -68982,7 +68965,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -68990,15 +68973,16 @@
         "value": 1,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -69020,7 +69004,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -82951,9 +82935,9 @@
         "quality": {
           "confidence": null,
           "confidenceLabel": "Noch nicht recherchiert",
-          "scoringReadinessPercent": 17,
+          "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -82962,8 +82946,8 @@
           "positionModel": null
         },
         "stats": {
-          "goals": 12,
-          "goalsStatus": "observed",
+          "goals": null,
+          "goalsStatus": "unknown",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
           "yellowCards": null,
@@ -82976,10 +82960,10 @@
       },
       "actualFacts": {
         "goals": {
-          "value": 12,
-          "status": "observed",
-          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-          "origin": "current_performance"
+          "value": null,
+          "status": "unknown",
+          "source": null,
+          "origin": null
         },
         "goalsAgainst": {
           "value": null,
@@ -82997,7 +82981,7 @@
       "playerIntelligenceUiRows": {
         "projectedPoints": null,
         "startProbability": null,
-        "goals": 12,
+        "goals": null,
         "goalsAgainst": null,
         "opponent": "FC Augsburg",
         "homeAway": "Heim",
@@ -83015,7 +82999,7 @@
         "expectedMinutesLabel": "Noch nicht recherchiert",
         "confidenceLabel": "Noch nicht recherchiert",
         "startingAssessment": "Noch nicht recherchiert",
-        "goals": 12,
+        "goals": null,
         "goalsAgainst": null,
         "yellowCards": null,
         "injury": null,
@@ -83030,7 +83014,7 @@
         "startProbability": null,
         "expectedMinutes": null,
         "recommendation": "Nächstes Spiel vorhanden",
-        "scoringReadinessPercent": 17,
+        "scoringReadinessPercent": 0,
         "reliabilityBand": "sehr niedrig",
         "source": "kickbaseAiProjection"
       },
@@ -83038,7 +83022,7 @@
         "appearances": null,
         "starts": null,
         "minutes": null,
-        "goals": 12,
+        "goals": null,
         "assists": null,
         "shots": null,
         "shotsOnTarget": null,
@@ -83060,27 +83044,26 @@
         "intensiveRuns": null,
         "topSpeedKmh": null
       },
-      "performanceSources": {
-        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
-      },
+      "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "rejected_stale_or_implausible:12>6;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
       "currentSeasonGoalsFact": {
-        "value": 12,
-        "status": "observed",
+        "value": null,
+        "status": "unknown",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "player_not_explicitly_listed_on_current_goals_ranking"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -83102,7 +83085,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -83128,10 +83111,9 @@
       },
       "kickbaseFactorCoverage": {
         "positionModel": "MF",
-        "exactPublicAvailable": [
-          "goals"
-        ],
+        "exactPublicAvailable": [],
         "exactPublicMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -83182,17 +83164,16 @@
           "duelsWon",
           "crosses"
         ],
-        "criticalAvailable": [
-          "goals"
-        ],
+        "criticalAvailable": [],
         "criticalMissing": [
+          "goals",
           "assists",
           "shots",
           "passAccuracy",
           "duelsWon",
           "crosses"
         ],
-        "scoringReadinessPercent": 17,
+        "scoringReadinessPercent": 0,
         "reliabilityBand": "sehr niedrig",
         "notes": [
           "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
@@ -83203,7 +83184,7 @@
       "appearances": null,
       "starts": null,
       "minutes": null,
-      "goals": 12,
+      "goals": null,
       "assists": null,
       "goalsAgainst": null,
       "yellowCards": null,
@@ -84579,9 +84560,9 @@
         "quality": {
           "confidence": null,
           "confidenceLabel": "Noch nicht recherchiert",
-          "scoringReadinessPercent": 20,
+          "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -84590,8 +84571,8 @@
           "positionModel": null
         },
         "stats": {
-          "goals": 100,
-          "goalsStatus": "observed",
+          "goals": null,
+          "goalsStatus": "unknown",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
           "yellowCards": null,
@@ -84604,10 +84585,10 @@
       },
       "actualFacts": {
         "goals": {
-          "value": 100,
-          "status": "observed",
-          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-          "origin": "current_performance"
+          "value": null,
+          "status": "unknown",
+          "source": null,
+          "origin": null
         },
         "goalsAgainst": {
           "value": null,
@@ -84625,7 +84606,7 @@
       "playerIntelligenceUiRows": {
         "projectedPoints": null,
         "startProbability": null,
-        "goals": 100,
+        "goals": null,
         "goalsAgainst": null,
         "opponent": "FC Augsburg",
         "homeAway": "Heim",
@@ -84643,7 +84624,7 @@
         "expectedMinutesLabel": "Noch nicht recherchiert",
         "confidenceLabel": "Noch nicht recherchiert",
         "startingAssessment": "Noch nicht recherchiert",
-        "goals": 100,
+        "goals": null,
         "goalsAgainst": null,
         "yellowCards": null,
         "injury": null,
@@ -84658,7 +84639,7 @@
         "startProbability": null,
         "expectedMinutes": null,
         "recommendation": "Nächstes Spiel vorhanden",
-        "scoringReadinessPercent": 20,
+        "scoringReadinessPercent": 0,
         "reliabilityBand": "sehr niedrig",
         "source": "kickbaseAiProjection"
       },
@@ -84666,7 +84647,7 @@
         "appearances": null,
         "starts": null,
         "minutes": null,
-        "goals": 100,
+        "goals": null,
         "assists": null,
         "shots": null,
         "shotsOnTarget": null,
@@ -84688,27 +84669,26 @@
         "intensiveRuns": null,
         "topSpeedKmh": null
       },
-      "performanceSources": {
-        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
-      },
+      "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "rejected_stale_or_implausible:100>6;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
       "currentSeasonGoalsFact": {
-        "value": 100,
-        "status": "observed",
+        "value": null,
+        "status": "unknown",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "player_not_explicitly_listed_on_current_goals_ranking"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -84730,7 +84710,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -84756,10 +84736,9 @@
       },
       "kickbaseFactorCoverage": {
         "positionModel": "ANG",
-        "exactPublicAvailable": [
-          "goals"
-        ],
+        "exactPublicAvailable": [],
         "exactPublicMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -84809,16 +84788,15 @@
           "shotsOnTarget",
           "duelsWon"
         ],
-        "criticalAvailable": [
-          "goals"
-        ],
+        "criticalAvailable": [],
         "criticalMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
           "duelsWon"
         ],
-        "scoringReadinessPercent": 20,
+        "scoringReadinessPercent": 0,
         "reliabilityBand": "sehr niedrig",
         "notes": [
           "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
@@ -84829,7 +84807,7 @@
       "appearances": null,
       "starts": null,
       "minutes": null,
-      "goals": 100,
+      "goals": null,
       "assists": null,
       "goalsAgainst": null,
       "yellowCards": null,
@@ -88161,7 +88139,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -88272,7 +88250,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -88280,15 +88258,16 @@
         "value": 1,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -88310,7 +88289,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -89776,7 +89755,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -94668,7 +94647,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 20,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -94779,7 +94758,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -94787,15 +94766,16 @@
         "value": 1,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -94817,7 +94797,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -97599,7 +97579,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -97710,7 +97690,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -97718,15 +97698,16 @@
         "value": 6,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -97748,7 +97729,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -103776,7 +103757,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 20,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -103887,7 +103868,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -103895,15 +103876,16 @@
         "value": 1,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -103925,7 +103907,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -104724,12 +104706,12 @@
       "average": 241,
       "starting": "56%",
       "form": "Letztes KB-Spiel: 163 Pkt.",
-      "footballRating": 98,
-      "kickbaseAiScore": 98,
+      "footballRating": 92,
+      "kickbaseAiScore": 92,
       "kickbaseAiProjection": {
-        "expectedPoints": 98,
-        "rangeMin": 23,
-        "rangeMax": 173,
+        "expectedPoints": 92,
+        "rangeMin": 30,
+        "rangeMax": 154,
         "confidence": 46,
         "recommendation": "Starten",
         "expectedMinutes": 54,
@@ -104738,10 +104720,10 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 148.6,
-          "benchPoints": 32.5,
-          "publicRawStarterPoints": 232.8,
-          "publicRawBenchPoints": 76.2
+          "starterPoints": 140.8,
+          "benchPoints": 30.8,
+          "publicRawStarterPoints": 134.7,
+          "publicRawBenchPoints": 45.6
         },
         "kickbaseCalibration": {
           "source": "kickbase_match_history",
@@ -104749,10 +104731,10 @@
           "historyMean": 163.0,
           "historyWeight": 0.55,
           "positionBaseline": 96.0,
-          "publicRawExpected": 163.9,
-          "publicDeltaRaw": 41.6,
-          "publicDeltaApplied": 35.0,
-          "calibratedStarter": 148.6
+          "publicRawExpected": 95.5,
+          "publicDeltaRaw": 17.7,
+          "publicDeltaApplied": 17.7,
+          "calibratedStarter": 140.8
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -104776,12 +104758,14 @@
         "components": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "assists": 140.0,
-          "shots": 30.0,
+          "goals": 68.4,
+          "assists": 0.0,
+          "shots": 3.4,
           "duelsWon": 21.5,
           "aerialDuelsWon": 27.6,
           "crosses": 1.7,
           "fouls": -0.0,
+          "yellowCards": -0.0,
           "passAccuracy": -4.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
@@ -104831,11 +104815,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
-          "projectedPoints": 98,
-          "projectedPointsLabel": "98 Punkte",
-          "rangeMin": 23,
-          "rangeMax": 173,
-          "rangeLabel": "23–173 Punkte",
+          "projectedPoints": 92,
+          "projectedPointsLabel": "92 Punkte",
+          "rangeMin": 30,
+          "rangeMax": 154,
+          "rangeLabel": "30–154 Punkte",
           "recommendation": "Starten"
         },
         "availability": {
@@ -104850,8 +104834,8 @@
         "quality": {
           "confidence": 46,
           "confidenceLabel": "46%",
-          "scoringReadinessPercent": 60,
-          "reliabilityBand": "mittel",
+          "scoringReadinessPercent": 80,
+          "reliabilityBand": "hoch",
           "currentDataCoveragePercent": 75,
           "historicalPriorCoveragePercent": 0
         },
@@ -104861,22 +104845,24 @@
           "positionModel": "ANG"
         },
         "stats": {
-          "goals": null,
-          "goalsStatus": "unknown",
+          "goals": 1,
+          "goalsStatus": "observed",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
-          "yellowCards": null,
-          "yellowCardsStatus": "unknown"
+          "yellowCards": 0,
+          "yellowCardsStatus": "observed"
         },
         "pointDrivers": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "assists": 140.0,
-          "shots": 30.0,
+          "goals": 68.4,
+          "assists": 0.0,
+          "shots": 3.4,
           "duelsWon": 21.5,
           "aerialDuelsWon": 27.6,
           "crosses": 1.7,
           "fouls": -0.0,
+          "yellowCards": -0.0,
           "passAccuracy": -4.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
@@ -104890,19 +104876,19 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 148.6,
-          "benchPoints": 32.5,
-          "publicRawStarterPoints": 232.8,
-          "publicRawBenchPoints": 76.2
+          "starterPoints": 140.8,
+          "benchPoints": 30.8,
+          "publicRawStarterPoints": 134.7,
+          "publicRawBenchPoints": 45.6
         },
         "source": "kickbaseAiProjection"
       },
       "actualFacts": {
         "goals": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
+          "value": 1,
+          "status": "observed",
+          "source": "https://www.bundesliga.com/de/spieler/adam-daghim",
+          "origin": "official_profile"
         },
         "goalsAgainst": {
           "value": null,
@@ -104911,36 +104897,36 @@
           "origin": null
         },
         "yellowCards": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
+          "value": 0,
+          "status": "observed",
+          "source": "https://www.bundesliga.com/de/spieler/adam-daghim",
+          "origin": "official_profile"
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 98,
+        "projectedPoints": 92,
         "startProbability": 56,
-        "goals": null,
+        "goals": 1,
         "goalsAgainst": null,
         "opponent": "Borussia Dortmund",
         "homeAway": "Heim",
         "injury": "Fit",
         "suspension": "Keine Sperre",
-        "yellowCards": null,
+        "yellowCards": 0,
         "recommendation": "Starten"
       },
       "displayIntelligence": {
         "schemaVersion": 51,
-        "projectedPoints": 98,
-        "projectedPointsLabel": "98 Punkte",
-        "rangeLabel": "23–173 Punkte",
+        "projectedPoints": 92,
+        "projectedPointsLabel": "92 Punkte",
+        "rangeLabel": "30–154 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "54 Min.",
         "confidenceLabel": "46%",
         "startingAssessment": "56%",
-        "goals": null,
+        "goals": 1,
         "goalsAgainst": null,
-        "yellowCards": null,
+        "yellowCards": 0,
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "opponent": "Borussia Dortmund",
@@ -104948,12 +104934,14 @@
         "pointDrivers": {
           "minutesBase": 7.0,
           "startingBonus": 5.0,
-          "assists": 140.0,
-          "shots": 30.0,
+          "goals": 68.4,
+          "assists": 0.0,
+          "shots": 3.4,
           "duelsWon": 21.5,
           "aerialDuelsWon": 27.6,
           "crosses": 1.7,
           "fouls": -0.0,
+          "yellowCards": -0.0,
           "passAccuracy": -4.0,
           "historicalPrior": 0.0,
           "homeAway": 4.0
@@ -104966,33 +104954,33 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 23,
-        "rangeMax": 173,
+        "rangeMin": 30,
+        "rangeMax": 154,
         "confidence": 46,
         "startProbability": 56,
         "expectedMinutes": 54,
         "recommendation": "Starten",
-        "scoringReadinessPercent": 60,
-        "reliabilityBand": "mittel",
+        "scoringReadinessPercent": 80,
+        "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
       },
       "performance": {
         "appearances": 1,
         "starts": null,
         "minutes": null,
-        "goals": null,
-        "assists": 35.86,
-        "shots": 35.86,
+        "goals": 1,
+        "assists": 0,
+        "shots": 1,
         "shotsOnTarget": null,
         "woodwork": 35.86,
-        "penalties": 35.86,
+        "penalties": 0,
         "penaltiesScored": 35.86,
         "passAccuracy": 35.86,
         "duelsWon": 35.86,
         "aerialDuelsWon": 35.86,
         "crosses": 4,
         "fouls": 0,
-        "yellowCards": null,
+        "yellowCards": 0,
         "redCards": null,
         "saves": 35.86,
         "cleanSheets": null,
@@ -105021,15 +105009,15 @@
         "topSpeedKmh": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/top-speed/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "not_nonnegative_integer",
-        "yellowCards": "not_nonnegative_integer",
+        "goals": "accepted_current_season;completedMatches=1",
+        "yellowCards": "accepted_current_season;completedMatches=1",
         "appearances": "accepted_current_season;completedMatches=1"
       },
       "currentSeasonGoalsFact": {
-        "value": null,
-        "status": "unknown",
-        "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "non_integer_current_goals_value:35.86"
+        "value": 1,
+        "status": "observed",
+        "source": null,
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -105130,6 +105118,7 @@
       "kickbaseFactorCoverage": {
         "positionModel": "ANG",
         "exactPublicAvailable": [
+          "goals",
           "assists",
           "shots",
           "woodwork",
@@ -105139,12 +105128,11 @@
           "duelsWon",
           "aerialDuelsWon",
           "crosses",
-          "fouls"
+          "fouls",
+          "yellowCards"
         ],
         "exactPublicMissing": [
-          "goals",
           "shotsOnTarget",
-          "yellowCards",
           "redCards",
           "cleanSheets",
           "goalsAgainst"
@@ -105189,16 +105177,16 @@
           "duelsWon"
         ],
         "criticalAvailable": [
+          "goals",
           "assists",
           "shots",
           "duelsWon"
         ],
         "criticalMissing": [
-          "goals",
           "shotsOnTarget"
         ],
-        "scoringReadinessPercent": 60,
-        "reliabilityBand": "mittel",
+        "scoringReadinessPercent": 80,
+        "reliabilityBand": "hoch",
         "notes": [
           "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
           "Fehlende Events werden nicht als 0 interpretiert.",
@@ -105208,10 +105196,10 @@
       "appearances": 1,
       "starts": null,
       "minutes": null,
-      "goals": null,
+      "goals": 1,
       "assists": 0,
       "goalsAgainst": null,
-      "yellowCards": null,
+      "yellowCards": 0,
       "lastMatch": "Samstag 29. August Köln 1. FC Köln KOE 3 TSG 2 Hoffenheim TSG Hoffenheim",
       "opponent": "Borussia Dortmund",
       "homeAway": "Heim",
@@ -116376,7 +116364,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -116385,8 +116373,8 @@
           "positionModel": null
         },
         "stats": {
-          "goals": 11,
-          "goalsStatus": "observed",
+          "goals": null,
+          "goalsStatus": "unknown",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
           "yellowCards": null,
@@ -116399,10 +116387,10 @@
       },
       "actualFacts": {
         "goals": {
-          "value": 11,
-          "status": "observed",
-          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-          "origin": "current_performance"
+          "value": null,
+          "status": "unknown",
+          "source": null,
+          "origin": null
         },
         "goalsAgainst": {
           "value": null,
@@ -116420,7 +116408,7 @@
       "playerIntelligenceUiRows": {
         "projectedPoints": null,
         "startProbability": null,
-        "goals": 11,
+        "goals": null,
         "goalsAgainst": null,
         "opponent": "1. FC Union Berlin",
         "homeAway": "Heim",
@@ -116438,7 +116426,7 @@
         "expectedMinutesLabel": "Noch nicht recherchiert",
         "confidenceLabel": "Noch nicht recherchiert",
         "startingAssessment": "Noch nicht recherchiert",
-        "goals": 11,
+        "goals": null,
         "goalsAgainst": null,
         "yellowCards": null,
         "injury": null,
@@ -116461,7 +116449,7 @@
         "appearances": null,
         "starts": null,
         "minutes": null,
-        "goals": 11,
+        "goals": null,
         "assists": null,
         "shots": null,
         "shotsOnTarget": null,
@@ -116483,27 +116471,26 @@
         "intensiveRuns": null,
         "topSpeedKmh": null
       },
-      "performanceSources": {
-        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
-      },
+      "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "rejected_stale_or_implausible:11>6;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
       "currentSeasonGoalsFact": {
-        "value": 11,
-        "status": "observed",
+        "value": null,
+        "status": "unknown",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "player_not_explicitly_listed_on_current_goals_ranking"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -116525,7 +116512,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -116551,10 +116538,9 @@
       },
       "kickbaseFactorCoverage": {
         "positionModel": "ABW",
-        "exactPublicAvailable": [
-          "goals"
-        ],
+        "exactPublicAvailable": [],
         "exactPublicMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -116623,7 +116609,7 @@
       "appearances": null,
       "starts": null,
       "minutes": null,
-      "goals": 11,
+      "goals": null,
       "assists": null,
       "goalsAgainst": null,
       "yellowCards": null,
@@ -149490,7 +149476,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 17,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -149601,7 +149587,7 @@
         "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "accepted_current_season;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
@@ -149609,15 +149595,16 @@
         "value": 3,
         "status": "observed",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "already_available_after_v52"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -149639,7 +149626,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -176438,7 +176425,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
+          "currentDataCoveragePercent": 4,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -176447,8 +176434,8 @@
           "positionModel": null
         },
         "stats": {
-          "goals": 10,
-          "goalsStatus": "observed",
+          "goals": null,
+          "goalsStatus": "unknown",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
           "yellowCards": null,
@@ -176461,10 +176448,10 @@
       },
       "actualFacts": {
         "goals": {
-          "value": 10,
-          "status": "observed",
-          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-          "origin": "current_performance"
+          "value": null,
+          "status": "unknown",
+          "source": null,
+          "origin": null
         },
         "goalsAgainst": {
           "value": null,
@@ -176482,7 +176469,7 @@
       "playerIntelligenceUiRows": {
         "projectedPoints": null,
         "startProbability": null,
-        "goals": 10,
+        "goals": null,
         "goalsAgainst": null,
         "opponent": "FC Bayern München",
         "homeAway": "Heim",
@@ -176500,7 +176487,7 @@
         "expectedMinutesLabel": "Noch nicht recherchiert",
         "confidenceLabel": "Noch nicht recherchiert",
         "startingAssessment": "Noch nicht recherchiert",
-        "goals": 10,
+        "goals": null,
         "goalsAgainst": null,
         "yellowCards": null,
         "injury": null,
@@ -176523,7 +176510,7 @@
         "appearances": null,
         "starts": null,
         "minutes": null,
-        "goals": 10,
+        "goals": null,
         "assists": null,
         "shots": null,
         "shotsOnTarget": null,
@@ -176545,27 +176532,26 @@
         "intensiveRuns": null,
         "topSpeedKmh": null
       },
-      "performanceSources": {
-        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
-      },
+      "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "missing",
+        "goals": "rejected_stale_or_implausible:10>6;completedMatches=1",
         "yellowCards": "missing",
         "appearances": "missing"
       },
       "currentSeasonGoalsFact": {
-        "value": 10,
-        "status": "observed",
+        "value": null,
+        "status": "unknown",
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
-        "evidence": "explicit_current_season_bundesliga_goals_ranking"
+        "evidence": "player_not_explicitly_listed_on_current_goals_ranking"
       },
       "dataCoverage": {
-        "availableMetrics": [],
+        "availableMetrics": [
+          "goals"
+        ],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
-          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -176587,7 +176573,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 0,
+        "coveragePercent": 4,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -176613,10 +176599,9 @@
       },
       "kickbaseFactorCoverage": {
         "positionModel": "TW",
-        "exactPublicAvailable": [
-          "goals"
-        ],
+        "exactPublicAvailable": [],
         "exactPublicMissing": [
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -176688,7 +176673,7 @@
       "appearances": null,
       "starts": null,
       "minutes": null,
-      "goals": 10,
+      "goals": null,
       "assists": null,
       "goalsAgainst": null,
       "yellowCards": null,
