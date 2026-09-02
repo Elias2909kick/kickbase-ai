@@ -228,6 +228,30 @@ def v52_completed_team_matches(club_name, matches):
     return completed
 
 
+def v60_completed_team_goals_scored(club_name, matches):
+    """Exact goals scored by the club in completed current-season league matches."""
+    total = 0
+    completed = 0
+    for match in matches or []:
+        if not isinstance(match, dict) or not match.get("matchIsFinished"):
+            continue
+
+        team1 = (match.get("team1") or {}).get("teamName", "")
+        team2 = (match.get("team2") or {}).get("teamName", "")
+        if not (names_match(club_name, team1) or names_match(club_name, team2)):
+            continue
+
+        score = _openligadb_final_score(match)
+        if score is None:
+            continue
+
+        g1, g2 = score
+        total += g1 if names_match(club_name, team1) else g2
+        completed += 1
+
+    return total if completed > 0 else None
+
+
 def v52_guard_current_season_count(metric, value, source, club_name, matches):
     """
     Return (safe_value, safe_source, evidence).
@@ -262,10 +286,13 @@ def v52_guard_current_season_count(metric, value, source, club_name, matches):
             return 0, source, "current_zero_before_first_completed_match"
         return None, None, f"rejected_no_completed_matches:value={value}"
 
-    # Conservative hard sanity bounds. These are NOT forecasts; they only
-    # reject impossible/stale season totals such as Kane=36 goals after MD1.
-    if metric == "goals":
-        max_plausible = 6 * team_matches
+    # V60 exact sanity bounds for attacking counts:
+    # no single player can have more league goals or assists than the club has
+    # scored in completed league matches. This catches stale "current-season"
+    # ranking values without relying on an arbitrary goals-per-match ceiling.
+    if metric in {"goals", "assists"}:
+        team_goals = v60_completed_team_goals_scored(club_name, matches)
+        max_plausible = team_goals
     elif metric == "yellowCards":
         max_plausible = 2 * team_matches
     elif metric == "appearances":
@@ -289,7 +316,7 @@ def v52_sanitize_current_performance(performance, performance_sources, club_name
     performance_sources = dict(performance_sources or {})
     evidence = {}
 
-    for metric in ("goals", "yellowCards", "appearances"):
+    for metric in ("goals", "assists", "yellowCards", "appearances"):
         safe_value, safe_source, reason = v52_guard_current_season_count(
             metric,
             performance.get(metric),
@@ -2171,6 +2198,94 @@ def v55_current_season_goals(player, club_name, matches):
             f"ranking={ranking_fact.get('evidence')}"
         ),
     }
+
+
+def v60_current_season_ranking_count(metric_key, player, club_name, matches):
+    """
+    Resolve a current-season integer count from the official Bundesliga ranking.
+
+    Safe zero rule:
+    - requested current-season page loaded successfully,
+    - player belongs to the actively researched current Bundesliga squad,
+    - at least one team league match is completed,
+    - player is absent from that metric ranking.
+
+    Positive values and zero fallback both pass the V52/V60 sanity guard.
+    """
+    config = BUNDESLIGA_PLAYER_STAT_CATEGORIES.get(metric_key) or {}
+    heading = config.get("heading")
+    name = str((player or {}).get("name") or "").strip()
+
+    page_text, source_url = _get_bundesliga_stat_text(
+        metric_key,
+        season=BUNDESLIGA_STATS_SEASON,
+        historical=False,
+        competition="bundesliga",
+    )
+
+    if not page_text or not source_url or not heading or not name:
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": f"v60_{metric_key}_ranking_unavailable_or_incomplete",
+        }
+
+    value = _extract_metric_from_ranking_text(page_text, heading, name)
+
+    if value is None:
+        if (
+            (player or {}).get("sourceUrl")
+            and v52_completed_team_matches(club_name, matches) > 0
+        ):
+            value = 0
+            evidence = f"v60_current_{metric_key}_ranking_absence_zero_after_completed_match"
+        else:
+            return {
+                "value": None,
+                "status": "unknown",
+                "source": source_url,
+                "evidence": f"v60_player_not_explicitly_listed_on_current_{metric_key}_ranking",
+            }
+    else:
+        evidence = f"v60_explicit_current_season_{metric_key}_ranking"
+
+    try:
+        number = float(value)
+        rounded = round(number)
+        if number < 0 or abs(number - rounded) > 1e-9:
+            raise ValueError
+        value = int(rounded)
+    except (TypeError, ValueError):
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": f"v60_non_integer_current_{metric_key}_value:{value}",
+        }
+
+    safe_value, safe_source, guard = v52_guard_current_season_count(
+        metric_key,
+        value,
+        source_url,
+        club_name,
+        matches,
+    )
+    if safe_value is None:
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": None,
+            "evidence": f"{evidence};guard_rejected:{guard}",
+        }
+
+    return {
+        "value": safe_value,
+        "status": "observed",
+        "source": safe_source,
+        "evidence": f"{evidence};{guard}",
+    }
+
 
 
 def v54_current_season_goals(player_name):
@@ -6157,6 +6272,42 @@ def build_player_intelligence(
             f"source={v54_goals_fact.get('source')}"
         )
 
+    # V60: current-season assists and yellow cards follow the same zero-safe
+    # ranking semantics as goals. Assists are especially important because a
+    # stale prior-season value would directly distort the Kickbase projection.
+    v60_current_counts = {}
+    if research_player:
+        for _metric in ("assists", "yellowCards"):
+            _existing = performance.get(_metric)
+            _existing_source = performance_sources.get(_metric)
+
+            if _existing is not None and _existing_source:
+                _fact = {
+                    "value": _existing,
+                    "status": "observed",
+                    "source": _existing_source,
+                    "evidence": "already_available_after_v52",
+                }
+            else:
+                _fact = v60_current_season_ranking_count(
+                    _metric,
+                    research_input,
+                    club_name,
+                    matches,
+                )
+                if _fact.get("status") == "observed":
+                    performance[_metric] = _fact.get("value")
+                    performance_sources[_metric] = _fact.get("source")
+
+            v60_current_counts[_metric] = _fact
+            print(
+                f"V60-CURRENT-{_metric.upper()} {name}: "
+                f"value={_fact.get('value')} | "
+                f"status={_fact.get('status')} | "
+                f"evidence={_fact.get('evidence')} | "
+                f"source={_fact.get('source')}"
+            )
+
     kickbase_factor_coverage = build_kickbase_factor_coverage(performance, player.get("position"))
 
     # V28: Expected-Points-Engine aktiv. Ausschließlich öffentlich gefundene
@@ -6608,6 +6759,7 @@ def build_player_intelligence(
         "performanceSources": performance_sources,
         "currentSeasonFactGuard": v52_current_fact_evidence,
         "currentSeasonGoalsFact": v54_goals_fact,
+        "currentSeasonCountFactsV60": v60_current_counts,
         "dataCoverage": data_coverage,
         "historicalPrior": historical_prior,
         "historicalPriorSources": historical_prior_sources,
