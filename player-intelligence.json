@@ -6784,7 +6784,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7113,7 +7113,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7442,7 +7442,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -7771,7 +7771,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8104,7 +8104,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8430,7 +8430,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -8756,7 +8756,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9082,7 +9082,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9408,7 +9408,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -9734,7 +9734,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10062,7 +10062,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -10393,7 +10393,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -10721,7 +10721,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11049,7 +11049,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11377,7 +11377,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -11705,7 +11705,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12033,7 +12033,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12361,7 +12361,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -12689,7 +12689,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13017,7 +13017,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13345,7 +13345,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -13761,7 +13761,7 @@
         "starts": null,
         "minutes": null,
         "goals": 0,
-        "assists": 5,
+        "assists": 0,
         "shots": 113,
         "shotsOnTarget": null,
         "woodwork": 0,
@@ -13809,18 +13809,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "v59_current_goals_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
-          "value": 5,
+          "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 5,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -14072,7 +14076,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 4,
+          "currentDataCoveragePercent": 0,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -14181,7 +14185,7 @@
       },
       "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "rejected_stale_or_implausible:6>5;completedMatches=1",
+        "goals": "missing",
         "assists": "missing",
         "yellowCards": "missing",
         "appearances": "missing"
@@ -14192,15 +14196,14 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
-        "availableMetrics": [
-          "goals"
-        ],
+        "availableMetrics": [],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -14222,7 +14225,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 4,
+        "coveragePercent": 0,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -14519,7 +14522,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -14845,7 +14848,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15174,7 +15177,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15503,7 +15506,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -15832,7 +15835,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16161,7 +16164,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16487,7 +16490,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -16815,7 +16818,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -17143,7 +17146,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17469,7 +17472,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -17795,7 +17798,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18121,7 +18124,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18447,7 +18450,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -18773,7 +18776,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19106,7 +19109,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19432,7 +19435,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -19760,7 +19763,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20088,7 +20091,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20416,7 +20419,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -20746,7 +20749,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -21077,7 +21080,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21405,7 +21408,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -21733,7 +21736,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22063,7 +22066,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -22392,7 +22395,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -22718,7 +22721,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23044,7 +23047,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23370,7 +23373,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -23696,7 +23699,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24151,18 +24154,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -24542,7 +24549,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -24868,7 +24875,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25194,7 +25201,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25523,7 +25530,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -25852,7 +25859,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26181,7 +26188,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26507,7 +26514,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -26833,7 +26840,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27159,7 +27166,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27485,7 +27492,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -27811,7 +27818,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28137,7 +28144,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28463,7 +28470,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -28789,7 +28796,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29115,7 +29122,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29443,7 +29450,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -29771,7 +29778,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30099,7 +30106,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30427,7 +30434,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -30755,7 +30762,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31083,7 +31090,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31411,7 +31418,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -31741,7 +31748,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32069,7 +32076,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32397,7 +32404,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -32725,7 +32732,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33053,7 +33060,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33379,7 +33386,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -33707,7 +33714,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34033,7 +34040,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34366,7 +34373,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -34692,7 +34699,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35018,7 +35025,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35344,7 +35351,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35670,7 +35677,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -35999,7 +36006,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36328,7 +36335,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36657,7 +36664,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -36986,7 +36993,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37312,7 +37319,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37638,7 +37645,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -37964,7 +37971,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38290,7 +38297,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38616,7 +38623,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -38942,7 +38949,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39268,7 +39275,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39594,7 +39601,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -39920,7 +39927,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40248,7 +40255,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40576,7 +40583,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -40904,7 +40911,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41232,7 +41239,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41560,7 +41567,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -41888,7 +41895,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42218,7 +42225,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42546,7 +42553,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -42874,7 +42881,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43202,7 +43209,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43530,7 +43537,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -43858,7 +43865,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44186,7 +44193,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44512,7 +44519,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -44838,7 +44845,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45164,7 +45171,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45490,7 +45497,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -45816,7 +45823,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46145,7 +46152,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46474,7 +46481,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -46803,7 +46810,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47129,7 +47136,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47455,7 +47462,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -47781,7 +47788,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48107,7 +48114,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48433,7 +48440,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -48759,7 +48766,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49085,7 +49092,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49411,7 +49418,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -49737,7 +49744,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50063,7 +50070,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50389,7 +50396,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -50717,7 +50724,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51045,7 +51052,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51373,7 +51380,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -51701,7 +51708,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52029,7 +52036,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52357,7 +52364,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -52685,7 +52692,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53013,7 +53020,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53339,7 +53346,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -53665,7 +53672,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54144,18 +54151,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -54535,7 +54546,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -54861,7 +54872,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55187,7 +55198,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55516,7 +55527,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -55845,7 +55856,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56174,7 +56185,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56500,7 +56511,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -56826,7 +56837,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57152,7 +57163,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57478,7 +57489,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -57804,7 +57815,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58130,7 +58141,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58456,7 +58467,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -58782,7 +58793,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59108,7 +59119,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59434,7 +59445,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -59760,7 +59771,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60088,7 +60099,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60416,7 +60427,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -60744,7 +60755,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61072,7 +61083,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61400,7 +61411,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -61728,7 +61739,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62056,7 +62067,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62384,7 +62395,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -62712,7 +62723,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63040,7 +63051,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63368,7 +63379,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -63694,7 +63705,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64020,7 +64031,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64346,7 +64357,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64672,7 +64683,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -64998,7 +65009,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65324,7 +65335,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65650,7 +65661,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -65976,7 +65987,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -66305,7 +66316,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -66634,7 +66645,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -66963,7 +66974,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -67292,7 +67303,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -67618,7 +67629,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -67944,7 +67955,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -68333,18 +68344,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -68724,7 +68739,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -69052,7 +69067,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -69380,7 +69395,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -69706,7 +69721,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -70032,7 +70047,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -70358,7 +70373,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -70684,7 +70699,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -71012,7 +71027,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -71500,18 +71515,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -71893,7 +71912,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -72221,7 +72240,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -72702,18 +72721,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -73095,7 +73118,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -73423,7 +73446,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -73751,7 +73774,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -74079,7 +74102,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -74407,7 +74430,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -74737,7 +74760,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -75063,7 +75086,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -75389,7 +75412,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -75715,7 +75738,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -76041,7 +76064,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -76367,7 +76390,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -76693,7 +76716,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -77019,7 +77042,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -77348,7 +77371,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -77677,7 +77700,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -78006,7 +78029,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -78335,7 +78358,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -78661,7 +78684,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -78989,7 +79012,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -79315,7 +79338,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -79641,7 +79664,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -79967,7 +79990,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -80293,7 +80316,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -80619,7 +80642,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -80947,7 +80970,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -81275,7 +81298,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -81603,7 +81626,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -81931,7 +81954,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -82259,7 +82282,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -82587,7 +82610,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -82915,7 +82938,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -83243,7 +83266,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -83571,7 +83594,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -83899,7 +83922,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -84225,7 +84248,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -84551,7 +84574,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -84877,7 +84900,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -85203,7 +85226,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -85529,7 +85552,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -85855,7 +85878,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -86184,7 +86207,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -86513,7 +86536,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -86842,7 +86865,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -87171,7 +87194,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -87497,7 +87520,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -87823,7 +87846,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -88151,7 +88174,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -88479,7 +88502,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -88805,7 +88828,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -89131,7 +89154,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -89457,7 +89480,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -89783,7 +89806,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -90111,7 +90134,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -90439,7 +90462,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -90767,7 +90790,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -91095,7 +91118,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -91423,7 +91446,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -91751,7 +91774,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -92079,7 +92102,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -92407,7 +92430,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -92735,7 +92758,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -93063,7 +93086,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -93391,7 +93414,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -93719,7 +93742,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -94045,7 +94068,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -94371,7 +94394,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -94699,7 +94722,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -95028,7 +95051,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -95354,7 +95377,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -95680,7 +95703,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -96008,7 +96031,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -96337,7 +96360,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -96666,7 +96689,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -96995,7 +97018,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -97321,7 +97344,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -97527,7 +97550,7 @@
           "confidenceLabel": "Noch nicht recherchiert",
           "scoringReadinessPercent": 0,
           "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 4,
+          "currentDataCoveragePercent": 0,
           "historicalPriorCoveragePercent": 0
         },
         "context": {
@@ -97636,7 +97659,7 @@
       },
       "performanceSources": {},
       "currentSeasonFactGuard": {
-        "goals": "rejected_stale_or_implausible:6>2;completedMatches=1",
+        "goals": "missing",
         "assists": "missing",
         "yellowCards": "missing",
         "appearances": "missing"
@@ -97647,15 +97670,14 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
-        "availableMetrics": [
-          "goals"
-        ],
+        "availableMetrics": [],
         "missingMetrics": [
           "appearances",
           "starts",
           "minutes",
+          "goals",
           "assists",
           "shots",
           "shotsOnTarget",
@@ -97677,7 +97699,7 @@
           "intensiveRuns",
           "topSpeedKmh"
         ],
-        "coveragePercent": 4,
+        "coveragePercent": 0,
         "scoreReady": false,
         "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
       },
@@ -97974,7 +97996,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -98300,7 +98322,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -98626,7 +98648,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -98952,7 +98974,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -99278,7 +99300,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -99604,7 +99626,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -99930,7 +99952,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -100256,7 +100278,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -100582,7 +100604,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -100908,7 +100930,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -101236,7 +101258,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -101564,7 +101586,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -101892,7 +101914,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -102220,7 +102242,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -102548,7 +102570,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -102876,7 +102898,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -103204,7 +103226,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -103532,7 +103554,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -103862,7 +103884,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -104191,7 +104213,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -104517,7 +104539,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -105010,18 +105032,22 @@
         "source": null,
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -105405,7 +105431,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -105731,7 +105757,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -106060,7 +106086,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -106491,7 +106517,7 @@
         "yellowCards": {
           "value": 0,
           "status": "observed",
-          "source": "https://www.bundesliga.com/de/spieler/nicolas-kristof",
+          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
           "origin": "current_performance"
         }
       },
@@ -106590,7 +106616,7 @@
         "duelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-zweikaempfe/2026-2027",
         "aerialDuelsWon": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gewonnene-kopfballduelle/2026-2027",
         "crosses": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/flanken-aus-dem-spiel/2026-2027",
-        "yellowCards": "https://www.bundesliga.com/de/spieler/nicolas-kristof",
+        "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
         "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
         "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
         "saves": "https://www.bundesliga.com/de/spieler/nicolas-kristof",
@@ -106608,18 +106634,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
-          "source": "https://www.bundesliga.com/de/spieler/nicolas-kristof",
-          "evidence": "already_available_after_v52"
+          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/spieler/nicolas-kristof"
         }
       },
       "dataCoverage": {
@@ -107082,7 +107112,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -107411,7 +107441,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -107737,7 +107767,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -108063,7 +108093,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -108389,7 +108419,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -108715,7 +108745,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -109041,7 +109071,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -109367,7 +109397,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -109693,7 +109723,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -110019,7 +110049,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -110345,7 +110375,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -110673,7 +110703,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -111001,7 +111031,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -111329,7 +111359,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -111657,7 +111687,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -111985,7 +112015,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -112313,7 +112343,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -112641,7 +112671,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -112969,7 +112999,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -113297,7 +113327,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -113625,7 +113655,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -113951,7 +113981,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -114277,7 +114307,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -114603,7 +114633,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -114929,7 +114959,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -115255,7 +115285,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -115584,7 +115614,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -115913,7 +115943,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -116242,7 +116272,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -116568,7 +116598,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -116894,7 +116924,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -117220,7 +117250,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -117546,7 +117576,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -117872,7 +117902,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -118365,18 +118395,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -118756,7 +118790,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -119091,7 +119125,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -119419,7 +119453,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -119747,7 +119781,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -120075,7 +120109,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -120403,7 +120437,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -120731,7 +120765,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -121059,7 +121093,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -121387,7 +121421,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -121713,7 +121747,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -122039,7 +122073,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -122365,7 +122399,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -122693,7 +122727,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -123019,7 +123053,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -123345,7 +123379,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -123671,7 +123705,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -123997,7 +124031,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -124502,7 +124536,7 @@
         "source": null,
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "appearances",
@@ -124939,7 +124973,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -125268,7 +125302,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -125597,7 +125631,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -125926,7 +125960,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -126252,7 +126286,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -126578,7 +126612,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -126904,7 +126938,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -127230,7 +127264,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -127556,7 +127590,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -127882,7 +127916,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -128208,7 +128242,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -128534,7 +128568,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -128860,7 +128894,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -129188,7 +129222,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -129516,7 +129550,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -129844,7 +129878,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -130174,7 +130208,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -130502,7 +130536,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -130830,7 +130864,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -131158,7 +131192,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -131486,7 +131520,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -131814,7 +131848,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -132142,7 +132176,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -132470,7 +132504,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -132798,7 +132832,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -133124,7 +133158,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -133450,7 +133484,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -133776,7 +133810,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -134102,7 +134136,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -134428,7 +134462,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -134757,7 +134791,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -135086,7 +135120,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -135415,7 +135449,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -135744,7 +135778,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -136072,7 +136106,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -136400,7 +136434,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -136726,7 +136760,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -137052,7 +137086,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -137378,7 +137412,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -137704,7 +137738,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -138190,18 +138224,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -138581,7 +138619,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -138907,7 +138945,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -139233,7 +139271,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -139559,7 +139597,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -139885,7 +139923,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -140213,7 +140251,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -140541,7 +140579,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -140869,7 +140907,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -141197,7 +141235,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -141525,7 +141563,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -141853,7 +141891,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -142181,7 +142219,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -142509,7 +142547,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -142839,7 +142877,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -143165,7 +143203,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -143644,18 +143682,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -144035,7 +144077,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -144361,7 +144403,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -144687,7 +144729,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -145013,7 +145055,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -145342,7 +145384,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -145671,7 +145713,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -146000,7 +146042,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -146326,7 +146368,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -146652,7 +146694,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -146978,7 +147020,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -147304,7 +147346,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -147630,7 +147672,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -147956,7 +147998,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -148282,7 +148324,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -148608,7 +148650,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -148934,7 +148976,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -149260,7 +149302,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -149588,7 +149630,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -149918,7 +149960,7 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [
           "goals"
@@ -150249,7 +150291,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -150577,7 +150619,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -150905,7 +150947,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -151233,7 +151275,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -151561,7 +151603,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -151889,7 +151931,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -152069,12 +152111,12 @@
       "average": 31,
       "starting": "56%",
       "form": "Noch keine belastbare Formbasis",
-      "footballRating": 60,
-      "kickbaseAiScore": 60,
+      "footballRating": 55,
+      "kickbaseAiScore": 55,
       "kickbaseAiProjection": {
-        "expectedPoints": 60,
-        "rangeMin": 7,
-        "rangeMax": 113,
+        "expectedPoints": 55,
+        "rangeMin": 6,
+        "rangeMax": 104,
         "confidence": 33,
         "recommendation": "Gute Option",
         "expectedMinutes": 54,
@@ -152083,10 +152125,10 @@
         "startProbability": 56,
         "positionModel": "ANG",
         "scenario": {
-          "starterPoints": 91.0,
-          "benchPoints": 19.9,
-          "publicRawStarterPoints": 40.4,
-          "publicRawBenchPoints": 18.1
+          "starterPoints": 83.6,
+          "benchPoints": 18.3,
+          "publicRawStarterPoints": 10.4,
+          "publicRawBenchPoints": 8.8
         },
         "kickbaseCalibration": {
           "source": "position_public_fallback_v51",
@@ -152094,10 +152136,10 @@
           "historyMean": null,
           "historyWeight": 0.0,
           "positionBaseline": 96.0,
-          "publicRawExpected": 30.6,
-          "publicDeltaRaw": -5.0,
-          "publicDeltaApplied": -5.0,
-          "calibratedStarter": 91.0
+          "publicRawExpected": 9.7,
+          "publicDeltaRaw": -12.4,
+          "publicDeltaApplied": -12.4,
+          "calibratedStarter": 83.6
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -152122,7 +152164,7 @@
           "minutesBase": 7.0,
           "startingBonus": 5.0,
           "goals": 0.0,
-          "assists": 29.9,
+          "assists": 0.0,
           "shots": 6.8,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
@@ -152170,11 +152212,11 @@
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
-          "projectedPoints": 60,
-          "projectedPointsLabel": "60 Punkte",
-          "rangeMin": 7,
-          "rangeMax": 113,
-          "rangeLabel": "7–113 Punkte",
+          "projectedPoints": 55,
+          "projectedPointsLabel": "55 Punkte",
+          "rangeMin": 6,
+          "rangeMax": 104,
+          "rangeLabel": "6–104 Punkte",
           "recommendation": "Gute Option"
         },
         "availability": {
@@ -152211,7 +152253,7 @@
           "minutesBase": 7.0,
           "startingBonus": 5.0,
           "goals": 0.0,
-          "assists": 29.9,
+          "assists": 0.0,
           "shots": 6.8,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
@@ -152230,10 +152272,10 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 91.0,
-          "benchPoints": 19.9,
-          "publicRawStarterPoints": 40.4,
-          "publicRawBenchPoints": 18.1
+          "starterPoints": 83.6,
+          "benchPoints": 18.3,
+          "publicRawStarterPoints": 10.4,
+          "publicRawBenchPoints": 8.8
         },
         "source": "kickbaseAiProjection"
       },
@@ -152258,7 +152300,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 60,
+        "projectedPoints": 55,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -152271,9 +152313,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 51,
-        "projectedPoints": 60,
-        "projectedPointsLabel": "60 Punkte",
-        "rangeLabel": "7–113 Punkte",
+        "projectedPoints": 55,
+        "projectedPointsLabel": "55 Punkte",
+        "rangeLabel": "6–104 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "54 Min.",
         "confidenceLabel": "33%",
@@ -152289,7 +152331,7 @@
           "minutesBase": 7.0,
           "startingBonus": 5.0,
           "goals": 0.0,
-          "assists": 29.9,
+          "assists": 0.0,
           "shots": 6.8,
           "duelsWon": 0.0,
           "aerialDuelsWon": 0.0,
@@ -152307,8 +152349,8 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 7,
-        "rangeMax": 113,
+        "rangeMin": 6,
+        "rangeMax": 104,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 54,
@@ -152322,7 +152364,7 @@
         "starts": null,
         "minutes": null,
         "goals": 0,
-        "assists": 1,
+        "assists": 0,
         "shots": 2,
         "shotsOnTarget": null,
         "woodwork": 0,
@@ -152370,18 +152412,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
-          "value": 1,
+          "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 1,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -152914,18 +152960,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -153305,7 +153355,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -153631,7 +153681,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -153957,7 +154007,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -154283,7 +154333,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -154612,7 +154662,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -154941,7 +154991,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -155270,7 +155320,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -155599,7 +155649,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -155925,7 +155975,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -156251,7 +156301,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -156577,7 +156627,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -156903,7 +156953,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -157229,7 +157279,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -157555,7 +157605,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -157881,7 +157931,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -158207,7 +158257,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -158533,7 +158583,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -158859,7 +158909,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -159185,7 +159235,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -159511,7 +159561,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -159837,7 +159887,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -160165,7 +160215,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -160493,7 +160543,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -160828,7 +160878,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -161156,7 +161206,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -161484,7 +161534,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -161812,7 +161862,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -162140,7 +162190,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -162468,7 +162518,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -162796,7 +162846,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -163124,7 +163174,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -163510,18 +163560,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -163901,7 +163955,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -164380,18 +164434,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -164771,7 +164829,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -165097,7 +165155,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -165423,7 +165481,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -165749,7 +165807,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -166075,7 +166133,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -166401,7 +166459,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -166727,7 +166785,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -167053,7 +167111,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -167382,7 +167440,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -167711,7 +167769,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -168040,7 +168098,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -168366,7 +168424,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -168692,7 +168750,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -169018,7 +169076,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -169344,7 +169402,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -169670,7 +169728,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -169996,7 +170054,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -170322,7 +170380,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -170650,7 +170708,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -170978,7 +171036,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -171459,18 +171517,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -171852,7 +171914,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -172180,7 +172242,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -172508,7 +172570,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -172836,7 +172898,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -173164,7 +173226,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -173492,7 +173554,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -173820,7 +173882,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -174148,7 +174210,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -174476,7 +174538,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -174804,7 +174866,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -175132,7 +175194,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -175460,7 +175522,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -175786,7 +175848,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -176112,7 +176174,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -176438,7 +176500,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -176764,7 +176826,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -177090,7 +177152,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -177419,7 +177481,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -177748,7 +177810,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -178077,7 +178139,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -178403,7 +178465,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -178729,7 +178791,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -179055,7 +179117,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -179381,7 +179443,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -179707,7 +179769,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -180033,7 +180095,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -180359,7 +180421,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -180685,7 +180747,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -181011,7 +181073,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -181337,7 +181399,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -181665,7 +181727,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -181993,7 +182055,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -182321,7 +182383,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -182649,7 +182711,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -183113,18 +183175,22 @@
         "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
         "evidence": "already_available_after_v52"
       },
-      "currentSeasonCountFactsV60": {
+      "currentSeasonCountFactsV61": {
         "assists": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_assists_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/vorlagen/2026-2027"
         },
         "yellowCards": {
           "value": 0,
           "status": "observed",
           "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
-          "evidence": "already_available_after_v52"
+          "evidence": "v60_current_yellowCards_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1",
+          "previousValue": 0,
+          "previousSource": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027"
         }
       },
       "dataCoverage": {
@@ -183515,7 +183581,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -183843,7 +183909,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -184171,7 +184237,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -184499,7 +184565,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -184827,7 +184893,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -185155,7 +185221,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -185481,7 +185547,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -185807,7 +185873,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -186133,7 +186199,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -186459,7 +186525,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -186785,7 +186851,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
@@ -187111,7 +187177,7 @@
         "source": null,
         "evidence": "not_researched_preserve_existing_state"
       },
-      "currentSeasonCountFactsV60": {},
+      "currentSeasonCountFactsV61": {},
       "dataCoverage": {
         "availableMetrics": [],
         "missingMetrics": [
