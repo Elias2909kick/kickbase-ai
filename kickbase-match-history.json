@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "description": "Explizite echte Kickbase-Spielpunkte. Diese Datei ist getrennt von Bundesliga-/OpenLigaDB-Statistiken und darf nur verifizierte KB-Punkte enthalten.",
+  "description": "Explizite echte Kickbase-Spielpunkte. Getrennt von Bundesliga-/OpenLigaDB-Statistiken. Nur verifizierte, tatsächlich gespielte Spieltagspunkte aufnehmen. 0 Punkte ohne Einsatz werden nicht als Leistungswert gespeichert.",
   "players": {
     "nicolas-kristof": [
       {
         "points": 83,
         "played": true,
-        "opponent": "Bayer 04 Leverkusen",
         "source": "manual_verified",
-        "note": "vom Nutzer als echte Kickbase-Punkte bestätigt"
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt",
+        "opponent": "Bayer 04 Leverkusen"
       }
     ],
     "adam-daghim": [
@@ -16,7 +16,7 @@
         "points": 163,
         "played": true,
         "source": "manual_verified",
-        "note": "vom Nutzer als echte Kickbase-Punkte bestätigt; 1 Tor"
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt; 1 Tor"
       }
     ],
     "harry-kane": [
@@ -24,7 +24,71 @@
         "points": 124,
         "played": true,
         "source": "manual_verified",
-        "note": "vom Nutzer als echte Kickbase-Punkte bestätigt; ohne Tor"
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt; ohne Tor"
+      }
+    ],
+    "finn-jeltsch": [
+      {
+        "points": 16,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+      }
+    ],
+    "minjae-kim": [
+      {
+        "points": 110,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+      }
+    ],
+    "lucas-vazquez": [
+      {
+        "points": -6,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+      }
+    ],
+    "adil-aouchiche": [
+      {
+        "points": 43,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+      }
+    ],
+    "ezequiel-fernandez": [
+      {
+        "points": 39,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+      }
+    ],
+    "woo-yeong-jeong": [
+      {
+        "points": 61,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+      }
+    ],
+    "ludovit-reis": [
+      {
+        "points": 29,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+      }
+    ],
+    "tidiam-gomis": [
+      {
+        "points": 176,
+        "played": true,
+        "source": "manual_verified",
+        "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
       }
     ]
   }
