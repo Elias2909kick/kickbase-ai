@@ -1678,16 +1678,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/otto-ruoppi"
         },
         {
-          "id": "marco-richter",
-          "name": "Marco Richter",
-          "age": null,
-          "number": 22,
-          "position": "Mittelfeld",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/marco-richter"
-        },
-        {
           "id": "sota-kawasaki",
           "name": "Sota Kawasaki",
           "age": null,
@@ -1758,7 +1748,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/alynho-haidara"
         }
       ],
-      "playerCount": 29,
+      "playerCount": 28,
       "nextMatch": {
         "opponent": "Hamburger SV",
         "homeAway": "Auswärts",
@@ -3000,16 +2990,6 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/joel-schmied"
         },
         {
-          "id": "julian-pauli",
-          "name": "Julian Pauli",
-          "age": null,
-          "number": 3,
-          "position": "Verteidigung",
-          "photo": null,
-          "injury": null,
-          "sourceUrl": "https://www.bundesliga.com/de/spieler/julian-pauli"
-        },
-        {
           "id": "timo-hubers",
           "name": "Timo Hübers",
           "age": null,
@@ -3270,7 +3250,7 @@
           "sourceUrl": "https://www.bundesliga.com/de/spieler/mikey-moore"
         }
       ],
-      "playerCount": 32,
+      "playerCount": 31,
       "nextMatch": {
         "opponent": "VfB Stuttgart",
         "homeAway": "Auswärts",
@@ -13622,8 +13602,8 @@
         "quality": {
           "confidence": 36,
           "confidenceLabel": "36%",
-          "scoringReadinessPercent": 60,
-          "reliabilityBand": "mittel",
+          "scoringReadinessPercent": 80,
+          "reliabilityBand": "hoch",
           "currentDataCoveragePercent": 54,
           "historicalPriorCoveragePercent": 9
         },
@@ -13633,8 +13613,8 @@
           "positionModel": "ANG"
         },
         "stats": {
-          "goals": null,
-          "goalsStatus": "unknown",
+          "goals": 0,
+          "goalsStatus": "observed",
           "goalsAgainst": null,
           "goalsAgainstStatus": "unknown",
           "yellowCards": 0,
@@ -13664,10 +13644,10 @@
       },
       "actualFacts": {
         "goals": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
+          "value": 0,
+          "status": "observed",
+          "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+          "origin": "current_performance"
         },
         "goalsAgainst": {
           "value": null,
@@ -13685,7 +13665,7 @@
       "playerIntelligenceUiRows": {
         "projectedPoints": 102,
         "startProbability": 94,
-        "goals": null,
+        "goals": 0,
         "goalsAgainst": null,
         "opponent": "FC Schalke 04",
         "homeAway": "Auswärts",
@@ -13703,7 +13683,7 @@
         "expectedMinutesLabel": "74 Min.",
         "confidenceLabel": "36%",
         "startingAssessment": "94%",
-        "goals": null,
+        "goals": 0,
         "goalsAgainst": null,
         "yellowCards": 0,
         "injury": "Fit",
@@ -13730,15 +13710,15 @@
         "startProbability": 94,
         "expectedMinutes": 74,
         "recommendation": "Starten",
-        "scoringReadinessPercent": 60,
-        "reliabilityBand": "mittel",
+        "scoringReadinessPercent": 80,
+        "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
       },
       "performance": {
         "appearances": null,
         "starts": null,
         "minutes": null,
-        "goals": null,
+        "goals": 0,
         "assists": 5,
         "shots": 113,
         "shotsOnTarget": null,
@@ -13772,7 +13752,8 @@
         "yellowCards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gelbe-karten/2026-2027",
         "cards": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/karten/2026-2027",
         "fouls": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/fouls-am-gegner/2026-2027",
-        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027"
+        "saves": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/gehaltene-torschuesse/2026-2027",
+        "goals": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027"
       },
       "currentSeasonFactGuard": {
         "goals": "rejected_stale_or_implausible:36>6;completedMatches=1",
@@ -13780,10 +13761,10 @@
         "appearances": "rejected_stale_or_implausible:31>1;completedMatches=1"
       },
       "currentSeasonGoalsFact": {
-        "value": null,
-        "status": "unknown",
-        "source": "https://www.bundesliga.com/de/spieler/harry-kane",
-        "evidence": "profile=explicit_current_season_profile_block_missing_v58_debug;ranking=player_not_explicitly_listed_on_current_goals_ranking"
+        "value": 0,
+        "status": "observed",
+        "source": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/tore/2026-2027",
+        "evidence": "v59_current_goals_ranking_absence_zero_after_completed_match;accepted_current_season;completedMatches=1"
       },
       "dataCoverage": {
         "availableMetrics": [
@@ -13876,6 +13857,7 @@
       "kickbaseFactorCoverage": {
         "positionModel": "ANG",
         "exactPublicAvailable": [
+          "goals",
           "assists",
           "shots",
           "woodwork",
@@ -13888,7 +13870,6 @@
           "yellowCards"
         ],
         "exactPublicMissing": [
-          "goals",
           "shotsOnTarget",
           "passAccuracy",
           "redCards",
@@ -13931,16 +13912,16 @@
           "duelsWon"
         ],
         "criticalAvailable": [
+          "goals",
           "assists",
           "shots",
           "duelsWon"
         ],
         "criticalMissing": [
-          "goals",
           "shotsOnTarget"
         ],
-        "scoringReadinessPercent": 60,
-        "reliabilityBand": "mittel",
+        "scoringReadinessPercent": 80,
+        "reliabilityBand": "hoch",
         "notes": [
           "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
           "Fehlende Events werden nicht als 0 interpretiert.",
@@ -13950,7 +13931,7 @@
       "appearances": 31,
       "starts": null,
       "minutes": null,
-      "goals": null,
+      "goals": 0,
       "assists": 5,
       "goalsAgainst": null,
       "yellowCards": 0,
@@ -52246,332 +52227,6 @@
         "researchMode": "bestehende_daten_beibehalten"
       }
     },
-    "marco-richter": {
-      "id": "marco-richter",
-      "name": "Marco Richter",
-      "club": "1. FSV Mainz 05",
-      "position": "Mittelfeld",
-      "number": 22,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/marco-richter",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "kickbaseMatchHistory": [],
-      "playerIntelligenceV45": {
-        "schemaVersion": 51,
-        "headline": {
-          "projectedPoints": null,
-          "projectedPointsLabel": "Noch nicht recherchiert",
-          "rangeMin": null,
-          "rangeMax": null,
-          "rangeLabel": "Noch nicht recherchiert",
-          "recommendation": "Nächstes Spiel vorhanden"
-        },
-        "availability": {
-          "startProbability": null,
-          "startProbabilityLabel": "Noch nicht recherchiert",
-          "startingAssessment": "Noch nicht recherchiert",
-          "expectedMinutes": null,
-          "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": null,
-          "suspension": "Noch nicht recherchiert"
-        },
-        "quality": {
-          "confidence": null,
-          "confidenceLabel": "Noch nicht recherchiert",
-          "scoringReadinessPercent": 0,
-          "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
-          "historicalPriorCoveragePercent": 0
-        },
-        "context": {
-          "opponent": "Hamburger SV",
-          "homeAway": "Auswärts",
-          "positionModel": null
-        },
-        "stats": {
-          "goals": null,
-          "goalsStatus": "unknown",
-          "goalsAgainst": null,
-          "goalsAgainstStatus": "unknown",
-          "yellowCards": null,
-          "yellowCardsStatus": "unknown"
-        },
-        "pointDrivers": {},
-        "positionScoring": {},
-        "scenario": {},
-        "source": "kickbaseAiProjection"
-      },
-      "actualFacts": {
-        "goals": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
-        },
-        "goalsAgainst": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
-        },
-        "yellowCards": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
-        }
-      },
-      "playerIntelligenceUiRows": {
-        "projectedPoints": null,
-        "startProbability": null,
-        "goals": null,
-        "goalsAgainst": null,
-        "opponent": "Hamburger SV",
-        "homeAway": "Auswärts",
-        "injury": null,
-        "suspension": "Noch nicht recherchiert",
-        "yellowCards": null,
-        "recommendation": "Nächstes Spiel vorhanden"
-      },
-      "displayIntelligence": {
-        "schemaVersion": 51,
-        "projectedPoints": null,
-        "projectedPointsLabel": "Noch nicht recherchiert",
-        "rangeLabel": "Noch nicht recherchiert",
-        "startProbabilityLabel": "Noch nicht recherchiert",
-        "expectedMinutesLabel": "Noch nicht recherchiert",
-        "confidenceLabel": "Noch nicht recherchiert",
-        "startingAssessment": "Noch nicht recherchiert",
-        "goals": null,
-        "goalsAgainst": null,
-        "yellowCards": null,
-        "injury": null,
-        "suspension": "Noch nicht recherchiert",
-        "opponent": "Hamburger SV",
-        "homeAway": "Auswärts",
-        "pointDrivers": {},
-        "positionScoring": {},
-        "rangeMin": null,
-        "rangeMax": null,
-        "confidence": null,
-        "startProbability": null,
-        "expectedMinutes": null,
-        "recommendation": "Nächstes Spiel vorhanden",
-        "scoringReadinessPercent": 0,
-        "reliabilityBand": "sehr niedrig",
-        "source": "kickbaseAiProjection"
-      },
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "currentSeasonFactGuard": {
-        "goals": "missing",
-        "yellowCards": "missing",
-        "appearances": "missing"
-      },
-      "currentSeasonGoalsFact": {
-        "value": null,
-        "status": "unknown",
-        "source": null,
-        "evidence": "not_researched_preserve_existing_state"
-      },
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "positionModel": "MF",
-        "exactPublicAvailable": [],
-        "exactPublicMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "cleanSheets",
-          "goalsAgainst"
-        ],
-        "aggregatePublicAvailable": [],
-        "contextual": {
-          "expectedMinutes": "Startelf-/Einsatzwahrscheinlichkeit",
-          "homeAway": "Spielkontext",
-          "injurySuspension": "Verfügbarkeit"
-        },
-        "currentlyUnavailable": [
-          "successfulPassesCount",
-          "misplacedPassesCount",
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "progressivePassesDetailed",
-          "chanceCreationDetailed"
-        ],
-        "criticalFactors": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "crosses"
-        ],
-        "criticalAvailable": [],
-        "criticalMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "crosses"
-        ],
-        "scoringReadinessPercent": 0,
-        "reliabilityBand": "sehr niedrig",
-        "notes": [
-          "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
-          "Fehlende Events werden nicht als 0 interpretiert.",
-          "Readiness misst Datenabdeckung, nicht Spielerqualität."
-        ]
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "Hamburger SV",
-      "homeAway": "Auswärts",
-      "injury": null,
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-09-02",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/marco-richter"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
     "sota-kawasaki": {
       "id": "sota-kawasaki",
       "name": "Sota Kawasaki",
@@ -87110,330 +86765,6 @@
         {
           "name": "Bundesliga.com Spielerprofil",
           "url": "https://www.bundesliga.com/de/spieler/joel-schmied"
-        },
-        {
-          "name": "OpenLigaDB",
-          "url": "https://www.openligadb.de/"
-        }
-      ],
-      "dataStatus": {
-        "kickbaseAverage": "nicht verfügbar",
-        "publicStatsSource": "erreichbar",
-        "playerProfileSource": "nicht recherchiert",
-        "playerValues": "nicht erfunden",
-        "researchMode": "bestehende_daten_beibehalten"
-      }
-    },
-    "julian-pauli": {
-      "id": "julian-pauli",
-      "name": "Julian Pauli",
-      "club": "1. FC Köln",
-      "position": "Verteidigung",
-      "number": 3,
-      "sourceUrl": "https://www.bundesliga.com/de/spieler/julian-pauli",
-      "average": null,
-      "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
-      "footballRating": null,
-      "kickbaseAiScore": null,
-      "kickbaseAiProjection": null,
-      "kickbaseMatchHistory": [],
-      "playerIntelligenceV45": {
-        "schemaVersion": 51,
-        "headline": {
-          "projectedPoints": null,
-          "projectedPointsLabel": "Noch nicht recherchiert",
-          "rangeMin": null,
-          "rangeMax": null,
-          "rangeLabel": "Noch nicht recherchiert",
-          "recommendation": "Nächstes Spiel vorhanden"
-        },
-        "availability": {
-          "startProbability": null,
-          "startProbabilityLabel": "Noch nicht recherchiert",
-          "startingAssessment": "Noch nicht recherchiert",
-          "expectedMinutes": null,
-          "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": null,
-          "suspension": "Noch nicht recherchiert"
-        },
-        "quality": {
-          "confidence": null,
-          "confidenceLabel": "Noch nicht recherchiert",
-          "scoringReadinessPercent": 0,
-          "reliabilityBand": "sehr niedrig",
-          "currentDataCoveragePercent": 0,
-          "historicalPriorCoveragePercent": 0
-        },
-        "context": {
-          "opponent": "VfB Stuttgart",
-          "homeAway": "Auswärts",
-          "positionModel": null
-        },
-        "stats": {
-          "goals": null,
-          "goalsStatus": "unknown",
-          "goalsAgainst": null,
-          "goalsAgainstStatus": "unknown",
-          "yellowCards": null,
-          "yellowCardsStatus": "unknown"
-        },
-        "pointDrivers": {},
-        "positionScoring": {},
-        "scenario": {},
-        "source": "kickbaseAiProjection"
-      },
-      "actualFacts": {
-        "goals": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
-        },
-        "goalsAgainst": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
-        },
-        "yellowCards": {
-          "value": null,
-          "status": "unknown",
-          "source": null,
-          "origin": null
-        }
-      },
-      "playerIntelligenceUiRows": {
-        "projectedPoints": null,
-        "startProbability": null,
-        "goals": null,
-        "goalsAgainst": null,
-        "opponent": "VfB Stuttgart",
-        "homeAway": "Auswärts",
-        "injury": null,
-        "suspension": "Noch nicht recherchiert",
-        "yellowCards": null,
-        "recommendation": "Nächstes Spiel vorhanden"
-      },
-      "displayIntelligence": {
-        "schemaVersion": 51,
-        "projectedPoints": null,
-        "projectedPointsLabel": "Noch nicht recherchiert",
-        "rangeLabel": "Noch nicht recherchiert",
-        "startProbabilityLabel": "Noch nicht recherchiert",
-        "expectedMinutesLabel": "Noch nicht recherchiert",
-        "confidenceLabel": "Noch nicht recherchiert",
-        "startingAssessment": "Noch nicht recherchiert",
-        "goals": null,
-        "goalsAgainst": null,
-        "yellowCards": null,
-        "injury": null,
-        "suspension": "Noch nicht recherchiert",
-        "opponent": "VfB Stuttgart",
-        "homeAway": "Auswärts",
-        "pointDrivers": {},
-        "positionScoring": {},
-        "rangeMin": null,
-        "rangeMax": null,
-        "confidence": null,
-        "startProbability": null,
-        "expectedMinutes": null,
-        "recommendation": "Nächstes Spiel vorhanden",
-        "scoringReadinessPercent": 0,
-        "reliabilityBand": "sehr niedrig",
-        "source": "kickbaseAiProjection"
-      },
-      "performance": {
-        "appearances": null,
-        "starts": null,
-        "minutes": null,
-        "goals": null,
-        "assists": null,
-        "shots": null,
-        "shotsOnTarget": null,
-        "woodwork": null,
-        "penalties": null,
-        "penaltiesScored": null,
-        "passAccuracy": null,
-        "duelsWon": null,
-        "aerialDuelsWon": null,
-        "crosses": null,
-        "fouls": null,
-        "yellowCards": null,
-        "redCards": null,
-        "saves": null,
-        "cleanSheets": null,
-        "goalsAgainst": null,
-        "distanceKm": null,
-        "sprints": null,
-        "intensiveRuns": null,
-        "topSpeedKmh": null
-      },
-      "performanceSources": {},
-      "currentSeasonFactGuard": {
-        "goals": "missing",
-        "yellowCards": "missing",
-        "appearances": "missing"
-      },
-      "currentSeasonGoalsFact": {
-        "value": null,
-        "status": "unknown",
-        "source": null,
-        "evidence": "not_researched_preserve_existing_state"
-      },
-      "dataCoverage": {
-        "availableMetrics": [],
-        "missingMetrics": [
-          "appearances",
-          "starts",
-          "minutes",
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "saves",
-          "cleanSheets",
-          "goalsAgainst",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns",
-          "topSpeedKmh"
-        ],
-        "coveragePercent": 0,
-        "scoreReady": false,
-        "note": "Nur explizit öffentlich gefundene Werte; nicht gelistet wird NICHT mehr als 0 interpretiert."
-      },
-      "historicalPrior": {},
-      "historicalPriorSources": {},
-      "historicalPriorCoverage": {
-        "season": "2025-2026",
-        "availableMetrics": [],
-        "missingMetrics": [
-          "goals",
-          "assists",
-          "shots",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "fouls",
-          "saves",
-          "distanceKm",
-          "sprints",
-          "intensiveRuns"
-        ],
-        "coveragePercent": 0
-      },
-      "kickbaseFactorCoverage": {
-        "positionModel": "ABW",
-        "exactPublicAvailable": [],
-        "exactPublicMissing": [
-          "goals",
-          "assists",
-          "shots",
-          "shotsOnTarget",
-          "woodwork",
-          "penalties",
-          "penaltiesScored",
-          "passAccuracy",
-          "duelsWon",
-          "aerialDuelsWon",
-          "crosses",
-          "fouls",
-          "yellowCards",
-          "redCards",
-          "cleanSheets",
-          "goalsAgainst"
-        ],
-        "aggregatePublicAvailable": [],
-        "contextual": {
-          "expectedMinutes": "Startelf-/Einsatzwahrscheinlichkeit",
-          "homeAway": "Spielkontext",
-          "injurySuspension": "Verfügbarkeit"
-        },
-        "currentlyUnavailable": [
-          "successfulPassesCount",
-          "misplacedPassesCount",
-          "passesOpponentHalf",
-          "passesFinalThird",
-          "keyPasses",
-          "bigChancesCreated",
-          "bigChancesMissed",
-          "ballRecoveries",
-          "interceptions",
-          "tacklesWonDetailed",
-          "blockedShotsDetailed",
-          "errorsLeadingShot",
-          "errorsLeadingGoal",
-          "lastManActions",
-          "dribbledPast",
-          "successfulDribblesDetailed",
-          "clearancesDetailed",
-          "blockedCrossesDetailed"
-        ],
-        "criticalFactors": [
-          "duelsWon",
-          "aerialDuelsWon",
-          "passAccuracy",
-          "crosses",
-          "cleanSheets"
-        ],
-        "criticalAvailable": [],
-        "criticalMissing": [
-          "duelsWon",
-          "aerialDuelsWon",
-          "passAccuracy",
-          "crosses",
-          "cleanSheets"
-        ],
-        "scoringReadinessPercent": 0,
-        "reliabilityBand": "sehr niedrig",
-        "notes": [
-          "Aggregate Werte sind Prognose-Evidenz, keine exakten Kickbase-Eventtypen.",
-          "Fehlende Events werden nicht als 0 interpretiert.",
-          "Readiness misst Datenabdeckung, nicht Spielerqualität."
-        ]
-      },
-      "appearances": null,
-      "starts": null,
-      "minutes": null,
-      "goals": null,
-      "assists": null,
-      "goalsAgainst": null,
-      "yellowCards": null,
-      "lastMatch": null,
-      "opponent": "VfB Stuttgart",
-      "homeAway": "Auswärts",
-      "injury": null,
-      "injuryDiagnosis": null,
-      "injuryExpectedAbsence": null,
-      "injurySourceUrl": null,
-      "injuryEvidence": "unknown",
-      "suspension": "Noch nicht recherchiert",
-      "suspensionEvidence": "unknown",
-      "recommendation": "Nächstes Spiel vorhanden",
-      "lastUpdated": "2026-09-02",
-      "sources": [
-        {
-          "name": "Bundesliga.com",
-          "url": "https://www.bundesliga.com/de/bundesliga/spieler"
-        },
-        {
-          "name": "Bundesliga.com Statistik",
-          "url": "https://www.bundesliga.com/de/bundesliga/statistiken/spieler/2026-2027"
-        },
-        {
-          "name": "Bundesliga.com Spielerprofil",
-          "url": "https://www.bundesliga.com/de/spieler/julian-pauli"
         },
         {
           "name": "OpenLigaDB",
@@ -186658,7 +185989,7 @@
   "season": "2026/27",
   "league": "1. Bundesliga",
   "teamCount": 18,
-  "playerCount": 542,
+  "playerCount": 540,
   "architecture": {
     "kickbaseSource": "nicht verwendet",
     "teamsAndPlayers": "Bundesliga.com",
