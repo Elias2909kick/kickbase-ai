@@ -1903,6 +1903,128 @@ def _get_bundesliga_stat_text(metric_key, season=None, historical=False, competi
 # UI/current-performance goals are read ONLY from the current-season
 # Bundesliga goals ranking. Historical pages remain projection priors only.
 
+def _v55_profile_current_season_metric(player, labels):
+    """
+    Read a metric only from the explicit current-season statistics block on the
+    official Bundesliga player profile. This avoids matching historical/news
+    text elsewhere on the same profile page.
+    """
+    source_url = (player or {}).get("sourceUrl")
+    if not source_url:
+        return {"value": None, "status": "unknown", "source": None,
+                "evidence": "profile_url_missing"}
+
+    try:
+        html = http_get_text(source_url, timeout=12)
+        text = _html_to_visible_text(html)
+    except Exception as exc:
+        return {"value": None, "status": "unknown", "source": source_url,
+                "evidence": f"profile_unavailable:{type(exc).__name__}"}
+
+    season_variants = (CURRENT_SEASON, BUNDESLIGA_STATS_SEASON.replace("-", "/"))
+    start = None
+    for season_label in season_variants:
+        match = re.search(
+            rf"Statistik\s+Saison\s+{re.escape(season_label)}",
+            text or "",
+            flags=re.IGNORECASE,
+        )
+        if match:
+            start = match.end()
+            break
+
+    if start is None:
+        return {"value": None, "status": "unknown", "source": source_url,
+                "evidence": "explicit_current_season_profile_block_missing"}
+
+    tail = text[start:]
+    end_match = re.search(
+        r"\b(?:Letztes Spiel|News|Videos|Mitspieler|Kompletter Kader)\b",
+        tail,
+        flags=re.IGNORECASE,
+    )
+    block = tail[:end_match.start()] if end_match else tail[:2500]
+
+    for label in labels:
+        match = re.search(
+            rf"(?<![\w-]){re.escape(label)}(?![\w-])\s+(-?\d+(?:[.,]\d+)?)\b",
+            block,
+            flags=re.IGNORECASE,
+        )
+        if not match:
+            continue
+        raw = match.group(1).replace(",", ".")
+        try:
+            number = float(raw)
+            rounded = round(number)
+            if number < 0 or abs(number - rounded) > 1e-9:
+                continue
+            return {
+                "value": int(rounded),
+                "status": "observed",
+                "source": source_url,
+                "evidence": "explicit_current_season_official_player_profile",
+            }
+        except (TypeError, ValueError):
+            continue
+
+    return {"value": None, "status": "unknown", "source": source_url,
+            "evidence": "metric_missing_in_current_season_profile_block"}
+
+
+def v55_current_season_goals(player, club_name, matches):
+    """
+    V55 resolver order:
+      1) explicit 2026/27 official player-profile statistics block;
+      2) explicit current-season Bundesliga goals ranking;
+      3) unknown.
+
+    Every candidate still passes the V52 match-count sanity guard.
+    Absence from a ranking is never interpreted as zero.
+    """
+    profile_fact = _v55_profile_current_season_metric(player, ("Tore",))
+    if profile_fact.get("status") == "observed":
+        safe_value, safe_source, guard = v52_guard_current_season_count(
+            "goals", profile_fact.get("value"), profile_fact.get("source"),
+            club_name, matches,
+        )
+        if safe_value is not None:
+            profile_fact["value"] = safe_value
+            profile_fact["source"] = safe_source
+            profile_fact["evidence"] += f";{guard}"
+            return profile_fact
+        profile_fact["status"] = "unknown"
+        profile_fact["value"] = None
+        profile_fact["source"] = None
+        profile_fact["evidence"] += f";guard_rejected:{guard}"
+
+    ranking_fact = v54_current_season_goals((player or {}).get("name"))
+    if ranking_fact.get("status") == "observed":
+        safe_value, safe_source, guard = v52_guard_current_season_count(
+            "goals", ranking_fact.get("value"), ranking_fact.get("source"),
+            club_name, matches,
+        )
+        if safe_value is not None:
+            ranking_fact["value"] = safe_value
+            ranking_fact["source"] = safe_source
+            ranking_fact["evidence"] += f";{guard}"
+            return ranking_fact
+        ranking_fact["status"] = "unknown"
+        ranking_fact["value"] = None
+        ranking_fact["source"] = None
+        ranking_fact["evidence"] += f";guard_rejected:{guard}"
+
+    return {
+        "value": None,
+        "status": "unknown",
+        "source": profile_fact.get("source") or ranking_fact.get("source"),
+        "evidence": (
+            f"profile={profile_fact.get('evidence')};"
+            f"ranking={ranking_fact.get('evidence')}"
+        ),
+    }
+
+
 def v54_current_season_goals(player_name):
     page_text, source_url = _get_bundesliga_stat_text(
         "goals",
@@ -5845,8 +5967,9 @@ def build_player_intelligence(
             f"[{v52_current_fact_evidence.get('appearances')}]"
         )
 
-    # V53: if V52 rejected a stale current-goals value, make one explicit
-    # attempt against the 2026/27 Bundesliga goals ranking.
+    # V55: if V52 rejected/missed current goals, resolve them from the explicit
+    # current-season block of the official player profile first, then use the
+    # strict current-season goals ranking as fallback. Never infer zero.
     v54_goals_fact = {
         "value": performance.get("goals"),
         "status": "observed" if performance.get("goals") is not None else "unknown",
@@ -5858,14 +5981,14 @@ def build_player_intelligence(
         ),
     }
     if performance.get("goals") is None:
-        v54_goals_fact = v54_current_season_goals(name)
+        v54_goals_fact = v55_current_season_goals(research_input, club_name, matches)
         if v54_goals_fact.get("status") == "observed":
             performance["goals"] = v54_goals_fact.get("value")
             performance_sources["goals"] = v54_goals_fact.get("source")
 
     if research_player:
         print(
-            f"V54-CURRENT-GOALS {name}: "
+            f"V55-CURRENT-GOALS {name}: "
             f"value={v54_goals_fact.get('value')} | "
             f"status={v54_goals_fact.get('status')} | "
             f"evidence={v54_goals_fact.get('evidence')} | "
