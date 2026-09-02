@@ -2288,6 +2288,98 @@ def v60_current_season_ranking_count(metric_key, player, club_name, matches):
 
 
 
+def v62_current_season_metric_fact(metric_key, player):
+    """
+    Strict current-season resolver for projection metrics.
+
+    Unlike goals/assists/yellowCards, absence from a ranking is NEVER zero for
+    volume/rate metrics such as shots, duels, sprints or pass accuracy.
+    The only accepted value is an explicit player row inside the requested
+    2026/27 Bundesliga ranking block.
+    """
+    config = BUNDESLIGA_PLAYER_STAT_CATEGORIES.get(metric_key) or {}
+    heading = config.get("heading")
+    kind = config.get("kind")
+    name = str((player or {}).get("name") or "").strip()
+
+    page_text, source_url = _get_bundesliga_stat_text(
+        metric_key,
+        season=BUNDESLIGA_STATS_SEASON,
+        historical=False,
+        competition="bundesliga",
+    )
+
+    if not page_text or not source_url or not heading or not name:
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": f"v62_{metric_key}_ranking_unavailable_or_incomplete",
+        }
+
+    value = _extract_metric_from_ranking_text(page_text, heading, name)
+    if value is None:
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": f"v62_player_not_explicitly_listed_on_current_{metric_key}_ranking",
+        }
+
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": f"v62_non_numeric_current_{metric_key}_value:{value}",
+        }
+
+    if number < 0:
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": f"v62_negative_current_{metric_key}_value:{value}",
+        }
+
+    if kind == "count":
+        rounded = round(number)
+        if abs(number - rounded) > 1e-9:
+            return {
+                "value": None,
+                "status": "unknown",
+                "source": source_url,
+                "evidence": f"v62_non_integer_current_{metric_key}_value:{value}",
+            }
+        value = int(rounded)
+    else:
+        value = number
+
+    return {
+        "value": value,
+        "status": "observed",
+        "source": source_url,
+        "evidence": f"v62_explicit_current_season_{metric_key}_ranking",
+    }
+
+
+def v62_source_is_current_season(source):
+    source_text = str(source or "")
+    if not source_text:
+        return False
+    if BUNDESLIGA_PRIOR_SEASON in source_text:
+        return False
+    return (
+        BUNDESLIGA_STATS_SEASON in source_text
+        or str(CURRENT_SEASON or "") in source_text
+        or "current_performance" in source_text
+        or "OpenLigaDB" in source_text
+    )
+
+
+
 def v54_current_season_goals(player_name):
     page_text, source_url = _get_bundesliga_stat_text(
         "goals",
@@ -6316,6 +6408,70 @@ def build_player_intelligence(
                 f"source={_fact.get('source')}"
             )
 
+    # V62: rebuild all ranking-backed projection metrics from the STRICT
+    # current-season ranking parser. Never inherit a prior-season value just
+    # because build_performance_layer() carried it forward from old JSON.
+    v62_current_metrics = {}
+    if research_player:
+        _v62_ranking_metrics = (
+            "shots",
+            "woodwork",
+            "penalties",
+            "penaltiesScored",
+            "passAccuracy",
+            "duelsWon",
+            "aerialDuelsWon",
+            "crosses",
+            "fouls",
+            "saves",
+            "distanceKm",
+            "sprints",
+            "intensiveRuns",
+            "topSpeedKmh",
+        )
+
+        for _metric in _v62_ranking_metrics:
+            _previous_value = performance.get(_metric)
+            _previous_source = performance_sources.get(_metric)
+
+            _fact = v62_current_season_metric_fact(_metric, research_input)
+
+            if _fact.get("status") == "observed":
+                performance[_metric] = _fact.get("value")
+                performance_sources[_metric] = _fact.get("source")
+            else:
+                # Conservative rule: unknown current-season ranking must not
+                # leave an inherited old-season value active in the projection.
+                performance[_metric] = None
+                performance_sources.pop(_metric, None)
+
+            _fact["previousValue"] = _previous_value
+            _fact["previousSource"] = _previous_source
+            v62_current_metrics[_metric] = _fact
+
+        # Metrics without a dedicated current ranking must also not inherit
+        # historical values into current performance. Keep them only when their
+        # provenance is explicitly current-season.
+        for _metric in ("shotsOnTarget", "redCards", "cleanSheets"):
+            _source = performance_sources.get(_metric)
+            if performance.get(_metric) is not None and not v62_source_is_current_season(_source):
+                v62_current_metrics[_metric] = {
+                    "value": None,
+                    "status": "unknown",
+                    "source": None,
+                    "evidence": "v62_cleared_inherited_value_without_current_season_provenance",
+                    "previousValue": performance.get(_metric),
+                    "previousSource": _source,
+                }
+                performance[_metric] = None
+                performance_sources.pop(_metric, None)
+
+        _summary = ", ".join(
+            f"{key}={fact.get('value') if fact.get('status') == 'observed' else 'unknown'}"
+            for key, fact in v62_current_metrics.items()
+        )
+        print(f"V62-CURRENT-PERFORMANCE {name}: {_summary}")
+
     kickbase_factor_coverage = build_kickbase_factor_coverage(performance, player.get("position"))
 
     # V28: Expected-Points-Engine aktiv. Ausschließlich öffentlich gefundene
@@ -6768,6 +6924,7 @@ def build_player_intelligence(
         "currentSeasonFactGuard": v52_current_fact_evidence,
         "currentSeasonGoalsFact": v54_goals_fact,
         "currentSeasonCountFactsV61": v60_current_counts,
+        "currentSeasonPerformanceFactsV62": v62_current_metrics,
         "dataCoverage": data_coverage,
         "historicalPrior": historical_prior,
         "historicalPriorSources": historical_prior_sources,
