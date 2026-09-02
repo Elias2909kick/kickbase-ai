@@ -7956,11 +7956,18 @@
       "sourceUrl": "https://www.bundesliga.com/de/spieler/minjae-kim",
       "average": null,
       "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "form": "Letztes KB-Spiel: 110 Pkt.",
       "footballRating": null,
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
-      "kickbaseMatchHistory": [],
+      "kickbaseMatchHistory": [
+        {
+          "points": 110,
+          "played": true,
+          "source": "manual_verified",
+          "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+        }
+      ],
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
@@ -18537,11 +18544,18 @@
       "sourceUrl": "https://www.bundesliga.com/de/spieler/finn-jeltsch",
       "average": null,
       "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "form": "Letztes KB-Spiel: 16 Pkt.",
       "footballRating": null,
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
-      "kickbaseMatchHistory": [],
+      "kickbaseMatchHistory": [
+        {
+          "points": 16,
+          "played": true,
+          "source": "manual_verified",
+          "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+        }
+      ],
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
@@ -30989,7 +31003,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -33799,11 +33813,18 @@
       "sourceUrl": "https://www.bundesliga.com/de/spieler/tidiam-gomis",
       "average": null,
       "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "form": "Letztes KB-Spiel: 176 Pkt.",
       "footballRating": null,
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
-      "kickbaseMatchHistory": [],
+      "kickbaseMatchHistory": [
+        {
+          "points": 176,
+          "played": true,
+          "source": "manual_verified",
+          "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+        }
+      ],
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
@@ -41043,7 +41064,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -69602,13 +69623,13 @@
       "sourceUrl": "https://www.bundesliga.com/de/spieler/woo-yeong-jeong",
       "average": 12,
       "starting": "56%",
-      "form": "Noch keine belastbare Formbasis",
-      "footballRating": 53,
-      "kickbaseAiScore": 53,
+      "form": "Letztes KB-Spiel: 61 Pkt.",
+      "footballRating": 46,
+      "kickbaseAiScore": 46,
       "kickbaseAiProjection": {
-        "expectedPoints": 53,
-        "rangeMin": 8,
-        "rangeMax": 98,
+        "expectedPoints": 46,
+        "rangeMin": 1,
+        "rangeMax": 91,
         "confidence": 33,
         "recommendation": "Beobachten",
         "expectedMinutes": 53,
@@ -69617,21 +69638,21 @@
         "startProbability": 56,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 81.6,
-          "benchPoints": 16.4,
+          "starterPoints": 70.3,
+          "benchPoints": 14.1,
           "publicRawStarterPoints": 14.8,
           "publicRawBenchPoints": 9.3
         },
         "kickbaseCalibration": {
-          "source": "position_public_fallback_v51",
-          "historyMatches": 0,
-          "historyMean": null,
-          "historyWeight": 0.0,
+          "source": "kickbase_match_history",
+          "historyMatches": 1,
+          "historyMean": 61.0,
+          "historyWeight": 0.55,
           "positionBaseline": 92.0,
           "publicRawExpected": 12.3,
           "publicDeltaRaw": -10.4,
           "publicDeltaApplied": -10.4,
-          "calibratedStarter": 81.6
+          "calibratedStarter": 70.3
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -69700,15 +69721,22 @@
         },
         "openDataCalibrationAppliedToExpectedPoints": false
       },
-      "kickbaseMatchHistory": [],
+      "kickbaseMatchHistory": [
+        {
+          "points": 61,
+          "played": true,
+          "source": "manual_verified",
+          "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+        }
+      ],
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
-          "projectedPoints": 53,
-          "projectedPointsLabel": "53 Punkte",
-          "rangeMin": 8,
-          "rangeMax": 98,
-          "rangeLabel": "8–98 Punkte",
+          "projectedPoints": 46,
+          "projectedPointsLabel": "46 Punkte",
+          "rangeMin": 1,
+          "rangeMax": 91,
+          "rangeLabel": "1–91 Punkte",
           "recommendation": "Beobachten"
         },
         "availability": {
@@ -69764,8 +69792,8 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 81.6,
-          "benchPoints": 16.4,
+          "starterPoints": 70.3,
+          "benchPoints": 14.1,
           "publicRawStarterPoints": 14.8,
           "publicRawBenchPoints": 9.3
         },
@@ -69792,7 +69820,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 53,
+        "projectedPoints": 46,
         "startProbability": 56,
         "goals": 0,
         "goalsAgainst": null,
@@ -69805,9 +69833,9 @@
       },
       "displayIntelligence": {
         "schemaVersion": 51,
-        "projectedPoints": 53,
-        "projectedPointsLabel": "53 Punkte",
-        "rangeLabel": "8–98 Punkte",
+        "projectedPoints": 46,
+        "projectedPointsLabel": "46 Punkte",
+        "rangeLabel": "1–91 Punkte",
         "startProbabilityLabel": "56%",
         "expectedMinutesLabel": "53 Min.",
         "confidenceLabel": "33%",
@@ -69841,8 +69869,8 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 8,
-        "rangeMax": 98,
+        "rangeMin": 1,
+        "rangeMax": 91,
         "confidence": 33,
         "startProbability": 56,
         "expectedMinutes": 53,
@@ -115506,36 +115534,36 @@
       "sourceUrl": "https://www.bundesliga.com/de/spieler/lucas-vazquez",
       "average": 11,
       "starting": "94%",
-      "form": "Noch keine belastbare Formbasis",
-      "footballRating": 76,
-      "kickbaseAiScore": 76,
+      "form": "Letztes KB-Spiel: -6 Pkt.",
+      "footballRating": 31,
+      "kickbaseAiScore": 31,
       "kickbaseAiProjection": {
-        "expectedPoints": 76,
-        "rangeMin": 36,
-        "rangeMax": 116,
+        "expectedPoints": 31,
+        "rangeMin": 0,
+        "rangeMax": 71,
         "confidence": 33,
-        "recommendation": "Gute Option",
+        "recommendation": "Beobachten",
         "expectedMinutes": 79,
         "minutesIfStart": 83,
         "minutesIfBench": 16,
         "startProbability": 94,
         "positionModel": "ABW",
         "scenario": {
-          "starterPoints": 79.6,
-          "benchPoints": 11.6,
+          "starterPoints": 32.5,
+          "benchPoints": 8.0,
           "publicRawStarterPoints": 14.6,
           "publicRawBenchPoints": 5.8
         },
         "kickbaseCalibration": {
-          "source": "position_public_fallback_v51",
-          "historyMatches": 0,
-          "historyMean": null,
-          "historyWeight": 0.0,
+          "source": "kickbase_match_history",
+          "historyMatches": 1,
+          "historyMean": -6.0,
+          "historyWeight": 0.55,
           "positionBaseline": 88.0,
           "publicRawExpected": 14.1,
           "publicDeltaRaw": -8.4,
           "publicDeltaApplied": -8.4,
-          "calibratedStarter": 79.6
+          "calibratedStarter": 32.5
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -115611,16 +115639,23 @@
         },
         "openDataCalibrationAppliedToExpectedPoints": false
       },
-      "kickbaseMatchHistory": [],
+      "kickbaseMatchHistory": [
+        {
+          "points": -6,
+          "played": true,
+          "source": "manual_verified",
+          "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+        }
+      ],
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
-          "projectedPoints": 76,
-          "projectedPointsLabel": "76 Punkte",
-          "rangeMin": 36,
-          "rangeMax": 116,
-          "rangeLabel": "36–116 Punkte",
-          "recommendation": "Gute Option"
+          "projectedPoints": 31,
+          "projectedPointsLabel": "31 Punkte",
+          "rangeMin": 0,
+          "rangeMax": 71,
+          "rangeLabel": "0–71 Punkte",
+          "recommendation": "Beobachten"
         },
         "availability": {
           "startProbability": 94,
@@ -115675,8 +115710,8 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 79.6,
-          "benchPoints": 11.6,
+          "starterPoints": 32.5,
+          "benchPoints": 8.0,
           "publicRawStarterPoints": 14.6,
           "publicRawBenchPoints": 5.8
         },
@@ -115703,7 +115738,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 76,
+        "projectedPoints": 31,
         "startProbability": 94,
         "goals": 0,
         "goalsAgainst": null,
@@ -115712,13 +115747,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Gute Option"
+        "recommendation": "Beobachten"
       },
       "displayIntelligence": {
         "schemaVersion": 51,
-        "projectedPoints": 76,
-        "projectedPointsLabel": "76 Punkte",
-        "rangeLabel": "36–116 Punkte",
+        "projectedPoints": 31,
+        "projectedPointsLabel": "31 Punkte",
+        "rangeLabel": "0–71 Punkte",
         "startProbabilityLabel": "94%",
         "expectedMinutesLabel": "79 Min.",
         "confidenceLabel": "33%",
@@ -115752,12 +115787,12 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 36,
-        "rangeMax": 116,
+        "rangeMin": 0,
+        "rangeMax": 71,
         "confidence": 33,
         "startProbability": 94,
         "expectedMinutes": 79,
-        "recommendation": "Gute Option",
+        "recommendation": "Beobachten",
         "scoringReadinessPercent": 60,
         "reliabilityBand": "mittel",
         "source": "kickbaseAiProjection"
@@ -115990,7 +116025,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Gute Option",
+      "recommendation": "Beobachten",
       "lastUpdated": "2026-09-02",
       "sources": [
         {
@@ -116052,7 +116087,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -116346,11 +116381,18 @@
       "sourceUrl": "https://www.bundesliga.com/de/spieler/ezequiel-fernandez",
       "average": null,
       "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "form": "Letztes KB-Spiel: 39 Pkt.",
       "footballRating": null,
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
-      "kickbaseMatchHistory": [],
+      "kickbaseMatchHistory": [
+        {
+          "points": 39,
+          "played": true,
+          "source": "manual_verified",
+          "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+        }
+      ],
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
@@ -119511,7 +119553,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -126704,7 +126746,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -132370,7 +132412,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -155483,7 +155525,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -156407,11 +156449,18 @@
       "sourceUrl": "https://www.bundesliga.com/de/spieler/ludovit-reis",
       "average": null,
       "starting": "Noch nicht recherchiert",
-      "form": "Noch nicht recherchiert",
+      "form": "Letztes KB-Spiel: 29 Pkt.",
       "footballRating": null,
       "kickbaseAiScore": null,
       "kickbaseAiProjection": null,
-      "kickbaseMatchHistory": [],
+      "kickbaseMatchHistory": [
+        {
+          "points": 29,
+          "played": true,
+          "source": "manual_verified",
+          "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+        }
+      ],
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
@@ -165532,7 +165581,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -177659,36 +177708,36 @@
       "sourceUrl": "https://www.bundesliga.com/de/spieler/adil-aouchiche",
       "average": 18,
       "starting": "98%",
-      "form": "Noch keine belastbare Formbasis",
-      "footballRating": 84,
-      "kickbaseAiScore": 84,
+      "form": "Letztes KB-Spiel: 43 Pkt.",
+      "footballRating": 61,
+      "kickbaseAiScore": 61,
       "kickbaseAiProjection": {
-        "expectedPoints": 84,
-        "rangeMin": 42,
-        "rangeMax": 126,
+        "expectedPoints": 61,
+        "rangeMin": 19,
+        "rangeMax": 103,
         "confidence": 37,
-        "recommendation": "Starten",
+        "recommendation": "Gute Option",
         "expectedMinutes": 77,
         "minutesIfStart": 78,
         "minutesIfBench": 22,
         "startProbability": 98,
         "positionModel": "MF",
         "scenario": {
-          "starterPoints": 85.5,
-          "benchPoints": 17.1,
+          "starterPoints": 62.1,
+          "benchPoints": 12.5,
           "publicRawStarterPoints": 23.8,
           "publicRawBenchPoints": 10.1
         },
         "kickbaseCalibration": {
-          "source": "position_public_fallback_v51",
-          "historyMatches": 0,
-          "historyMean": null,
-          "historyWeight": 0.0,
+          "source": "kickbase_match_history",
+          "historyMatches": 1,
+          "historyMean": 43.0,
+          "historyWeight": 0.55,
           "positionBaseline": 92.0,
           "publicRawExpected": 23.5,
           "publicDeltaRaw": -6.5,
           "publicDeltaApplied": -6.5,
-          "calibratedStarter": 85.5
+          "calibratedStarter": 62.1
         },
         "historicalPriorStrength": {
           "bonus": 0.0,
@@ -177757,16 +177806,23 @@
         },
         "openDataCalibrationAppliedToExpectedPoints": false
       },
-      "kickbaseMatchHistory": [],
+      "kickbaseMatchHistory": [
+        {
+          "points": 43,
+          "played": true,
+          "source": "manual_verified",
+          "note": "vom Nutzer per Kickbase-Screenshot als echte Spieltagspunkte bestätigt"
+        }
+      ],
       "playerIntelligenceV45": {
         "schemaVersion": 51,
         "headline": {
-          "projectedPoints": 84,
-          "projectedPointsLabel": "84 Punkte",
-          "rangeMin": 42,
-          "rangeMax": 126,
-          "rangeLabel": "42–126 Punkte",
-          "recommendation": "Starten"
+          "projectedPoints": 61,
+          "projectedPointsLabel": "61 Punkte",
+          "rangeMin": 19,
+          "rangeMax": 103,
+          "rangeLabel": "19–103 Punkte",
+          "recommendation": "Gute Option"
         },
         "availability": {
           "startProbability": 98,
@@ -177821,8 +177877,8 @@
           "goalConcededTW": null
         },
         "scenario": {
-          "starterPoints": 85.5,
-          "benchPoints": 17.1,
+          "starterPoints": 62.1,
+          "benchPoints": 12.5,
           "publicRawStarterPoints": 23.8,
           "publicRawBenchPoints": 10.1
         },
@@ -177849,7 +177905,7 @@
         }
       },
       "playerIntelligenceUiRows": {
-        "projectedPoints": 84,
+        "projectedPoints": 61,
         "startProbability": 98,
         "goals": 0,
         "goalsAgainst": null,
@@ -177858,13 +177914,13 @@
         "injury": "Fit",
         "suspension": "Keine Sperre",
         "yellowCards": 0,
-        "recommendation": "Starten"
+        "recommendation": "Gute Option"
       },
       "displayIntelligence": {
         "schemaVersion": 51,
-        "projectedPoints": 84,
-        "projectedPointsLabel": "84 Punkte",
-        "rangeLabel": "42–126 Punkte",
+        "projectedPoints": 61,
+        "projectedPointsLabel": "61 Punkte",
+        "rangeLabel": "19–103 Punkte",
         "startProbabilityLabel": "98%",
         "expectedMinutesLabel": "77 Min.",
         "confidenceLabel": "37%",
@@ -177898,12 +177954,12 @@
           "minutePer10": 1,
           "goalConcededTW": null
         },
-        "rangeMin": 42,
-        "rangeMax": 126,
+        "rangeMin": 19,
+        "rangeMax": 103,
         "confidence": 37,
         "startProbability": 98,
         "expectedMinutes": 77,
-        "recommendation": "Starten",
+        "recommendation": "Gute Option",
         "scoringReadinessPercent": 83,
         "reliabilityBand": "hoch",
         "source": "kickbaseAiProjection"
@@ -178147,7 +178203,7 @@
       "injuryEvidence": "fit",
       "suspension": "Keine Sperre",
       "suspensionEvidence": "checked_no_suspension",
-      "recommendation": "Starten",
+      "recommendation": "Gute Option",
       "lastUpdated": "2026-09-02",
       "sources": [
         {
@@ -179469,7 +179525,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
