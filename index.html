@@ -2017,7 +2017,22 @@ function openPlayerModal(id){
 
   const intel = findIntelForPlayer(data);
 
-  intelAverage.textContent = intel.average ?? "Noch nicht recherchiert";
+  intelAverage.textContent = (() => {
+    const projection = intel.kickbaseAiProjection || intel.kickbaseAIProjection || {};
+    const expected = projection.expectedPoints ?? intel.average;
+    const min = projection.rangeMin;
+    const max = projection.rangeMax;
+
+    if(expected == null){
+      return "Noch nicht recherchiert";
+    }
+
+    if(min != null && max != null){
+      return `${expected} (${min}–${max})`;
+    }
+
+    return String(expected);
+  })();
   intelStarting.textContent = intel.starting ?? "Noch nicht recherchiert";
 
   /*
