@@ -6278,32 +6278,40 @@ def build_player_intelligence(
     v60_current_counts = {}
     if research_player:
         for _metric in ("assists", "yellowCards"):
-            _existing = performance.get(_metric)
-            _existing_source = performance_sources.get(_metric)
+            # V61: DO NOT trust a pre-existing value merely because it survived
+            # the generic V52 sanity guard. That path allowed stale/cross-parsed
+            # values such as Kane assists=5 to remain "observed".
+            #
+            # For these UI/current-season counts, the strict current-season
+            # ranking resolver is authoritative on every researched player.
+            _previous_value = performance.get(_metric)
+            _previous_source = performance_sources.get(_metric)
 
-            if _existing is not None and _existing_source:
-                _fact = {
-                    "value": _existing,
-                    "status": "observed",
-                    "source": _existing_source,
-                    "evidence": "already_available_after_v52",
-                }
+            _fact = v60_current_season_ranking_count(
+                _metric,
+                research_input,
+                club_name,
+                matches,
+            )
+
+            if _fact.get("status") == "observed":
+                performance[_metric] = _fact.get("value")
+                performance_sources[_metric] = _fact.get("source")
             else:
-                _fact = v60_current_season_ranking_count(
-                    _metric,
-                    research_input,
-                    club_name,
-                    matches,
-                )
-                if _fact.get("status") == "observed":
-                    performance[_metric] = _fact.get("value")
-                    performance_sources[_metric] = _fact.get("source")
+                # A current-season resolver failure must not leave a previously
+                # parsed value masquerading as current truth.
+                performance[_metric] = None
+                performance_sources.pop(_metric, None)
 
+            _fact["previousValue"] = _previous_value
+            _fact["previousSource"] = _previous_source
             v60_current_counts[_metric] = _fact
+
             print(
-                f"V60-CURRENT-{_metric.upper()} {name}: "
+                f"V61-CURRENT-{_metric.upper()} {name}: "
                 f"value={_fact.get('value')} | "
                 f"status={_fact.get('status')} | "
+                f"previous={_previous_value} | "
                 f"evidence={_fact.get('evidence')} | "
                 f"source={_fact.get('source')}"
             )
@@ -6759,7 +6767,7 @@ def build_player_intelligence(
         "performanceSources": performance_sources,
         "currentSeasonFactGuard": v52_current_fact_evidence,
         "currentSeasonGoalsFact": v54_goals_fact,
-        "currentSeasonCountFactsV60": v60_current_counts,
+        "currentSeasonCountFactsV61": v60_current_counts,
         "dataCoverage": data_coverage,
         "historicalPrior": historical_prior,
         "historicalPriorSources": historical_prior_sources,
