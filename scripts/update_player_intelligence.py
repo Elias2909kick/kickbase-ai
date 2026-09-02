@@ -2125,6 +2125,28 @@ def v55_current_season_goals(player, club_name, matches):
         profile_fact["evidence"] += f";guard_rejected:{guard}"
 
     ranking_fact = v54_current_season_goals((player or {}).get("name"))
+
+    # V59 ZERO FALLBACK:
+    # If the current-season official Bundesliga goals ranking loaded correctly
+    # but does not list this actively researched Bundesliga player, zero goals
+    # is safe after at least one completed team match.  This is deliberately
+    # narrow: profile/ranking errors, pre-season state and stale-season sources
+    # remain unknown.  The value still passes V52 below.
+    if (
+        ranking_fact.get("status") == "unknown"
+        and ranking_fact.get("evidence") == "player_not_explicitly_listed_on_current_goals_ranking"
+        and ranking_fact.get("source")
+        and (player or {}).get("name")
+        and (player or {}).get("sourceUrl")
+        and v52_completed_team_matches(club_name, matches) > 0
+    ):
+        ranking_fact = {
+            "value": 0,
+            "status": "observed",
+            "source": ranking_fact.get("source"),
+            "evidence": "v59_current_goals_ranking_absence_zero_after_completed_match",
+        }
+
     if ranking_fact.get("status") == "observed":
         safe_value, safe_source, guard = v52_guard_current_season_count(
             "goals", ranking_fact.get("value"), ranking_fact.get("source"),
@@ -2171,7 +2193,12 @@ def v54_current_season_goals(player_name):
     value = _extract_metric_from_ranking_text(page_text, heading, player_name)
 
     if value is None:
-        # Never infer zero merely because the player is absent from a ranking.
+        # V59: The official current-season goals ranking is treated as an
+        # exhaustive zero-safe source only when the page itself is clearly the
+        # requested current Bundesliga season and the player belongs to the
+        # actively researched current Bundesliga squad.  At this resolver level
+        # we do NOT yet know the squad membership, so keep absence unknown; the
+        # guarded V59 fallback is applied in v55_current_season_goals().
         return {
             "value": None,
             "status": "unknown",
@@ -6123,7 +6150,7 @@ def build_player_intelligence(
 
     if research_player:
         print(
-            f"V58-CURRENT-GOALS {name}: "
+            f"V59-CURRENT-GOALS {name}: "
             f"value={v54_goals_fact.get('value')} | "
             f"status={v54_goals_fact.get('status')} | "
             f"evidence={v54_goals_fact.get('evidence')} | "
