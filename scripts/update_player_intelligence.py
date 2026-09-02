@@ -5980,11 +5980,20 @@ def build_player_intelligence(
             else "not_checked"
         ),
     }
-    if performance.get("goals") is None:
+    if performance.get("goals") is None and research_player:
         v54_goals_fact = v55_current_season_goals(research_input, club_name, matches)
         if v54_goals_fact.get("status") == "observed":
             performance["goals"] = v54_goals_fact.get("value")
             performance_sources["goals"] = v54_goals_fact.get("source")
+    elif performance.get("goals") is None:
+        # V55.1: research_input is created only for actively researched players.
+        # Non-researched players must not enter the current-profile resolver.
+        v54_goals_fact = {
+            "value": None,
+            "status": "unknown",
+            "source": None,
+            "evidence": "not_researched_preserve_existing_state",
+        }
 
     if research_player:
         print(
