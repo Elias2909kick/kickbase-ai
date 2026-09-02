@@ -202,6 +202,111 @@ def v46_build_actual_facts(performance, performance_sources, profile_values=None
         for metric in V46_ACTUAL_COUNT_FIELDS
     }
 
+
+# ============================================================
+# V52 CURRENT-SEASON FACT GUARD
+# ============================================================
+# Purpose:
+# - UI occurrence facts must represent CURRENT_SEASON only.
+# - historical/prior values may still be used by the projection as priors,
+#   but must never leak into goals / yellowCards / goalsAgainst shown as
+#   current observed facts.
+# - Bundesliga ranking pages can occasionally expose stale/previous-season
+#   values under a current-season URL. We therefore combine provenance with
+#   a conservative match-count sanity check.
+
+def v52_completed_team_matches(club_name, matches):
+    completed = 0
+    for match in matches or []:
+        if not isinstance(match, dict) or not match.get("matchIsFinished"):
+            continue
+        team1 = (match.get("team1") or {}).get("teamName", "")
+        team2 = (match.get("team2") or {}).get("teamName", "")
+        if names_match(club_name, team1) or names_match(club_name, team2):
+            if _openligadb_final_score(match) is not None:
+                completed += 1
+    return completed
+
+
+def v52_guard_current_season_count(metric, value, source, club_name, matches):
+    """
+    Return (safe_value, safe_source, evidence).
+
+    Conservative guard for UI/current-performance counts. It does not try to
+    estimate a missing value. A rejected value becomes unknown instead.
+    """
+    if value is None:
+        return None, None, "missing"
+
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None, None, "non_numeric"
+
+    rounded = round(number)
+    if number < 0 or abs(number - rounded) > 1e-9:
+        return None, None, "not_nonnegative_integer"
+
+    value = int(rounded)
+    source_text = str(source or "")
+
+    # Explicit prior-season provenance is never current truth.
+    if BUNDESLIGA_PRIOR_SEASON in source_text:
+        return None, None, "rejected_prior_season_source"
+
+    team_matches = v52_completed_team_matches(club_name, matches)
+
+    # Before a completed match, only an explicit zero can be current truth.
+    if team_matches == 0:
+        if value == 0 and source:
+            return 0, source, "current_zero_before_first_completed_match"
+        return None, None, f"rejected_no_completed_matches:value={value}"
+
+    # Conservative hard sanity bounds. These are NOT forecasts; they only
+    # reject impossible/stale season totals such as Kane=36 goals after MD1.
+    if metric == "goals":
+        max_plausible = 6 * team_matches
+    elif metric == "yellowCards":
+        max_plausible = 2 * team_matches
+    elif metric == "appearances":
+        max_plausible = team_matches
+    else:
+        max_plausible = None
+
+    if max_plausible is not None and value > max_plausible:
+        return (
+            None,
+            None,
+            f"rejected_stale_or_implausible:{value}>{max_plausible};"
+            f"completedMatches={team_matches}",
+        )
+
+    return value, source, f"accepted_current_season;completedMatches={team_matches}"
+
+
+def v52_sanitize_current_performance(performance, performance_sources, club_name, matches):
+    performance = dict(performance or {})
+    performance_sources = dict(performance_sources or {})
+    evidence = {}
+
+    for metric in ("goals", "yellowCards", "appearances"):
+        safe_value, safe_source, reason = v52_guard_current_season_count(
+            metric,
+            performance.get(metric),
+            performance_sources.get(metric),
+            club_name,
+            matches,
+        )
+        evidence[metric] = reason
+        performance[metric] = safe_value
+        if safe_source:
+            performance_sources[metric] = safe_source
+        else:
+            performance_sources.pop(metric, None)
+
+    return performance, performance_sources, evidence
+
+
 def v44_missing_event_prior(position, missing_metrics, minutes=90.0):
     """
     Return transparent, conservative priors for genuinely missing event metrics.
@@ -5633,6 +5738,28 @@ def build_player_intelligence(
         perf_values,
         old_performance=old_performance,
     )
+
+    # V52: reject stale/prior-season occurrence totals before they can affect
+    # either the Kickbase projection or the UI.
+    performance, performance_sources, v52_current_fact_evidence = (
+        v52_sanitize_current_performance(
+            performance,
+            performance_sources,
+            club_name,
+            matches,
+        )
+    )
+    if research_player:
+        print(
+            f"V52-CURRENT-FACT-GUARD {name}: "
+            f"goals={performance.get('goals')} "
+            f"[{v52_current_fact_evidence.get('goals')}] | "
+            f"yellowCards={performance.get('yellowCards')} "
+            f"[{v52_current_fact_evidence.get('yellowCards')}] | "
+            f"appearances={performance.get('appearances')} "
+            f"[{v52_current_fact_evidence.get('appearances')}]"
+        )
+
     kickbase_factor_coverage = build_kickbase_factor_coverage(performance, player.get("position"))
 
     # V28: Expected-Points-Engine aktiv. Ausschließlich öffentlich gefundene
@@ -5826,6 +5953,11 @@ def build_player_intelligence(
         f"StartDisplay={display_starting} | "
         f"Injury={injury} | Suspension={suspension}"
     )
+
+    # V52: UI occurrence fields must use the sanitized CURRENT_SEASON
+    # performance values, never an unsanitized profile/old-player carry-over.
+    goals = performance.get("goals")
+    yellow_cards = performance.get("yellowCards")
 
     # V45.3 UI semantics
     # Startelf: show the actual probability instead of a qualitative label.
@@ -6077,6 +6209,7 @@ def build_player_intelligence(
         },
         "performance": performance,
         "performanceSources": performance_sources,
+        "currentSeasonFactGuard": v52_current_fact_evidence,
         "dataCoverage": data_coverage,
         "historicalPrior": historical_prior,
         "historicalPriorSources": historical_prior_sources,
