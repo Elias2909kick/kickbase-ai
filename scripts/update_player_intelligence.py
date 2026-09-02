@@ -1940,8 +1940,13 @@ def _v56_profile_current_season_block(player):
     season_pattern = "(?:" + "|".join(
         re.escape(label) for label in _v56_current_season_labels()
     ) + ")"
+    # V57: _html_to_visible_text() may preserve link/navigation text between
+    # "Statistik Saison" and the season value. Match the heading defensively
+    # instead of requiring the season to follow immediately. The bounded gap
+    # still requires an explicit current-season label and cannot match historical
+    # prose elsewhere on the profile.
     matches = list(re.finditer(
-        rf"Statistik\s+Saison\s+{season_pattern}",
+        rf"Statistik\s+Saison(?:\s|[^0-9]){{0,120}}{season_pattern}",
         text or "",
         flags=re.IGNORECASE,
     ))
