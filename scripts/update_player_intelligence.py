@@ -1896,6 +1896,62 @@ def _get_bundesliga_stat_text(metric_key, season=None, historical=False, competi
         return None, url
 
 
+
+# ============================================================
+# V53 CURRENT-SEASON GOALS RESOLVER
+# ============================================================
+# UI/current-performance goals are read ONLY from the current-season
+# Bundesliga goals ranking. Historical pages remain projection priors only.
+
+def v53_current_season_goals(player_name):
+    page_text, source_url = _get_bundesliga_stat_text(
+        "goals",
+        season=BUNDESLIGA_STATS_SEASON,
+        historical=False,
+        competition="bundesliga",
+    )
+
+    if not page_text or not source_url:
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": None,
+            "evidence": "current_goals_page_unavailable",
+        }
+
+    heading = (BUNDESLIGA_PLAYER_STAT_CATEGORIES.get("goals") or {}).get("heading") or "Tore"
+    value = _extract_metric_from_ranking_text(page_text, heading, player_name)
+
+    if value is None:
+        # Never infer zero merely because the player is absent from a ranking.
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": "player_not_explicitly_listed_on_current_goals_ranking",
+        }
+
+    try:
+        number = float(value)
+        rounded = round(number)
+        if number < 0 or abs(number - rounded) > 1e-9:
+            raise ValueError
+    except (TypeError, ValueError):
+        return {
+            "value": None,
+            "status": "unknown",
+            "source": source_url,
+            "evidence": f"non_integer_current_goals_value:{value}",
+        }
+
+    return {
+        "value": int(rounded),
+        "status": "observed",
+        "source": source_url,
+        "evidence": "explicit_current_season_bundesliga_goals_ranking",
+    }
+
+
 def _normalize_player_lookup_name(value):
     value = normalize_name(value or "")
     return re.sub(r"\s+", " ", value).strip()
@@ -5760,6 +5816,33 @@ def build_player_intelligence(
             f"[{v52_current_fact_evidence.get('appearances')}]"
         )
 
+    # V53: if V52 rejected a stale current-goals value, make one explicit
+    # attempt against the 2026/27 Bundesliga goals ranking.
+    v53_goals_fact = {
+        "value": performance.get("goals"),
+        "status": "observed" if performance.get("goals") is not None else "unknown",
+        "source": performance_sources.get("goals"),
+        "evidence": (
+            "already_available_after_v52"
+            if performance.get("goals") is not None
+            else "not_checked"
+        ),
+    }
+    if performance.get("goals") is None:
+        v53_goals_fact = v53_current_season_goals(name)
+        if v53_goals_fact.get("status") == "observed":
+            performance["goals"] = v53_goals_fact.get("value")
+            performance_sources["goals"] = v53_goals_fact.get("source")
+
+    if research_player:
+        print(
+            f"V53-CURRENT-GOALS {name}: "
+            f"value={v53_goals_fact.get('value')} | "
+            f"status={v53_goals_fact.get('status')} | "
+            f"evidence={v53_goals_fact.get('evidence')} | "
+            f"source={v53_goals_fact.get('source')}"
+        )
+
     kickbase_factor_coverage = build_kickbase_factor_coverage(performance, player.get("position"))
 
     # V28: Expected-Points-Engine aktiv. Ausschließlich öffentlich gefundene
@@ -6210,6 +6293,7 @@ def build_player_intelligence(
         "performance": performance,
         "performanceSources": performance_sources,
         "currentSeasonFactGuard": v52_current_fact_evidence,
+        "currentSeasonGoalsFact": v53_goals_fact,
         "dataCoverage": data_coverage,
         "historicalPrior": historical_prior,
         "historicalPriorSources": historical_prior_sources,
