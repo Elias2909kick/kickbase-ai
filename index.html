@@ -432,6 +432,28 @@ button{
   -->
   <div id="roster"></div>
 
+  <section class="section card" id="transferMarketSection">
+    <div class="header-row">
+      <h2>🛒 Mein Transfermarkt</h2>
+      <span class="players-count" id="transferCount">0 Spieler</span>
+    </div>
+    <div class="info">
+      Füge Spieler hinzu, die gerade in deiner Kickbase-Liga zum Verkauf stehen.
+      Nur Spieler aus den aktuell geladenen Bundesliga-Teamkadern sind auswählbar.
+      Deine Liste bleibt auf diesem Gerät gespeichert.
+    </div>
+    <label for="transferSearch" class="transfer-label">Bundesliga-Spieler suchen</label>
+    <input type="search" id="transferSearch" class="player-search"
+           placeholder="Name oder Verein eingeben …" autocomplete="off">
+    <div id="transferSearchResults" class="player-search-results" aria-live="polite"></div>
+    <div id="transferStatus" class="roster-sync-status"></div>
+    <div id="transferList" class="transfer-list"></div>
+    <p class="transfer-note">Eine Kaufempfehlung benötigt belastbare aktuelle Leistungsdaten,
+    Kickbase-Marktwert und idealerweise dein verfügbares Budget. Fehlende Werte
+    werden nicht geschätzt.</p>
+  </section>
+
+
 
   <div class="ai">
 
@@ -893,6 +915,19 @@ button{
   </div>
 </div>
 
+
+<style>
+.transfer-label{display:block;font-weight:750;margin:18px 0 9px}
+.transfer-list{margin-top:16px}
+.transfer-item{padding:15px;border:1px solid var(--line);border-radius:17px;margin-top:10px;background:#fff}
+.transfer-item-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.transfer-item-name{font-weight:800;font-size:17px}
+.transfer-item-meta{color:var(--muted);font-size:13px;margin-top:4px}
+.transfer-remove{background:#fee2e2;color:#991b1b;padding:9px 12px;font-size:13px;flex:none}
+.transfer-note{font-size:13px;line-height:1.5;color:var(--muted)}
+.transfer-status{margin-top:10px;font-size:13px;color:var(--muted)}
+.transfer-empty{padding:18px;color:var(--muted);text-align:center;background:#f8fafc;border-radius:14px}
+</style>
 <script>
 /*
   KICKBASE AI V3 – DYNAMISCHER KADER
@@ -2382,6 +2417,8 @@ async function loadPlayerIntelligence(){
         : "Alle Spieler haben einen Verein."
     );
 
+    refreshVerifiedTransferPlayers();
+    renderTransferMarket();
     migrateRosterToCurrentBundesligaIds();
     renderRoster();
 
@@ -2398,8 +2435,136 @@ async function loadPlayerIntelligence(){
     }));
 
     renderRoster();
+    refreshVerifiedTransferPlayers();
+    renderTransferMarket();
   }
 }
+
+
+// V64: Transfermarkt ist unabhängig vom eigenen Kader und bleibt lokal gespeichert.
+const TRANSFER_STORAGE_KEY = "kickbase_ai_transfermarkt_v64";
+let TRANSFER_IDS = [];
+let VERIFIED_TRANSFER_PLAYERS = [];
+try {
+  const saved = JSON.parse(localStorage.getItem(TRANSFER_STORAGE_KEY) || "[]");
+  if(Array.isArray(saved)) TRANSFER_IDS = [...new Set(saved.map(String))].slice(0,100);
+} catch(error) { console.warn("Transferliste konnte nicht gelesen werden", error); }
+
+function saveTransferList(){
+  try { localStorage.setItem(TRANSFER_STORAGE_KEY, JSON.stringify(TRANSFER_IDS)); }
+  catch(error) { document.getElementById("transferStatus").textContent = "Speichern im Browser fehlgeschlagen."; }
+}
+
+function refreshVerifiedTransferPlayers(){
+  // Ausschließlich direkte Teamkader aus der aktuellen JSON; keine historischen
+  // Startspieler, Alias-Fallbacks oder freie Namenseingaben.
+  const teams = PLAYER_INTELLIGENCE?.teams;
+  const teamRecords = Array.isArray(teams) ? teams : (teams && typeof teams === "object" ? Object.values(teams) : []);
+  const verified = new Map();
+  for(const team of teamRecords){
+    if(!team || typeof team !== "object") continue;
+    const club = String(team.club || team.teamName || team.name || "").trim();
+    const members = Array.isArray(team.players) ? team.players :
+      Array.isArray(team.squad) ? team.squad : Array.isArray(team.roster) ? team.roster : [];
+    if(!club) continue;
+    for(const raw of members){
+      if(!raw || typeof raw !== "object") continue;
+      const name = String(raw.name || raw.playerName || raw.fullName || "").trim();
+      if(!name) continue;
+      const id = String(raw.id ?? raw.playerId ?? slugify(`${name}-${club}`));
+      if(!verified.has(id)) verified.set(id, {
+        id, name, club, position:normalizePosition(raw.position || raw.positionName || raw.positionShort)
+      });
+    }
+  }
+  VERIFIED_TRANSFER_PLAYERS = [...verified.values()];
+}
+
+function renderTransferMarket(){
+  const count = document.getElementById("transferCount");
+  const status = document.getElementById("transferStatus");
+  const list = document.getElementById("transferList");
+  const root = document.getElementById("transferSearchResults");
+  const input = document.getElementById("transferSearch");
+  count.textContent = `${TRANSFER_IDS.length} Spieler`;
+  status.textContent = VERIFIED_TRANSFER_PLAYERS.length
+    ? `${VERIFIED_TRANSFER_PLAYERS.length} Spieler aus aktuellen Teamkadern geladen.`
+    : "Aktuelle Teamkader nicht verfügbar – Hinzufügen vorerst deaktiviert.";
+  const query = normalizeText(input.value);
+  root.replaceChildren();
+  if(query.length >= 2 && VERIFIED_TRANSFER_PLAYERS.length){
+    const matches = VERIFIED_TRANSFER_PLAYERS.filter(p =>
+      !TRANSFER_IDS.includes(p.id) &&
+      (normalizeText(p.name).includes(query) || normalizeText(p.club).includes(query))
+    ).slice(0,12);
+    if(!matches.length) root.innerHTML = '<div class="search-empty">Kein passender Spieler im aktuellen Bundesliga-Kader gefunden.</div>';
+    for(const player of matches){
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "search-player";
+      const content = document.createElement("span");
+      content.className = "search-player-main";
+      const name = document.createElement("strong");
+      name.textContent = player.name;
+      const meta = document.createElement("small");
+      meta.textContent = `${player.club} · ${player.position}`;
+      content.append(name,meta);
+      const plus = document.createElement("span");
+      plus.className = "search-add";
+      plus.textContent = "+";
+      button.append(content,plus);
+      button.addEventListener("click",()=>{
+        if(!VERIFIED_TRANSFER_PLAYERS.some(p=>p.id===player.id)) return;
+        TRANSFER_IDS.push(player.id);
+        saveTransferList();
+        input.value = "";
+        renderTransferMarket();
+      });
+      root.append(button);
+    }
+  }
+  list.replaceChildren();
+  if(!TRANSFER_IDS.length){
+    const empty = document.createElement("div");
+    empty.className = "transfer-empty";
+    empty.textContent = "Noch keine Transfermarktspieler eingetragen.";
+    list.append(empty);
+  }
+  for(const id of TRANSFER_IDS){
+    const player = VERIFIED_TRANSFER_PLAYERS.find(p=>p.id===id);
+    const item = document.createElement("div");
+    item.className = "transfer-item";
+    const top = document.createElement("div");
+    top.className = "transfer-item-top";
+    const info = document.createElement("div");
+    const name = document.createElement("div");
+    name.className = "transfer-item-name";
+    name.textContent = player?.name || `Spieler-ID: ${id}`;
+    const meta = document.createElement("div");
+    meta.className = "transfer-item-meta";
+    meta.textContent = player ? `${player.club} · ${player.position}` : "Nicht im aktuellen Bundesliga-Teamkader bestätigt";
+    info.append(name,meta);
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "transfer-remove";
+    remove.textContent = "Entfernen";
+    remove.addEventListener("click",()=>{
+      TRANSFER_IDS = TRANSFER_IDS.filter(x=>x!==id);
+      saveTransferList();
+      renderTransferMarket();
+    });
+    top.append(info,remove);
+    const evaluation = document.createElement("div");
+    evaluation.className = "transfer-status";
+    evaluation.textContent = player
+      ? "⏳ Kaufbewertung noch offen – belastbare Marktwert- und Prognosedaten erforderlich."
+      : "⚠️ Spieler derzeit nicht verifiziert – keine Kaufempfehlung.";
+    item.append(top,evaluation);
+    list.append(item);
+  }
+}
+document.getElementById("transferSearch").addEventListener("input",renderTransferMarket);
+renderTransferMarket();
 
 renderRoster();
 loadPlayerIntelligence();
