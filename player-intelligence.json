@@ -4,8 +4,9 @@
       "club": "FC Bayern München",
       "season": "2026/27",
       "league": "1. Bundesliga",
-      "apiTeamId": 1860,
-      "apiTeamName": "Bayern Munich W",
+      "apiTeamId": null,
+      "apiTeamName": null,
+      "legacyMappingStatus": "rejected_unverified_or_mismatched_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -374,6 +375,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 172,
       "apiTeamName": "VfB Stuttgart",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -772,6 +774,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 173,
       "apiTeamName": "RB Leipzig",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -1130,6 +1133,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 163,
       "apiTeamName": "Borussia Mönchengladbach",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -1518,6 +1522,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 164,
       "apiTeamName": "FSV Mainz 05",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -1856,6 +1861,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 185,
       "apiTeamName": "SC Paderborn 07",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -2254,6 +2260,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 182,
       "apiTeamName": "Union Berlin",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -2642,6 +2649,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 169,
       "apiTeamName": "Eintracht Frankfurt",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -2980,6 +2988,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 192,
       "apiTeamName": "1. FC Köln",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -3366,8 +3375,9 @@
       "club": "TSG Hoffenheim",
       "season": "2026/27",
       "league": "1. Bundesliga",
-      "apiTeamId": 167,
-      "apiTeamName": "1899 Hoffenheim",
+      "apiTeamId": null,
+      "apiTeamName": null,
+      "legacyMappingStatus": "rejected_unverified_or_mismatched_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -3726,6 +3736,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": null,
       "apiTeamName": null,
+      "legacyMappingStatus": "missing",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -4064,6 +4075,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": null,
       "apiTeamName": null,
+      "legacyMappingStatus": "missing",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -4422,6 +4434,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 165,
       "apiTeamName": "Borussia Dortmund",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -4790,6 +4803,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 175,
       "apiTeamName": "Hamburger SV",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -5158,6 +5172,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": null,
       "apiTeamName": null,
+      "legacyMappingStatus": "missing",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -5506,6 +5521,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 162,
       "apiTeamName": "Werder Bremen",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -5934,6 +5950,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 170,
       "apiTeamName": "FC Augsburg",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -6282,6 +6299,7 @@
       "league": "1. Bundesliga",
       "apiTeamId": 174,
       "apiTeamName": "FC Schalke 04",
+      "legacyMappingStatus": "accepted_matching_legacy_mapping",
       "average": null,
       "starting": "Noch nicht recherchiert",
       "form": "Noch nicht recherchiert",
@@ -7346,7 +7364,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -7678,7 +7696,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -10309,7 +10327,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -10638,7 +10656,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -14260,7 +14278,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -16077,7 +16095,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -16406,7 +16424,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -21336,7 +21354,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -21665,7 +21683,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -21994,7 +22012,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -24960,7 +24978,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -40392,7 +40410,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -41375,7 +41393,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -46964,7 +46982,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -82749,7 +82767,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -91614,7 +91632,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -105406,7 +105424,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -120575,7 +120593,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -123214,7 +123232,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -155762,7 +155780,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -166888,7 +166906,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -168198,7 +168216,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -185649,7 +185667,7 @@
           "startingAssessment": "Noch nicht recherchiert",
           "expectedMinutes": null,
           "expectedMinutesLabel": "Noch nicht recherchiert",
-          "injury": "Noch nicht recherchiert",
+          "injury": null,
           "suspension": "Noch nicht recherchiert"
         },
         "quality": {
@@ -188250,5 +188268,15 @@
     "playerStats": "bestehende Werte + optionale Einzelspieler-Web-Recherche für aktiven Kader",
     "externalFootballApi": false,
     "activeRosterSource": "kickbase-roster.json (optional)"
+  },
+  "qualityReport": {
+    "players": 543,
+    "teams": 18,
+    "activeRosterResolved": 0,
+    "playersWithoutProjection": 526,
+    "playersWithProjection": 17,
+    "playersWithoutClub": 0,
+    "unknownActualFacts": 1586,
+    "legacyTeamMappingsRejected": 2
   }
 }
