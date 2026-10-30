@@ -1,35 +1,3 @@
-name: Player Intelligence
-
-on:
-  workflow_dispatch:
-    inputs:
-      roster:
-        description: "JSON mit dem aktuellen persönlichen Kickbase-Kader"
-        required: false
-        type: string
-        default: "[]"
-  schedule:
-    - cron: "0 6 * * *"
-
-permissions:
-  contents: write
-
-jobs:
-  update-player-intelligence:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Repository auschecken
-        uses: actions/checkout@v4
-
-      - name: Python einrichten
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Kader-Input testen
-        env:
-          ROSTER_INPUT: ${{ inputs.roster }}
         run: |
           python - <<'PY'
           import json
@@ -41,7 +9,8 @@ jobs:
           print(raw)
 
           if not raw:
-              raise SystemExit("FEHLER: ROSTER_INPUT ist leer.")
+              raw = "[]"
+              print("Kein manueller Kader: allgemeine Aktualisierung ohne intensive Kader-Recherche.")
 
           try:
               roster = json.loads(raw)
@@ -91,7 +60,7 @@ jobs:
           print("DIAGNOSE-IDs:", ", ".join(str(p) for p in players))
 
           if not players:
-              raise SystemExit("DIAGNOSE FEHLER: Kader ist leer.")
+              print("INFO: Kein persönlicher Kader übergeben; allgemeine Aktualisierung läuft weiter.")
           if len(players) > 18:
               raise SystemExit("DIAGNOSE FEHLER: Mehr als 18 Spieler.")
           PY
